@@ -1,0 +1,4 @@
+create user tuna IDENTIFIED by tuna;
+grant resource, connect to tuna;
+
+//계정 생성문
