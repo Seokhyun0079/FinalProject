@@ -2,3 +2,11 @@ create user tuna IDENTIFIED by tuna;
 grant resource, connect to tuna;
 
 //계정 생성문
+
+create table musicboard_article(
+    article_no number(10),
+    title varchar2(30),
+    text varchar2(200),
+    file_path varchar2(200)
+    
+);
