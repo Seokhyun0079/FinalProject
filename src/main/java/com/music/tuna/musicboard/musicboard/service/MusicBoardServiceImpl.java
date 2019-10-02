@@ -1,4 +1,8 @@
 package com.music.tuna.musicboard.musicboard.service;
 
-public class MusicBoardServiceImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class MusicBoardServiceImpl implements MusicBoardService{
+
 }

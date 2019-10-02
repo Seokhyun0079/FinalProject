@@ -1,12 +1,30 @@
 create user tuna IDENTIFIED by tuna;
 grant resource, connect to tuna;
 
-//계정 생성문
+--계정 생성문
+
+create table member(
+    id varchar2(30) primary key,
+    password varchar2(100),
+    name varchar2(10),
+    birth varchar2(20),
+    gender varchar2(5),
+    email varchar2(50),
+    phone varchar2(50)
+);
+
+--회원 테이블
 
 create table musicboard_article(
-    article_no number(10),
+    article_no number(10) primary key,
+    id varchar2(30),
     title varchar2(30),
     text varchar2(200),
-    file_path varchar2(200)
-    
+    file_path varchar2(200),
+    CONSTRAINT FK_MEMBER FOREIGN KEY(id)
+    REFERENCES member(id)
 );
+--음악 게시판 게시글 테이블
+
+
+COMMIT;
