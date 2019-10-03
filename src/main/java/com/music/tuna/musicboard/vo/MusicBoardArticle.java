@@ -3,10 +3,28 @@ package com.music.tuna.musicboard.vo;
 import org.springframework.web.multipart.MultipartFile;
 
 public class MusicBoardArticle {
+    private int articleNo;
+    private String id;
     private String title;
-    private String filePath;
+    private String fileName;
     private String text;
     private MultipartFile uploadFile;
+
+    public int getArticleNo() {
+        return articleNo;
+    }
+
+    public void setArticleNo(int articleNo) {
+        this.articleNo = articleNo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -16,13 +34,7 @@ public class MusicBoardArticle {
         this.title = title;
     }
 
-    public String getFilePath() {
-        return filePath;
-    }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
 
     public String getText() {
         return text;
@@ -40,11 +52,21 @@ public class MusicBoardArticle {
         this.uploadFile = uploadFile;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     @Override
     public String toString() {
         return "MusicBoardArticle{" +
-                "title='" + title + '\'' +
-                ", filePath='" + filePath + '\'' +
+                "articleNo=" + articleNo +
+                ", id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", fileName='" + fileName + '\'' +
                 ", text='" + text + '\'' +
                 ", uploadFile=" + uploadFile +
                 '}';

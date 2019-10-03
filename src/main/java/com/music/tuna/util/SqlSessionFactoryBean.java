@@ -12,6 +12,7 @@ public class SqlSessionFactoryBean {
     static {
         try {
             if(sessionFactory == null) {
+                System.out.println("SessionFactoryBean 생성");
                 Reader reader = Resources.getResourceAsReader("sql-map-config.xml");
                 sessionFactory = new SqlSessionFactoryBuilder().build(reader);
             }
