@@ -3,14 +3,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MusicBoardArticleDAO">
     <resultMap id="articleResult" type="musicBoardArticle">
-        <id column="article_no" property="article_no"/>
+        <id column="article_no" property="articleNo"/>
         <result column="id" property="id"/>
         <result column="title" property="title"/>
         <result column="text" property="text"/>
-        <result column="file_path" property="file_path"/>
+        <result column="file_name" property="fileName"/>
     </resultMap>
     <insert id="insertArticle">
     insert into musicboard_article
     values(mb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName})
   </insert>
+    <select id="lastInsertedArticle"  resultMap="articleResult">
+        <![CDATA[
+        select * from (select * from musicboard_article ORDER BY article_no desc) where ROWNUM <= 1
+		]]>
+    </select>
+    <select id="selectArticleByArticleNo" resultMap="articleResult">
+        select * from musicboard_article where article_no = #{articleNo}
+    </select>
 </mapper>

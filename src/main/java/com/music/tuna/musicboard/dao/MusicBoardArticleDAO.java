@@ -14,6 +14,12 @@ public class MusicBoardArticleDAO {
     public void insertArticle(MusicBoardArticle vo){
         sqlSession.insert("MusicBoardArticleDAO.insertArticle", vo);
     }
+    public MusicBoardArticle lastInsertedArticle(){
+        return (MusicBoardArticle)sqlSession.selectOne("MusicBoardArticleDAO.lastInsertedArticle");
+    }
+    public MusicBoardArticle getArticle(MusicBoardArticle vo){
+        return sqlSession.selectOne("MusicBoardArticleDAO.selectArticleByArticleNo", vo);
+    }
     public void commit(){
         sqlSession.commit();
     }
