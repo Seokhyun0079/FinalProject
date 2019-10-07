@@ -1,13 +1,23 @@
 package com.music.tuna.musicboard.vo;
 
-public class BoardArticleListRequest {
+import java.util.List;
+
+public class BoardArticleListPage {
 
     private int start;
     private int end;
     private int page;
     private int startPage;
     private int endPage;
-    private int pageCount;
+    private List<MusicBoardArticle> pageContent;
+
+    public List<MusicBoardArticle> getPageContent() {
+        return pageContent;
+    }
+
+    public void setPageContent(List<MusicBoardArticle> pageContent) {
+        this.pageContent = pageContent;
+    }
 
     public int getStart() {
         return start;
@@ -49,11 +59,4 @@ public class BoardArticleListRequest {
         this.endPage = endPage;
     }
 
-    public int getPageCount() {
-        return pageCount;
-    }
-
-    public void setPageCount(int pageCount) {
-        this.pageCount = pageCount;
-    }
 }

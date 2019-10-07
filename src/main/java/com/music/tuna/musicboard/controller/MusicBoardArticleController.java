@@ -1,7 +1,7 @@
 package com.music.tuna.musicboard.controller;
 
 import com.music.tuna.musicboard.service.MusicBoardService;
-import com.music.tuna.musicboard.vo.BoardArticleListRequest;
+import com.music.tuna.musicboard.vo.BoardArticleListPage;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
 @Controller
 public class MusicBoardArticleController {
@@ -46,9 +45,9 @@ public class MusicBoardArticleController {
         return mv;
     }
     @RequestMapping(value="/musicBoard/article/list.do")
-    public ModelAndView getList(ModelAndView mv, BoardArticleListRequest vo){
+    public ModelAndView getList(ModelAndView mv, BoardArticleListPage vo){
         int totalCount = musicBoardService.getCount();
-        int listCount = 8;
+        int listCount = 16;
         int totalPage = totalCount/listCount;
         if(vo.getPage() == 0){
             vo.setPage(1);
@@ -61,7 +60,8 @@ public class MusicBoardArticleController {
         if(totalPage < vo.getPage()){
             vo.setPage(totalPage);
         }
-        int pageCount = 10;
+
+        int pageCount = 5;
         vo.setStartPage(((vo.getPage() -1)/ pageCount) * pageCount +1);
         vo.setEndPage(vo.getStartPage() + pageCount -1);
 
@@ -70,9 +70,9 @@ public class MusicBoardArticleController {
         }
         vo.setEnd(vo.getPage() * listCount);
         vo.setStart(vo.getEnd() - listCount+1);
-
+        vo.setPageContent(musicBoardService.getArticleList(vo));
         mv.setViewName("/musicBoard/list");
-        mv.addObject("articleList", musicBoardService.getArticleList(vo));
+        mv.addObject("articlePage", vo);
         return mv;
     }
 }
