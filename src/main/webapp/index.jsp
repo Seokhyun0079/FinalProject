@@ -15,7 +15,6 @@
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
-
 </head>
 
 <body>
@@ -482,7 +481,7 @@
                         </div>
                         <div class="audio-player">
                             <audio preload="auto" controls>
-                                <source src="audio/dummy-audio.mp3">
+                                <source src="/TunaMusic/resources/audio/dummy-audio.mp3">
                             </audio>
                         </div>
                         <div class="music-title">
@@ -1139,11 +1138,15 @@
 
 <!-- All JS Files -->
 
-<!-- jQuery -->
 <script src="/TunaMusic/resources/js/jquery.min.js"></script>
 <!-- Popper -->
 <script src="/TunaMusic/resources/js/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
+<!-- All Plugins -->
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
+<!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+
 </body>
 </html>
