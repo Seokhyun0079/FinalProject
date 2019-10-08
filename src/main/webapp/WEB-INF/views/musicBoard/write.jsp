@@ -202,7 +202,7 @@
                         <h2 class="mb-4">Leave Your Soul</h2>
 
                         <!-- Form -->
-                        <form action="/TunaMusic/musicBoard/article/write.do" method="post" enctype="multipart/form-data">
+                        <form action="/TunaMusic/musicBoard/article/write.do" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <input name="id" type = "text" style="visibility: hidden;" value="test">
                                 <div class="col-12">

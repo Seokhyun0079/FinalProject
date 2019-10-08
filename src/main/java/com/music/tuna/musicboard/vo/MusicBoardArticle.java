@@ -8,6 +8,9 @@ public class MusicBoardArticle {
     private String title;
     private String fileName;
     private String text;
+    private int start;
+    private int last;
+    private int page;
     private MultipartFile uploadFile;
 
     public int getArticleNo() {
@@ -34,8 +37,6 @@ public class MusicBoardArticle {
         this.title = title;
     }
 
-
-
     public String getText() {
         return text;
     }
@@ -58,6 +59,30 @@ public class MusicBoardArticle {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getLast() {
+        return last;
+    }
+
+    public void setLast(int last) {
+        this.last = last;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
     }
 
     @Override

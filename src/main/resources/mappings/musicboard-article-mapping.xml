@@ -21,4 +21,18 @@
     <select id="selectArticleByArticleNo" resultMap="articleResult">
         select * from musicboard_article where article_no = #{articleNo}
     </select>
+    <select id="selectArticleCount" resultType="int">
+        select count(*) from musicBoard_article
+    </select>
+    <select id="selectArticleList" resultMap="articleResult">
+        <![CDATA[
+        select * from (
+        select rownum as rnum, A.article_no, A.id, A.title, A.text, A.file_name
+        from (
+        select article_no, id, title, text, file_name
+        from musicboard_article
+        order by article_no desc ) A where rownum <= #{end})
+        B where B.rnum >= #{start}
+        		]]>
+    </select>
 </mapper>

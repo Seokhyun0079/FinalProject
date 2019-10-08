@@ -103,17 +103,7 @@
 			<artifactId>json-lib-ext-spring</artifactId>
 			<version>1.0.2</version>
 		</dependency>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
