@@ -65,7 +65,7 @@
                         <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121); background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
                         <div style="float: right;">
                             <div style="color:gray; width: 100%;"><a href="#" style="color:gray;" >ID</a>&nbsp/&nbsp<a href="#" style="color:gray;">PW</a>&nbsp찾기</div>
-                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray; float: right;" >SIGN-UP</a></div>
+                            <div style="color:gray; width: 100%;"><a href="member/memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
                         </div>
                     </form>
                 </div>
