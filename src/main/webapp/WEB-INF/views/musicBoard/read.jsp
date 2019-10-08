@@ -202,7 +202,7 @@
             <div class="col-12">
                 <div class="audio-player">
                     <audio preload="auto" controls>
-                        <source src="/TunaMusic/resources/upload/audio/${article.fileName}">
+                        <source src="/TunaMusic/resources/upload/${article.fileName}">
                     </audio>
                 </div>
             </div>
@@ -226,6 +226,7 @@
                 </div>
 
                 <div class="col-12 col-sm-10 col-xl-9">
+                    <p>${article.title}</p>
                     <p>${article.text}</p>
 
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">

@@ -15,7 +15,6 @@
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
-
 </head>
 
 <body>
@@ -52,6 +51,29 @@
     </div>
 </div>
 <!-- Top Search Area End -->
+
+<!-- Top Login Area Start -->
+<div class="top-search-area">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="width: 400px; height: 300px; margin-left: 30%; ">
+                <div class="modal-body" style="position: relative; background-color: rgb(25, 25, 25); padding: 10px;">
+                    <h1 style="color: white; padding-left: 23%">TUNA MUSIC</h1>
+                    <form action="login.me" method="post" style="width: 100%; margin-top: 15px;">
+                        <input type="text" name="userId" style="width: 80%; margin-left: 40px; margin-bottom: 8px" placeholder="ID">
+                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
+                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121); background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
+                        <div style="float: right;">
+                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;" >ID</a>&nbsp/&nbsp<a href="#" style="color:gray;">PW</a>&nbsp찾기</div>
+                            <div style="color:gray; width: 100%;"><a href="member/memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top Login Area End -->
 
 <!-- Social Share Area Start -->
 <div class="razo-social-share-area">
@@ -160,6 +182,11 @@
                             <!-- Search Icon -->
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
                                 <i class="icon_search"></i>
+                            </div>
+                            
+                            <!-- Login Icon -->
+                            <div class="search-icon" data-toggle="modal" data-target="#loginModal">
+                                <i>Login</i>
                             </div>
                         </div>
                         <!-- Nav End -->
@@ -482,7 +509,7 @@
                         </div>
                         <div class="audio-player">
                             <audio preload="auto" controls>
-                                <source src="audio/dummy-audio.mp3">
+                                <source src="/TunaMusic/resources/audio/dummy-audio.mp3">
                             </audio>
                         </div>
                         <div class="music-title">
@@ -1139,11 +1166,15 @@
 
 <!-- All JS Files -->
 
-<!-- jQuery -->
 <script src="/TunaMusic/resources/js/jquery.min.js"></script>
 <!-- Popper -->
 <script src="/TunaMusic/resources/js/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
+<!-- All Plugins -->
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
+<!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+
 </body>
 </html>
