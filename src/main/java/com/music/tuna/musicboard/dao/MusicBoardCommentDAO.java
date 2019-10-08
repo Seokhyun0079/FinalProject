@@ -8,5 +8,7 @@ public class MusicBoardCommentDAO {
     public MusicBoardCommentDAO (){
         this.sqlSession = SqlSessionFactoryBean.getSqlSessionInstance();
     }
-    public void insertCommnet(){}
+    public void insertComment(){
+        
+    }
 }
