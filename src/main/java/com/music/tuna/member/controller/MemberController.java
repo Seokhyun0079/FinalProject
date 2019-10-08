@@ -5,11 +5,11 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.music.tuna.member.model.service.MemberService;
 import com.music.tuna.member.model.vo.Member;
@@ -23,6 +23,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
 	@RequestMapping(value="/memberJoinView.do")
 	public String showMemberJoinView() {
 		return "member/signup-form";
@@ -31,7 +34,8 @@ public class MemberController {
 	@RequestMapping(value="/memberInsert.do", method=RequestMethod.POST)
 	public String insertMember(Member m) {
 		System.out.println("member : " + m);
-		
+		String encPassword = passwordEncoder.encode(m.getUserPwd());
+		m.setUserPwd(encPassword);
 		int result = memberService.insertMember(m);
 		System.out.println("result : " + result);
 		return "redirect:/";
