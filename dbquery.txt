@@ -31,16 +31,19 @@ create sequence mb_comment_seq
 --음악 게시판 댓글 기본키를 위한 시퀀스
 
 
+
 create table musicboard_comment(
     comment_no number(10) primary key,
+    article_no number(10),
     id varchar2(30),
     reply_no number(10),
     content varchar2(2000),
     CONSTRAINT FK_MUSICBOARD_COMMENT1 FOREIGN KEY(id)
     REFERENCES member(id),
-    CONSTRAINT FK_MUSICBOARD_COMMENT12 FOREIGN KEY(reply_no)
-    REFERENCES musicboard_comment(comment_no)
+    CONSTRAINT FK_MUSICBOARD_COMMENT2 FOREIGN KEY(reply_no)
+    REFERENCES musicboard_comment(comment_no),
+    CONSTRAINT FK_MUSICBOARD_COMMENT3 FOREIGN KEY(article_no)
+    REFERENCES musicboard_article(article_no)
 );
-
 
 COMMIT;

@@ -307,10 +307,13 @@
                         <!-- Form -->
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <input type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="test">
+                                    <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="test">
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="message" class="form-control mb-30" placeholder="Comment"></textarea>
+                                    <textarea id="message" name="message" class="form-control mb-30" placeholder="Comment"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button id ="comment-buutton" type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>

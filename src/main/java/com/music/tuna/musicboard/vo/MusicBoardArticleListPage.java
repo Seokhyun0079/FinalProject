@@ -2,7 +2,7 @@ package com.music.tuna.musicboard.vo;
 
 import java.util.List;
 
-public class BoardArticleListPage {
+public class MusicBoardArticleListPage {
 
     private int start;
     private int end;

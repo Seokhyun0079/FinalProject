@@ -1,7 +1,7 @@
 package com.music.tuna.musicboard.controller;
 
 import com.music.tuna.musicboard.service.MusicBoardArticleService;
-import com.music.tuna.musicboard.vo.BoardArticleListPage;
+import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,7 +45,7 @@ public class MusicBoardArticleController {
         return mv;
     }
     @RequestMapping(value="/musicBoard/article/list.do")
-    public ModelAndView getList(ModelAndView mv, BoardArticleListPage vo){
+    public ModelAndView getList(ModelAndView mv, MusicBoardArticleListPage vo){
         int totalCount = musicBoardArticleService.getCount();
         int listCount = 16;
         int totalPage = totalCount/listCount;

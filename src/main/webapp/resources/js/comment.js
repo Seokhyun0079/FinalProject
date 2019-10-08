@@ -1,6 +1,6 @@
 $(function(){
     $.ajax({
-        url: "/freeboard/comment/list.do",
+        url: "/TunaMusic/musicBoard/comment/list.do",
         type: "GET",
         data: {"articleNo" :  $("#no").val()},
         success: function (data) {
@@ -12,9 +12,13 @@ $(function(){
     });
     $("#comment-buutton").click(function(){
         $.ajax({
-           url : "/musicBoard/comment/write.do",
+            url: "/TunaMusic/musicBoard/comment/write.do",
             type : "GET",
-            data : {"articleNo" : $("#article_no").val()},
+            data : {
+               "articleNo" : $("#articleNo").val(),
+                "id" : $("#id").val(),
+                "content" : $("#message").val()
+            },
             success : function(data){
                for(var i = 0 ; i < data.result.length; i++){
                    $("#comment-list").appendChild("<h5>예지는 바보다</h5>");

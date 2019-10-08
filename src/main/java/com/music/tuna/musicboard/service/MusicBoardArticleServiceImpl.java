@@ -1,7 +1,7 @@
 package com.music.tuna.musicboard.service;
 
 import com.music.tuna.musicboard.dao.MusicBoardArticleDAO;
-import com.music.tuna.musicboard.vo.BoardArticleListPage;
+import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
     }
 
     @Override
-    public List<MusicBoardArticle> getArticleList(BoardArticleListPage vo) {
+    public List<MusicBoardArticle> getArticleList(MusicBoardArticleListPage vo) {
         return musicBoardArticleDAO.getArticleList(vo);
     }
 

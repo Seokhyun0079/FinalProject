@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MusicBoardCommentDAO">
+    <resultMap id="commentResult" type="musicBoardComment">
+        <id column="comment_no" property="commentNo"/>
+        <result column="id" property="id"/>
+        <result column="reply_no" property="replyNo"/>
+        <result column="content" property="content"/>
+    </resultMap>
+    <insert id="insertComment">
+       <if test="replyNo!=0"> insert into musicboard_comment values(mb_comment_seq.nextval, #{articleNo}, #{id}, #{replyNo}, #{content})</if>
+        <if test="replyNo==0">insert into musicboard_comment values(mb_comment_seq.nextval, #{articleNo}, #{id}, null, #{content})</if>
+    </insert>
+</mapper>
