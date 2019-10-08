@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MusicBoardServiceImpl implements MusicBoardService{
+public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
     @Autowired
     MusicBoardArticleDAO musicBoardArticleDAO;
     @Override
