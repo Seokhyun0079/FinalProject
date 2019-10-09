@@ -15,7 +15,7 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
     @Override
     public MusicBoardArticle insertArticle(MusicBoardArticle vo){
         musicBoardArticleDAO.insertArticle(vo);
-        MusicBoardArticle newArticle=  musicBoardArticleDAO.lastInsertedArticle();
+        MusicBoardArticle newArticle =  musicBoardArticleDAO.lastInsertedArticle();
         musicBoardArticleDAO.commit();
         return newArticle;
     }

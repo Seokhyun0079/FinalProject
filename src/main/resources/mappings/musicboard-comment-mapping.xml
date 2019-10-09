@@ -4,6 +4,7 @@
 <mapper namespace="MusicBoardCommentDAO">
     <resultMap id="commentResult" type="musicBoardComment">
         <id column="comment_no" property="commentNo"/>
+        <result column="article_no" property="articleNo"/>
         <result column="id" property="id"/>
         <result column="reply_no" property="replyNo"/>
         <result column="content" property="content"/>
@@ -12,4 +13,7 @@
        <if test="replyNo!=0"> insert into musicboard_comment values(mb_comment_seq.nextval, #{articleNo}, #{id}, #{replyNo}, #{content})</if>
         <if test="replyNo==0">insert into musicboard_comment values(mb_comment_seq.nextval, #{articleNo}, #{id}, null, #{content})</if>
     </insert>
+    <select id="selectCommentList" resultMap="commentResult">
+        select * from musicboard_comment where article_no = #{articleNo}
+    </select>
 </mapper>

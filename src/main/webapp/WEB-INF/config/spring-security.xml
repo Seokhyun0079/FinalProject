@@ -13,7 +13,6 @@
 	<annotation-driven />
 
 	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></beans:bean>
-
 	<resources mapping="/resources/**" location="/resources/" />
 	
 </beans:beans>

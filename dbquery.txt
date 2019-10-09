@@ -46,4 +46,5 @@ create table musicboard_comment(
     REFERENCES musicboard_article(article_no)
 );
 
+
 COMMIT;

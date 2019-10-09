@@ -1,6 +1,7 @@
 package com.music.tuna.musicboard.dao;
 
 import com.music.tuna.musicboard.vo.MusicBoardComment;
+import com.music.tuna.musicboard.vo.MusicBoardCommentPage;
 import com.music.tuna.util.SqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -20,8 +21,8 @@ public class MusicBoardCommentDAO {
     public void getCount(){
 
     }
-    public List<MusicBoardComment> getCommentList(){
-        return null;
+    public List<MusicBoardComment> getCommentList(MusicBoardCommentPage vo){
+        return sqlSession.selectList("MusicBoardCommentDAO.selectCommentList", vo);
     }
     public void commit(){
         sqlSession.commit();
