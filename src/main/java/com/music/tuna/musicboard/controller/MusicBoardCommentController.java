@@ -16,8 +16,18 @@ public class MusicBoardCommentController {
      @Autowired
     MusicBoardCommentService musicBoardCommentService;
     @RequestMapping(value="/musicBoard/comment/write.do")
-    public void insertComment(MusicBoardComment vo){
+    public void insertComment(MusicBoardComment vo, HttpServletResponse res){
+        System.out.println(vo);
         musicBoardCommentService.insertComment(vo);
+        MusicBoardCommentPage commentPage = new MusicBoardCommentPage();
+        commentPage.setArticleNo(vo.getArticleNo());
+        commentPage.setCommentList(musicBoardCommentService.getCommentList(commentPage));
+        JSONObject json = new JSONObject();
+        json.put("result", commentPage);
+        res.setContentType("application/x-json; charset=UTF-8");
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){ }
      }
      @RequestMapping(value = "/musicBoard/comment/list.do")
     public void getCommentList(MusicBoardCommentPage vo, HttpServletResponse res){

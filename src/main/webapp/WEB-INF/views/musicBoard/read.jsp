@@ -303,20 +303,23 @@
                     </div>
                     <!-- Leave A Reply -->
                     <div class="razo-contact-form">
-                        <h2 class="mb-4">Leave A Comment</h2>
+                        <h2 class="mb-4" id="point">Leave A Comment</h2>
                         <!-- Form -->
                             <div class="row">
+                                <div class="col-12">
+                                    <textarea id="message" name="message" class="form-control mb-30" placeholder="Comment"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button id ="comment-buutton" type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
+                                </div>
                                 <div class="col-lg-12">
                                     <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
                                 </div>
                                 <div class="col-lg-12">
                                     <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="test">
                                 </div>
-                                <div class="col-12">
-                                    <textarea id="message" name="message" class="form-control mb-30" placeholder="Comment"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button id ="comment-buutton" type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
+                                <div class="col-lg-12">
+                                    <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
                                 </div>
                             </div>
                     </div>
