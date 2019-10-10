@@ -28,8 +28,19 @@ public class MemberDaoImpl implements MemberDao{
 		return result;
 	}
 	
+	@Override
+	public Member selectMember(Member m) {
+		
+		return sqlSession.selectOne("member.selectLoginUser", m);
+	}
+
+	@Override
+	public String selectEncPassword(Member m) {
+		return sqlSession.selectOne("member.selectPwd",m);
+	}
 
 	public void commit(){
 		sqlSession.commit();
 	}
+
 }
