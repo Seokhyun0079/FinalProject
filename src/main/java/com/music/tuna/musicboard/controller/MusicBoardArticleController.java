@@ -1,7 +1,7 @@
 package com.music.tuna.musicboard.controller;
 
-import com.music.tuna.musicboard.service.MusicBoardService;
-import com.music.tuna.musicboard.vo.BoardArticleListPage;
+import com.music.tuna.musicboard.service.MusicBoardArticleService;
+import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ import java.util.Date;
 @Controller
 public class MusicBoardArticleController {
     @Autowired
-    MusicBoardService musicBoardService;
+    MusicBoardArticleService musicBoardArticleService;
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.GET)
     public String  insertArticleGet(){
         return "/musicBoard/write";
@@ -28,7 +28,7 @@ public class MusicBoardArticleController {
             vo.setFileName(new Date().getTime() + vo.getUploadFile().getOriginalFilename());
             try {
                 vo.getUploadFile().transferTo(new File("D:/Programings/SpringWorkSpace/TunaMusic/src/main/webapp/resources/upload/"+vo.getFileName()));
-                newItem = musicBoardService.insertArticle(vo);
+                newItem = musicBoardArticleService.insertArticle(vo);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -41,12 +41,12 @@ public class MusicBoardArticleController {
     @RequestMapping(value = "/musicBoard/article/read.do")
     public ModelAndView getArticle(ModelAndView mv, MusicBoardArticle vo){
         mv.setViewName("/musicBoard/read");
-        mv.addObject("article", musicBoardService.getArticle(vo));
+        mv.addObject("article", musicBoardArticleService.getArticle(vo));
         return mv;
     }
     @RequestMapping(value="/musicBoard/article/list.do")
-    public ModelAndView getList(ModelAndView mv, BoardArticleListPage vo){
-        int totalCount = musicBoardService.getCount();
+    public ModelAndView getList(ModelAndView mv, MusicBoardArticleListPage vo){
+        int totalCount = musicBoardArticleService.getCount();
         int listCount = 16;
         int totalPage = totalCount/listCount;
         if(vo.getPage() == 0){
@@ -70,7 +70,7 @@ public class MusicBoardArticleController {
         }
         vo.setEnd(vo.getPage() * listCount);
         vo.setStart(vo.getEnd() - listCount+1);
-        vo.setPageContent(musicBoardService.getArticleList(vo));
+        vo.setPageContent(musicBoardArticleService.getArticleList(vo));
         mv.setViewName("/musicBoard/list");
         mv.addObject("articlePage", vo);
         return mv;
