@@ -15,6 +15,7 @@
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
+    
     <style>
     h6{
     	margin-top:5px;
@@ -64,7 +65,7 @@
 	            <div class="modal-content" style="width: 400px; height: 300px; margin-left: 30%; ">
 	                <div class="modal-body" style="position: relative; background-color: rgb(25, 25, 25); padding: 10px;">
 	                    <h1 style="color: white; padding-left: 23%">TUNA MUSIC</h1>
-	                    <form action="login.me" method="post" style="width: 100%; margin-top: 15px;">
+	                    <form action="member/login.me" method="post" style="width: 100%; margin-top: 15px;">
 	                        <input type="text" name="userId" style="width: 80%; margin-left: 40px; margin-bottom: 8px" placeholder="ID">
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121); background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
@@ -249,7 +250,7 @@
 						for (i=1;i<=31;i++) document.write("<option>"+i);
 						document.write("</select>일 ");
 		
-						document.write("<input name='birthDay' value='생년월일 저장소'>");
+						document.write("<input type = 'hidden' name='birthDay' value='생년월일 저장소'>");
 												
 						$(function(){
 							$("select[name='birth']").click(function(){
@@ -272,8 +273,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td><h6> Gender </h6></td>
-				<td><input type="radio" name="gender" value="1">&nbsp;&nbsp;male&nbsp;&nbsp;<input type="radio" name="gender" value="2">&nbsp;&nbsp;female</td>
+				<td><h6> * Gender </h6></td>
+				<td><input type="radio" name="gender" value="1" required>&nbsp;&nbsp;male&nbsp;&nbsp;<input type="radio" name="gender" value="2">&nbsp;&nbsp;female</td>
 			</tr>
 			<tr>
 				<td><h6> E-Mail </h6></td>

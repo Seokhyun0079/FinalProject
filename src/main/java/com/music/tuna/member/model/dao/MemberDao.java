@@ -8,5 +8,7 @@ public interface MemberDao {
 	void commit();
 	int insertMember(Member m);
 	boolean duplicateCheck(String userId);
+	Member selectMember(Member m);
+	String selectEncPassword(Member m);
 
 }
