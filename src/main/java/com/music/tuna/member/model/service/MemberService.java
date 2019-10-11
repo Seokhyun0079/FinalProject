@@ -9,4 +9,6 @@ public interface MemberService {
 
 	boolean duplicateCheck(String userId);
 
+	Member loginMember(Member m);
+
 }

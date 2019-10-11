@@ -241,28 +241,87 @@
                             </a>
                         </div>
                     </div>
+                    <div class="comment_area mb-50 clearfix">
+                        <h5 class="title">12 Comments</h5>
 
+                        <ol id="comment-list">
+                            <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <!-- Comment Content -->
+                                <div class="comment-content d-flex">
+                                    <!-- Comment Author -->
+                                    <div class="comment-author">
+                                        <img src="/TunaMusic/resources/img/bg-img/15.jpg" alt="author">
+                                    </div>
+                                    <!-- Comment Meta -->
+                                    <div class="comment-meta">
+                                        <a href="#" class="author-name">Brandon Kelley <span class="post-date">- May 14, 2018</span></a>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <a href="#" class="like">Like</a>
+                                        <a href="#" class="reply">Reply</a>
+                                    </div>
+                                </div>
+
+                                <ol class="children">
+                                    <li class="single_comment_area">
+                                        <!-- Comment Content -->
+                                        <div class="comment-content d-flex">
+                                            <!-- Comment Author -->
+                                            <div class="comment-author">
+                                                <img src="/TunaMusic/resources/img/bg-img/16.jpg" alt="author">
+                                            </div>
+                                            <!-- Comment Meta -->
+                                            <div class="comment-meta">
+                                                <a href="#" class="author-name">Milley Cyrus <span class="post-date">- May 20, 2018</span></a>
+                                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                                <a href="#" class="like">Like</a>
+                                                <a href="#" class="reply">Reply</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </li>
+
+                            <!-- Single Comment Area -->
+                            <li class="single_comment_area">
+                                <!-- Comment Content -->
+                                <div class="comment-content d-flex">
+                                    <!-- Comment Author -->
+                                    <div class="comment-author">
+                                        <img src="/TunaMusic/resources/img/bg-img/17.jpg" alt="author">
+                                    </div>
+                                    <!-- Comment Meta -->
+                                    <div class="comment-meta">
+                                        <a href="#" class="author-name">John Tyler <span class="post-date">- May 28, 2018</span></a>
+                                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.</p>
+                                        <a href="#" class="like">Like</a>
+                                        <a href="#" class="reply">Reply</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
                     <!-- Leave A Reply -->
                     <div class="razo-contact-form">
-                        <h2 class="mb-4">Leave A Comment</h2>
-
+                        <h2 class="mb-4" id="point">Leave A Comment</h2>
                         <!-- Form -->
-                        <form action="#" method="post">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <input type="text" name="message-name" class="form-control mb-30" placeholder="Name">
-                                </div>
-                                <div class="col-lg-6">
-                                    <input type="email" name="message-email" class="form-control mb-30" placeholder="Email">
+                                <div class="col-12">
+                                    <textarea id="message" name="message" class="form-control mb-30" placeholder="Comment"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="message" class="form-control mb-30" placeholder="Comment"></textarea>
+                                    <button id ="comment-buutton" type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
                                 </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
+                                <div class="col-lg-12">
+                                    <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="test">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -452,6 +511,6 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-
+<script src="/TunaMusic/resources/js/comment.js"></script>
 </body>
 </html>

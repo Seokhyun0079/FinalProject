@@ -1,6 +1,6 @@
 package com.music.tuna.musicboard.dao;
 
-import com.music.tuna.musicboard.vo.BoardArticleListPage;
+import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.util.SqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSession;
@@ -26,7 +26,7 @@ public class MusicBoardArticleDAO {
     public int getCount(){
         return sqlSession.selectOne("MusicBoardArticleDAO.selectArticleCount");
     }
-    public List<MusicBoardArticle> getArticleList(BoardArticleListPage vo){
+    public List<MusicBoardArticle> getArticleList(MusicBoardArticleListPage vo){
         return sqlSession.selectList("MusicBoardArticleDAO.selectArticleList", vo);
     }
     public void commit(){

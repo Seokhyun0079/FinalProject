@@ -5,7 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
-<!-- <resultMap id="memberResultSet" type="member">
+<resultMap id="memberResultSet" type="member">
 		<id column="ID" property="userId"/>
 		<result column="PASSWORD" property="userPwd"/>
 		<result column="NAME" property="userName"/>
@@ -14,21 +14,32 @@
 		<result column="GENDER" property="gender"/>
 		<result column="EMAIL" property="email"/>
 		<result column="PHONE" property="phone"/>
-		<result column="ENROLL_DATE" property="enrollDate"/>
-		<result column="MODIFY_DATE" property="modifyDate"/>
+		<result column="ENROLLDATE" property="enrolldate"/>
+		<result column="UPDATEDATE" property="updatedate"/>
+		<result column="GRADE" property="grade"/>
 		<result column="STATUS" property="status"/>
-</resultMap> -->
+</resultMap>
 
 <insert id="insertMember">
 	INSERT INTO MEMBER 
 	VALUES( #{ userId }, #{ userPwd }, #{ userName }, #{nickName}, #{ birthDay }, 
-	                         #{ gender }, #{ email }, #{ phone }, 
-	                         SYSDATE, SYSDATE, 'Y')
+	                         #{ gender }, #{ email }, #{ phone },
+	                         SYSDATE, SYSDATE, 'C', 'Y')
 </insert>
 
 <select id="duplicateCheck" parameterType="String" resultType="integer">
 	SELECT COUNT(*) FROM MEMBER
 	WHERE ID = #{ userId }
+</select>
+
+<select id="selectPwd" parameterType="String" resultType="String">
+	SELECT PASSWORD FROM MEMBER
+	WHERE ID = #{ userId } AND STATUS = 'Y'
+</select>
+
+<select id="selectLoginUser" parameterType="Member" resultMap="memberResultSet">
+	SELECT * FROM MEMBER
+	WHERE ID = #{ userId } AND STATUS = 'Y'
 </select>
 
 	
