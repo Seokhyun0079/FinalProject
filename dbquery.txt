@@ -58,7 +58,7 @@ CREATE TABLE funding(
     ftitle varchar2(60) not null,
     freward varchar2(60) not null,
     fcontent varchar2(2000) not null,
-    fcreator varchar2(10) not null,
+    fcreator varchar2(30) not null,
     fcreatorInfo varchar2(200),
     fbacker number(30) default 0,
     fgoal number(30) default 0,
@@ -66,8 +66,9 @@ CREATE TABLE funding(
     regDate date default sysdate,
     endDate date,
     fuploadFile varchar2(200),
-    FOREIGN KEY(id) REFERENCES member(id)
+    CONSTRAINT FK_FUNDING_ID FOREIGN KEY(id) REFERENCES member(id)
 );
+
 CREATE SEQUENCE SEQ_FNO;
 
 COMMIT;
