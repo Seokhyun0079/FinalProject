@@ -26,4 +26,23 @@ create table musicboard_article(
 );
 --음악 게시판 게시글 테이블
 
+--크라우드 펀딩 테이블
+CREATE TABLE funding(
+    fno number(10) primary key,
+    id varchar2(30),
+    ftitle varchar2(60) not null,
+    freward varchar2(60) not null,
+    fcontent varchar2(2000) not null,
+    fcreator varchar2(10) not null,
+    fcreatorInfo varchar2(200),
+    fbacker number(30) default 0,
+    fgoal number(30) default 0,
+    famount number(30) default 0,
+    regDate date default sysdate,
+    endDate date,
+    fuploadFile varchar2(200),
+    FOREIGN KEY(id) REFERENCES member(id)
+);
+CREATE SEQUENCE SEQ_FNO;
+
 COMMIT;
