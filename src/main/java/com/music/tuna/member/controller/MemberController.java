@@ -39,33 +39,31 @@ public class MemberController {
 	@RequestMapping(value="/memberInsert.do")
 	public String insertMember(Member m, HttpServletRequest request, 
 			@RequestParam(name="photo", required=false) MultipartFile photo) {
-		System.out.println("member : " + m);
-		System.out.println("photo : " + photo);
 		
 		String root = request.getSession().getServletContext().getRealPath("resources");
 		String filePath = root + "\\uploadFiles";
+		m.setProfileIMG("not profile img");//null값 에러 방지
+		if(!photo.isEmpty()) {
+			System.out.println("포토 널값 확인: " + photo);
+			String originFileName = photo.getOriginalFilename();
+			String changeName = CommonUtils.getRandomString();
+			String ext = originFileName.substring(originFileName.lastIndexOf("."));
+			String changeNameExt = changeName+ext;
+			m.setProfileIMG(changeNameExt);
+			try {
+				photo.transferTo(new File(filePath + "\\ " + changeNameExt));
+			} catch (IllegalStateException | IOException e) {
+				new File(filePath + "\\" + changeName + ext).delete();
+				System.out.println("프로필 사진 업로드 실패");
+			}
 		
-		System.out.println(filePath);
-		
-		String originFileName = photo.getOriginalFilename();
-		String changeName = CommonUtils.getRandomString();
-		String ext = originFileName.substring(originFileName.lastIndexOf("."));
-		
-		try {
-			photo.transferTo(new File(filePath + "\\ " + changeName + ext));
-			
-			String encPassword = passwordEncoder.encode(m.getUserPwd());
-			
-			m.setUserPwd(encPassword);
-			
-			int result = memberService.insertMember(m);
-			System.out.println("result : " + result);
-			return "redirect:/";
-		} catch (Exception e){
-			new File(filePath + "\\" + changeName + ext).delete();
-			System.out.println("프로필 사진 업로드 실패");
-			return "redirect:/";
 		}
+		String encPassword = passwordEncoder.encode(m.getUserPwd());
+		m.setUserPwd(encPassword);
+		int result = memberService.insertMember(m);
+		System.out.println("result : " + result);
+		return "redirect:/";
+
 	}
 	
 	@RequestMapping(value = "/duplicateCheck.do", method = RequestMethod.POST)
@@ -83,9 +81,16 @@ public class MemberController {
 	
 	@RequestMapping(value = "/login/login.do")
 	public String loginCheck(Member m, Model model) {
+		
 		Member loginUser = memberService.loginMember(m);
-		model.addAttribute("loginUser", loginUser);
-		return "redirect:/";
+		
+		if(loginUser != null) {
+			model.addAttribute("loginUser", loginUser);
+			return "redirect:/";
+		}else {
+			return "member/loginPage";
+		}
+			
 		
 		
 	}
@@ -97,6 +102,15 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "/loginPage.do")
+	public String loginPage() {
+		
+		return "/member/loginPage";
+	}
+	
+	
+
+
 	
 
 }

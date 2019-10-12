@@ -22,6 +22,7 @@ public class Member implements Serializable{
 	private String gender;
 	private String email;
 	private String phone;
+	private String profileIMG;
 	private Date enrolldate;
 	private Date updatedate;
 	private String grade;
@@ -74,6 +75,14 @@ public class Member implements Serializable{
 		return nickName;
 	}
 
+	public String getProfileIMG() {
+		return profileIMG;
+	}
+
+	public void setProfileIMG(String profileIMG) {
+		this.profileIMG = profileIMG;
+	}
+
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
@@ -110,8 +119,6 @@ public class Member implements Serializable{
 		this.phone = phone;
 	}
 
-
-
 	public Date getEnrolldate() {
 		return enrolldate;
 	}
@@ -144,10 +151,13 @@ public class Member implements Serializable{
 		this.status = status;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Member [userId=" + userId + ", userPwd=" + userPwd + ", userName=" + userName + ", nickName=" + nickName
-				+ ", birthDay=" + birthDay + ", gender=" + gender + ", email=" + email + ", phone=" + phone +", enrolldate=" + enrolldate + ", updatedate=" + updatedate + ", grade=" + grade + ", status="
+				+ ", birthDay=" + birthDay + ", gender=" + gender + ", email=" + email + ", phone=" + phone + ", profileIMG="
+				+ profileIMG + ", enrolldate=" + enrolldate + ", updatedate=" + updatedate + ", grade=" + grade + ", status="
 				+ status + "]";
 	}
 
