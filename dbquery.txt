@@ -1,6 +1,9 @@
 create user tuna IDENTIFIED by tuna;
 grant resource, connect to tuna;
 
+drop table music_my_list;
+drop table musicboard_comment;
+drop table musicboard_article;
 --계정 생성문
 
 CREATE TABLE MEMBER(
@@ -12,6 +15,7 @@ CREATE TABLE MEMBER(
     GENDER VARCHAR2(5),
     EMAIL VARCHAR2(50),
     PHONE VARCHAR2(50),
+    PROFILEIMG VARCHAR2(50),
     ENROLLDATE DATE,
     UPDATEDATE DATE,
     GRADE VARCHAR2(10) CHECK(GRADE IN ('C','B','A')),   --C:일반 회원  B:유료 회원  A: 관리자
@@ -71,3 +75,4 @@ CREATE TABLE funding(
 CREATE SEQUENCE SEQ_FNO;
 
 COMMIT;
+
