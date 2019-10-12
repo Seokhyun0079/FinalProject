@@ -14,6 +14,7 @@
 		<result column="GENDER" property="gender"/>
 		<result column="EMAIL" property="email"/>
 		<result column="PHONE" property="phone"/>
+		<result column="PROFILEIMG" property="profileIMG"/>
 		<result column="ENROLLDATE" property="enrolldate"/>
 		<result column="UPDATEDATE" property="updatedate"/>
 		<result column="GRADE" property="grade"/>
@@ -23,7 +24,7 @@
 <insert id="insertMember">
 	INSERT INTO MEMBER 
 	VALUES( #{ userId }, #{ userPwd }, #{ userName }, #{nickName}, #{ birthDay }, 
-	                         #{ gender }, #{ email }, #{ phone },
+	                         #{ gender }, #{ email }, #{ phone }, #{ profileIMG },
 	                         SYSDATE, SYSDATE, 'C', 'Y')
 </insert>
 
