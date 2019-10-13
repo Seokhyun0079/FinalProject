@@ -17,6 +17,24 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
     
+	<style type="text/css">
+	/*로그아웃, 마이페이지 드롭다운*/
+	#user-icon li ul {
+			background: rgb(109,109,109);
+			display:none;  
+			height:auto;
+			padding-bottom:10px;
+			margin:0px;
+			border:0px;
+			position:absolute;
+			width:120px;
+			z-index:200;
+		}
+		
+	#user-icon li:hover ul {
+		display:block;   
+	}
+	</style>
     
 </head>
 
@@ -65,9 +83,9 @@
                     <form action="member/login/login.do" method="post" style="width: 100%; margin-top: 15px;">
                         <input type="text" name="userId" style="width: 80%; margin-left: 40px; margin-bottom: 8px" placeholder="ID">
                         <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
-                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121); background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
+                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
                         <div style="float: right;">
-                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;" >ID</a>&nbsp/&nbsp<a href="#" style="color:gray;">PW</a>&nbsp찾기</div>
+                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;">FORGOT PW?</a></div>
                             <div style="color:gray; width: 100%;"><a href="member/memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
                         </div>
                     </form>
@@ -197,8 +215,15 @@
 		                            </div>
 						        </c:when>
 					       		<c:otherwise>
-		                            <div class="search-icon" OnClick="location.href ='/TunaMusic/member/logout.do'" style="cursor:pointer;">
-		                                <i class="fa fa-sign-out"></i>
+		                            <div class="search-icon" id="user-icon" style="cursor:pointer;">
+		                                <ul>
+		                                	<li><i class="fa fa-user"></i>
+		                                		<ul>
+		                                			<li><a href="#">&nbsp&nbspMY PAGE</a></li><br>
+										            <li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
+		                                		</ul>
+		                                	</li>
+		                                </ul>
 		                            </div>
 						    	</c:otherwise>
 						    </c:choose>
