@@ -7,6 +7,7 @@
 	<typeAliases>
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardArticle" alias="musicBoardArticle"/>
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardComment" alias="musicBoardComment"/>
+		<typeAlias type="com.music.tuna.magazineBoard.model.vo.MagazineBoard" alias="MagazineBoard"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -23,5 +24,6 @@
 		<mapper resource="mappings/musicboard-article-mapping.xml"/>
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/musicboard-comment-mapping.xml"/>
+		<mapper resource="mappings/Magazine-mapping.xml"/>
 	</mappers>
 </configuration>

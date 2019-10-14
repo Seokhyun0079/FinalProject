@@ -13,6 +13,7 @@
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
 </head>
@@ -165,13 +166,13 @@
                                             <li><a href="./show.html">- Show</a></li>
                                             <li><a href="./events.html">- Event</a></li>
                                             <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Blog Details</a></li>
+                                            <li><a href="mlist.do">- Blog Details</a></li>
                                             <li><a href="./index.jsp">- Home</a></li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li><a href="./events.html">Events</a></li>
-                                <li><a href="./blog.html">Blog</a></li>
+                                <li><a href="magazine.do">Blog</a></li>
                             </ul>
 
                             <!-- Share Icon -->
