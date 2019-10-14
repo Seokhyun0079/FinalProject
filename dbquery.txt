@@ -1,18 +1,26 @@
 create user tuna IDENTIFIED by tuna;
 grant resource, connect to tuna;
 
+drop table music_my_list;
+drop table musicboard_comment;
+drop table musicboard_article;
 --계정 생성문
 
-create table member(
-    id varchar2(30) primary key,
-    password varchar2(100),
-    name varchar2(10),
-    birth DATE,
-    gender varchar2(5),
-    email varchar2(50),
-    phone varchar2(50)
+CREATE TABLE MEMBER(
+    ID VARCHAR2(30) primary key,
+    PASSWORD VARCHAR2(100),
+    NAME VARCHAR2(10),
+    NICKNAME VARCHAR2(30),
+    BIRTH DATE,
+    GENDER VARCHAR2(5),
+    EMAIL VARCHAR2(50),
+    PHONE VARCHAR2(50),
+    PROFILEIMG VARCHAR2(50),
+    ENROLLDATE DATE,
+    UPDATEDATE DATE,
+    GRADE VARCHAR2(10) CHECK(GRADE IN ('C','B','A')),   --C:일반 회원  B:유료 회원  A: 관리자
+    STATUS VARCHAR2(10) CHECK(STATUS IN('Y','N'))
 );
-
 --회원 테이블
 
 create table musicboard_article(
@@ -47,4 +55,24 @@ create table musicboard_comment(
 );
 
 
+--크라우드 펀딩 테이블
+CREATE TABLE funding(
+    fno number(10) primary key,
+    id varchar2(30),
+    ftitle varchar2(60) not null,
+    freward varchar2(60) not null,
+    fcontent varchar2(2000) not null,
+    fcreator varchar2(10) not null,
+    fcreatorInfo varchar2(200),
+    fbacker number(30) default 0,
+    fgoal number(30) default 0,
+    famount number(30) default 0,
+    regDate date default sysdate,
+    endDate date,
+    fuploadFile varchar2(200),
+    FOREIGN KEY(id) REFERENCES member(id)
+);
+CREATE SEQUENCE SEQ_FNO;
+
 COMMIT;
+

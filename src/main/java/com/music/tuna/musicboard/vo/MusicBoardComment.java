@@ -25,11 +25,11 @@ public class MusicBoardComment {
     }
 
     public int getCommentNo() {
-        return articleNo;
+        return commentNo;
     }
 
     public void setCommentNo(int commentNo) {
-        this.articleNo = commentNo;
+        this.commentNo = commentNo;
     }
 
     public int getReplyNo() {
