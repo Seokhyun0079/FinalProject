@@ -274,7 +274,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Single Blog Item -->
             <div class="col-12 col-sm-6 col-lg-4 razo-blog-masonary-item mb-80">
                 <div class="razo-blog-masonary-single-item">

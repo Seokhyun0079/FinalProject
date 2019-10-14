@@ -36,11 +36,9 @@ create table musicboard_article(
 
 --음악 게시판 게시글 테이블
 create sequence mb_comment_seq
-    start with 1
+    start with 1ㅋ
     increment BY 1;
 --음악 게시판 댓글 기본키를 위한 시퀀스
-
-
 
 create table musicboard_comment(
     comment_no number(10) primary key,
@@ -74,6 +72,13 @@ CREATE TABLE funding(
     endDate date,
     fuploadFile varchar2(200),
     FOREIGN KEY(id) REFERENCES member(id)
+);
+
+create table music_my_list(
+    list_num number(10),
+    id varchar2(30),
+    article_no number(10),
+    PRIMARY key (list_num, id)
 );
 
 COMMIT;

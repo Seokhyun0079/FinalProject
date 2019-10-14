@@ -242,7 +242,7 @@
                         </div>
                     </div>
                     <div class="comment_area mb-50 clearfix">
-                        <h5 class="title">12 Comments</h5>
+                        <h5 class="title">${article.commentCount} Comments</h5>
 
                         <ol id="comment-list">
                             <!-- Single Comment Area -->
