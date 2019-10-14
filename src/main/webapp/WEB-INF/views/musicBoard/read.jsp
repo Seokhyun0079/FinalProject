@@ -55,13 +55,10 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div class="razo-social-share-area">
-    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-    <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
-    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-    <a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a>
-    <a href="#" class="ss-close-btn"><i class="arrow_right"></i></a>
+<div class="razo-social-share-area" style="color : white; background: #5a6268">
+    라조육 이사이<br>
+    킹킹킹 킹인석<br>
+
 </div>
 <!-- Social Share Area End -->
 
@@ -160,7 +157,10 @@
 
                             <!-- Search Icon -->
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                <i class="icon_search"></i>
+                            <i class="icon_search"></i>
+                        </div>
+                            <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+                                <i class="">+</i>
                             </div>
                         </div>
                         <!-- Nav End -->
