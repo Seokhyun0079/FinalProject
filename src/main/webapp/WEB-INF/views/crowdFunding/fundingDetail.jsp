@@ -99,14 +99,14 @@
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="./index.html">- Home</a></li>
-                                        <li><a href="./charts.html">- Charts</a></li>
-                                        <li><a href="./single-charts.html">- Charts Details</a></li>
-                                        <li><a href="./podcast.html">- Podcast</a></li>
-                                        <li><a href="./single-podcast.html">- Podcast Details</a></li>
-                                        <li><a href="./show.html">- Show</a></li>
-                                        <li><a href="./events.html">- Event</a></li>
-                                        <li><a href="./blog.html">- Blog</a></li>
-                                        <li><a href="./single-blog.html">- Blog Details</a></li>
+                                        <li><a href="../../../charts.html">- Charts</a></li>
+                                        <li><a href="../../../single-charts.html">- Charts Details</a></li>
+                                        <li><a href="../../../podcast.html">- Podcast</a></li>
+                                        <li><a href="../../../single-podcast.html">- Podcast Details</a></li>
+                                        <li><a href="../../../show.html">- Show</a></li>
+                                        <li><a href="../../../events.html">- Event</a></li>
+                                        <li><a href="../../../blog.html">- Blog</a></li>
+                                        <li><a href="../../../single-blog.html">- Blog Details</a></li>
                                         <li><a href="#">- Dropdown</a>
                                             <ul class="dropdown">
                                                 <li><a href="#">- Dropdown Item</a></li>
@@ -117,43 +117,43 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="./show.html">Shows</a></li>
-                                <li><a href="./charts.html">Charts</a></li>
-                                <li><a href="./podcast.html">Podcasts</a></li>
+                                <li><a href="../../../show.html">Shows</a></li>
+                                <li><a href="../../../charts.html">Charts</a></li>
+                                <li><a href="../../../podcast.html">Podcasts</a></li>
                                 <li><a href="#">Mega</a>
                                     <div class="megamenu">
                                         <ul class="single-mega cn-col-4">
                                             <li><a href="./index.html">- Home</a></li>
-                                            <li><a href="./charts.html">- Charts</a></li>
-                                            <li><a href="./single-charts.html">- Charts Details</a></li>
-                                            <li><a href="./podcast.html">- Podcast</a></li>
-                                            <li><a href="./single-podcast.html">- Podcast Details</a></li>
+                                            <li><a href="../../../charts.html">- Charts</a></li>
+                                            <li><a href="../../../single-charts.html">- Charts Details</a></li>
+                                            <li><a href="../../../podcast.html">- Podcast</a></li>
+                                            <li><a href="../../../single-podcast.html">- Podcast Details</a></li>
                                         </ul>
                                         <ul class="single-mega cn-col-4">
-                                            <li><a href="./show.html">- Show</a></li>
-                                            <li><a href="./events.html">- Event</a></li>
-                                            <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Blog Details</a></li>
+                                            <li><a href="../../../show.html">- Show</a></li>
+                                            <li><a href="../../../events.html">- Event</a></li>
+                                            <li><a href="../../../blog.html">- Blog</a></li>
+                                            <li><a href="../../../single-blog.html">- Blog Details</a></li>
                                             <li><a href="./index.html">- Home</a></li>
                                         </ul>
                                         <ul class="single-mega cn-col-4">
-                                            <li><a href="./charts.html">- Charts</a></li>
-                                            <li><a href="./single-charts.html">- Charts Details</a></li>
-                                            <li><a href="./podcast.html">- Podcast</a></li>
-                                            <li><a href="./single-podcast.html">- Podcast Details</a></li>
-                                            <li><a href="./show.html">- Show</a></li>
+                                            <li><a href="../../../charts.html">- Charts</a></li>
+                                            <li><a href="../../../single-charts.html">- Charts Details</a></li>
+                                            <li><a href="../../../podcast.html">- Podcast</a></li>
+                                            <li><a href="../../../single-podcast.html">- Podcast Details</a></li>
+                                            <li><a href="../../../show.html">- Show</a></li>
                                         </ul>
                                         <ul class="single-mega cn-col-4">
-                                            <li><a href="./show.html">- Show</a></li>
-                                            <li><a href="./events.html">- Event</a></li>
-                                            <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Blog Details</a></li>
+                                            <li><a href="../../../show.html">- Show</a></li>
+                                            <li><a href="../../../events.html">- Event</a></li>
+                                            <li><a href="../../../blog.html">- Blog</a></li>
+                                            <li><a href="../../../single-blog.html">- Blog Details</a></li>
                                             <li><a href="./index.html">- Home</a></li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a href="./events.html">Events</a></li>
-                                <li><a href="./blog.html">Blog</a></li>
+                                <li><a href="../../../events.html">Events</a></li>
+                                <li><a href="../../../blog.html">Blog</a></li>
                             </ul>
 
                             <!-- Share Icon -->
