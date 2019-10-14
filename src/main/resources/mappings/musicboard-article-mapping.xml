@@ -8,10 +8,11 @@
         <result column="title" property="title"/>
         <result column="text" property="text"/>
         <result column="file_name" property="fileName"/>
+        <result column="read_count" property="readCount"/>
     </resultMap>
     <insert id="insertArticle">
     insert into musicboard_article
-    values(mb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName})
+    values(mb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, 0)
   </insert>
     <select id="lastInsertedArticle"  resultMap="articleResult">
         <![CDATA[
@@ -35,4 +36,10 @@
         B where B.rnum >= #{start}
         		]]>
     </select>
+    <select id="getReadCount" resultType="int" >
+        select read_count from musicboard_article where article_no = #{articleNo}
+    </select>
+    <update id="updateReadCount">
+        update musicBoard_article set read_count = #{readCount} where article_no = #{articleNo}
+    </update>
 </mapper>
