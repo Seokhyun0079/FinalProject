@@ -12,7 +12,16 @@ public class MusicBoardArticle {
     private int last;
     private int page;
     private int readCount;
+    private int commentCount;
     private MultipartFile uploadFile;
+
+    public int getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
+    }
 
     public int getReadCount() {
         return readCount;
