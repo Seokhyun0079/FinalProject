@@ -9,7 +9,7 @@
         <result column="text" property="text"/>
         <result column="file_name" property="fileName"/>
         <result column="read_count" property="readCount"/>
-        <result column="comment_count" property="commentCount   "/>
+        <result column="comment_count" property="commentCount"/>
     </resultMap>
     <insert id="insertArticle">
     insert into musicboard_article
