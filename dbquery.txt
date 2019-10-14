@@ -56,6 +56,7 @@ create table musicboard_comment(
 
 
 --크라우드 펀딩 테이블
+CREATE SEQUENCE SEQ_FNO;
 CREATE TABLE funding(
     fno number(10) primary key,
     id varchar2(30),
@@ -72,7 +73,6 @@ CREATE TABLE funding(
     fuploadFile varchar2(200),
     FOREIGN KEY(id) REFERENCES member(id)
 );
-CREATE SEQUENCE SEQ_FNO;
 
 COMMIT;
 
