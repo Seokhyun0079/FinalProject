@@ -15,4 +15,9 @@ public class MyMusicServiceImpl implements  MyMusicService{
     public List<MyMusic> getMyMusicList(MyMusic vo) {
         return myMusicDAO.getMyMusicList(vo);
     }
+    @Override
+    public void insertMyMusic(MyMusic vo){
+        myMusicDAO.insertMyMusic(vo);
+        myMusicDAO.commit();
+    }
 }

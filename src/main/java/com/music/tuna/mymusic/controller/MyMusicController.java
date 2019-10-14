@@ -30,4 +30,10 @@ public class MyMusicController {
             e.printStackTrace();
         }
     }
+    @RequestMapping("/myMusic/add.do")
+    public void insertMyMusic(MyMusic vo, HttpSession httpSession){
+        System.out.println(vo);
+        vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+        myMusicService.insertMyMusic(vo);
+    }
 }

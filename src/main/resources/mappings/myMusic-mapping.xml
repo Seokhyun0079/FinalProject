@@ -7,7 +7,13 @@
         <id column="list_num" property="listNum"/>
         <result column="article_no" property="articleNo"/>
     </resultMap>
-    <select id="selectMyMusicList" resultMap="MyMusicResult">
+    <select id="selectMyMusicList" resultMap="myMusicResult">
         select * from my_music where id = #{id}
     </select>
+    <select id="getMyMusicMaximum" resultType="int">
+        select nvl(max(list_num), 0) from my_music where id = #{id}
+    </select>
+    <insert id="insertMyMusic">
+        insert into my_music values(#{listNum}, #{id}, #{articleNo})
+    </insert>
 </mapper>

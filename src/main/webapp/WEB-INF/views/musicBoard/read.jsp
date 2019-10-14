@@ -160,7 +160,7 @@
                             <i class="icon_search"></i>
                         </div>
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                <i class="">+</i>
+                                <i id ="add-my-music" class="">+</i>
                             </div>
                         </div>
                         <!-- Nav End -->
@@ -460,5 +460,6 @@
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 <script src="/TunaMusic/resources/js/comment.js"></script>
+<script src="/TunaMusic/resources/js/mylist.js"></script>
 </body>
 </html>
