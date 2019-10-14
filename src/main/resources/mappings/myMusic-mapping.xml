@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MyMusicDAO">
+    <resultMap id="myMusicResult" type="myMusic">
+        <id column="id" property="id"/>
+        <id column="list_num" property="listNum"/>
+        <result column="article_no" property="articleNo"/>
+    </resultMap>
+    <select id="selectMyMusicList" resultMap="MyMusicResult">
+        select * from my_music where id = #{id}
+    </select>
+</mapper>

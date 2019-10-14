@@ -1,7 +1,6 @@
 create user tuna IDENTIFIED by tuna;
 grant resource, connect to tuna;
 
-drop table music_my_list;
 drop table musicboard_comment;
 drop table musicboard_article;
 --계정 생성문
@@ -74,7 +73,7 @@ CREATE TABLE funding(
     CONSTRAINT FK_FUNDING_ID FOREIGN KEY(id) REFERENCES member(id)
 );
 
-create table music_my_list(
+create table my_music(
     list_num number(10),
     id varchar2(30),
     article_no number(10),

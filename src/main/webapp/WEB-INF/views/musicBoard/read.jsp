@@ -264,7 +264,7 @@
                                     <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="test">
+                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${sessionScope.loginUser.userId}">
                                 </div>
                                 <div class="col-lg-12">
                                     <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
