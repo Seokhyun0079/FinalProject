@@ -10,5 +10,6 @@ public interface MemberDao {
 	boolean duplicateCheck(String userId);
 	Member selectMember(Member m);
 	String selectEncPassword(Member m);
+	Member findId(String name, String email);
 
 }

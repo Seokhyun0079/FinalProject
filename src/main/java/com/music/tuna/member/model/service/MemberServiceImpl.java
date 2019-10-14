@@ -43,6 +43,12 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 
+	@Override
+	public Member findId(String name, String email) {
+		return memberDao.findId(name, email);
+	}
+
+
 
 
 }

@@ -15,12 +15,12 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<!-- intercept bean 등록 (로그인 관련) -->
-	<bean id="loginInterceptor" class="com.music.tuna.common.interceptor.LoginInterceptor"/>
+
+	<!-- <bean id="loginInterceptor" class="com.music.tuna.common.interceptor.LoginInterceptor"/>
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/member/login/**"/>
 			<ref bean="loginInterceptor"/>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
 </beans>

@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -80,12 +81,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/login/login.do")
-	public String loginCheck(Member m, Model model) {
+	public String loginCheck(Member m, Model model, HttpServletRequest request) {
+		HttpSession httpSession = request.getSession();
+		if(httpSession.getAttribute("loginUser") != null) {
+			System.out.println("login clear");
+			httpSession.removeAttribute("loginUser");
+		}
 		
 		Member loginUser = memberService.loginMember(m);
 		
 		if(loginUser != null) {
 			model.addAttribute("loginUser", loginUser);
+			httpSession.setAttribute("loginUser", loginUser);
+			System.out.println("login: " + loginUser);
 			return "redirect:/";
 		}else {
 			return "member/loginPage";
@@ -109,7 +117,36 @@ public class MemberController {
 	}
 	
 	
+	@RequestMapping(value = "/findIDPW.do")
+	public String findIDPWPage() {
+		
+		return "/member/findIDPWPage";
+	}
+	
 
+	@RequestMapping(value = "/findID.do", method = RequestMethod.POST)
+	public void findID(@RequestParam("name")String name,@RequestParam("email")String email, HttpServletResponse response) {
+		Member findId = memberService.findId(name,email);
+		JSONObject obj = new JSONObject();
+		if(findId!=null) {
+			String sendIdMsg = "회원님의 아이디는 '" + findId.getUserId() + "'입니다.";
+			obj.put("msg", sendIdMsg);
+		}else {
+			obj.put("msg", "일치하는 회원정보가 없습니다.");
+		}
+		response.setContentType("application/x-json; charset=UTF-8");
+		try {
+			response.getWriter().print(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = "/findPW.do" , method = RequestMethod.POST)
+	public String findPW(Member m, Model model) {
+		
+		return "redirect:/";
+	}
 
 	
 

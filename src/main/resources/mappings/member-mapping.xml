@@ -7,7 +7,6 @@
 
 <resultMap id="memberResultSet" type="member">
 		<id column="ID" property="userId"/>
-		<result column="PASSWORD" property="userPwd"/>
 		<result column="NAME" property="userName"/>
 		<result column="NICKNAME" property="nickName"/>
 		<result column="BIRTH" property="birthDay"/>
@@ -41,6 +40,11 @@
 <select id="selectLoginUser" parameterType="Member" resultMap="memberResultSet">
 	SELECT * FROM MEMBER
 	WHERE ID = #{ userId } AND STATUS = 'Y'
+</select>
+
+<select id="findId" parameterType="Member" resultMap="memberResultSet">
+	SELECT ID FROM MEMBER
+	WHERE NAME = #{ userName } AND EMAIL = #{ email } AND STATUS = 'Y'
 </select>
 
 	
