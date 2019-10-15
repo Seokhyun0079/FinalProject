@@ -20,14 +20,8 @@ public class MagazineBoardController {
    @Autowired
    private MagazineBoardService mService;
 
-   
-//    @RequestMapping(value="/magazine.do")
-//      public String magazine() {
-//         return "magazineBoard/magazineListView";
-//      }
-//      
 
-
+   //게시판 리스트 조회(총 갯수 출력, 페이징처리)
 	 @RequestMapping("magazine.do") 
 	 public ModelAndView mboardList(@RequestParam(value="page", required = false)Integer page,
 	 ModelAndView mv) {
@@ -46,15 +40,19 @@ public class MagazineBoardController {
 	  .setViewName("magazineBoard/magazineListView");
 	  
 	  }
-	
-	  
+
 	  // return "magazineBoard/magazineListView"; 
 	  
-	  return mv;
-	  
-	  
+	  return mv;	  
 	  }
 	 
+	 // 게시물 작성페이지로 이동
+	 @RequestMapping("minsertView.do")
+	 public String minsertForm() {
+		return "magazineBoard/magazineInsertForm";
+		 
+	 }
+
 
 
 

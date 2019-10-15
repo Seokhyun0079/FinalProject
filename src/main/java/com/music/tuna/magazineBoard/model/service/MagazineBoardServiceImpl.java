@@ -25,5 +25,7 @@ public class MagazineBoardServiceImpl implements MagazineBoardService {
 		
 		return mDAO.selectList(pi);
 	}
+
+
 	
 }

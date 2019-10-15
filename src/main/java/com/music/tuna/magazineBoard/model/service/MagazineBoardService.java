@@ -15,5 +15,7 @@ public interface MagazineBoardService {
 	ArrayList<MagazineBoard> selectList(PageInfo pi);
 	
 
+	
+
 
 }
