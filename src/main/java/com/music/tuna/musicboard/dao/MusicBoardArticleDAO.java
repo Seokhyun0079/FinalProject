@@ -29,6 +29,12 @@ public class MusicBoardArticleDAO {
     public List<MusicBoardArticle> getArticleList(MusicBoardArticleListPage vo){
         return sqlSession.selectList("MusicBoardArticleDAO.selectArticleList", vo);
     }
+    public int getReadCount(MusicBoardArticle vo){
+        return sqlSession.selectOne("MusicBoardArticleDAO.getReadCount", vo);
+    }
+    public void increaseReadCount(MusicBoardArticle vo){
+        sqlSession.update("MusicBoardArticleDAO.updateReadCount", vo);
+    }
     public void commit(){
         sqlSession.commit();
     }

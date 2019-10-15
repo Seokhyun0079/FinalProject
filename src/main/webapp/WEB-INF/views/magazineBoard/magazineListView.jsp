@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    
 <!DOCTYPE html>
 <html>
 <head>
+<!-- jstl 태그 안먹힘ㅠㅠ -->
  <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,13 +15,10 @@
     <title>TUNA MUSIC - MAGAZINE</title>
     
     <!-- Favicon -->
-    <!--<link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">-->
-    <!-- <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico"> -->
-    <link rel="icon" href="./resources/img/core-img/favicon.ico">
+    <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
+
     <!-- Stylesheet -->
-    <!-- <link rel="stylesheet" href="/TunaMusic/resources/style.css"> -->
-    <link rel="stylesheet" href="./resources/style.css">
-    
+    <link rel="stylesheet" href="/TunaMusic/resources/style.css">
     <style>
      a:hover{text-decoration: underline;}
 
@@ -168,7 +168,9 @@
         <!-- *소제목 -->
         <div class="col-12">
             <div class="section-heading text-center">
-                <h1> MUSIC MAGAZINE </h1>
+                <h1> MUSIC MAGAZINE<br>
+                	총 게시물 수 : ${pi.listCount}  </h1>
+                	<c:out value="된다.."></c:out>
             </div>
         </div>
              
@@ -425,21 +427,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- All JS Files -->
 
     <!-- jQuery -->
-    <!-- <script src="/TunaMusic/resources/js/jquery.min.js"></script> -->
-    <script src="./resources/js/jquery.min.js"></script>
+   <script src="/TunaMusic/resources/js/jquery.min.js"></script>
+   <!--  <script src="./resources/js/jquery.min.js"></script> -->
 
     <!-- Popper -->
-    <!-- <script src="/TunaMusic/resources/js/popper.min.js"></script> -->
-    <script src="./resources/js/popper.min.js"></script>
+     <script src="/TunaMusic/resources/js/popper.min.js"></script> 
+  <!--   <script src="./resources/js/popper.min.js"></script> -->
     <!-- Bootstrap -->
-    <!-- <script src="/TunaMusic/resources/js/bootstrap.min.js"></script> -->
-    <script src="./resources/js/bootstrap.min.js"></script>
+    <script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
+   <!--  <script src="./resources/js/bootstrap.min.js"></script> -->
     <!-- All Plugins -->
-    <!-- <script src="/TunaMusic/resources/js/razo.bundle.js"></script> -->
-    <script src="./resources/js/razo.bundle.js"></script>
+    <script src="/TunaMusic/resources/js/razo.bundle.js"></script> 
+    <!-- <script src="./resources/js/razo.bundle.js"></script> -->
     <!-- Active -->
-    <!-- <script src="/TunaMusic/resources/js/default-assets/active.js"></script> -->
-    <script src="./resources/js/default-assets/active.js"></script>
+     <script src="/TunaMusic/resources/js/default-assets/active.js"></script> 
+    <!-- <script src="./resources/js/default-assets/active.js"></script> -->
 
 
 

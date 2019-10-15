@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 @Repository
 public class Member implements Serializable{
@@ -21,14 +22,16 @@ public class Member implements Serializable{
 	private String gender;
 	private String email;
 	private String phone;
+	private String profileIMG;
 	private Date enrolldate;
 	private Date updatedate;
+	private String grade;
 	private String status;
 	
 	public Member() {}
 
 	public Member(String userId, String userPwd, String userName, String nickName, String birthDay, String gender,
-			String email, String phone, Date enrolldate, Date updatedate, String status) {
+			String email, String phone, Date enrolldate, Date updatedate, String grade, String status) {
 		super();
 		this.userId = userId;
 		this.userPwd = userPwd;
@@ -40,6 +43,7 @@ public class Member implements Serializable{
 		this.phone = phone;
 		this.enrolldate = enrolldate;
 		this.updatedate = updatedate;
+		this.grade = grade;
 		this.status = status;
 	}
 
@@ -69,6 +73,14 @@ public class Member implements Serializable{
 
 	public String getNickName() {
 		return nickName;
+	}
+
+	public String getProfileIMG() {
+		return profileIMG;
+	}
+
+	public void setProfileIMG(String profileIMG) {
+		this.profileIMG = profileIMG;
 	}
 
 	public void setNickName(String nickName) {
@@ -123,6 +135,14 @@ public class Member implements Serializable{
 		this.updatedate = updatedate;
 	}
 
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -131,14 +151,18 @@ public class Member implements Serializable{
 		this.status = status;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Member [userId=" + userId + ", userPwd=" + userPwd + ", userName=" + userName + ", nickName=" + nickName
-				+ ", birthDay=" + birthDay + ", gender=" + gender + ", email=" + email + ", phone=" + phone
-				+ ", enrolldate=" + enrolldate + ", updatedate=" + updatedate + ", status=" + status + "]";
+				+ ", birthDay=" + birthDay + ", gender=" + gender + ", email=" + email + ", phone=" + phone + ", profileIMG="
+				+ profileIMG + ", enrolldate=" + enrolldate + ", updatedate=" + updatedate + ", grade=" + grade + ", status="
+				+ status + "]";
 	}
 
 	
+
 	
 	
 	
