@@ -37,7 +37,7 @@ create table musicboard_article(
 --음악 게시판 게시글 테이블
 
 create sequence mb_comment_seq
-    start with 1ㅋ
+    start with 1
     increment BY 1;
 --음악 게시판 댓글 기본키를 위한 시퀀스
 
