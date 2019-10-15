@@ -1,13 +1,12 @@
 create user tuna IDENTIFIED by tuna;
 grant resource, connect to tuna;
+--계정 생성문
 
 drop table music_my_list;
 drop table musicboard_comment;
 drop table musicboard_article;
 drop table funding;
 drop table payment;
-
---계정 생성문
 
 CREATE TABLE MEMBER(
     ID VARCHAR2(30) primary key,
@@ -36,14 +35,12 @@ create table musicboard_article(
     CONSTRAINT FK_MEMBER FOREIGN KEY(id)
     REFERENCES member(id)
 );
-
 --음악 게시판 게시글 테이블
+
 create sequence mb_comment_seq
     start with 1
     increment BY 1;
 --음악 게시판 댓글 기본키를 위한 시퀀스
-
-
 
 create table musicboard_comment(
     comment_no number(10) primary key,
