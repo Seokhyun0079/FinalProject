@@ -32,6 +32,17 @@ public class MagazineBoardDAO {
 		return (ArrayList)sqlSession.selectList("Magazinemapper.selectList", null, rowBounds);
 	}
 
+	public void addReadCount(int mseq) {
+		sqlSession.update("Magazinemapper.addmReadCount", mseq);
+	}
+
+	
+	public MagazineBoard selectBoard(int mseq) {
+		
+		return sqlSession.selectOne("Magazinemapper.selectBoard", mseq);
+	}
+
+
 
 
 	

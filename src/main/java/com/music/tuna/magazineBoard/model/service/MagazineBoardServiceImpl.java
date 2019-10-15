@@ -26,6 +26,12 @@ public class MagazineBoardServiceImpl implements MagazineBoardService {
 		return mDAO.selectList(pi);
 	}
 
+	@Override
+	public MagazineBoard selectboard(int mseq) {
+		mDAO.addReadCount(mseq);
+		return mDAO.selectBoard(mseq);
+	}
+
 
 	
 }

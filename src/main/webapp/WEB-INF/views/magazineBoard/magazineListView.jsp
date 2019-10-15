@@ -29,7 +29,7 @@
 <body>
 
  <!-- 페이지 로드 -->
-    <div id="preloader">
+<!--     <div id="preloader">
         <div>
             <div class="spinner">
                 <div class="double-bounce1"></div>
@@ -37,7 +37,7 @@
             </div>
             <span>Wait, please...</span>
         </div>
-    </div>
+    </div> -->
     <!-- /페이지 로드-->
 
 <!----------------------------------------------------------------------------------------------------- *헤더  시작 -->
@@ -175,10 +175,7 @@
             </div>
         </div>
              
-                
-                
-                
-                
+        
                 
                 
                  <!-- * 게시글 시작-->
@@ -218,7 +215,14 @@
                         	 <div  style="border: 1px float: right; width: 50%;"> <!-- *오른쪽 -->
                         		<div class="event-content d-flex align-items-center">
                             		<div class="event-text">
-                                		<a href="#"><h3>${m.mtitle}</h3></a><!-- *제목 -->
+                                		
+                                		<c:url var="mdetail" value="mdetaile.do"><!-- mdetaile.do?mseq=10&page=2 -->
+										<c:param name="mseq" value="${ m.mseq }"/>
+										<c:param name="page" value="${ pi.currentPage }"/>
+										</c:url> <!-- 어떤 url 걸어둘껀지 -->
+										
+							
+                                		<a href="${ mdetail }"><h3>${m.mtitle}</h3></a><!-- *제목 -->
         
                                 		<div class="event-meta">
                                     		<a class="event-date"><i class="icon_calendar"></i>날짜 받아와야해</a><!-- *날짜 -->
@@ -228,7 +232,7 @@
                                     		<br>
                                     		 
     
-                                    		<a href="#" class="btn read-more-btn" style="float:left;">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    		<a  href="${ mdetail }" class="btn read-more-btn" style="float:left;">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                 		</div>                          
 	                         		</div>     
                             	</div>  

@@ -52,6 +52,24 @@ public class MagazineBoardController {
 		return "magazineBoard/magazineInsertForm";
 		 
 	 }
+	 
+	 // 게시물 상세(페이지)보기
+	 @RequestMapping("mdetaile.do")
+	 public ModelAndView mdetaile(@RequestParam("mseq") int mseq, @RequestParam("page") int page,
+			 					ModelAndView mv) {
+		
+		 MagazineBoard m = mService.selectboard(mseq);
+		 
+		 if(m != null) {
+			 mv.addObject("MagazineBoard", m)
+			 	.addObject("page", page)
+			 	.setViewName("magazineBoard/magazineDetailView");
+		 }
+
+		 return mv;
+	 }
+	 
+	 
 
 
 

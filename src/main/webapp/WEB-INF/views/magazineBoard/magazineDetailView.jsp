@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
@@ -44,7 +46,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="post-title-text">
-                        <h2>이곳은 첨부파일 사진 가져올것, 제목</h2>
+                        <h2>${MagazineBoard.mtitle}</h2> <!-- contoll객체.vo -->
                         <div class="post-meta">
                         </div>
                     </div>
@@ -63,9 +65,10 @@
 
 
                     <div class="col-10 col-md-10 col-lg-9">
-                      <h3>jam wa!!!!!!!!!!!!</h3>
+                      <h3>${MagazineBoard.mtitle}</h3>
                     
-                        <p>5G NR is a new air interface being developed for 5G. An air interface is the radio frequency portion of the circuit between the mobile device and the active base station. The active base station can change as the user is on the move, with each changeover known as a handoff.5G will initially be made available through improvements in LTE, LTE-Advanced and LTE Pro technologies. But it will be soon be followed by a major step-up with the introduction of a new air interface.</p>
+                        <p>${MagazineBoard.mcontent}</p>
+                        <h1>조회수 :${MagazineBoard.mcount} </h1>
 
                         <p>The 3GPP (3rd Generation Partnership Project) made decisions on some of the technologies to be used in 5G NR as part of the 5G NR Release 14 Study Item which officially began in March 2016. The first 3GPP 5G NR specification will be part of Release 15, on which work began in June 2016 and is set to complete in September 2018. With Release 14 frozen (completed) in June 2017, from the second half of 2017 3GPP’s work has been focused on Release 15 to deliver the first set of 5G standards.</p>
 
