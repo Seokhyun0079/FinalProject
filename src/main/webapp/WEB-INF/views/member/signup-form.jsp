@@ -234,7 +234,7 @@
 					<script>
 						var today = new Date();
 						var toyear = parseInt(today.getFullYear());
-						var start = toyear - 5
+						var start = toyear - 10
 						var end = toyear - 70;
 						document.write("<select id='year' name=birth>");
 						document.write("<option value='' selected>");
