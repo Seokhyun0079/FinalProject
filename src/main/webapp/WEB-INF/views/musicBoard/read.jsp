@@ -160,7 +160,7 @@
                             <i class="icon_search"></i>
                         </div>
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                <i class="">+</i>
+                                <i id ="add-my-music" class="">+</i>
                             </div>
                         </div>
                         <!-- Nav End -->
@@ -242,7 +242,7 @@
                         </div>
                     </div>
                     <div class="comment_area mb-50 clearfix">
-                        <h5 class="title">12 Comments</h5>
+                        <h5 class="title">${article.commentCount} Comments</h5>
 
                         <ol id="comment-list">
                             <!-- Single Comment Area -->
@@ -264,7 +264,7 @@
                                     <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="test">
+                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${sessionScope.loginUser.userId}">
                                 </div>
                                 <div class="col-lg-12">
                                     <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
@@ -460,5 +460,6 @@
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 <script src="/TunaMusic/resources/js/comment.js"></script>
+<script src="/TunaMusic/resources/js/mylist.js"></script>
 </body>
 </html>
