@@ -6,8 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -220,23 +218,11 @@
 </section>
 
 <section class="uza-news-area section-padding-0-80">
-    <div class="container">
-        <!-- <div class="row razo-blog-masonary"> -->
-        <div style="margin-top: 30px; margin-bottom: 30px;">
-            <!-- <img src="img/tunamusuc_funding_banner.png"> -->
-            <a href="#"><img src="/TunaMusic/resources/img/etc-img/tunamusic_funding_banner(3).png"></a>
-        </div>
-    </div>
     <div class="container" style="margin-bottom: 50px">
         <div class="row">
             <div class="col-12">
-                <div class="row" style="padding: 30px 30px 10px 0px;">
-                    <div class="col text-left">
-                        <h5 class="text-left" style="display: inline;">인기 프로젝트</h5>
-                    </div>
-                    <div class="col text-right">
-                        <a href="#" class="btn read-more-btn" style="font-size: 14px;">더 보기<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                    </div>
+                <div class="text-left" style="padding: 30px 30px 30px 0px">
+                    <h5>인기 프로젝트</h5>
                 </div>
             </div>
         </div>
@@ -339,13 +325,8 @@
     <div class="container" style="margin-bottom: 50px">
         <div class="row">
             <div class="col-12">
-                <div class="row" style="padding: 30px 30px 10px 0px;">
-                    <div class="col text-left">
-                        <h5 class="text-left" style="display: inline;">새로운 프로젝트</h5>
-                    </div>
-                    <div class="col text-right">
-                        <a href="#" class="btn read-more-btn" style="font-size: 14px;">더 보기<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                    </div>
+                <div class="text-left" style="padding: 30px 30px 30px 0px">
+                    <h5>새로운 프로젝트</h5>
                 </div>
             </div>
         </div>
@@ -370,8 +351,8 @@
                             </div>
                             <br>
                             <span>D-23</span>
-                            <span>300,000원</span>
-                            <span>30%</span>
+                            <span>1,000,000원</span>
+                            <span>100%</span>
                         </div>
                     </div>
                 </div>
@@ -392,8 +373,8 @@
                             </div>
                             <br>
                             <span>D-23</span>
-                            <span>100,000원</span>
-                            <span>10%</span>
+                            <span>1,000,000원</span>
+                            <span>100%</span>
                         </div>
                     </div>
                 </div>
@@ -414,8 +395,8 @@
                             </div>
                             <br>
                             <span>D-23</span>
-                            <span>150,000원</span>
-                            <span>15%</span>
+                            <span>1,000,000원</span>
+                            <span>100%</span>
                         </div>
                     </div>
                 </div>
@@ -436,8 +417,8 @@
                             </div>
                             <br>
                             <span>D-23</span>
-                            <span>200,000원</span>
-                            <span>20%</span>
+                            <span>1,000,000원</span>
+                            <span>100%</span>
                         </div>
                     </div>
                 </div>
@@ -450,13 +431,8 @@
     <div class="container" style="margin-bottom: 50px">
         <div class="row">
             <div class="col-12">
-                <div class="row" style="padding: 30px 30px 10px 0px;">
-                    <div class="col text-left">
-                        <h5 class="text-left" style="display: inline;">성공임박 프로젝트</h5>
-                    </div>
-                    <div class="col text-right">
-                        <a href="#" class="btn read-more-btn" style="font-size: 14px;">더 보기<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                    </div>
+                <div class="text-left" style="padding: 30px 30px 30px 0px">
+                    <h5>성공임박 프로젝트</h5>
                 </div>
             </div>
         </div>
@@ -481,8 +457,8 @@
                             </div>
                             <br>
                             <span>D-23</span>
-                            <span>800,000원</span>
-                            <span>80%</span>
+                            <span>1,000,000원</span>
+                            <span>100%</span>
                         </div>
                     </div>
                 </div>
@@ -503,8 +479,8 @@
                             </div>
                             <br>
                             <span>D-23</span>
-                            <span>950,000원</span>
-                            <span>95%</span>
+                            <span>1,000,000원</span>
+                            <span>100%</span>
                         </div>
                     </div>
                 </div>
@@ -525,8 +501,8 @@
                             </div>
                             <br>
                             <span>D-23</span>
-                            <span>900,000원</span>
-                            <span>90%</span>
+                            <span>1,000,000원</span>
+                            <span>100%</span>
                         </div>
                     </div>
                 </div>
@@ -547,8 +523,8 @@
                             </div>
                             <br>
                             <span>D-23</span>
-                            <span>850,000원</span>
-                            <span>85%</span>
+                            <span>1,000,000원</span>
+                            <span>100%</span>
                         </div>
                     </div>
                 </div>
