@@ -4,7 +4,10 @@ $(function(){
         type : "GET",
         data :{},
         success : function(data){
-            console.log(data.test);
+            console.log(data);
+            for(var i = 0; i < data.result.length; i++){
+                $("#my-list-div").append("<div class='my-list-element'>"+data.result[i].title+"</div>"+"<br>");
+            }
         }
     });
     $("#add-my-music").click(function(){
