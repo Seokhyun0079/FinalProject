@@ -28,7 +28,6 @@
 		<mapper resource="mappings/musicboard-article-mapping.xml"/>
     <mapper resource="mappings/musicboard-comment-mapping.xml"/>
     <mapper resource="mappings/crowdFunding-mapping.xml"/>
-		<mapper resource="mappings/payment-mapping.xml"/>
 		<mapper resource="mappings/myMusic-mapping.xml"/>
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/Magazine-mapping.xml"/>

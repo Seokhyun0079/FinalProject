@@ -7,8 +7,6 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -32,7 +30,6 @@ public class MyMusicController {
     }
     @RequestMapping("/myMusic/add.do")
     public void insertMyMusic(MyMusic vo, HttpSession httpSession){
-        System.out.println(vo);
         vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
         myMusicService.insertMyMusic(vo);
     }
