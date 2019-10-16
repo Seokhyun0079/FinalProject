@@ -24,7 +24,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			logger.info("login clear");
 			httpSession.removeAttribute("loginUser");
 		}
-		
 		return true;
 	}
 

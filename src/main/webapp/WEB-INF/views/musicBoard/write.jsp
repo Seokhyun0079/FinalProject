@@ -204,7 +204,7 @@
                         <!-- Form -->
                         <form action="/TunaMusic/musicBoard/article/write.do" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
                             <div class="row">
-                                <input name="id" type = "text" style="visibility: hidden;" value="test">
+                                <input name="id" type = "text" style="visibility: hidden;" value="${sessionScope.loginUser.userId }">
                                 <div class="col-12">
                                     <input type="text" name="title" class="form-control mb-30" placeholder="Title">
                                 </div>
@@ -274,7 +274,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Single Blog Item -->
             <div class="col-12 col-sm-6 col-lg-4 razo-blog-masonary-item mb-80">
                 <div class="razo-blog-masonary-single-item">
