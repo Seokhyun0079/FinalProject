@@ -6,6 +6,7 @@
 	<properties resource="db.properties"/>
 	<typeAliases>
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardArticle" alias="musicBoardArticle"/>
+		<typeAlias type="com.music.tuna.musicboard.vo.Payment" alias="payment"/>
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardComment" alias="musicBoardComment"/>
 		<typeAlias type="com.music.tuna.mymusic.vo.MyMusic" alias="myMusic"/>
 		<typeAlias type="com.music.tuna.member.model.vo.Member" alias="member"/>
@@ -25,8 +26,9 @@
 	</environments>
 	<mappers>
 		<mapper resource="mappings/musicboard-article-mapping.xml"/>
-		<mapper resource="mappings/musicboard-comment-mapping.xml"/>
+    <mapper resource="mappings/musicboard-comment-mapping.xml"/>
     <mapper resource="mappings/crowdFunding-mapping.xml"/>
+		<mapper resource="mappings/payment-mapping.xml"/>
 		<mapper resource="mappings/myMusic-mapping.xml"/>
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/Magazine-mapping.xml"/>
