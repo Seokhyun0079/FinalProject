@@ -48,6 +48,21 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.findId(name, email);
 	}
 
+	@Override
+	public Member findPW(Member findPW) {
+		return memberDao.findPW(findPW);
+	}
+
+	@Override
+	public int updatePW(Member findPW) {
+		int result = memberDao.updatePW(findPW);
+		if(result > 0) {
+			memberDao.commit();
+		}
+
+		return result;
+	}
+
 
 
 

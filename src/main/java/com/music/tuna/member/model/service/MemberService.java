@@ -13,4 +13,8 @@ public interface MemberService {
 
 	Member findId(String name, String email);
 
+	Member findPW(Member findPW);
+
+	int updatePW(Member findPW);
+
 }

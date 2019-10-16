@@ -11,5 +11,7 @@ public interface MemberDao {
 	Member selectMember(Member m);
 	String selectEncPassword(Member m);
 	Member findId(String name, String email);
+	Member findPW(Member findPW);
+	int updatePW(Member findPW);
 
 }

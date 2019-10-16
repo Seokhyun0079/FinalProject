@@ -19,6 +19,12 @@
 		<result column="GRADE" property="grade"/>
 		<result column="STATUS" property="status"/>
 </resultMap>
+<resultMap id="memberPwResultSet" type="member">
+		<id column="ID" property="userId"/>
+		<result column="NAME" property="userName"/>
+		<result column="PASSWORD" property="userPwd"/>
+		<result column="EMAIL" property="email"/>
+</resultMap>
 
 <insert id="insertMember">
 	INSERT INTO MEMBER 
@@ -47,6 +53,14 @@
 	WHERE NAME = #{ userName } AND EMAIL = #{ email } AND STATUS = 'Y'
 </select>
 
-	
-	
+<select id="findPW" parameterType="Member" resultMap="memberPwResultSet">
+	SELECT * FROM MEMBER
+	WHERE NAME = #{ userName } AND EMAIL = #{ email } AND ID = #{ userId } AND STATUS = 'Y'
+</select>
+
+<update id="updatePW" parameterType="Member">
+	UPDATE MEMBER
+	SET PASSWORD = #{ userPwd } WHERE ID = #{ userId } AND NAME = #{ userName } AND EMAIL = #{ email } AND STATUS = 'Y'
+</update>
+
 </mapper>

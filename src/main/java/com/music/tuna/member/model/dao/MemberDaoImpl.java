@@ -51,5 +51,13 @@ public class MemberDaoImpl implements MemberDao{
 		m.setEmail(email);
 		return sqlSession.selectOne("member.findId",m);
 	}
+	@Override
+	public Member findPW(Member findPW) {
+		return sqlSession.selectOne("member.findPW", findPW);
+	}
+	@Override
+	public int updatePW(Member findPW) {
+		return sqlSession.update("member.updatePW", findPW);
+	}
 
 }

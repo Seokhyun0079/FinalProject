@@ -35,6 +35,12 @@
 		display:block;   
 	}
 	</style>
+	<script type="text/javascript">
+		/*비밀번호 찾기 후 alert(findPW.getUserName()+"님의 이메일로 임시 비밀번호를 발송하였습니다!)*/
+		var message = '${Msg}';
+		if(message != "")
+		alert(message);
+	</script>
     
 </head>
 
@@ -85,7 +91,7 @@
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
 	                        <div style="float: right;">
-	                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;">FORGOT PW?</a></div>
+	                            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:gray;">FORGOT PW?</a></div>
 	                            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
 	                        </div>
 	                    </form>
@@ -249,13 +255,12 @@
 							        <input type="text" name="userId" placeholder="ID" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
 							        <input type="password" name="userPwd" placeholder="PW" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
 							        <br>
-							        <h6 style="color: white;">&nbsp아이디와 비밀번호가 일치하지 않습니다.</h6>
 							        <div class="view-more-button text-center">
 							                        <input type="submit" style="margin-top:20px; cursor:pointer;" value="LOGIN" class="btn razo-btn mt-50"></a>
 							        </div>
 							        <br>
 							        <div>
-							            <div style="color:white; width: 100%;"><a href="#" style="color:white;">FORGOT ID/PW?</a></div>
+							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:white;">FORGOT ID/PW?</a></div>
 							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:white;" >SIGN-UP</a></div><br>
 							        </div>
 							    </form>
