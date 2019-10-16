@@ -261,7 +261,7 @@
 				<!-- 페이지 -->
 				<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
 					<c:if test="${ p eq pi.currentPage }">
-						<font color="black" size="4"><b>[${ p }]</b></font>
+						<font color="pink" size="4"><b>[${ p }]</b></font>
 					</c:if><!-- 선택된페이지 표시 -->
 					
 					<c:if test="${ p ne pi.currentPage }">

@@ -42,7 +42,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-10 col-xl-9">
 
-                        <!-- Leave A Reply -->
+                        
                         <div class="razo-contact-form">
                             <h2 class="mb-4">Write a post</h2>
 
@@ -60,20 +60,27 @@
                                         <input type="file" name="message-name" class="form-control mb-30" style="background-color: pink">
                                     </div>
                                     
-                                    <div class="col-12" colspan="2" align="center"> 
-                                        <input type="submit" class="btn razo-btn btn-3 mt-15" value="POST" style="width: 10%">&nbsp;
-                                        <input onclick="location.href='magazine.do';" class="btn razo-btn btn-3 mt-15" value="BACK" style="width: 10%"> 
+                                       <div class="col-12" colspan="2" align="center"> 
+                                        <button type="submit" class="btn razo-btn btn-3 mt-15">Post</button> 
+                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
                                     </div>
+                                       
+                                       
                                 </div>
-                          
-                               
-                            </form>
+                                 
+                          </form>
+                            
                         </div>
                         
                     </div>
+                    
                 </div>
+                
             </div>
+          
         </div>
+        
+        
     </section>
     <!-- *게시글 쓰기 양식 끝 -->
     
