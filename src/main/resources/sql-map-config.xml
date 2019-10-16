@@ -6,6 +6,7 @@
 	<properties resource="db.properties"/>
 	<typeAliases>
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardArticle" alias="musicBoardArticle"/>
+		<typeAlias type="com.music.tuna.musicboard.vo.Payment" alias="payment"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -20,5 +21,6 @@
 	</environments>
 	<mappers>
 		<mapper resource="mappings/musicboard-article-mapping.xml"/>
+		<mapper resource="mappings/payment-mapping.xml"/>
 	</mappers>
 </configuration>
