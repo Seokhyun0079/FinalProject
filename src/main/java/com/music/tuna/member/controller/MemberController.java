@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.music.tuna.common.CommonUtils;
+import com.music.tuna.email.Email;
+import com.music.tuna.email.EmailSender;
 import com.music.tuna.member.model.service.MemberService;
 import com.music.tuna.member.model.vo.Member;
 
@@ -30,6 +33,12 @@ public class MemberController {
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private Email sendemail;
+	
+	@Autowired
+	private EmailSender emailSender;
 	
 	@RequestMapping(value="/memberJoinView.do")
 	public String showMemberJoinView() {
@@ -61,7 +70,7 @@ public class MemberController {
 		String encPassword = passwordEncoder.encode(m.getUserPwd());
 		m.setUserPwd(encPassword);
 		int result = memberService.insertMember(m);
-		System.out.println("result : " + result);
+		System.out.println("회원가입 result : " + result);
 		return "redirect:/";
 
 	}
@@ -80,14 +89,22 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/login/login.do")
-	public String loginCheck(Member m, Model model) {
+	public String loginCheck(Member m, Model model, HttpServletRequest request) {
+		HttpSession httpSession = request.getSession();
+		if(httpSession.getAttribute("loginUser") != null) {
+			System.out.println("login clear");
+			httpSession.removeAttribute("loginUser");
+		}
 		
 		Member loginUser = memberService.loginMember(m);
 		
 		if(loginUser != null) {
 			model.addAttribute("loginUser", loginUser);
+			httpSession.setAttribute("loginUser", loginUser);
+			System.out.println("login: " + loginUser);
 			return "redirect:/";
 		}else {
+			model.addAttribute("Msg", "아이디, 비밀번호를 확인해주세요!");
 			return "member/loginPage";
 		}
 			
@@ -109,7 +126,63 @@ public class MemberController {
 	}
 	
 	
+	@RequestMapping(value = "/findIDPW.do")
+	public String findIDPWPage() {
+		
+		return "/member/findIDPWPage";
+	}
+	
 
+	@RequestMapping(value = "/findID.do", method = RequestMethod.POST)
+	public void findID(@RequestParam("name")String name,@RequestParam("email")String email, HttpServletResponse response) {
+		Member findId = memberService.findId(name,email);
+		JSONObject obj = new JSONObject();
+		if(findId!=null) {
+			String sendIdMsg = "회원님의 아이디는 '" + findId.getUserId() + "'입니다.";
+			obj.put("msg", sendIdMsg);
+		}else {
+			obj.put("msg", "일치하는 회원정보가 없습니다.");
+		}
+		response.setContentType("application/x-json; charset=UTF-8");
+		try {
+			response.getWriter().print(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = "/findPW.do" , method = RequestMethod.POST)
+	public String findPW(@RequestParam("name2")String name,@RequestParam("id2")String id,@RequestParam("email2")String email, HttpServletResponse response, Model model) throws Exception {
+		Member findPW = new Member();
+		findPW.setUserName(name);
+		findPW.setUserId(id);
+		findPW.setEmail(email);
+		//임시 비밀번호 생성
+		String pw = "";
+		for (int i = 0; i < 12 ; i++) {
+			pw += (char)((Math.random()*26)+97);
+		}
+		String encPassword = passwordEncoder.encode(pw);
+		findPW.setUserPwd(encPassword);
+		int result = memberService.updatePW(findPW);
+		model.addAttribute("check", true);
+		if(result>0) {
+			findPW = memberService.findPW(findPW);
+			//이메일 전송
+			sendemail.setContent("회원님의 임시 비밀번호는 '" + pw + "'입니다.");
+			sendemail.setReceiver(findPW.getEmail());
+			sendemail.setSubject("<TUNA MUSIC> "+ findPW.getUserName() +"님의 임시 비밀번호입니다!");
+			emailSender.SendEmail(sendemail);
+			model.addAttribute("Msg", findPW.getUserName()+"님의 이메일로 임시 비밀번호를 발송하였습니다!");
+			return "/member/loginPage";
+		}else {
+			model.addAttribute("Msg", "일치하는 회원정보가 없습니다.");
+			return "/member/findIDPWPage";
+		}
+		
+		
+		
+	}
 
 	
 
