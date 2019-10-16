@@ -55,13 +55,10 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div class="razo-social-share-area">
-    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-    <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
-    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-    <a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a>
-    <a href="#" class="ss-close-btn"><i class="arrow_right"></i></a>
+<div class="razo-social-share-area" style="color : white; background: #5a6268">
+    라조육 이사이<br>
+    킹킹킹 킹인석<br>
+
 </div>
 <!-- Social Share Area End -->
 
@@ -160,7 +157,10 @@
 
                             <!-- Search Icon -->
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                <i class="icon_search"></i>
+                            <i class="icon_search"></i>
+                        </div>
+                            <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+                                <i id ="add-my-music" class="">+</i>
                             </div>
                         </div>
                         <!-- Nav End -->
@@ -202,7 +202,7 @@
             <div class="col-12">
                 <div class="audio-player">
                     <audio preload="auto" controls>
-                        <source src="/TunaMusic/resources/upload/audio/${article.fileName}">
+                        <source src="/TunaMusic/resources/upload/${article.fileName}">
                     </audio>
                 </div>
             </div>
@@ -226,6 +226,7 @@
                 </div>
 
                 <div class="col-12 col-sm-10 col-xl-9">
+                    <p>${article.title}</p>
                     <p>${article.text}</p>
 
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
@@ -240,28 +241,35 @@
                             </a>
                         </div>
                     </div>
+                    <div class="comment_area mb-50 clearfix">
+                        <h5 class="title">${article.commentCount} Comments</h5>
 
+                        <ol id="comment-list">
+                            <!-- Single Comment Area -->
+                            <!-- Single Comment Area -->
+                        </ol>
+                    </div>
                     <!-- Leave A Reply -->
                     <div class="razo-contact-form">
-                        <h2 class="mb-4">Leave A Comment</h2>
-
+                        <h2 class="mb-4" id="point">Leave A Comment</h2>
                         <!-- Form -->
-                        <form action="#" method="post">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <input type="text" name="message-name" class="form-control mb-30" placeholder="Name">
-                                </div>
-                                <div class="col-lg-6">
-                                    <input type="email" name="message-email" class="form-control mb-30" placeholder="Email">
+                                <div class="col-12">
+                                    <textarea id="message" name="message" class="form-control mb-30" placeholder="Comment"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="message" class="form-control mb-30" placeholder="Comment"></textarea>
+                                    <button id ="comment-buutton" type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
                                 </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
+                                <div class="col-lg-12">
+                                    <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${sessionScope.loginUser.userId}">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -451,6 +459,7 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-
+<script src="/TunaMusic/resources/js/comment.js"></script>
+<script src="/TunaMusic/resources/js/mylist.js"></script>
 </body>
 </html>

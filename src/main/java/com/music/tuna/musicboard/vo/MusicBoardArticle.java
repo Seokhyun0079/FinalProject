@@ -8,7 +8,28 @@ public class MusicBoardArticle {
     private String title;
     private String fileName;
     private String text;
+    private int start;
+    private int last;
+    private int page;
+    private int readCount;
+    private int commentCount;
     private MultipartFile uploadFile;
+
+    public int getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
+    }
+
+    public int getReadCount() {
+        return readCount;
+    }
+
+    public void setReadCount(int readCount) {
+        this.readCount = readCount;
+    }
 
     public int getArticleNo() {
         return articleNo;
@@ -34,8 +55,6 @@ public class MusicBoardArticle {
         this.title = title;
     }
 
-
-
     public String getText() {
         return text;
     }
@@ -60,6 +79,30 @@ public class MusicBoardArticle {
         this.fileName = fileName;
     }
 
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getLast() {
+        return last;
+    }
+
+    public void setLast(int last) {
+        this.last = last;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
     @Override
     public String toString() {
         return "MusicBoardArticle{" +
@@ -68,6 +111,10 @@ public class MusicBoardArticle {
                 ", title='" + title + '\'' +
                 ", fileName='" + fileName + '\'' +
                 ", text='" + text + '\'' +
+                ", start=" + start +
+                ", last=" + last +
+                ", page=" + page +
+                ", readCount=" + readCount +
                 ", uploadFile=" + uploadFile +
                 '}';
     }
