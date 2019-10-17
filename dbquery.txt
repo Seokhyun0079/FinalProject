@@ -1,11 +1,16 @@
+-- 계정 생성문
 create user tuna IDENTIFIED by tuna;
 grant resource, connect to tuna;
+--계정 생성문
 
+-- 꼬였을 때 drop
 drop table music_my_list;
 drop table musicboard_comment;
 drop table musicboard_article;
---계정 생성문
+drop table funding;
+drop table payment;
 
+-- 회원 테이블
 CREATE TABLE MEMBER(
     ID VARCHAR2(30) primary key,
     PASSWORD VARCHAR2(100),
@@ -21,25 +26,25 @@ CREATE TABLE MEMBER(
     GRADE VARCHAR2(10) CHECK(GRADE IN ('C','B','A')),   --C:일반 회원  B:유료 회원  A: 관리자
     STATUS VARCHAR2(10) CHECK(STATUS IN('Y','N'))
 );
---회원 테이블
 
+-- 음악 게시판 게시글 테이블
 create table musicboard_article(
     article_no number(10) primary key,
     id varchar2(30),
     title varchar2(60),
     text varchar2(2000),
     file_name varchar2(200),
+    read_count number(10),
     CONSTRAINT FK_MEMBER FOREIGN KEY(id)
     REFERENCES member(id)
 );
---음악 게시판 게시글 테이블
+
+-- 음악 게시판 댓글 기본키를 위한 시퀀스
 create sequence mb_comment_seq
     start with 1
     increment BY 1;
---음악 게시판 댓글 기본키를 위한 시퀀스
 
-
-
+-- 음악 게시판 댓글 테이블
 create table musicboard_comment(
     comment_no number(10) primary key,
     article_no number(10),
@@ -54,16 +59,24 @@ create table musicboard_comment(
     REFERENCES musicboard_article(article_no)
 );
 
+create table my_music(
+    list_num number(10),
+    id varchar2(30),
+    article_no number(10),
+    PRIMARY key (list_num, id)
+
+);
 
 --크라우드 펀딩 테이블
 CREATE SEQUENCE SEQ_FNO;
+
 CREATE TABLE funding(
     fno number(10) primary key,
     id varchar2(30),
     ftitle varchar2(60) not null,
-    freward varchar2(60) not null,
+    freward varchar2(30) not null,
     fcontent varchar2(2000) not null,
-    fcreator varchar2(10) not null,
+    fcreator varchar2(30) not null,
     fcreatorInfo varchar2(200),
     fbacker number(30) default 0,
     fgoal number(30) default 0,
@@ -71,8 +84,40 @@ CREATE TABLE funding(
     regDate date default sysdate,
     endDate date,
     fuploadFile varchar2(200),
-    FOREIGN KEY(id) REFERENCES member(id)
+    CONSTRAINT FK_FUNDING_ID FOREIGN KEY(id) REFERENCES member(id)
+);
+
+
+--결제, 상품 테이블, 시퀀스
+CREATE SEQUENCE SEQ_GOODS_NO
+    start with 1
+    increment BY 1;
+
+CREATE TABLE GOODS(
+    GNO NUMBER(10) PRIMARY KEY,
+    GNAME VARCHAR2(30),
+    GPRICE NUMBER(30)
+);
+
+CREATE SEQUENCE SEQ_PAY_NO
+    start with 1
+    increment BY 1;
+
+CREATE TABLE PAYMENT(
+    PNO NUMBER(10) PRIMARY KEY,
+    ID VARCHAR2(30),
+    PDATE DATE DEFAULT SYSDATE,
+    GNO NUMBER(10),
+    CONSTRAINT FK_PAYMENT_ID FOREIGN KEY(ID) REFERENCES MEMBER(ID),
+    CONSTRAINT FK_GOODS_NO FOREIGN KEY(GNO) REFERENCES GOODS(GNO)
+);
+
+-- 차트 테이블
+CREATE TABLE CHARTBOARD(
+    ARTICLE_DATE DATE DEFAULT SYSDATE,
+    ARTICLE_NO NUMBER(10),
+    READ_COUNT NUMBER(10),
+    PRIMARY KEY (ARTICLE_DATE, ARTICLE_NO)
 );
 
 COMMIT;
-

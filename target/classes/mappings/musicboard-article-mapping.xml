@@ -8,10 +8,12 @@
         <result column="title" property="title"/>
         <result column="text" property="text"/>
         <result column="file_name" property="fileName"/>
+        <result column="read_count" property="readCount"/>
+        <result column="comment_count" property="commentCount"/>
     </resultMap>
     <insert id="insertArticle">
     insert into musicboard_article
-    values(mb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName})
+    values(mb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, 0)
   </insert>
     <select id="lastInsertedArticle"  resultMap="articleResult">
         <![CDATA[
@@ -19,7 +21,7 @@
 		]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
-        select * from musicboard_article where article_no = #{articleNo}
+        select musicboard_article.*, (select count(*) from musicboard_comment where musicboard_comment.article_no= #{articleNo}) as comment_count from musicboard_article where article_no = #{articleNo}
     </select>
     <select id="selectArticleCount" resultType="int">
         select count(*) from musicBoard_article
@@ -35,4 +37,10 @@
         B where B.rnum >= #{start}
         		]]>
     </select>
+    <select id="getReadCount" resultType="int" >
+        select read_count from musicboard_article where article_no = #{articleNo}
+    </select>
+    <update id="updateReadCount">
+        update musicBoard_article set read_count = #{readCount} where article_no = #{articleNo}
+    </update>
 </mapper>

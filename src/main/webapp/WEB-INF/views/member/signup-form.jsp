@@ -238,12 +238,15 @@
         </div>
     </header>
     <!-- Header Area End -->
+    
+    
+    
     <br><br><br>
     <h2 align="center">SIGN-UP</h2>
 	<form action="memberInsert.do" id="joinForm" style="margin-bottom: 80px;" method="post" enctype="multipart/form-data">
 		<table align="center" style="margin-left:40%; margin-top: 50px; font-family: Oswald;">
 			<tr>
-				<td> <h6>* ID </h6><!-- <input  type="button" value="ENROLL"  style="color: white; background-color: gray; outline-style: outset;   margin-top: 15px; font-size: 20px; box-shadow: 0px 0px 0px 0px;"> --></td>
+				<td> <h6>* ID </h6></td>
 				<td><input type="text" name="userId" id="userId"/><div id="id_check"></div></td>
 				
 			</tr>
@@ -269,7 +272,11 @@
 					<script>
 						var today = new Date();
 						var toyear = parseInt(today.getFullYear());
+<<<<<<< HEAD
+						var start = toyear - 10
+=======
 						var start = toyear - 10;
+>>>>>>> c7e5b3254554f69a38550809493f10adcb05b133
 						var end = toyear - 70;
 						document.write("<select id='year' name=birth>");
 						document.write("<option value='' selected>");
@@ -285,57 +292,73 @@
 						for (i=1;i<=31;i++) document.write("<option>"+i);
 						document.write("</select>일 ");
 		
-						document.write("<input type = 'hidden' name='birthDay' value='생년월일 저장소'>");
-												
-						$(function(){
-							$("select[name='birth']").click(function(){
-								var birth1 = $("#year").val();
-								var birth2 = $("#month").val();
-								var birth3 = $("#day").val();
-								if(birth2<10){
-									birth2='0'+birth2;
-								}
-								if(birth3<10){
-									birth3='0'+birth3;
-								}
+						document.write("<input name='birthDay'  value='생년월일 저장소' type = 'hidden'>");
+									
+						var sendBirth=function(){
+							var birth1 = $("#year").val();
+							var birth2 = $("#month").val();
+							var birth3 = $("#day").val();
+							if(birth2<10){
+								birth2='0'+birth2;
+							}
+							if(birth3<10){
+								birth3='0'+birth3;
+							}
 
-								$("input[name='birthDay']").val(birth1 + birth2 + birth3);
-								
-							});
+							$("input[name='birthDay']").val(birth1 + birth2 + birth3);
+							
+						};
+						
+						$(function(){
+							$("select[name='birth']").blur(function(){
+										var birth1 = $("#year").val();
+										var birth2 = $("#month").val();
+										var birth3 = $("#day").val();
+										if(birth2<10){
+											birth2='0'+birth2;
+										}
+										if(birth3<10){
+											birth3='0'+birth3;
+										}
+
+										$("input[name='birthDay']").val(birth1 + birth2 + birth3);
+										
+									});
+							
 						});
+						
 						
 					</script>
 				</td>
 			</tr>
 			<tr>
 				<td><h6> * Gender </h6></td>
-				<td><input type="radio" name="gender" value="1" required>&nbsp;&nbsp;male&nbsp;&nbsp;<input type="radio" name="gender" value="2">&nbsp;&nbsp;female</td>
+				<td><input type="radio" name="gender" value="1" required/>&nbsp;&nbsp;male&nbsp;&nbsp;<input type="radio" name="gender" value="2">&nbsp;&nbsp;female</td>
 			</tr>
 			<tr>
-				<td><h6> E-Mail </h6></td>
-				<td><input type="email" name="email"></td>
+				<td><h6> * E-Mail </h6></td>
+				<td><input type="email" name="email" id="email" required/><div id="email_check"></div></td>
 			</tr>
 			<tr>
 				<td><h6> Phone-Number </h6></td>
-				<td><input type="tel" name="phone"></td>
+				<td><input type="tel" name="phone"/></td>
             </tr>			
 			<tr>
 				<td><h6>Profile IMG</h6></td>
-				<td><input type="file" name="photo"></td>
+				<td><input type="file" name="photo"/></td>
 			</tr>
 			
 		</table>
 		<br><br>
-		<div align="center" style="margin-top:20px;">
-                <input id="submit"  type="submit" disabled="true" value="ENROLL"  style="color: white; background-color: gray; outline-style: outset;   margin-top: 15px; font-size: 20px; box-shadow: 0px 0px 0px 0px;">
-		</div>
+		<div class="view-more-button text-center" align="center">
+                <input type="submit" id="submit" style="margin-top:10px; cursor:pointer;" value="ENROLL" class="btn razo-btn mt-50"></a>
+        </div>
 	</form>
 	
 	<script type="text/javascript">
 		//아이디 중복 체크, 유효성 검사
 		$("#userId").blur(function(){
 			var userId = $('#userId').val();
-			//
 			var idReg = /^[a-zA-Z]+[a-z0-9A-Z]{3,19}$/g;
 			if( !idReg.test( userId ) ) {
 				$("#id_check").css("color","rgb(221, 35, 121)")
@@ -404,8 +427,22 @@
 		});
 		
 		
-		
-	 
+		$("#email").blur(function() {
+			var email = $("#email").val();
+
+		    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+		    if (!regExp.test(email)){
+		    	$("#email_check").css("color","rgb(221, 35, 121)")
+				$("#email_check").html("이메일을 정확히 입력하세요!");
+				$("#submit").attr("disabled", "disabled");
+				$('#email').val("");
+				$('#email').focus();
+		    }
+
+		});
+
+
 	</script>
 
 

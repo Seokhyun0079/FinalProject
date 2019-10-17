@@ -55,10 +55,11 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div class="razo-social-share-area" style="color : white; background: #5a6268">
-    라조육 이사이<br>
-    킹킹킹 킹인석<br>
-
+<div id = "my-list-div" class="razo-social-share-area" style="width : 20%; color : white; background: #5a6268; opacity: 0;">
+    <br>my List<br><br>
+    <audio controls="controls">
+        <source src="/TunaMusic/resources/upload/${article.fileName}" type="audio/mp3" />
+    </audio>
 </div>
 <!-- Social Share Area End -->
 
@@ -151,7 +152,7 @@
                             </ul>
 
                             <!-- Share Icon -->
-                            <div class="social-share-icon">
+                            <div id="list-button" class="social-share-icon">
                                 <i class="social_share"></i>
                             </div>
 
@@ -159,8 +160,8 @@
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
                             <i class="icon_search"></i>
                         </div>
-                            <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                <i class="">+</i>
+                            <div class="search-icon" >
+                                <i id ="add-my-music" class="">+</i>
                             </div>
                         </div>
                         <!-- Nav End -->
@@ -242,7 +243,7 @@
                         </div>
                     </div>
                     <div class="comment_area mb-50 clearfix">
-                        <h5 class="title">12 Comments</h5>
+                        <h5 class="title">${article.commentCount} Comments</h5>
 
                         <ol id="comment-list">
                             <!-- Single Comment Area -->
@@ -264,7 +265,7 @@
                                     <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="test">
+                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${sessionScope.loginUser.userId}">
                                 </div>
                                 <div class="col-lg-12">
                                     <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
@@ -460,5 +461,18 @@
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 <script src="/TunaMusic/resources/js/comment.js"></script>
+<script src="/TunaMusic/resources/js/mylist.js"></script>
+<script>
+    var zeroTenFive = -0.5;
+    var opacity = 0.5;
+    $(function () {
+            $("#list-button").click(function(){
+                $('#my-list-div').css('opacity', opacity);
+                opacity += zeroTenFive;
+                zeroTenFive *= -1;
+            });
+        }
+    );
+</script>
 </body>
 </html>
