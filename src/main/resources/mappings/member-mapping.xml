@@ -7,7 +7,6 @@
 
 <resultMap id="memberResultSet" type="member">
 		<id column="ID" property="userId"/>
-		<result column="PASSWORD" property="userPwd"/>
 		<result column="NAME" property="userName"/>
 		<result column="NICKNAME" property="nickName"/>
 		<result column="BIRTH" property="birthDay"/>
@@ -19,6 +18,12 @@
 		<result column="UPDATEDATE" property="updatedate"/>
 		<result column="GRADE" property="grade"/>
 		<result column="STATUS" property="status"/>
+</resultMap>
+<resultMap id="memberPwResultSet" type="member">
+		<id column="ID" property="userId"/>
+		<result column="NAME" property="userName"/>
+		<result column="PASSWORD" property="userPwd"/>
+		<result column="EMAIL" property="email"/>
 </resultMap>
 
 <insert id="insertMember">
@@ -43,6 +48,19 @@
 	WHERE ID = #{ userId } AND STATUS = 'Y'
 </select>
 
-	
-	
+<select id="findId" parameterType="Member" resultMap="memberResultSet">
+	SELECT ID FROM MEMBER
+	WHERE NAME = #{ userName } AND EMAIL = #{ email } AND STATUS = 'Y'
+</select>
+
+<select id="findPW" parameterType="Member" resultMap="memberPwResultSet">
+	SELECT * FROM MEMBER
+	WHERE NAME = #{ userName } AND EMAIL = #{ email } AND ID = #{ userId } AND STATUS = 'Y'
+</select>
+
+<update id="updatePW" parameterType="Member">
+	UPDATE MEMBER
+	SET PASSWORD = #{ userPwd } WHERE ID = #{ userId } AND NAME = #{ userName } AND EMAIL = #{ email } AND STATUS = 'Y'
+</update>
+
 </mapper>

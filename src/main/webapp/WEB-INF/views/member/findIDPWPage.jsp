@@ -10,37 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Title -->
-    <title>TUNA MUSIC | LOG-IN PAGE</title>
+    <title>TUNA MUSIC | FIND PW PAGE</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
-    
+   
     <style type="text/css">
-	/*로그아웃, 마이페이지 드롭다운*/
-	#user-icon li ul {
-			background: rgb(109,109,109);
-			display:none;  
-			height:auto;
-			padding-bottom:10px;
-			margin:0px;
-			border:0px;
-			position:absolute;
-			width:120px;
-			z-index:200;
+	    .findfont::placeholder {
+			  color: rgb(221, 35, 121);
+			  font-size: 12pt;
 		}
-		
-	#user-icon li:hover ul {
-		display:block;   
-	}
-	</style>
-	<script type="text/javascript">
-		/*비밀번호 찾기 후 alert(findPW.getUserName()+"님의 이메일로 임시 비밀번호를 발송하였습니다!)*/
-		var message = '${Msg}';
-		if(message != "")
-		alert(message);
-	</script>
+    </style>
+    
     
 </head>
 
@@ -86,7 +69,7 @@
 	            <div class="modal-content" style="width: 400px; height: 300px; margin-left: 30%; ">
 	                <div class="modal-body" style="position: relative; background-color: rgb(25, 25, 25); padding: 10px;">
 	                    <h1 style="color: white; padding-left: 23%">TUNA MUSIC</h1>
-	                    <form action="login.do" method="post" style="width: 100%; margin-top: 15px;">
+	                    <form action="login/login.do" method="post" style="width: 100%; margin-top: 15px;">
 	                        <input type="text" name="userId" style="width: 80%; margin-left: 40px; margin-bottom: 8px" placeholder="ID">
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
@@ -239,39 +222,45 @@
             </div>
         </div>
     </header>
-    <!-- Header Area End -->
-	<section class="welcome-area">
+    <section class="welcome-area">
         <!-- Single Welcome Slide -->
-        <div style="background-image: url(/TunaMusic/resources/img/bg-img/1.jpg);">
+        <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(/TunaMusic/resources/img/bg-img/1.jpg);">
             <!-- Welcome Content -->
             <div class="welcome-content h-100">
                     <div class="row h-100 align-items-center justify-content-center">
                         <!-- Welcome Text -->
-                        <div class="col-12 col-md-9 col-lg-6">
-                            <div class="welcome-text text-center">
-                                <br><br><br><br><br>
+                        <div style="width:100%;">
+                            <div class="welcome-text text-center" style="display: inline;">
 							    <h1 align="center" style="color:white;">TUNA MUSIC</h1>
-							    <form action="login.do" method="post" align="center" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
-							        <input type="text" name="userId" placeholder="ID" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
-							        <input type="password" name="userPwd" placeholder="PW" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
+							    <span style="float:left; margin-left: 20%; margin-top: 50px; width: 30%;">
+							    <h3 align="center" style="color:white;">FIND ID</h3>
+							    <form method="post" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
+							        <input type="text" id="name1" name="userName" class="findfont" placeholder="NAME" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/>
+							        <input type="email" id="email1" name="email" class="findfont" placeholder="EMAIL" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/><div id="email_check1"></div><BR>
 							        <br>
-							        <div class="view-more-button text-center">
-							                        <input type="submit" style="margin-top:20px; cursor:pointer;" value="LOGIN" class="btn razo-btn mt-50"></a>
-							        </div>
-							        <br>
-							        <div>
-							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:white;">FORGOT ID/PW?</a></div>
-							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:white;" >SIGN-UP</a></div><br>
-							        </div>
+							        <div class="welcome-text text-center">
+		                                <input type="submit" id="submit1" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms" value="FIND!" style="font-size: 16px;"/>
+		                            </div>
 							    </form>
+							    </span>
+							    <span style="float:right; margin-right: 20%; margin-top: 50px; width: 30%;">
+							    <h3 align="center" style="color:white;">FIND PW</h3>
+							    <form action="findPW.do" method="post" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
+							        <input type="text" id="name2" name="name2" class="findfont" placeholder="NAME" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/>
+							        <input type="text" id="userId2" name="id2" class="findfont" placeholder="ID" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/><BR>
+							        <input type="email" id="email2" name="email2" class="findfont" placeholder="EMAIL" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/><div id="email_check2"></div><BR>
+							        <br>
+							        <div class="welcome-text text-center">
+		                                <input type="submit" id="submit2" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms" value="FIND!" style="font-size: 16px;"/>
+		                            </div>
+							    </form>
+							    </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
     </section>
-        
-    
 
 
     <!-- All JS Files -->
@@ -286,6 +275,69 @@
 	<script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 	<!-- Active -->
 	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+	
+	<script type="text/javascript">
+
+	$("#email1").blur(function() {
+		var email1 = $("#email1").val();
+
+	    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	    $("#submit1").removeAttr("disabled");
+	    if (!regExp.test(email1)){
+	    	$("#email_check1").css("color","rgb(221, 35, 121)")
+			$("#email_check1").html("이메일을 정확히 입력하세요!");
+			$("#submit1").attr("disabled", "disabled");
+			$('#email1').val("");
+	    }
+
+	});
+	
+	$("#email2").blur(function() {
+		var email2 = $("#email2").val();
+
+	    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	    $("#submit1").removeAttr("disabled");
+	    if (!regExp.test(email2)){
+	    	$("#email_check2").css("color","rgb(221, 35, 121)")
+			$("#email_check2").html("이메일을 정확히 입력하세요!");
+			$("#submit2").attr("disabled", "disabled");
+			$('#email2').val("");
+	    }
+
+	});
+	
+	// FIND ID AJAX
+	$('#submit1').click(function(){
+		var name = $('#name1').val();
+		var email = $('#email1').val();
+		
+		
+		$.ajax({
+			url : 'findID.do',
+			type : "POST",
+			data:{
+				name : name,
+				email : email
+			},
+			dataType:"JSON",
+			async: false,
+			success : function(data){
+				console.log(data.msg);
+				alert(data.msg);
+			}
+			 
+		});
+	});
+	
+			
+	var message = '${Msg}';
+	if(message != "")
+	alert(message);
+
+	
+
+	
+	</script>	
 
 </body>
 

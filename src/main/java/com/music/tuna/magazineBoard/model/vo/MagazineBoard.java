@@ -9,83 +9,97 @@ public class MagazineBoard {
 	  CREATE_DATE DATE,
 	  STATUS VARCHAR2(1) DEFAULT 'Y' CHECK (STATUS IN('Y', 'N')),
 	  MCOUNT NUMBER DEFAULT 0,
-	  MPICTURE VARCHAR2(100)*/
+	  MPICTURE VARCHAR2(100)
+	  NUMBER MSEQ
+	  */
 	
-	private String MTITLE;		//제목
-	private String MCONTENT;	//내용
-	private Date CREATEDATE;	//작성일
-	private String STATUS;		//상태
-	private int MCOUNT;			//조회수
-	private String MPICTURE; 	//사진
+	private String mtitle;		//제목
+	private String mcontent;	//내용
+	private Date createdate;	//작성일
+	private String status;		//상태
+	private int mcount;			//조회수
+	private String mpicture; 	//사진
+	private int mseq;
 	
 	public MagazineBoard(){}
 
-	public MagazineBoard(String mTITLE, String mCONTENT, Date cREATEDATE, String sTATUS, int mCOUNT, String mPICTURE) {
+	public MagazineBoard(String mtitle, String mcontent, Date createdate, String status, int mcount, String mpicture,
+			int mseq) {
 		super();
-		MTITLE = mTITLE;
-		MCONTENT = mCONTENT;
-		CREATEDATE = cREATEDATE;
-		STATUS = sTATUS;
-		MCOUNT = mCOUNT;
-		MPICTURE = mPICTURE;
+		this.mtitle = mtitle;
+		this.mcontent = mcontent;
+		this.createdate = createdate;
+		this.status = status;
+		this.mcount = mcount;
+		this.mpicture = mpicture;
+		this.mseq = mseq;
 	}
 
-	public String getMTITLE() {
-		return MTITLE;
+	public String getMtitle() {
+		return mtitle;
 	}
 
-	public void setMTITLE(String mTITLE) {
-		MTITLE = mTITLE;
+	public void setMtitle(String mtitle) {
+		this.mtitle = mtitle;
 	}
 
-	public String getMCONTENT() {
-		return MCONTENT;
+	public String getMcontent() {
+		return mcontent;
 	}
 
-	public void setMCONTENT(String mCONTENT) {
-		MCONTENT = mCONTENT;
+	public void setMcontent(String mcontent) {
+		this.mcontent = mcontent;
 	}
 
-	public Date getCREATEDATE() {
-		return CREATEDATE;
+	public Date getCreatedate() {
+		return createdate;
 	}
 
-	public void setCREATEDATE(Date cREATEDATE) {
-		CREATEDATE = cREATEDATE;
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
 	}
 
-	public String getSTATUS() {
-		return STATUS;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setSTATUS(String sTATUS) {
-		STATUS = sTATUS;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public int getMCOUNT() {
-		return MCOUNT;
+	public int getMcount() {
+		return mcount;
 	}
 
-	public void setMCOUNT(int mCOUNT) {
-		MCOUNT = mCOUNT;
+	public void setMcount(int mcount) {
+		this.mcount = mcount;
 	}
 
-	public String getMPICTURE() {
-		return MPICTURE;
+	public String getMpicture() {
+		return mpicture;
 	}
 
-	public void setMPICTURE(String mPICTURE) {
-		MPICTURE = mPICTURE;
+	public void setMpicture(String mpicture) {
+		this.mpicture = mpicture;
+	}
+
+	public int getMseq() {
+		return mseq;
+	}
+
+	public void setMseq(int mseq) {
+		this.mseq = mseq;
 	}
 
 	@Override
 	public String toString() {
-		return "MagazineBoard [MTITLE=" + MTITLE + ", MCONTENT=" + MCONTENT + ", CREATEDATE=" + CREATEDATE + ", STATUS="
-				+ STATUS + ", MCOUNT=" + MCOUNT + ", MPICTURE=" + MPICTURE + "]";
+		return "MagazineBoard [mtitle=" + mtitle + ", mcontent=" + mcontent + ", createdate=" + createdate + ", status="
+				+ status + ", mcount=" + mcount + ", mpicture=" + mpicture + ", mseq=" + mseq + "]";
 	}
 	
 	
 	
-	
+
+
 
 }

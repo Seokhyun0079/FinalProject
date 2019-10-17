@@ -1,4 +1,4 @@
-package com.music.tuna.common.interceptor;
+/*package com.music.tuna.common.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,4 +44,4 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 
 	
 	
-}
+}*/
