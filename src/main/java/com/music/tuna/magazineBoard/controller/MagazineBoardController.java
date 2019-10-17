@@ -69,6 +69,9 @@ public class MagazineBoardController {
 		 return mv;
 	 }
 	 
+
+	 
+	 
 	 
 
 

@@ -45,6 +45,19 @@
 	
 	</select>
 	
+	<!-- <select id="deleteMagazine">
+	delete from MBOARD
+	where mseq = #{mseq}
+	</select> -->
+	
+<!-- 	<select id="keySearch" parameterMap="mSearch">
+	
+	select * from MBOARD
+	where mtitle LIKE '%' || '${keyword}' || '%'
+	
+	</select> -->
+	
+	
 <!--  MTITLE VARCHAR2(100), 
 	  MCONTENT VARCHAR2(4000), 
 	  CREATE_DATE DATE,
