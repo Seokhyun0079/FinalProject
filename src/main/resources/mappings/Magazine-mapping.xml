@@ -19,12 +19,13 @@
 	</select>
 	
 	<resultMap type="MagazineBoard" id="MagazineResultSet">
-		<result column="MTITLE" property="MTITLE"/>
-		<result column="MCONTENT" property="MCONTENT"/>
-		<result column="CREATE_DATE " property="CREATEDATE "/>
-		<result column="STATUS" property="STATUS"/>
-		<result column="MCOUNT" property="MCOUNT"/>
-		<result column="MPICTURE" property="MPICTURE"/>
+		<result column="MTITLE" property="mtitle"/>
+		<result column="MCONTENT" property="mcontent"/>
+		<result column="CREATE_DATE" property="createdate"/>
+		<result column="STATUS" property="status"/>
+		<result column="MCOUNT" property="mcount"/>
+		<result column="MPICTURE" property="mpicture"/>
+		<result column="MSEQ" property="mseq"/>
 	</resultMap>
 	
 	<select id="selectBoard" resultMap="MagazineResultSet">
