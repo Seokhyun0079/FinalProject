@@ -225,10 +225,10 @@
                                 		<a href="${ mdetail }"><h3>${m.mtitle}</h3></a><!-- *제목 -->
         
                                 		<div class="event-meta">
-                                    		<a class="event-date"><i class="icon_calendar"></i>날짜 받아와야해</a><!-- *날짜 -->
+                                    		<a class="event-date">${m.createdate}</a><!-- *날짜 -->
                                     		
                                     		
-                                    		<a class="event-address"><i class="icon_pin_alt"></i>${m.mcount} 조회수</a>				<!-- *조회수 -->
+                                    		<a class="event-address">view ${m.mcount}</a>				<!-- *조회수 -->
                                     		<br>
                                     		 
     

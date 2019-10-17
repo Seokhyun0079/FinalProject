@@ -22,7 +22,7 @@
 	
 	<result column="MTITLE" property="mtitle"/>
 	<result column="MCONTENT" property="mcontent"/>
-	<result column="CREATE_DATE " property="createdate"/>
+	<result column="CREATE_DATE" property="createdate"/>
 	<result column="STATUS" property="status"/>
 	<result column="MCOUNT" property="mcount"/>
 	<result column="MPICTURE" property="mpicture"/>

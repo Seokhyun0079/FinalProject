@@ -185,7 +185,7 @@
                     <div class="post-title-text">
                         <h2>${MagazineBoard.mtitle}</h2>
 
-                            <a style="color: white;">날짜 가져와^^</a>&nbsp;
+                            <a style="color: white;">${MagazineBoard.createdate}</a>&nbsp;
                             <a style="color: white;">|</a>&nbsp;
                             <a style="color: white;">view ${MagazineBoard.mcount}</a>
                     </div>
