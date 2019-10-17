@@ -55,13 +55,11 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div class="razo-social-share-area">
-    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-    <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
-    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-    <a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a>
-    <a href="#" class="ss-close-btn"><i class="arrow_right"></i></a>
+<div id = "my-list-div" class="razo-social-share-area" style="width : 20%; color : white; background: #5a6268; opacity: 0;">
+    <br>my List<br><br>
+    <audio controls="controls">
+        <source src="/TunaMusic/resources/upload/${article.fileName}" type="audio/mp3" />
+    </audio>
 </div>
 <!-- Social Share Area End -->
 
@@ -154,13 +152,16 @@
                             </ul>
 
                             <!-- Share Icon -->
-                            <div class="social-share-icon">
+                            <div id="list-button" class="social-share-icon">
                                 <i class="social_share"></i>
                             </div>
 
                             <!-- Search Icon -->
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                <i class="icon_search"></i>
+                            <i class="icon_search"></i>
+                        </div>
+                            <div class="search-icon" >
+                                <i id ="add-my-music" class="">+</i>
                             </div>
                         </div>
                         <!-- Nav End -->
@@ -242,63 +243,11 @@
                         </div>
                     </div>
                     <div class="comment_area mb-50 clearfix">
-                        <h5 class="title">12 Comments</h5>
+                        <h5 class="title">${article.commentCount} Comments</h5>
 
                         <ol id="comment-list">
                             <!-- Single Comment Area -->
-                            <li class="single_comment_area">
-                                <!-- Comment Content -->
-                                <div class="comment-content d-flex">
-                                    <!-- Comment Author -->
-                                    <div class="comment-author">
-                                        <img src="/TunaMusic/resources/img/bg-img/15.jpg" alt="author">
-                                    </div>
-                                    <!-- Comment Meta -->
-                                    <div class="comment-meta">
-                                        <a href="#" class="author-name">Brandon Kelley <span class="post-date">- May 14, 2018</span></a>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        <a href="#" class="like">Like</a>
-                                        <a href="#" class="reply">Reply</a>
-                                    </div>
-                                </div>
-
-                                <ol class="children">
-                                    <li class="single_comment_area">
-                                        <!-- Comment Content -->
-                                        <div class="comment-content d-flex">
-                                            <!-- Comment Author -->
-                                            <div class="comment-author">
-                                                <img src="/TunaMusic/resources/img/bg-img/16.jpg" alt="author">
-                                            </div>
-                                            <!-- Comment Meta -->
-                                            <div class="comment-meta">
-                                                <a href="#" class="author-name">Milley Cyrus <span class="post-date">- May 20, 2018</span></a>
-                                                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                <a href="#" class="like">Like</a>
-                                                <a href="#" class="reply">Reply</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ol>
-                            </li>
-
                             <!-- Single Comment Area -->
-                            <li class="single_comment_area">
-                                <!-- Comment Content -->
-                                <div class="comment-content d-flex">
-                                    <!-- Comment Author -->
-                                    <div class="comment-author">
-                                        <img src="/TunaMusic/resources/img/bg-img/17.jpg" alt="author">
-                                    </div>
-                                    <!-- Comment Meta -->
-                                    <div class="comment-meta">
-                                        <a href="#" class="author-name">John Tyler <span class="post-date">- May 28, 2018</span></a>
-                                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.</p>
-                                        <a href="#" class="like">Like</a>
-                                        <a href="#" class="reply">Reply</a>
-                                    </div>
-                                </div>
-                            </li>
                         </ol>
                     </div>
                     <!-- Leave A Reply -->
@@ -316,7 +265,7 @@
                                     <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
                                 </div>
                                 <div class="col-lg-12">
-                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="test">
+                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${sessionScope.loginUser.userId}">
                                 </div>
                                 <div class="col-lg-12">
                                     <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
@@ -512,5 +461,18 @@
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 <script src="/TunaMusic/resources/js/comment.js"></script>
+<script src="/TunaMusic/resources/js/mylist.js"></script>
+<script>
+    var zeroTenFive = -0.5;
+    var opacity = 0.5;
+    $(function () {
+            $("#list-button").click(function(){
+                $('#my-list-div').css('opacity', opacity);
+                opacity += zeroTenFive;
+                zeroTenFive *= -1;
+            });
+        }
+    );
+</script>
 </body>
 </html>

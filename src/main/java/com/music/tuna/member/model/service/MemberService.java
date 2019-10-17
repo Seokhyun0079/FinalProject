@@ -9,4 +9,12 @@ public interface MemberService {
 
 	boolean duplicateCheck(String userId);
 
+	Member loginMember(Member m);
+
+	Member findId(String name, String email);
+
+	Member findPW(Member findPW);
+
+	int updatePW(Member findPW);
+
 }
