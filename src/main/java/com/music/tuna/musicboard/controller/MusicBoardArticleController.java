@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
@@ -18,7 +19,8 @@ public class MusicBoardArticleController {
     @Autowired
     MusicBoardArticleService musicBoardArticleService;
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.GET)
-    public String  insertArticleGet(){
+    public String  insertArticleGet(HttpSession httpSession){
+        System.out.println(httpSession.getAttribute("loginUser"));
         return "/musicBoard/write";
     }
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.POST)

@@ -15,12 +15,37 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<!-- intercept bean 등록 (로그인 관련) -->
-	<bean id="loginInterceptor" class="com.music.tuna.common.interceptor.LoginInterceptor"/>
+
+	<!-- <bean id="loginInterceptor" class="com.music.tuna.common.interceptor.LoginInterceptor"/>
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/member/login/**"/>
 			<ref bean="loginInterceptor"/>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
+	
+	<!-- gmail -->
+    <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="username" value="kmbin92@gmail.com" />
+        <property name="password" value="asdf8520!" />
+       
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.auth">true</prop>
+               
+               
+            </props>
+        </property>
+       
+    </bean>
+    <bean id="email" class="com.music.tuna.email.Email">
+    </bean>
+    <bean id="emailSender" class="com.music.tuna.email.EmailSender">
+    </bean>
+
+
 </beans>

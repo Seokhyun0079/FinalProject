@@ -35,6 +35,12 @@
 		display:block;   
 	}
 	</style>
+	<script type="text/javascript">
+		/*비밀번호 찾기 후 alert(findPW.getUserName()+"님의 이메일로 임시 비밀번호를 발송하였습니다!)*/
+		var message = '${Msg}';
+		if(message != "")
+		alert(message);
+	</script>
     
 </head>
 
@@ -85,7 +91,7 @@
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
 	                        <div style="float: right;">
-	                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;">FORGOT PW?</a></div>
+	                            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:gray;">FORGOT PW?</a></div>
 	                            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
 	                        </div>
 	                    </form>
@@ -234,39 +240,39 @@
         </div>
     </header>
     <!-- Header Area End -->
-    <br><br><br><br><br><br>
-    <h1 align="center">TUNA MUSIC</h1>
-    <form action="login.do" method="post" align="center" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
-        <input type="text" name="userId" placeholder="ID" style="width: 20%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
-        <input type="password" name="userPwd" placeholder="PW" style="width: 20%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
-        <br>
-        <h6 style="color: gray;">&nbsp아이디와 비밀번호가 일치하지 않습니다.</h6>
-        <input type="submit" value="LOGIN" style="cursor:pointer; font-weight: bold ;border:none;background-color: white; color: rgb(221, 35, 121); padding-left: 10px;padding-right: 10px; font-size: 35px; box-shadow: 0px 0px 0px 0px; margin-top: 25px; margin-bottom: 25px;">
-        <br>
-        <div>
-            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;">FORGOT PW?</a></div>
-            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:gray;" >SIGN-UP</a></div><br>
-        </div>
-    </form>
-	
-	<footer style="margin-bottom: 0;">
-        <!-- Copywrite Text -->
-        <div class="copywrite-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Copywrite Text -->
-                        <div class="copywrite-text">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	<section class="welcome-area">
+        <!-- Single Welcome Slide -->
+        <div style="background-image: url(/TunaMusic/resources/img/bg-img/1.jpg);">
+            <!-- Welcome Content -->
+            <div class="welcome-content h-100">
+                    <div class="row h-100 align-items-center justify-content-center">
+                        <!-- Welcome Text -->
+                        <div class="col-12 col-md-9 col-lg-6">
+                            <div class="welcome-text text-center">
+                                <br><br><br><br><br>
+							    <h1 align="center" style="color:white;">TUNA MUSIC</h1>
+							    <form action="login.do" method="post" align="center" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
+							        <input type="text" name="userId" placeholder="ID" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
+							        <input type="password" name="userPwd" placeholder="PW" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
+							        <br>
+							        <div class="view-more-button text-center">
+							                        <input type="submit" style="margin-top:20px; cursor:pointer;" value="LOGIN" class="btn razo-btn mt-50"></a>
+							        </div>
+							        <br>
+							        <div>
+							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:white;">FORGOT ID/PW?</a></div>
+							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:white;" >SIGN-UP</a></div><br>
+							        </div>
+							    </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Footer Area End -->
+    </section>
+        
+    
+
 
     <!-- All JS Files -->
 

@@ -14,14 +14,12 @@ import com.music.tuna.util.SqlSessionFactoryBean;
 @Repository
 public class MagazineBoardDAO {
 
-	SqlSession sqlSession = SqlSessionFactoryBean.getSqlSessionInstance();
-	
-	
-	
+	private SqlSession sqlSession;
+	public MagazineBoardDAO(){
+		this.sqlSession = SqlSessionFactoryBean.getSqlSessionInstance();
+	}
 	public int getListCount() {
 		return sqlSession.selectOne("Magazinemapper.getListCount");
-	
-		
 	}
 
 	public ArrayList<MagazineBoard> selectList(PageInfo pi) {
