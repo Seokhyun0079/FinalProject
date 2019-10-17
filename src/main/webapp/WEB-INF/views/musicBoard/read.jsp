@@ -57,9 +57,10 @@
 <!-- Social Share Area Start -->
 <div id = "my-list-div" class="razo-social-share-area" style="width : 20%; color : white; background: #5a6268; opacity: 0;">
     <br>my List<br><br>
-    <audio controls="controls">
+    <audio id="my-list-player" controls="controls">
         <source src="/TunaMusic/resources/upload/${article.fileName}" type="audio/mp3" />
     </audio>
+    <div > 여기 클릭</div>
 </div>
 <!-- Social Share Area End -->
 
@@ -471,8 +472,15 @@
                 opacity += zeroTenFive;
                 zeroTenFive *= -1;
             });
-        }
-    );
+    });
+    function myListClickEvent(fileName){
+        $('#my-list-player').attr('src', '/TunaMusic/resources/upload/'+fileName);
+        document.getElementById('my-list-player').play();
+        $(audio).on('ended', function(){
+            $('#next').trigger('click');
+        });
+
+    };
 </script>
 </body>
 </html>
