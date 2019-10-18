@@ -203,7 +203,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="audio-player">
-                    <audio preload="auto" controls>
+                    <audio id="music-player" preload="auto" controls>
                         <source src="/TunaMusic/resources/upload/${article.fileName}">
                     </audio>
                 </div>
@@ -270,6 +270,9 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input id="file-name" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.fileName}" hidden>
                                 </div>
                             </div>
                     </div>
@@ -475,12 +478,10 @@
             });
     });
     function myListClickEvent(fileName, index, length){
-        console.log("playingIndex " + playingIndex);
-        console.log("index " + index);
+
         $("#"+playingIndex).css('font-size', 14);
         $("#"+index).css('font-size', 20);
         playingIndex = index;
-
         $('#my-list-player').attr('src', '/TunaMusic/resources/upload/'+fileName);
         document.getElementById('my-list-player').play();
         $("#my-list-player").on('ended', function(){
