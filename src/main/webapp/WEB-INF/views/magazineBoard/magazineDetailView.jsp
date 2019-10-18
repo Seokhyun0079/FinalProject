@@ -224,7 +224,7 @@
        			 <div class="col-12" align="center">
        			 <%-- <c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 --> --%>
                     <input type="button" onclick="location.href='#'" class="btn razo-btn btn-3 mt-15" value="수정" > 
-                    <input type="button" onclick="location.href='#'" class="btn razo-btn btn-3 mt-15" value="삭제" > 
+                    <input type="button" onclick="location.href='mdelete.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="삭제" > 
                  <%-- </c:if>  --%>
                  </div>
 

@@ -16,6 +16,8 @@ public interface MagazineBoardService {
 
 	MagazineBoard selectboard(int mseq);
 
+	public int deletePost(int mseq);
+
 	
 
 	

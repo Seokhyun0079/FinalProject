@@ -32,6 +32,15 @@ public class MagazineBoardServiceImpl implements MagazineBoardService {
 		return mDAO.selectBoard(mseq);
 	}
 
+	@Override
+	public int deletePost(int mseq) {
+		
+		return mDAO.deletePost(mseq);
+	}
+
+
+
+
 
 	
 }

@@ -43,10 +43,10 @@
 	
 	</select>
 	
-	<!-- <select id="deleteMagazine">
+	<delete id="deleteMagazine">
 	delete from MBOARD
 	where mseq = #{mseq}
-	</select> -->
+	</delete>
 	
 <!-- 	<select id="keySearch" parameterMap="mSearch">
 	

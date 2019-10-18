@@ -40,8 +40,6 @@ public class MagazineBoardController {
 	  .setViewName("magazineBoard/magazineListView");
 	  
 	  }
-
-	  // return "magazineBoard/magazineListView"; 
 	  
 	  return mv;	  
 	  }
@@ -69,9 +67,17 @@ public class MagazineBoardController {
 		 return mv;
 	 }
 	 
+	 @RequestMapping("mdelete.do")
+	 public String mdelete(@RequestParam(value="mseq") int mseq) {
+		
+		 mService.deletePost(mseq);
+		 
+		 return "redirect:magazine.do";
+		 
+	 }
 
 	 
-	 
+
 	 
 
 

@@ -39,6 +39,12 @@ public class MagazineBoardDAO {
 		
 		return sqlSession.selectOne("Magazinemapper.selectBoard", mseq);
 	}
+	
+	public int deletePost(int mseq) {
+		
+		return sqlSession.delete("Magazinemapper.deleteMagazine", mseq);
+	}
+	
 
 
 
