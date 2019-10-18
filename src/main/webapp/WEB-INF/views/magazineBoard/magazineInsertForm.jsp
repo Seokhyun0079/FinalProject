@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,13 +42,12 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-10 col-xl-9">
 
-                        <!-- Leave A Reply -->
+                        
                         <div class="razo-contact-form">
                             <h2 class="mb-4">Write a post</h2>
 
                             <!-- Form -->
-                            <form action="#" method="post">
-                          
+                            <form action="minsert.do" method="post" enctype="Multipart/form-data">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <input type="text" name="message-name" class="form-control mb-30" placeholder="제목 입력">
@@ -60,20 +60,27 @@
                                         <input type="file" name="message-name" class="form-control mb-30" style="background-color: pink">
                                     </div>
                                     
-                                    <div class="col-12" colspan="2" align="center"> 
+                                       <div class="col-12" colspan="2" align="center"> 
                                         <button type="submit" class="btn razo-btn btn-3 mt-15">Post</button> 
-                                        <button onclick="location.href=''" class="btn razo-btn btn-3 mt-15">back</button> 
+                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
                                     </div>
+                                       
+                                       
                                 </div>
-                          
-                               
-                            </form>
+                                 
+                          </form>
+                            
                         </div>
                         
                     </div>
+                    
                 </div>
+                
             </div>
+          
         </div>
+        
+        
     </section>
     <!-- *게시글 쓰기 양식 끝 -->
     

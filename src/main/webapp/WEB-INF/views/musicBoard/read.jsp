@@ -55,10 +55,12 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div class="razo-social-share-area" style="color : white; background: #5a6268">
-    라조육 이사이<br>
-    킹킹킹 킹인석<br>
-
+<div id = "my-list-div" class="razo-social-share-area" style="width : 20%; color : white; background: #5a6268; opacity: 0;">
+    <br>my List<br><br>
+    <audio id="my-list-player" controls="controls">
+        <source src="/TunaMusic/resources/upload/${article.fileName}" type="audio/mp3" />
+    </audio>
+    <div > 여기 클릭</div>
 </div>
 <!-- Social Share Area End -->
 
@@ -151,7 +153,7 @@
                             </ul>
 
                             <!-- Share Icon -->
-                            <div class="social-share-icon">
+                            <div id="list-button" class="social-share-icon">
                                 <i class="social_share"></i>
                             </div>
 
@@ -159,7 +161,7 @@
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
                             <i class="icon_search"></i>
                         </div>
-                            <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+                            <div class="search-icon" >
                                 <i id ="add-my-music" class="">+</i>
                             </div>
                         </div>
@@ -461,5 +463,30 @@
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 <script src="/TunaMusic/resources/js/comment.js"></script>
 <script src="/TunaMusic/resources/js/mylist.js"></script>
+<script>
+    var zeroTenFive = -0.5;
+    var opacity = 0.5;
+    var playingIndex = 0;
+    $(function () {
+            $("#list-button").click(function(){
+                $('#my-list-div').css('opacity', opacity);
+                opacity += zeroTenFive;
+                zeroTenFive *= -1;
+            });
+    });
+    function myListClickEvent(fileName, index, length){
+        console.log("playingIndex " + playingIndex);
+        console.log("index " + index);
+        $("#"+playingIndex).css('font-size', 14);
+        $("#"+index).css('font-size', 20);
+        playingIndex = index;
+
+        $('#my-list-player').attr('src', '/TunaMusic/resources/upload/'+fileName);
+        document.getElementById('my-list-player').play();
+        $("#my-list-player").on('ended', function(){
+            $('#'+(playingIndex+1 == length ? 0 : playingIndex+1)).trigger('click');
+        });
+    }
+</script>
 </body>
 </html>

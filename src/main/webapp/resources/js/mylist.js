@@ -4,7 +4,10 @@ $(function(){
         type : "GET",
         data :{},
         success : function(data){
-            console.log(data.test);
+            console.log(data);
+            for(var i = 0; i < data.result.length; i++){
+                $("#my-list-div").append('<div class="my-list-element" id="'+i+'" onclick="myListClickEvent(\''+data.result[i].fileName+'\','+i+', '+data.result.length+');">'+data.result[i].title+'</div>');
+            }
         }
     });
     $("#add-my-music").click(function(){
@@ -15,7 +18,7 @@ $(function(){
                 "articleNo" : $("#articleNo").val(),
             },
             success : function(data){
-                console.log("마이리스트 추가 성공");
+                alert("My List!");
             }
         });
     });

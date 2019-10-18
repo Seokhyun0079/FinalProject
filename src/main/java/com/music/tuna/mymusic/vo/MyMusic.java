@@ -1,17 +1,11 @@
 package com.music.tuna.mymusic.vo;
 
 public class MyMusic {
-    private int listNum;
     private String id;
     private int articleNo;
-
-    public int getListNum() {
-        return listNum;
-    }
-
-    public void setListNum(int listNum) {
-        this.listNum = listNum;
-    }
+    private String title;
+    private String text;
+    private String fileName;
 
     public String getId() {
         return id;
@@ -29,12 +23,38 @@ public class MyMusic {
         this.articleNo = articleNo;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     @Override
     public String toString() {
         return "MyMusic{" +
-                "listNum=" + listNum +
-                ", id='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", articleNo=" + articleNo +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", fileName='" + fileName + '\'' +
                 '}';
     }
 }
