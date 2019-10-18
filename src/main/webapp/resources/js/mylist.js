@@ -6,8 +6,7 @@ $(function(){
         success : function(data){
             console.log(data);
             for(var i = 0; i < data.result.length; i++){
-                $("#my-list-div").append('<div class="my-list-element" id="'+data.result[i].fileName+'" onclick="myListClickEvent(\''+data.result[i].fileName+'\');">'+data.result[i].title+'</div>'+'<br>');
-                console.log($("#my-list-div"));
+                $("#my-list-div").append('<div class="my-list-element" id="'+i+'" onclick="myListClickEvent(\''+data.result[i].fileName+'\','+i+', '+data.result.length+');">'+data.result[i].title+'</div>');
             }
         }
     });

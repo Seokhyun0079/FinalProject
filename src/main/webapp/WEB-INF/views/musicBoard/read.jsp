@@ -466,6 +466,7 @@
 <script>
     var zeroTenFive = -0.5;
     var opacity = 0.5;
+    var playingIndex = 0;
     $(function () {
             $("#list-button").click(function(){
                 $('#my-list-div').css('opacity', opacity);
@@ -473,14 +474,19 @@
                 zeroTenFive *= -1;
             });
     });
-    function myListClickEvent(fileName){
+    function myListClickEvent(fileName, index, length){
+        console.log("playingIndex " + playingIndex);
+        console.log("index " + index);
+        $("#"+playingIndex).css('font-size', 14);
+        $("#"+index).css('font-size', 20);
+        playingIndex = index;
+
         $('#my-list-player').attr('src', '/TunaMusic/resources/upload/'+fileName);
         document.getElementById('my-list-player').play();
-        $(audio).on('ended', function(){
-            $('#next').trigger('click');
+        $("#my-list-player").on('ended', function(){
+            $('#'+(playingIndex+1 == length ? 0 : playingIndex+1)).trigger('click');
         });
-
-    };
+    }
 </script>
 </body>
 </html>
