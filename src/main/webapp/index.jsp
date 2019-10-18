@@ -139,7 +139,7 @@
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="./index.jsp">- Home</a></li>
-                                        <li><a href="./charts.html">- Charts</a></li>
+                                        <li><a href="chart/chartView.do">- Charts</a></li>
                                         <li><a href="./single-charts.html">- Charts Details</a></li>
                                         <li><a href="./podcast.html">- Podcast</a></li>
                                         <li><a href="./single-podcast.html">- Podcast Details</a></li>
@@ -158,7 +158,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="./show.html">Shows</a></li>
-                                <li><a href="./charts.html">Charts</a></li>
+                                <li><a href="chart/chartView.do">Charts</a></li>
                                 <li><a href="./podcast.html">Podcasts</a></li>
                                 <li><a href="#">Mega</a>
                                     <div class="megamenu">
