@@ -240,7 +240,7 @@
                                     <span style="color: #DC2878"><font size="5">₩8900</font></span></h5>
                                 </div>
                                     <div class="event-purchase-button" style="position: absolute; top: 50%; right: 5%; transform: translate(-0%, -50%)" >
-                                        <a href="#"  class="btn razo-btn" onclick="window.open('./paypop.jsp','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-480)/2+',width=500px,height=480px')"><!-- <i class="icon_cart"></i>  -->구매</a>
+                                        <a href="#"  class="btn razo-btn" onclick="window.open('paypop.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-500)/2+',width=500px,height=500px')"><!-- <i class="icon_cart"></i>  -->구매</a>
                                     </div>
                                 </div>
                         </div>

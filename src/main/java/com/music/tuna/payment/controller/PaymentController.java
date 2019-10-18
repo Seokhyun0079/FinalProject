@@ -9,15 +9,19 @@ import com.music.tuna.payment.service.PaymentService;
 
 @Controller
 public class PaymentController {
-
-
 	
 	@RequestMapping(value="/payment.do")
 	public String payment() {
 		return "payment/payment";
 	}
 	
+	@RequestMapping(value="/paypop.do")
+	public String paypop() {
+		return "payment/paypop";
+	}
 	
-	
-	
+	@RequestMapping(value="/kakao.do")
+	public String paymentInfo() {
+		return "payment/kakaopay";
+	}
 }
