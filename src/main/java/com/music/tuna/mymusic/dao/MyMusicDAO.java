@@ -17,7 +17,6 @@ public class MyMusicDAO {
         return sqlSession.selectList("MyMusicDAO.selectMyMusicList", vo);
     }
     public void insertMyMusic(MyMusic vo){
-        vo.setListNum(getMusicMaximum(vo)+1);
         sqlSession.insert("MyMusicDAO.insertMyMusic", vo);
     }
     private int getMusicMaximum(MyMusic vo){
@@ -26,5 +25,4 @@ public class MyMusicDAO {
     public void commit(){
         sqlSession.commit();
     }
-
 }

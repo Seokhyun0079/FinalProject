@@ -4,16 +4,15 @@
 <mapper namespace="MyMusicDAO">
     <resultMap id="myMusicResult" type="myMusic">
         <id column="id" property="id"/>
-        <id column="list_num" property="listNum"/>
-        <result column="article_no" property="articleNo"/>
+        <id column="article_no" property="articleNo"/>
+        <result column="title" property="title"/>
+        <result column="text" property="text"/>
+        <result column="file_name" property="fileName"/>
     </resultMap>
     <select id="selectMyMusicList" resultMap="myMusicResult">
-        select * from my_music where id = #{id}
-    </select>
-    <select id="getMyMusicMaximum" resultType="int">
-        select nvl(max(list_num), 0) from my_music where id = #{id}
+      select * from (select * from my_music where id = #{id}) join musicboard_article using(article_no)
     </select>
     <insert id="insertMyMusic">
-        insert into my_music values(#{listNum}, #{id}, #{articleNo})
+        insert into my_music values(#{id}, #{articleNo})
     </insert>
 </mapper>

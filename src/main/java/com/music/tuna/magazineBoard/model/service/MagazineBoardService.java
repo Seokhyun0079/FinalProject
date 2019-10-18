@@ -13,6 +13,11 @@ public interface MagazineBoardService {
 	int getListCount();
 
 	ArrayList<MagazineBoard> selectList(PageInfo pi);
+
+	MagazineBoard selectboard(int mseq);
+
+	
+
 	
 
 
