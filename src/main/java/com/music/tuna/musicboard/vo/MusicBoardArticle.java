@@ -155,6 +155,8 @@ public class MusicBoardArticle {
                 ", uploadFile=" + uploadFile +
                 ", prev=" + prev +
                 ", next=" + next +
+                ", best=" + best +
+                ", bad=" + bad +
                 '}';
     }
 }
