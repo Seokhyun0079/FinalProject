@@ -35,6 +35,8 @@ create table musicboard_article(
     text varchar2(2000),
     file_name varchar2(200),
     read_count number(10),
+    best number(10),
+    bad number(10),
     CONSTRAINT FK_MEMBER FOREIGN KEY(id)
     REFERENCES member(id)
 );
@@ -60,11 +62,9 @@ create table musicboard_comment(
 );
 
 create table my_music(
-    list_num number(10),
     id varchar2(30),
     article_no number(10),
-    PRIMARY key (list_num, id)
-
+    PRIMARY key (article_no, id)
 );
 
 --크라우드 펀딩 테이블

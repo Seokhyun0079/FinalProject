@@ -10,6 +10,8 @@
         <result column="file_name" property="fileName"/>
         <result column="read_count" property="readCount"/>
         <result column="comment_count" property="commentCount"/>
+        <result column="best" property="best"/>
+        <result column="bad" property="bad"/>
     </resultMap>
     <insert id="insertArticle">
     insert into musicboard_article
@@ -39,6 +41,16 @@
     </select>
     <select id="getReadCount" resultType="int" >
         select read_count from musicboard_article where article_no = #{articleNo}
+    </select>
+    <select id="getPrevArticleNo" resultType="int">
+        <![CDATA[
+        select nvl(max(article_no), 0) from(select * from  musicboard_article where article_no < #{articleNo})
+        ]]>
+    </select>
+    <select id="getNextArticleNo" resultType="int">
+        <![CDATA[
+        select nvl(min(article_no), 0) from(select * from  musicboard_article where article_no > #{articleNo})
+        ]]>
     </select>
     <update id="updateReadCount">
         update musicBoard_article set read_count = #{readCount} where article_no = #{articleNo}

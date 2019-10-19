@@ -35,6 +35,12 @@ public class MusicBoardArticleDAO {
     public void increaseReadCount(MusicBoardArticle vo){
         sqlSession.update("MusicBoardArticleDAO.updateReadCount", vo);
     }
+    public int getPrevArticleNo(MusicBoardArticle vo){
+        return sqlSession.selectOne("MusicBoardArticleDAO.getPrevArticleNo", vo);
+    }
+    public int getNextArticleNo(MusicBoardArticle vo){
+        return sqlSession.selectOne("MusicBoardArticleDAO.getNextArticleNo", vo);
+    }
     public void commit(){
         sqlSession.commit();
     }

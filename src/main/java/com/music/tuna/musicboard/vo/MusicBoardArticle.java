@@ -14,6 +14,42 @@ public class MusicBoardArticle {
     private int readCount;
     private int commentCount;
     private MultipartFile uploadFile;
+    private int prev;
+    private int next;
+    private int best;
+    private int bad;
+
+    public int getBad() {
+        return bad;
+    }
+
+    public void setBad(int bad) {
+        this.bad = bad;
+    }
+
+    public int getBest() {
+        return best;
+    }
+
+    public void setBest(int best) {
+        this.best = best;
+    }
+
+    public int getPrev() {
+        return prev;
+    }
+
+    public void setPrev(int prev) {
+        this.prev = prev;
+    }
+
+    public int getNext() {
+        return next;
+    }
+
+    public void setNext(int next) {
+        this.next = next;
+    }
 
     public int getCommentCount() {
         return commentCount;
@@ -115,7 +151,10 @@ public class MusicBoardArticle {
                 ", last=" + last +
                 ", page=" + page +
                 ", readCount=" + readCount +
+                ", commentCount=" + commentCount +
                 ", uploadFile=" + uploadFile +
+                ", prev=" + prev +
+                ", next=" + next +
                 '}';
     }
 }

@@ -230,16 +230,17 @@
                 <div class="col-12 col-sm-10 col-xl-9">
                     <p>${article.title}</p>
                     <p>${article.text}</p>
-
+                    <div><h5>Best</h5><br>${article.best}</div>
+                    <div><h5>Bad</h5><br>${article.bad}</div>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
                         <div class="prev-pager">
-                            <a href="#"><span>Previous</span>
-                                <h6><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Episode 3- Does our economic model</h6>
+                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.prev}"><span>Previous</span>
+                                <h6><i class="fa fa-long-arrow-left" aria-hidden="true"></i> 이전글 보러가기</h6>
                             </a>
                         </div>
                         <div class="next-pager text-right">
-                            <a href="#"><span>Next</span>
-                                <h6>Episode 1 - Departure cards deported <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h6>
+                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.next}"><span>Next</span>
+                                <h6>다음 글 보러가기 <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h6>
                             </a>
                         </div>
                     </div>
