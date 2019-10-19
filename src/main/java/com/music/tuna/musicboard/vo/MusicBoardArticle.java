@@ -8,10 +8,12 @@ public class MusicBoardArticle {
     private String title;
     private String fileName;
     private String text;
+    //조인을 통해 연결한 값
+    private int readCount;
+    //실제론 테이블에 들어가지 않는 값들
     private int start;
     private int last;
     private int page;
-    private int readCount;
     private int commentCount;
     private MultipartFile uploadFile;
     private int prev;

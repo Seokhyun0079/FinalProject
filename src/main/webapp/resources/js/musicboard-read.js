@@ -7,7 +7,6 @@ $(function () {
                 articleNo : $("#articleNo").val()
             },
             success : function (data) {
-                console.dir(data);
                 $("#best").html(data.best);
             }
         });
@@ -20,7 +19,6 @@ $(function () {
                 articleNo : $("#articleNo").val()
             },
             success : function (data) {
-                console.dir(data);
                 $("#bad").html(data.bad);
             }
         })
