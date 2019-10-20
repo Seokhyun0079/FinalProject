@@ -8,12 +8,50 @@ public class MusicBoardArticle {
     private String title;
     private String fileName;
     private String text;
+    //조인을 통해 연결한 값
+    private int readCount;
+    //실제론 테이블에 들어가지 않는 값들
     private int start;
     private int last;
     private int page;
-    private int readCount;
     private int commentCount;
     private MultipartFile uploadFile;
+    private int prev;
+    private int next;
+    private int best;
+    private int bad;
+
+    public int getBad() {
+        return bad;
+    }
+
+    public void setBad(int bad) {
+        this.bad = bad;
+    }
+
+    public int getBest() {
+        return best;
+    }
+
+    public void setBest(int best) {
+        this.best = best;
+    }
+
+    public int getPrev() {
+        return prev;
+    }
+
+    public void setPrev(int prev) {
+        this.prev = prev;
+    }
+
+    public int getNext() {
+        return next;
+    }
+
+    public void setNext(int next) {
+        this.next = next;
+    }
 
     public int getCommentCount() {
         return commentCount;
@@ -115,7 +153,12 @@ public class MusicBoardArticle {
                 ", last=" + last +
                 ", page=" + page +
                 ", readCount=" + readCount +
+                ", commentCount=" + commentCount +
                 ", uploadFile=" + uploadFile +
+                ", prev=" + prev +
+                ", next=" + next +
+                ", best=" + best +
+                ", bad=" + bad +
                 '}';
     }
 }

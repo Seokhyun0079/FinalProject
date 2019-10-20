@@ -49,18 +49,19 @@ public class MemberController {
 	public String insertMember(Member m, HttpServletRequest request, 
 			@RequestParam(name="photo", required=false) MultipartFile photo) {
 		
-		String root = request.getSession().getServletContext().getRealPath("resources");
-		String filePath = root + "\\uploadFiles";
+		/*String root = request.getSession().getServletContext().getRealPath("resources");
+		String filePath = root + "\\uploadFiles";*/
+		String filePath = "C:\\FinalProject\\src\\main\\webapp\\resources\\uploadFiles";
 		m.setProfileIMG("not profile img");//null값 에러 방지
 		if(!photo.isEmpty()) {
-			System.out.println("포토 널값 확인: " + photo);
 			String originFileName = photo.getOriginalFilename();
 			String changeName = CommonUtils.getRandomString();
 			String ext = originFileName.substring(originFileName.lastIndexOf("."));
 			String changeNameExt = changeName+ext;
-			m.setProfileIMG(changeNameExt);
 			try {
-				photo.transferTo(new File(filePath + "\\ " + changeNameExt));
+				photo.transferTo(new File(filePath + "\\" + changeNameExt));
+				m.setProfileIMG(changeNameExt);
+				System.out.println("프로필 사진 업로드 성공");
 			} catch (IllegalStateException | IOException e) {
 				new File(filePath + "\\" + changeName + ext).delete();
 				System.out.println("프로필 사진 업로드 실패");
@@ -184,6 +185,15 @@ public class MemberController {
 		
 	}
 
-	
+	@RequestMapping("/mypage.do")
+	public String showMyPage(HttpServletRequest request) {
+/*		HttpSession httpSession = request.getSession();
+		String root = httpSession.getServletContext().getRealPath("resources");
+		String img = httpSession.getAttribute("loginUser").
+		String filePath = root + "\\uploadFiles\\";
+		
+		request.setAttribute("filePath", filePath);*/
+		return "/member/myPage";
+	}
 
 }

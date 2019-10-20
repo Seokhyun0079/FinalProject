@@ -23,9 +23,12 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
     @Override
     public MusicBoardArticle getArticle(MusicBoardArticle vo) {
         vo.setReadCount(musicBoardArticleDAO.getReadCount(vo)+1);
-        System.out.println(vo);
         musicBoardArticleDAO.increaseReadCount(vo);
-        return musicBoardArticleDAO.getArticle(vo);
+        MusicBoardArticle newItem = musicBoardArticleDAO.getArticle(vo);
+        newItem.setPrev(musicBoardArticleDAO.getPrevArticleNo(vo));
+        newItem.setNext(musicBoardArticleDAO.getNextArticleNo(vo));
+        commit();
+        return newItem;
     }
 
     @Override
@@ -36,4 +39,20 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
     public int getCount() {
         return musicBoardArticleDAO.getCount();
     }
+
+    @Override
+    public int updateBest(MusicBoardArticle vo) {
+        musicBoardArticleDAO.updateBest(vo);
+        commit();
+        return musicBoardArticleDAO.getBest(vo);
+    }
+
+    @Override
+    public int updateBad(MusicBoardArticle vo) {
+        musicBoardArticleDAO.updateBad(vo);
+        commit();
+        return musicBoardArticleDAO.getBad(vo);
+    }
+
+    public void commit(){ musicBoardArticleDAO.commit();}
 }

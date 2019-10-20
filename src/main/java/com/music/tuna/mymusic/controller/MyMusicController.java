@@ -33,4 +33,9 @@ public class MyMusicController {
         vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
         myMusicService.insertMyMusic(vo);
     }
+    @RequestMapping("/myMusic/remove.do")
+    public void deleteMyMusic(MyMusic vo, HttpSession httpSession){
+        vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+        myMusicService.deleteMyMusic(vo);
+    }
 }
