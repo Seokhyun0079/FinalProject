@@ -203,7 +203,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="audio-player">
-                    <audio preload="auto" controls>
+                    <audio id="music-player" preload="auto" controls>
                         <source src="/TunaMusic/resources/upload/${article.fileName}">
                     </audio>
                 </div>
@@ -230,16 +230,17 @@
                 <div class="col-12 col-sm-10 col-xl-9">
                     <p>${article.title}</p>
                     <p>${article.text}</p>
-
+                    <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
+                    <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
                         <div class="prev-pager">
-                            <a href="#"><span>Previous</span>
-                                <h6><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Episode 3- Does our economic model</h6>
+                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.prev}"><span>Previous</span>
+                                <h6><i class="fa fa-long-arrow-left" aria-hidden="true"></i> 이전글 보러가기</h6>
                             </a>
                         </div>
                         <div class="next-pager text-right">
-                            <a href="#"><span>Next</span>
-                                <h6>Episode 1 - Departure cards deported <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h6>
+                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.next}"><span>Next</span>
+                                <h6>다음 글 보러가기 <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h6>
                             </a>
                         </div>
                     </div>
@@ -270,6 +271,9 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
+                                </div>
+                                <div class="col-lg-12">
+                                    <input id="file-name" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.fileName}" hidden>
                                 </div>
                             </div>
                     </div>
@@ -466,6 +470,7 @@
 <script>
     var zeroTenFive = -0.5;
     var opacity = 0.5;
+    var playingIndex = 0;
     $(function () {
             $("#list-button").click(function(){
                 $('#my-list-div').css('opacity', opacity);
@@ -473,14 +478,18 @@
                 zeroTenFive *= -1;
             });
     });
-    function myListClickEvent(fileName){
+    function myListClickEvent(fileName, index, length){
+
+        $("#"+playingIndex).css('font-size', 14);
+        $("#"+index).css('font-size', 20);
+        playingIndex = index;
         $('#my-list-player').attr('src', '/TunaMusic/resources/upload/'+fileName);
         document.getElementById('my-list-player').play();
-        $(audio).on('ended', function(){
-            $('#next').trigger('click');
+        $("#my-list-player").on('ended', function(){
+            $('#'+(playingIndex+1 == length ? 0 : playingIndex+1)).trigger('click');
         });
-
-    };
+    }
 </script>
+<script src="/TunaMusic/resources/js/musicboard-read.js"></script>
 </body>
 </html>
