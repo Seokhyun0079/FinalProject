@@ -186,12 +186,12 @@
 
                                 <!-- Share Icon -->
                                 <div class="social-share-icon">
-                                    <i class="social_share"></i>
+                                    <i class="fa fa-music"></i>
                                 </div>
 
                                 <!-- Search Icon -->
                                 <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                    <i class="icon_search"></i>
+                                    <i class="fa fa-search"></i>
                                 </div>
                                 
                                 <!-- Login Icon -->
@@ -206,8 +206,8 @@
 			                                <ul>
 			                                	<li><i class="fa fa-user"></i>
 			                                		<ul>
-			                                			<li><a href="#">&nbsp&nbspMY PAGE</a></li><br>
-											            <li><a href="#">&nbsp&nbspLOG-OUT</a></li><br>
+			                                			<li><a href="/TunaMusic/member/mypage.do">&nbsp&nbspMY PAGE</a></li><br>
+										          		<li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
 			                                		</ul>
 			                                	</li>
 			                                </ul>

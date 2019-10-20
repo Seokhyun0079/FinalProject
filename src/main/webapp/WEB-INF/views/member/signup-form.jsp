@@ -21,24 +21,8 @@
     h6{
     	margin-top:5px;
     }
-
-	/*로그아웃, 마이페이지 드롭다운*/
-	#user-icon li ul {
-			background: rgb(109,109,109);
-			display:none;  
-			height:auto;
-			padding-bottom:10px;
-			margin:0px;
-			border:0px;
-			position:absolute;
-			width:120px;
-			z-index:200;
-		}
-		
-	#user-icon li:hover ul {
-		display:block;   
-	}
-
+    
+  
     </style>
 </head>
 
@@ -221,8 +205,8 @@
 			                                <ul>
 			                                	<li><i class="fa fa-user"></i>
 			                                		<ul>
-			                                			<li><a href="#">&nbsp&nbspMY PAGE</a></li><br>
-											            <li><a href="#">&nbsp&nbspLOG-OUT</a></li><br>
+			                                			<li><a href="/TunaMusic/member/mypage.do">&nbsp&nbspMY PAGE</a></li><br>
+										            	<li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
 			                                		</ul>
 			                                	</li>
 			                                </ul>
@@ -272,11 +256,8 @@
 					<script>
 						var today = new Date();
 						var toyear = parseInt(today.getFullYear());
-<<<<<<< HEAD
 						var start = toyear - 10
-=======
 						var start = toyear - 10;
->>>>>>> c7e5b3254554f69a38550809493f10adcb05b133
 						var end = toyear - 70;
 						document.write("<select id='year' name=birth>");
 						document.write("<option value='' selected>");
