@@ -4,11 +4,19 @@ grant resource, connect to tuna;
 --계정 생성문
 
 -- 꼬였을 때 drop
-drop table music_my_list;
-drop table musicboard_comment;
+drop table member;
 drop table musicboard_article;
+drop sequence mb_comment_seq;
+drop table musicboard_comment;
+drop table my_music;
+drop sequence seq_fno;
 drop table funding;
+drop sequence seq_goods_no;
+drop table goods;
+drop sequence seq_pay_no;
 drop table payment;
+drop table chartboard;
+drop sequence msb_seq;
 
 -- 회원 테이블
 CREATE TABLE MEMBER(
@@ -40,6 +48,14 @@ create table musicboard_article(
     CONSTRAINT FK_MEMBER FOREIGN KEY(id)
     REFERENCES member(id)
 );
+
+-- 음악 게시판 게시글 시퀀스
+create sequence mb_article_seq
+	start with 1
+	increment by 1
+	maxvalue 10000
+	minvalue 1
+	nocycle;
 
 -- 음악 게시판 댓글 기본키를 위한 시퀀스
 create sequence mb_comment_seq
