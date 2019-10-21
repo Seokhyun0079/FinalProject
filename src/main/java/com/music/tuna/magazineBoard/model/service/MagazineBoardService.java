@@ -18,6 +18,13 @@ public interface MagazineBoardService {
 
 	public int deletePost(int mseq);
 
+	int keySearchCount(String keyword);
+
+	ArrayList<MagazineBoard> selectKeySearch(String keyword,PageInfo pi);
+
+
+
+
 	
 
 	

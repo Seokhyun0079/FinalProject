@@ -48,12 +48,23 @@
 	where mseq = #{mseq}
 	</delete>
 	
-<!-- 	<select id="keySearch" parameterMap="mSearch">
 	
-	select * from MBOARD
-	where mtitle LIKE '%' || '${keyword}' || '%'
+	<select id = "selectKeySearchCount" resultType="_int">
+		select count(*)
+		from MBOARD
+		where mtitle like '%'||#{keyword}||'%'
+	and status='Y'
+	</select>
 	
-	</select> -->
+	<select id="selectKeySearch" resultMap="MagazineResultSet">
+	select *
+	from MBOARD
+	where mtitle like '%'||#{keyword}||'%'
+	and status='Y'
+	</select>
+
+
+
 	
 	
 <!--  MTITLE VARCHAR2(100), 
