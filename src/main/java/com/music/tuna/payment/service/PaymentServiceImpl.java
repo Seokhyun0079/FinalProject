@@ -7,18 +7,21 @@ import com.music.tuna.payment.vo.Payment;
 
 public class PaymentServiceImpl implements PaymentService{
 
-	
 	@Autowired
-	private PaymentDao paymentDao;
-	
-	
+	private PaymentDao pDao;
 	
 	@Override
 	public int insertPayment(Payment p) {
-		int result = paymentDao.insertPayment(p);
-		paymentDao.commit();
+		int result = pDao.insertPayment(p);
+		pDao.commit();
 		
 		return result;
+	}
+
+	@Override
+	public int payConfirm() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

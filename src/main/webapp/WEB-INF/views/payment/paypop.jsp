@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Razo - Radio HTML Template | Podcast Details</title>
+    <title>TUNA MUSIC | paypop</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
@@ -44,13 +44,15 @@
         <span style="color: #DC2878"><font size="5">8,900</font></span> <span style="color: black;">원</span></h5>
         
         <br>
-        <!-- <h6 style="color: seagreen;"><b>결제 방법</b> </h6> -->
+        <form action="payment.do" name="paymentform" method="POST" id="paymentform" class="paymentform">
         <span> 결제종류 &nbsp;&nbsp;<select id="paymentSelect" name="paymentSelect">
-			<option value="신용카드">신용카드</option>
-			<option value="카카오페이">카카오페이</option>
+			<option value="card">신용카드</option>
+			<option value="kakaopay">카카오페이</option>
 		</select>
 		</span>
-		<br><br> 
+        </form>
+        <!-- <h6 style="color: seagreen;"><b>결제 방법</b> </h6> -->
+		<br>
 		<!-- </form>    -->
         <!-- <input type="radio" name="chk_1" value="kakaopay">&nbsp;카카오페이<br>
         <input type="radio" name="chk_1" value="naverpay" >&nbsp; 네이버페이 -->
@@ -75,28 +77,32 @@
                 <li><b>결제 수단의 정지/한도초과/정보변경 등의 사유로 결제상태가 변경될 경우, 결제 및 서비스가 일시 정지되며 정상으로 전환되거나 직접 일시 정지 해제를 하시면 다시 결제 및 서비스가 시작됩니다.</b></li>
             </ul>
     </div>
-	
-
-
-
-
 
 	<script>
 		function payment(){
 			/* var payment = $("paymentSelect option:selectd").val(); */
-						
-			//alert("약관에 동의해주세요");
 			
+			//얘가 켜짐
 			if(!$('#chk_2').is(":checked")){
 				alert("약관에 동의해 주세요");
 			}else{
 				alert("결제페이지로 이동합니다.");
-				//window.open('kakao.do');
 				location.href="kakao.do";
-				//$('#Payform').submit();
-				//window.open('musicBoard/article/write.do');
-				
+				form.submit();
 			}
+						
+			// 선택된 옵션의 text, value 구하기
+			/* $("#paymentSelect option:selected").val(); */
+
+			console.log($('#paymentSelect option:selected').val());
+			/* if(!$('#chk_2').is(":checked")){
+				alert("약관에 동의해 주세요");
+			}else if("#paymentSelect option:selected").val()=="kakaopay"){
+				alert("결제페이지로 이동합니다.");
+				location.href="kakao.do";
+			} */
+			
+			
 		}
 	</script>
 

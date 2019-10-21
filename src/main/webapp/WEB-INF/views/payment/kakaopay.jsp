@@ -24,7 +24,7 @@
 			}, function(rsp){
 				if(rsp.success){
 					jQuery.ajax({
-						url: "payment/cardPayment",
+						url: "payment/cardPayment", //payment의 ~에서 값을 처리한다? //cardPayment? -kakaopay?- /payment/complete
 						type: "POST",
 						dataType: "json",
 						data: {imp_uid:rsp.imp_uid}
