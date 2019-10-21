@@ -8,6 +8,7 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<bean id ="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="-1"></property>
+        <property name="maxInMemorySize" value="-1"></property>
 	</bean>
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
