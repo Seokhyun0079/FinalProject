@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.music.tuna.chart.vo.Chart;
+import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.util.SqlSessionFactoryBean;
 
 @Repository
@@ -23,5 +24,8 @@ public class ChartDao {
 		sqlSession.insert("ChartDao.insertChart", vo);
 	}
 	
+	public void updateChart(Chart vo) {
+		sqlSession.update("ChartDao.updateChart", vo);
+	}
 
 }
