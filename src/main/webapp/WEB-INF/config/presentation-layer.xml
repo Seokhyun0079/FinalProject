@@ -47,5 +47,7 @@
     <bean id="emailSender" class="com.music.tuna.email.EmailSender">
     </bean>
 
+    <!-- smart editor -->
+    <mvc:resources location="resources/editor/" mapping="resources/editor/**" ></mvc:resources>
 
 </beans>
