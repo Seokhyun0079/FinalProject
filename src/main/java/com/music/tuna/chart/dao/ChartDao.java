@@ -27,5 +27,8 @@ public class ChartDao {
 	public void updateChart(Chart vo) {
 		sqlSession.update("ChartDao.updateChart", vo);
 	}
+	public void commit(){
+		sqlSession.commit();;
+	}
 
 }
