@@ -1,3 +1,5 @@
+<%@ taglib prefix="for" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +60,7 @@
 <div id = "my-list-div" class="razo-social-share-area" style="width : 20%; color : white; background: #5a6268; opacity: 0;">
     <br>my List<br><br>
     <audio id="my-list-player" controls="controls">
-        <source src="/TunaMusic/resources/upload/${article.fileName}" type="audio/mp3" />
+        <source src="/TunaMusic/resources/upload/" type="audio/mp3" />
     </audio>
     <div > 여기 클릭</div>
 </div>
@@ -204,7 +206,7 @@
             <div class="col-12">
                 <div class="audio-player">
                     <audio id="music-player" preload="auto" controls>
-                        <source src="/TunaMusic/resources/upload/${article.fileName}">
+                        <source src="/TunaMusic/resources/upload/">
                     </audio>
                 </div>
             </div>
@@ -229,7 +231,12 @@
 
                 <div class="col-12 col-sm-10 col-xl-9">
                     <p>${article.title}</p>
-                    <p>${article.text}</p>
+                    <p>${article.content}</p>
+                    <div style="background: black; display: inline-block;">
+                    <c:forEach var="myMusic" items="${article.myMusicList}">
+                        <div style="color: white; border: 1px solid white;">${myMusic.title}</div>
+                    </c:forEach>
+                    </div>
                     <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
                     <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
@@ -271,9 +278,6 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
-                                </div>
-                                <div class="col-lg-12">
-                                    <input id="file-name" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.fileName}" hidden>
                                 </div>
                             </div>
                     </div>
