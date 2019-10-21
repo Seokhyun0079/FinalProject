@@ -202,7 +202,7 @@
                         <h2 class="mb-4">Leave Your Soul</h2>
 
                         <!-- Form -->
-                        <form action="/TunaMusic/musicBoard/article/write.do" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
+                        <form action="/TunaMusic/myMusicShareBoard/article/write.do" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <input name="id" type = "text" style="visibility: hidden;" value="${sessionScope.loginUser.userId }">
                                 <div class="col-12">
@@ -210,10 +210,6 @@
                                 </div>
                                 <div class="col-12">
                                     <textarea name="content" class="form-control mb-30" placeholder="Text"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <input id = "fileinput" style ="width : 0px; height : 0px;"  type = "file" name="uploadFile" onchange="$('#filename').val(this.value)">
-                                    <input class="form-control mb-30" id="filename" type="text" value="Here Is The Place Your Soul" readonly><label  class="btn btn-danger remove-margin" for="fileinput">Select Your Soul</label>
                                 </div>
                                 <div class="col-12">
                                     <button type="submit" class="btn razo-btn btn-3 mt-15">Post Emotion</button>

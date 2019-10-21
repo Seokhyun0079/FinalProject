@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MyMusicShareBoardArticleDAO">
+    <resultMap id="articleResult" type="myMusicShareBoardArticle">
+        <id column="article_no" property="articleNo"/>
+        <result column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="read_count" property="readCount"/>
+        <result column="bad" property="bad"/>
+        <result column="best" property="best"/>
+    </resultMap>
+    <insert id="insertArticle">
+        insert into mymusicshareboard_article values(msb_seq.nextval, #{id}, #{title}, #{content}, 0, 0, 0)
+    </insert>
+    <select id="selectLastInsertedArticleNo" resultType="int">
+        <![CDATA[
+ select article_no from (select article_no from mymusicshareboard_article order by article_no desc) where ROWNUM <= 1
+      ]]>
+    </select>
+    <select id="selectArticleByArticleNo" resultMap="articleResult">
+        select * from mymusicshareboard_article where article_no = #{articleNo}
+    </select>
+</mapper>
