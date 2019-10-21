@@ -19,6 +19,5 @@ public class MusicBoardCommentServiceImpl implements MusicBoardCommentService {
     @Override
     public List<MusicBoardComment> getCommentList(MusicBoardCommentPage vo) {
         return musicBoardCommentDAO.getCommentList(vo);
-
     }
 }
