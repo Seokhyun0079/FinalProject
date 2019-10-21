@@ -25,35 +25,8 @@
 
     <!-- Smart Editor required -->
     <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript" src="./resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/TunaMusic/resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
-<script type="text/javascript">
-    $(function(){
-        //전역변수
-        var obj = [];
-        //스마트에디터 프레임생성
-        nhn.husky.EZCreator.createInIFrame({
-            oAppRef: obj,
-            elPlaceHolder: "editor",
-            sSkinURI: "./resources/editor/SmartEditor2Skin.html",
-            htParams : {
-                // 툴바 사용 여부
-                bUseToolbar : true,
-                // 입력창 크기 조절바 사용 여부
-                bUseVerticalResizer : true,
-                // 모드 탭(Editor | HTML | TEXT) 사용 여부
-                bUseModeChanger : true,
-            }
-        });
-        //전송버튼
-        $("#insertBoard").click(function(){
-            //id가 smarteditor인 textarea에 에디터에서 대입
-            obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
-            //폼 submit
-            $("#insertBoardFrm").submit();
-        });
-    });
-</script>
 <body>
 <!-- Preloader -->
 <!--
@@ -216,10 +189,10 @@
                     <div class="d-flex justify-content-center">
                         <div class="form-group" style="margin: 0px;">
                             <h6>프로젝트명</h6>
-                            <textarea class="form-group" rows="1" cols="30" id="project-name" name="project-name" style="font-size: 32px;" placeholder="프로젝트명을 알려주세요"></textarea>
+                            <textarea class="form-control" rows="1" cols="30" id="project-name" name="project-name" style="font-size: 32px; text-align: center" placeholder="프로젝트명을 알려주세요"></textarea>
                             <br>
                             <h6>팀명</h6>
-                            <textarea class="form-group" rows="1" cols="30" name="project-creatorName" style="font-size: 16px" placeholder="창작자 여러분의 팀명을 알려주세요"></textarea>
+                            <textarea class="form-control" rows="1" cols="15" name="project-creatorName" style="font-size: 16px; text-align: center" placeholder="창작자 여러분의 팀명을 알려주세요"></textarea>
                         </div>
                     </div>
                 </div>
@@ -231,23 +204,22 @@
         <div class="razo-blog-masonary">
             <div class="row razo-blog-masonary-item">
                 <div class="col-8">
-                    <img src="./img/bg-img/1.jpg" alt="" class="img-responsive">
+                    <img src="/TunaMusic/resources/img/etc-img/noimage.png" alt="" class="img-responsive">
                     <!-- <img src="./img/tunamusuc_funding_banner.png" alt=""> -->
                 </div>
                 <div class="col-4">
-                    <span>목표 금액</span><br>
-                    <h2 style="display: inline-block">1,000,000</h2>&nbsp;<span>원</span>&nbsp;&nbsp;
-                    <!-- <h5 style="display: inline-block">100%</h5><br><br> -->
+                    <h6>목표 금액</h6>
+                    <input type="number" class="form-control">
+                    <br>
 
-                    <span>남은시간</span><br>
-                    <h2 style="display: inline-block">21</h2>&nbsp;<span>일</span><br><br>
+                    <h6>프로젝트 마감일</h6>
+                    <input type="date" class="form-control">
+                    <br>
 
-                    <span>후원자</span><br>
-                    <h2 style="display: inline-block">100</h2>&nbsp;<span>명</span><br><br>
+                    <h6>썸네일 이미지</h6>
+                    <input type="file" id="funding_thumbnail" name="funding_thumbnail">
+                    <br>
 
-                    <div class="event-purchase-button">
-                        <a href="#" class="btn razo-btn"><i class="icon_cart"></i> 프로젝트 밀어주기</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -257,15 +229,18 @@
     <div class="container">
         <div class="row razo-blog-masonary">
             <!-- <div class="row razo-blog-masonary-item"> -->
-            <div class="col-8">
-                <h6>프로젝트 스토리</h6>
-                <div contenteditable="true" style="width: 100%; height: 500px;">
-                    <textarea name="project_content" cols="" rows="" placeholder="여러분의 멋진 프로젝트 스토리를 들려주세요" style="width: 100%; height: 100%;"></textarea>
-                </div>
-            </div>
-            <div class="col-4">
+            <div class="col-12">
                 <h6>창작자 소개</h6>
-                <textarea name="creater_name" cols="" rows="" placeholder="창작자 여러분을 소개해주세요" style="width: 100%; height: 500px;"></textarea>
+                <textarea name="creater_name" rows="3" cols="100" placeholder="창작자 여러분을 소개해주세요"></textarea>
+                <br>
+                <h6>프로젝트 스토리</h6>
+                <div contenteditable="true">
+                    <form name="project_content" id="project_content">
+                        <textarea name="ir1" id="ir1" rows="10" cols="100"></textarea>
+                        <%--placeholder="여러분의 멋진 프로젝트 스토리를 들려주세요"--%>
+                    </form>
+                </div>
+                <input type="button" class="razo razo-btn" id="writebtn" name="writebtn" value="저장">
             </div>
             <!-- </div> -->
         </div>
@@ -284,5 +259,46 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+
+<script type="text/javascript">
+    //전역변수
+    var oEditors = [];
+
+    //스마트에디터 프레임생성
+    nhn.husky.EZCreator.createInIFrame({
+        oAppRef: oEditors,
+        elPlaceHolder: "ir1",
+        sSkinURI: "/TunaMusic/resources/editor/SmartEditor2Skin.html",
+        htParams:{
+            bUseToolbar:true,
+            bUseVerticalResizer:true,
+            bUseModeChanger:true,
+            fOnBeforeUnload: function () {
+                alert("Success!!");
+            },
+        },
+        fOnAppLoad:function(){
+            oEditors.getById["ir1"].exec("PASTE_HTML", ["여러분의 멋진 프로젝트 스토리를 들려주세요"])
+        },
+        fCreator:"createSEditor2"
+    });
+</script>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById("writebtn");
+        btn.onclick = function () {
+            submitContents(btn);
+        }
+    }
+    function submitContents(clickedObj) {
+        oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+
+        try{
+            clickedObj.form.submit();
+        }catch(e) {
+
+        }
+    }
+</script>
 </body>
 </html>
