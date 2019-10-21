@@ -10,15 +10,17 @@
     </resultMap>
     
     <select id="selectById" resultMap="chartResult">
-    SELECT * FROM CHARTBOARD WHERE ARTICLE_NO = #{articleNo} and article_date=  #{articleDate}
+    SELECT * FROM CHARTBOARD WHERE ARTICLE_NO = #{articleNo} and article_date = #{articleDate}
   	</select>
   	
   	<insert id="insertChart">
-  	INSERT INTO
+  	INSERT INTO CHARTBOARD
+  	VALUES(#{articleDate}, #{articleNo}, #{readCount})
   	</insert>
   	
   	<update id="updateChart">
-  	
+  	UPDATE CHARTBOARD
+  	SET READ_COUNT = #{readCount} WHERE ARTICLE_NO = #{articleNo} and ARTICLE_DATE = #{articleDate}
   	</update>
   	
 </mapper>
