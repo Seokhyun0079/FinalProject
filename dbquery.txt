@@ -4,11 +4,19 @@ grant resource, connect to tuna;
 --계정 생성문
 
 -- 꼬였을 때 drop
-drop table music_my_list;
-drop table musicboard_comment;
+drop table member;
 drop table musicboard_article;
+drop sequence mb_comment_seq;
+drop table musicboard_comment;
+drop table my_music;
+drop sequence seq_fno;
 drop table funding;
+drop sequence seq_goods_no;
+drop table goods;
+drop sequence seq_pay_no;
 drop table payment;
+drop table chartboard;
+drop sequence msb_seq;
 
 -- 회원 테이블
 CREATE TABLE MEMBER(
@@ -35,9 +43,19 @@ create table musicboard_article(
     text varchar2(2000),
     file_name varchar2(200),
     read_count number(10),
+    best number(10),
+    bad number(10),
     CONSTRAINT FK_MEMBER FOREIGN KEY(id)
     REFERENCES member(id)
 );
+
+-- 음악 게시판 게시글 시퀀스
+create sequence mb_article_seq
+	start with 1
+	increment by 1
+	maxvalue 10000
+	minvalue 1
+	nocycle;
 
 -- 음악 게시판 댓글 기본키를 위한 시퀀스
 create sequence mb_comment_seq
@@ -60,11 +78,9 @@ create table musicboard_comment(
 );
 
 create table my_music(
-    list_num number(10),
     id varchar2(30),
     article_no number(10),
-    PRIMARY key (list_num, id)
-
+    PRIMARY key (article_no, id)
 );
 
 --크라우드 펀딩 테이블
@@ -118,6 +134,20 @@ CREATE TABLE CHARTBOARD(
     ARTICLE_NO NUMBER(10),
     READ_COUNT NUMBER(10),
     PRIMARY KEY (ARTICLE_DATE, ARTICLE_NO)
+);
+
+create SEQUENCE msb_seq;
+-- 음악 마이리스트 공유 게시판
+create table mymusic_share_board(
+    article_no number(10) primary key,
+    id varchar2(30),
+    title varchar2(60),
+    content varchar2(2000),
+    read_count number(10),
+    best number(10),
+    bad number(10),
+    CONSTRAINT FK_msb FOREIGN KEY(id)
+    REFERENCES member(id)
 );
 
 COMMIT;

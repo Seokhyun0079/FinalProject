@@ -17,7 +17,6 @@ public class MusicBoardCommentController {
     MusicBoardCommentService musicBoardCommentService;
     @RequestMapping(value="/musicBoard/comment/write.do")
     public void insertComment(MusicBoardComment vo, HttpServletResponse res){
-        System.out.println(vo);
         musicBoardCommentService.insertComment(vo);
         MusicBoardCommentPage commentPage = new MusicBoardCommentPage();
         commentPage.setArticleNo(vo.getArticleNo());
@@ -31,13 +30,14 @@ public class MusicBoardCommentController {
      }
      @RequestMapping(value = "/musicBoard/comment/list.do")
     public void getCommentList(MusicBoardCommentPage vo, HttpServletResponse res){
-        System.out.println(vo);
         vo.setCommentList(musicBoardCommentService.getCommentList(vo));
          JSONObject json = new JSONObject();
          json.put("result", vo);
          res.setContentType("application/x-json; charset=UTF-8");
          try{
              res.getWriter().print(json);
-         }catch(IOException e){ }
+         }catch(IOException e){
+             e.printStackTrace();
+         }
      }
 }

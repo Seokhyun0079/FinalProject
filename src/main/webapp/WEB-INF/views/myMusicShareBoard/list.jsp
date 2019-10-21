@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html lang="kr">
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Razo - Radio HTML Template | Podcast Details</title>
+    <title>Razo - Radio HTML Template | Podcast</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
@@ -55,12 +58,13 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div id = "my-list-div" class="razo-social-share-area" style="width : 20%; color : white; background: #5a6268; opacity: 0;">
-    <br>my List<br><br>
-    <audio id="my-list-player" controls="controls">
-        <source src="/TunaMusic/resources/upload/${article.fileName}" type="audio/mp3" />
-    </audio>
-    <div > 여기 클릭</div>
+<div class="razo-social-share-area">
+    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
+    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+    <a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a>
+    <a href="#" class="ss-close-btn"><i class="arrow_right"></i></a>
 </div>
 <!-- Social Share Area End -->
 
@@ -153,16 +157,13 @@
                             </ul>
 
                             <!-- Share Icon -->
-                            <div id="list-button" class="social-share-icon">
+                            <div class="social-share-icon">
                                 <i class="social_share"></i>
                             </div>
 
                             <!-- Search Icon -->
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                            <i class="icon_search"></i>
-                        </div>
-                            <div class="search-icon" >
-                                <i id ="add-my-music" class="">+</i>
+                                <i class="icon_search"></i>
                             </div>
                         </div>
                         <!-- Nav End -->
@@ -180,8 +181,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="podcast-hero-text section-padding-80 d-flex align-items-center">
-                    <div class="podcast-txt- pr-5">
-                        <h2>Episode 2 – Guess what we’ve missed watching world cup 2014. We made a list!</h2>
+                    <div class="podcast-txt- pr-md-5">
+                        <h5>Podcast Features</h5>
+                        <h2>Guess what we’ve missed watching world cup 2014. We made a list!</h2>
                         <div class="podcast-meta-data">
                             <a href="#" class="event-date"><i class="icon_calendar"></i> July 23, 2019</a>
                             <a href="#" class="event-time"><i class="icon_clock_alt"></i> 36 min</a>
@@ -203,8 +205,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="audio-player">
-                    <audio id="music-player" preload="auto" controls>
-                        <source src="/TunaMusic/resources/upload/${article.fileName}">
+                    <audio preload="auto" controls>
+                        <source src="/TunaMusic/resources/audio/dummy-audio.mp3">
                     </audio>
                 </div>
             </div>
@@ -213,76 +215,63 @@
 </div>
 <!-- Audio Player Area End -->
 
-<!-- Blog Details Area Start -->
-<section class="blog-details-area section-padding-80">
+<!-- Latest Podcast Area Start -->
+<section class="razo-latest-podcast-area section-padding-80">
     <div class="container">
-        <!-- Post Details Text -->
-        <div class="post-details-text">
-            <div class="row justify-content-center">
-                <div class="col-12 col-sm-2 col-xl-1">
-                    <!-- Post Share -->
-                    <div class="razo-author-avatar">
-                        <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
-                        <h6>John Milley</h6>
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading -->
+                <div class="section-heading">
+                    <h2>Latest on PodCast:</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Single Podcast Area -->
+            <c:forEach var ="article" items="${articlePage.pageContent}">
+            <div class="col-12 col-md-6 col-xl-3">
+                <div class="single-podcast-area mb-30 wow fadeInUp" data-wow-delay="100ms">
+                    <!-- Thumbnail -->
+                    <div class="podcast-thumb">
+                        <img src="/TunaMusic/resources/img/bg-img/69.jpg" alt="">
+                        <div class="like-comment">
+                            <a href="#" class="like">2 <i class="icon_heart"></i></a>
+                            <a href="#" class="like">2 <i class="icon_chat"></i></a>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="podcast-content">
+                        <div class="podcast-meta">
+                            <a href="#"><i class="icon_calendar"></i> July 23, 2014</a>
+                            <a href="#"><i class="icon_clock_alt"></i> 36 min</a>
+                        </div>
+                        <h5>${article.title}</h5>
+                        <div class="border-line"></div>
+                        <div class="play-download-btn d-flex align-items-center justify-content-between">
+                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.articleNo}" class="btn razo-btn btn-sm">playing now</a>
+                            <a href="/TunaMusic/resources/upload/${article.fileName}" class="music-download-btn" download><i class="icon_download"></i></a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="col-12 col-sm-10 col-xl-9">
-                    <p>${article.title}</p>
-                    <p>${article.text}</p>
-                    <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
-                    <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div>
-                    <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
-                        <div class="prev-pager">
-                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.prev}"><span>Previous</span>
-                                <h6><i class="fa fa-long-arrow-left" aria-hidden="true"></i> 이전글 보러가기</h6>
-                            </a>
-                        </div>
-                        <div class="next-pager text-right">
-                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.next}"><span>Next</span>
-                                <h6>다음 글 보러가기 <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h6>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="comment_area mb-50 clearfix">
-                        <h5 class="title">${article.commentCount} Comments</h5>
-
-                        <ol id="comment-list">
-                            <!-- Single Comment Area -->
-                            <!-- Single Comment Area -->
-                        </ol>
-                    </div>
-                    <!-- Leave A Reply -->
-                    <div class="razo-contact-form">
-                        <h2 class="mb-4" id="point">Leave A Comment</h2>
-                        <!-- Form -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <textarea id="message" name="message" class="form-control mb-30" placeholder="Comment"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button id ="comment-buutton" type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
-                                </div>
-                                <div class="col-lg-12">
-                                    <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
-                                </div>
-                                <div class="col-lg-12">
-                                    <input id="id" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${sessionScope.loginUser.userId}">
-                                </div>
-                                <div class="col-lg-12">
-                                    <input id="reply-no" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="0">
-                                </div>
-                                <div class="col-lg-12">
-                                    <input id="file-name" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.fileName}" hidden>
-                                </div>
-                            </div>
-                    </div>
+            </div>
+            </c:forEach>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="view-more-button text-center">
+                    <a href="/TunaMusic/musicBoard/article/list.do?page=${articlePage.page-1}" class="btn razo-btn mt-50">previous</a>
+                    <c:forEach begin="${articlePage.startPage}" end="${articlePage.endPage}" step="1"  varStatus="status">
+                        <a href="/TunaMusic/musicBoard/article/list.do?page=${status.index}" class="btn razo-btn mt-50">${status.index}</a>
+                    </c:forEach>
+                    <a href="/TunaMusic/musicBoard/article/list.do?page=${articlePage.page+1}" class="btn razo-btn mt-50">Next</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Blog Details Area End -->
+<!-- Latest Podcast Area End -->
 
 <!-- Footer Area Start -->
 <footer class="footer-area">
@@ -465,31 +454,7 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-<script src="/TunaMusic/resources/js/comment.js"></script>
-<script src="/TunaMusic/resources/js/mylist.js"></script>
-<script>
-    var zeroTenFive = -0.5;
-    var opacity = 0.5;
-    var playingIndex = 0;
-    $(function () {
-            $("#list-button").click(function(){
-                $('#my-list-div').css('opacity', opacity);
-                opacity += zeroTenFive;
-                zeroTenFive *= -1;
-            });
-    });
-    function myListClickEvent(fileName, index, length){
 
-        $("#"+playingIndex).css('font-size', 14);
-        $("#"+index).css('font-size', 20);
-        playingIndex = index;
-        $('#my-list-player').attr('src', '/TunaMusic/resources/upload/'+fileName);
-        document.getElementById('my-list-player').play();
-        $("#my-list-player").on('ended', function(){
-            $('#'+(playingIndex+1 == length ? 0 : playingIndex+1)).trigger('click');
-        });
-    }
-</script>
-<script src="/TunaMusic/resources/js/musicboard-read.js"></script>
 </body>
+
 </html>

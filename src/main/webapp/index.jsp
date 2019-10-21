@@ -18,24 +18,6 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
     
-	<style type="text/css">
-	/*로그아웃, 마이페이지 드롭다운*/
-	#user-icon li ul {
-			background: rgb(109,109,109);
-			display:none;  
-			height:auto;
-			padding-bottom:10px;
-			margin:0px;
-			border:0px;
-			position:absolute;
-			width:120px;
-			z-index:200;
-		}
-		
-	#user-icon li:hover ul {
-		display:block;   
-	}
-	</style>
     
 </head>
 
@@ -139,7 +121,7 @@
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="./index.jsp">- Home</a></li>
-                                        <li><a href="./charts.html">- Charts</a></li>
+                                        <li><a href="chart/chartView.do">- Charts</a></li>
                                         <li><a href="./single-charts.html">- Charts Details</a></li>
                                         <li><a href="./podcast.html">- Podcast</a></li>
                                         <li><a href="./single-podcast.html">- Podcast Details</a></li>
@@ -158,7 +140,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="./show.html">Shows</a></li>
-                                <li><a href="./charts.html">Charts</a></li>
+                                <li><a href="chart/chartView.do">Charts</a></li>
                                 <li><a href="./podcast.html">Podcasts</a></li>
                                 <li><a href="#">Mega</a>
                                     <div class="megamenu">
@@ -198,12 +180,12 @@
 
                             <!-- Share Icon -->
                             <div class="social-share-icon">
-                                <i class="social_share"></i>
+                                <i class="fa fa-music"></i>
                             </div>
 
                             <!-- Search Icon -->
                             <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                <i class="icon_search"></i>
+                                <i class="fa fa-search"></i>
                             </div>
                             
                             
@@ -220,7 +202,7 @@
 		                                <ul>
 		                                	<li><i class="fa fa-user"></i>
 		                                		<ul>
-		                                			<li><a href="#">&nbsp&nbspMY PAGE</a></li><br>
+		                                			<li><a href="/TunaMusic/member/mypage.do">&nbsp&nbspMY PAGE</a></li><br>
 										            <li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
 		                                		</ul>
 		                                	</li>

@@ -1,14 +1,16 @@
 package com.music.tuna.chart.vo;
 
+import java.sql.Date;
+
 public class Chart {
-	private int articleDate;
+	private Date articleDate;
 	private int articleNo;
 	private int readCount;
 	
-	public int getArticleDate() {
+	public Date getArticleDate() {
 		return articleDate;
 	}
-	public void setArticleDate(int articleDate) {
+	public void setArticleDate(Date articleDate) {
 		this.articleDate = articleDate;
 	}
 	public int getArticleNo() {

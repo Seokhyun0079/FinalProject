@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ChartDao">
+
+    <resultMap id="chartResult" type="Chart">
+        <id column="article_date" property="articleDate"/>
+        <result column="article_no" property="articleNo"/>
+        <result column="read_count" property="readCount"/>
+    </resultMap>
+    
+    <select id="selectById" resultMap="chartResult">
+    SELECT * FROM CHARTBOARD WHERE ARTICLE_NO = #{articleNo} and article_date = #{articleDate}
+  	</select>
+  	
+  	<insert id="insertChart">
+  	INSERT INTO CHARTBOARD VALUES(#{articleDate}, #{articleNo}, 0)
+  	</insert>
+  	
+  	<update id="updateChart">
+  	UPDATE CHARTBOARD
+  	SET READ_COUNT = #{readCount} WHERE ARTICLE_NO = #{articleNo} and ARTICLE_DATE = #{articleDate}
+  	</update>
+  	
+</mapper>

@@ -35,6 +35,26 @@ public class MusicBoardArticleDAO {
     public void increaseReadCount(MusicBoardArticle vo){
         sqlSession.update("MusicBoardArticleDAO.updateReadCount", vo);
     }
+    public int getPrevArticleNo(MusicBoardArticle vo){
+        return sqlSession.selectOne("MusicBoardArticleDAO.getPrevArticleNo", vo);
+    }
+    public int getNextArticleNo(MusicBoardArticle vo){
+        return sqlSession.selectOne("MusicBoardArticleDAO.getNextArticleNo", vo);
+    }
+    public void updateBest(MusicBoardArticle vo){
+        vo.setBest(((int)sqlSession.selectOne("MusicBoardArticleDAO.getBest", vo))+1);
+        sqlSession.update("MusicBoardArticleDAO.updateBest", vo);
+    }
+    public void updateBad(MusicBoardArticle vo){
+        vo.setBad(((int)sqlSession.selectOne("MusicBoardArticleDAO.getBad", vo))+1);
+        sqlSession.update("MusicBoardArticleDAO.updateBad", vo);
+    }
+    public int getBest(MusicBoardArticle vo){
+        return sqlSession.selectOne("MusicBoardArticleDAO.getBest", vo);
+    }
+    public int getBad(MusicBoardArticle vo){
+        return sqlSession.selectOne("MusicBoardArticleDAO.getBad", vo);
+    }
     public void commit(){
         sqlSession.commit();
     }
