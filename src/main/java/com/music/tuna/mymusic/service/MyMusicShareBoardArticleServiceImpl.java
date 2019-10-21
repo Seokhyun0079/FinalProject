@@ -7,6 +7,8 @@ import com.music.tuna.mymusic.vo.MyMusicShareBoardArticle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MyMusicShareBoardArticleServiceImpl implements MyMusicShareBoardArticleService {
     @Autowired
@@ -27,5 +29,10 @@ public class MyMusicShareBoardArticleServiceImpl implements MyMusicShareBoardArt
         myMusic.setId(myMusicShareBoardArticle.getId());
         myMusicShareBoardArticle.setMyMusicList(myMusicDAO.getMyMusicList(myMusic));
         return myMusicShareBoardArticle;
+    }
+
+    @Override
+    public List<MyMusicShareBoardArticle> selectList(MyMusicShareBoardArticle vo) {
+        return myMusicShareBoardArticleDAO.selectList(vo);
     }
 }

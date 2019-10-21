@@ -5,6 +5,8 @@ import com.music.tuna.util.SqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class MyMusicShareBoardArticleDAO {
     SqlSession sqlSession;
@@ -19,6 +21,9 @@ public class MyMusicShareBoardArticleDAO {
     }
     public MyMusicShareBoardArticle selectArticleByArticleNo(MyMusicShareBoardArticle vo){
         return sqlSession.selectOne("MyMusicShareBoardArticleDAO.selectArticleByArticleNo", vo);
+    }
+    public List<MyMusicShareBoardArticle> selectList(MyMusicShareBoardArticle vo){
+        return sqlSession.selectList("MyMusicShareBoardArticleDAO.selectList", vo);
     }
     public void commit(){
         sqlSession.commit();

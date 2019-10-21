@@ -28,4 +28,10 @@ public class MyMusicShareBoardArticleController {
         mv.addObject("article", myMusicShareBoardArticleService.selectArticleByArticleNo(vo));
         return mv;
     }
+    @RequestMapping("/list.do")
+    public ModelAndView getList(ModelAndView mv, MyMusicShareBoardArticle vo){
+        mv.setViewName("/myMusicShareBoard/list");
+        mv.addObject("list", myMusicShareBoardArticleService.selectList(vo));
+        return mv;
+    }
 }

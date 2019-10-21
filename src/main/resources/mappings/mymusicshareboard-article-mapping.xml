@@ -22,4 +22,7 @@
     <select id="selectArticleByArticleNo" resultMap="articleResult">
         select * from mymusicshareboard_article where article_no = #{articleNo}
     </select>
+    <select id="selectList" resultMap="articleResult">
+        select * from mymusicshareboard_article
+    </select>
 </mapper>
