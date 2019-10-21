@@ -33,13 +33,14 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
     	
     	chart.setArticleNo(vo.getArticleNo());
     	chart.setArticleDate(new Date(System.currentTimeMillis()));
-    	chart = chartDao.selectById(chart);
-		    if(chart == null) {
-				// 새로운 챠트 컬럼 생성해서 삽입
-		    	System.out.println("새로운 행 생성");
+    	Chart checkChart = chartDao.selectById(chart);
+		    if(checkChart == null) {
+		    	chartDao.insertChart(chart);
+		    	chartDao.commit();
 			}else {
-				chart.setReadCount(chart.getReadCount()+1);
-		    	System.out.println("기존 행 수정");
+				checkChart.setReadCount(checkChart.getReadCount()+1);
+				chartDao.updateChart(checkChart);
+                chartDao.commit();
 			}
     	
         vo.setReadCount(musicBoardArticleDAO.getReadCount(vo)+1);
@@ -47,7 +48,7 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
         MusicBoardArticle newItem = musicBoardArticleDAO.getArticle(vo);
         newItem.setPrev(musicBoardArticleDAO.getPrevArticleNo(vo));
         newItem.setNext(musicBoardArticleDAO.getNextArticleNo(vo));
-        commit();
+        musicBoardArticleDAO.commit();
         return newItem;
     }
 
@@ -63,16 +64,15 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
     @Override
     public int updateBest(MusicBoardArticle vo) {
         musicBoardArticleDAO.updateBest(vo);
-        commit();
+        musicBoardArticleDAO.commit();
         return musicBoardArticleDAO.getBest(vo);
     }
 
     @Override
     public int updateBad(MusicBoardArticle vo) {
         musicBoardArticleDAO.updateBad(vo);
-        commit();
+        musicBoardArticleDAO.commit();
         return musicBoardArticleDAO.getBad(vo);
     }
 
-    public void commit(){ musicBoardArticleDAO.commit();}
 }

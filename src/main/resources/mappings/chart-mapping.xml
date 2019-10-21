@@ -14,8 +14,7 @@
   	</select>
   	
   	<insert id="insertChart">
-  	INSERT INTO CHARTBOARD
-  	VALUES(#{articleDate}, #{articleNo}, #{readCount})
+  	INSERT INTO CHARTBOARD VALUES(#{articleDate}, #{articleNo}, 0)
   	</insert>
   	
   	<update id="updateChart">
