@@ -47,11 +47,11 @@
                             <h2 class="mb-4">Write a post</h2>
 
                             <!-- Form -->
-                            <form action="minsert.do" method="post" enctype="Multipart/form-data">
+                            <form action="#" method="post" enctype="Multipart/form-data">
                                 <div class="row">
                                     <div class="col-lg-12">
                                 
-                                        <input type="text" name="message-name" class="form-control mb-30" placeholder="제목 입력" path="mtitle">
+                                        <input type="text" name="message-name" class="form-control mb-30" placeholder="제목 입력">
                                     </div>
                                     <div class="col-12">
                                         <textarea rows="20"  name="message" class="form-control mb-30"  placeholder="내용 입력" style="height: 100%"></textarea>

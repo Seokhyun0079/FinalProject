@@ -53,6 +53,10 @@ public class MagazineBoardDAO {
 		 RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		return (ArrayList)sqlSession.selectList("Magazinemapper.selectKeySearch", keyword, rowBounds);
 	}
+	public int insertPost(MagazineBoard m) {
+		
+		return sqlSession.insert("Magazinemapper.insertPost", m);
+	}
 
 
 

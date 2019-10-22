@@ -1,6 +1,9 @@
 package com.music.tuna.magazineBoard.controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.music.tuna.common.Pagination;
+import com.music.tuna.common.mPagination;
 import com.music.tuna.magazineBoard.model.service.MagazineBoardService;
 import com.music.tuna.magazineBoard.model.vo.MagazineBoard;
 import com.music.tuna.magazineBoard.model.vo.PageInfo;
@@ -32,7 +35,7 @@ public class MagazineBoardController {
 	 
 	  int mlistCount = mService.getListCount();
 	 
-	 PageInfo pi = Pagination.getPageInfo(currentPage, mlistCount);
+	 PageInfo pi = mPagination.getPageInfo(currentPage, mlistCount);
 	  ArrayList<MagazineBoard> list = mService.selectList(pi); //ArrayList vo
 	  
 	  if(list !=null) { // view로 보내야 할 것 : list, pi // 어떤 view로 보낼 건지
@@ -52,6 +55,7 @@ public class MagazineBoardController {
 		 
 	 }
 	 
+	 
 	 // 게시물 상세(페이지)보기
 	 @RequestMapping("mdetaile.do")
 	 public ModelAndView mdetaile(@RequestParam("mseq") int mseq, @RequestParam("page") int page,
@@ -68,6 +72,7 @@ public class MagazineBoardController {
 		 return mv;
 	 }
 	 
+	 // 게시물 삭제
 	 @RequestMapping("mdelete.do")
 	 public String mdelete(@RequestParam(value="mseq") int mseq) {
 		
@@ -87,7 +92,7 @@ public class MagazineBoardController {
 	 
 	  int mlistCount = mService.keySearchCount(keyword);
 	 
-	  PageInfo pi = Pagination.getPageInfo(currentPage, mlistCount);
+	  PageInfo pi = mPagination.getPageInfo(currentPage, mlistCount);
 	  ArrayList<MagazineBoard> list = mService.selectKeySearch(keyword,pi); //ArrayList vo
 	  
 	  if(list !=null) { // view로 보내야 할 것 : list, pi // 어떤 view로 보낼 건지
@@ -100,20 +105,31 @@ public class MagazineBoardController {
 	 
 	 }
 	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-/*	 @RequestMapping("mupdate.do")
-	 public String mupdate() {
-		return "magazineBoard/magazineUpdate";
+	 //게시물 저장
+	 @RequestMapping("minsert.do")
+	 public String minsert(@ModelAttribute MagazineBoard m) {
+		
+		 System.out.println(m);
 		 
-	 }*/
+		 int result = mService.insertPost(m);
+		 
+		 if(result >0) {
+			 return "redirect:magazine.do";
+		 }else {
+			 return null; //에러 발생
+		 }
+		 
+	 }
+	 
 
+	 // 게시물 수정
+	 @RequestMapping("mupdate.do")
+		 public String mupdate() {
+			return "magazineBoard/magazineUpdate";
+			 
+		 }
+
+	 
 
 	 
 
