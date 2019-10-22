@@ -28,6 +28,17 @@ public class MemberDaoImpl implements MemberDao{
 
 		return result;
 	}
+	@Override
+	public boolean duplicateCheckEmail(String email) {
+		boolean result;
+		if((int)sqlSession.selectOne("member.duplicateCheckEmail", email) > 0) {
+			result = true;
+		}else {
+			result = false;
+		}
+
+		return result;
+	}
 	
 	@Override
 	public Member selectMember(Member m) {
@@ -58,6 +69,14 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public int updatePW(Member findPW) {
 		return sqlSession.update("member.updatePW", findPW);
+	}
+	@Override
+	public int updateMember(Member m) {
+		return sqlSession.update("member.updateMember",m);
+	}
+	@Override
+	public int deleteMember(String userId) {
+		return sqlSession.update("member.deleteMember",userId);
 	}
 
 }
