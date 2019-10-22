@@ -210,10 +210,9 @@
                                 </div>
                                 
                                 <!-- Login Icon -->
-			                            <div class="search-icon" data-toggle="modal" data-target="#loginModal">
-			                                <i class="fa fa-sign-in"></i>
-			                            </div>
-							        
+	                            <div class="search-icon" data-toggle="modal" data-target="#loginModal">
+	                                <i class="fa fa-sign-in"></i>
+	                            </div>
                             </div>
                             <!-- Nav End -->
                         </div>

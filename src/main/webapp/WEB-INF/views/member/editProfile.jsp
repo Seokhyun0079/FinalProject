@@ -218,13 +218,13 @@
 			                            </div>
 							        </c:when>
 						       		<c:otherwise>
-			                            <div class="search-icon" id="user-icon" OnClick="location.href ='/TunaMusic/member/logout.do'" style="cursor:pointer;">
+			                            <div class="search-icon" id="user-icon" style="cursor:pointer;">
 			                                <ul>
 			                                	<li><i class="fa fa-user"></i>
 			                                		<ul>
 			                                			<li><a href="/TunaMusic/member/mypage.do">&nbsp&nbspMY PAGE</a></li><br>
 			                                			<li><a href="/TunaMusic/member/edit.do">&nbsp&nbspEDIT</a></li><br>
-										            	<li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
+											            <li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
 			                                		</ul>
 			                                	</li>
 			                                </ul>
@@ -430,12 +430,13 @@
 		});
 		 
 		$("#delete").click(function () {
-			   confirm("정말로 탈퇴하시겠습니까")
+			   if(confirm("정말로 탈퇴하시겠습니까")){
 			   $('#userPwd').removeAttr( 'required' );
 			   $('#userPwd2').removeAttr( 'required' );
 			   $('#nickName').removeAttr( 'required' );
 			   $('#email').removeAttr( 'required' );
 		       $("form").attr("action", "memberDelete.do");
+			   }
 		});
 
 	</script>
