@@ -7,10 +7,24 @@
         <id column="article_date" property="articleDate"/>
         <result column="article_no" property="articleNo"/>
         <result column="read_count" property="readCount"/>
+        <result column="rc" property="rc"/>
+        <result column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="text" property="text"/>
     </resultMap>
     
     <select id="selectById" resultMap="chartResult">
     SELECT * FROM CHARTBOARD WHERE ARTICLE_NO = #{articleNo} and article_date = #{articleDate}
+  	</select>
+  	
+  	<select id="selectRealTime" resultMap="chartResult">
+  	<![CDATA[
+  	SELECT * FROM
+	(SELECT article_no, SUM(READ_COUNT) AS RC FROM CHARTBOARD WHERE 30 >= SYSDATE - ARTICLE_DATE
+	GROUP BY ARTICLE_NO ORDER BY RC DESC) JOIN musicboard_article USING(ARTICLE_NO) WHERE ROWNUM <= 10
+	]]>
+<!--   	SELECT SUM(READ_COUNT) AS RC FROM CHARTBOARD WHERE 30 >= SYSDATE - ARTICLE_DATE
+	GROUP BY ARTICLE_NO ORDER BY RC DESC -->
   	</select>
   	
   	<insert id="insertChart">
