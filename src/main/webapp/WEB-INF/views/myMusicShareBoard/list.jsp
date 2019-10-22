@@ -230,7 +230,7 @@
         <div class="row">
 
             <!-- Single Podcast Area -->
-            <c:forEach var ="article" items="${articlePage.pageContent}">
+            <c:forEach var ="article" items="${list}">
             <div class="col-12 col-md-6 col-xl-3">
                 <div class="single-podcast-area mb-30 wow fadeInUp" data-wow-delay="100ms">
                     <!-- Thumbnail -->
@@ -250,8 +250,8 @@
                         <h5>${article.title}</h5>
                         <div class="border-line"></div>
                         <div class="play-download-btn d-flex align-items-center justify-content-between">
-                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.articleNo}" class="btn razo-btn btn-sm">playing now</a>
-                            <a href="/TunaMusic/resources/upload/${article.fileName}" class="music-download-btn" download><i class="icon_download"></i></a>
+                            <a href="/TunaMusic/myMusicShareBoard/article/read.do?articleNo=${article.articleNo}" class="btn razo-btn btn-sm">playing now</a>
+                            <a href="/TunaMusic/resources/upload/" class="music-download-btn" download><i class="icon_download"></i></a>
                         </div>
                     </div>
                 </div>
