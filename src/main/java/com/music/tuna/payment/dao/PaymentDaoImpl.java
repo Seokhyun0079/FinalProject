@@ -12,12 +12,12 @@ import com.music.tuna.util.SqlSessionFactoryBean;
 public class PaymentDaoImpl implements PaymentDao{
 
 
-	private SqlSession sqlSession;
+	private SqlSession sqlSession = SqlSessionFactoryBean.getSqlSessionInstance();
 	
 	@Override
-	public int insertPayment(Payment p) {
+	public int insertPayment(String userId) {
 		System.out.println("다오 임플 리턴 되나");
-		return sqlSession.insert("payment.insertPayment",p);
+		return sqlSession.insert("payment.insertPayment", userId);
 	}
 
 	@Override

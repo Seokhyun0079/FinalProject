@@ -59,7 +59,7 @@
     </div>
     
     <div style="padding: 20px;">
-        <input type="checkbox" name="chk_2" id="chk_2" value="agree">&nbsp;&nbsp;TuNa Music 유료서비스약관 및 하단 유의사항에 동의합니다.
+        <input type="checkbox" name="chk_2" id="chk_2" value="agree">&nbsp;&nbsp;Tuna Music 유료서비스약관 및 하단 유의사항에 동의합니다.
     </div>
     <div class="event-purchase-button" style="text-align: center;">
     	

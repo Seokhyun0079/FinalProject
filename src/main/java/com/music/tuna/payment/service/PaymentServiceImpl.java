@@ -13,11 +13,10 @@ public class PaymentServiceImpl implements PaymentService{
 	private PaymentDao pDao;
 
 	@Override
-	public int payConfirm(Payment p) {
-		System.out.println("결제 서비스 임플 커밋 되나?");
+	public int payConfirm(String userId) {		
+		int result =  pDao.insertPayment(userId);
 		pDao.commit();
-		System.out.println("커밋 된다");
-		return pDao.insertPayment(p);
+		return result;
 	}
 
 
