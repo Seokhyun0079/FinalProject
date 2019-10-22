@@ -50,7 +50,8 @@
                             <form action="minsert.do" method="post" enctype="Multipart/form-data">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <input type="text" name="message-name" class="form-control mb-30" placeholder="제목 입력">
+                                
+                                        <input type="text" name="message-name" class="form-control mb-30" placeholder="제목 입력" path="mtitle">
                                     </div>
                                     <div class="col-12">
                                         <textarea rows="20"  name="message" class="form-control mb-30"  placeholder="내용 입력" style="height: 100%"></textarea>
@@ -61,7 +62,7 @@
                                     </div>
                                     
                                        <div class="col-12" align="center"> 
-                                        <button type="submit" class="btn razo-btn btn-3 mt-15">Post</button> 
+                                        <button type="submit" class="btn razo-btn btn-3 mt-15">수정완료</button> 
                                         <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
                                     </div>
                                        

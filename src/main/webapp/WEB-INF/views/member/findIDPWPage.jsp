@@ -202,7 +202,7 @@
 			                            </div>
 							        </c:when>
 						       		<c:otherwise>
-			                            <div class="search-icon" id="user-icon" OnClick="location.href ='/TunaMusic/member/logout.do'" style="cursor:pointer;">
+			                            <div class="search-icon" id="user-icon" style="cursor:pointer;">
 			                                <ul>
 			                                	<li><i class="fa fa-user"></i>
 			                                		<ul>

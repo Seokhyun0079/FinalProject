@@ -213,7 +213,7 @@
     </div>
     <hr>
 
-    <div class="container">
+    <div class="container" style="margin-top: 30px">
         <div class="row razo-blog-masonary">
             <!-- <div class="row razo-blog-masonary-item"> -->
             <div class="col-8">

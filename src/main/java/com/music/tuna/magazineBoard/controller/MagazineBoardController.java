@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,8 +41,6 @@ public class MagazineBoardController {
 	  .setViewName("magazineBoard/magazineListView");
 	  
 	  }
-
-	  // return "magazineBoard/magazineListView"; 
 	  
 	  return mv;	  
 	  }
@@ -69,6 +68,53 @@ public class MagazineBoardController {
 		 return mv;
 	 }
 	 
+	 @RequestMapping("mdelete.do")
+	 public String mdelete(@RequestParam(value="mseq") int mseq) {
+		
+		 mService.deletePost(mseq);
+		 
+		 return "redirect:magazine.do";
+		 
+	 }
+
+	 //게시물 검색(총 갯수 출력, 페이징처리)
+	 @RequestMapping("msearch.do") 
+	 public ModelAndView mboardList(@RequestParam(value="keyword")String keyword, @RequestParam(value="page", required = false)Integer page,
+	 ModelAndView mv) {
+	  
+	  int currentPage = 1; 
+	  if(page != null) { currentPage = page; }
+	 
+	  int mlistCount = mService.keySearchCount(keyword);
+	 
+	  PageInfo pi = Pagination.getPageInfo(currentPage, mlistCount);
+	  ArrayList<MagazineBoard> list = mService.selectKeySearch(keyword,pi); //ArrayList vo
+	  
+	  if(list !=null) { // view로 보내야 할 것 : list, pi // 어떤 view로 보낼 건지
+	  mv.addObject("list", list) 
+	  .addObject("pi", pi)
+	  .setViewName("magazineBoard/magazineListView");
+	  
+	  }
+	  return mv;
+	 
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+/*	 @RequestMapping("mupdate.do")
+	 public String mupdate() {
+		return "magazineBoard/magazineUpdate";
+		 
+	 }*/
+
+
 	 
 
 

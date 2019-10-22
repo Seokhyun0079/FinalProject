@@ -90,6 +90,7 @@ public class MagazineBoard {
 	public void setMseq(int mseq) {
 		this.mseq = mseq;
 	}
+	
 
 	@Override
 	public String toString() {
