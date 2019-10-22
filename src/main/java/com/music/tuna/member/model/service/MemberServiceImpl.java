@@ -31,6 +31,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
+	public boolean duplicateCheckEmail(String email) {
+		return memberDao.duplicateCheckEmail(email);
+	}
+	
+	@Override
 	public Member loginMember(Member m) {
 		Member loginUser = null;
 		
@@ -62,6 +67,25 @@ public class MemberServiceImpl implements MemberService{
 
 		return result;
 	}
+
+	@Override
+	public int updateMember(Member m) {
+		int result = memberDao.updateMember(m);
+		if(result > 0) {
+			memberDao.commit();
+		}
+		return result;
+	}
+
+	@Override
+	public int deleteMember(String userId) {
+		int result = memberDao.deleteMember(userId);
+		if(result > 0) {
+			memberDao.commit();
+		}
+		return result;
+	}
+
 
 
 
