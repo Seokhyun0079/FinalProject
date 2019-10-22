@@ -10,8 +10,10 @@
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardComment" alias="musicBoardComment"/>
 		<typeAlias type="com.music.tuna.mymusic.vo.MyMusic" alias="myMusic"/>
 		<typeAlias type="com.music.tuna.member.model.vo.Member" alias="member"/>
-    <typeAlias type="com.music.tuna.crowdFunding.model.vo.Funding" alias="funding"/>
+   		<typeAlias type="com.music.tuna.crowdFunding.model.vo.Funding" alias="funding"/>
 		<typeAlias type="com.music.tuna.magazineBoard.model.vo.MagazineBoard" alias="MagazineBoard"/>
+		<typeAlias type="com.music.tuna.chart.vo.Chart" alias="chart"/>
+		<typeAlias type="com.music.tuna.mymusic.vo.MyMusicShareBoardArticle" alias="myMusicShareBoardArticle"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -26,10 +28,12 @@
 	</environments>
 	<mappers>
 		<mapper resource="mappings/musicboard-article-mapping.xml"/>
-    <mapper resource="mappings/musicboard-comment-mapping.xml"/>
-    <mapper resource="mappings/crowdFunding-mapping.xml"/>
+  	 	<mapper resource="mappings/musicboard-comment-mapping.xml"/>
+    	<mapper resource="mappings/crowdFunding-mapping.xml"/>
 		<mapper resource="mappings/myMusic-mapping.xml"/>
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/Magazine-mapping.xml"/>
+		<mapper resource="mappings/chart-mapping.xml"/>
+		<mapper resource="mappings/mymusicshareboard-article-mapping.xml"/>
 	</mappers>
 </configuration>
