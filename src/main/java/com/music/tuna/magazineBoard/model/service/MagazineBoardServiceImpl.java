@@ -32,6 +32,39 @@ public class MagazineBoardServiceImpl implements MagazineBoardService {
 		return mDAO.selectBoard(mseq);
 	}
 
+	@Override
+	public int deletePost(int mseq) {
+		
+		return mDAO.deletePost(mseq);
+	}
+
+	@Override
+	public int keySearchCount(String keyword) {
+		
+		return mDAO.keySearchCount(keyword);
+	}
+
+	@Override
+	public ArrayList<MagazineBoard> selectKeySearch(String keyword,PageInfo pi) {
+		
+		return mDAO.selectKeySearch(keyword,pi);
+	}
+
+	@Override
+	public int insertPost(MagazineBoard m) {
+		
+		return mDAO.insertPost(m);
+	}
+
+
+
+
+
+
+
+
+
+
 
 	
 }

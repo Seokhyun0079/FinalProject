@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,21 +11,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Title -->
-    <title>TUNA MUSIC | FIND PW PAGE</title>
+    <title>TUNA MUSIC | SIGN-UP PAGE</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
-   
-    <style type="text/css">
-	    .findfont::placeholder {
-			  color: rgb(221, 35, 121);
-			  font-size: 12pt;
-		}
+    
+    <style>
+    h6{
+    	margin-top:5px;
+    }
+    
+  	.box-file-input label{
+	    display:inline-block;
+	    background:black;
+	    color:white;
+	    padding:0px 15px;
+	    line-height:35px;
+	    cursor:pointer;
+	}
+	
+	.box-file-input label:after{
+	    content:"UPLOAD";
+	}
+	
+	.box-file-input .file-input{
+	    display:none;
+	}
+	
     </style>
-    
-    
 </head>
 
 <body>
@@ -74,8 +90,8 @@
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
 	                        <div style="float: right;">
-	                            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:gray;">FORGOT PW?</a></div>
-	                            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
+	                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;">FORGOT PW?</a></div>
+	                            <div style="color:gray; width: 100%;"><a href="memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
 	                        </div>
 	                    </form>
 	                </div>
@@ -186,12 +202,12 @@
 
                                 <!-- Share Icon -->
                                 <div class="social-share-icon">
-                                    <i class="fa fa-music"></i>
+                                    <i class="social_share"></i>
                                 </div>
 
                                 <!-- Search Icon -->
                                 <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                    <i class="fa fa-search"></i>
+                                    <i class="icon_search"></i>
                                 </div>
                                 
                                 <!-- Login Icon -->
@@ -208,7 +224,7 @@
 			                                		<ul>
 			                                			<li><a href="/TunaMusic/member/mypage.do">&nbsp&nbspMY PAGE</a></li><br>
 			                                			<li><a href="/TunaMusic/member/edit.do">&nbsp&nbspEDIT</a></li><br>
-										          		<li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
+											            <li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
 			                                		</ul>
 			                                	</li>
 			                                </ul>
@@ -223,46 +239,226 @@
             </div>
         </div>
     </header>
-    <section class="welcome-area">
-        <!-- Single Welcome Slide -->
-        <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(/TunaMusic/resources/img/bg-img/1.jpg);">
-            <!-- Welcome Content -->
-            <div class="welcome-content h-100">
-                    <div class="row h-100 align-items-center justify-content-center">
-                        <!-- Welcome Text -->
-                        <div style="width:100%;">
-                            <div class="welcome-text text-center" style="display: inline;">
-							    <h1 align="center" style="color:white;">TUNA MUSIC</h1>
-							    <span style="float:left; margin-left: 20%; margin-top: 50px; width: 30%;">
-							    <h3 align="center" style="color:white;">FIND ID</h3>
-							    <form method="post" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
-							        <input type="text" id="name1" name="userName" class="findfont" placeholder="NAME" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/>
-							        <input type="email" id="email1" name="email" class="findfont" placeholder="EMAIL" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/><div id="email_check1"></div><BR>
-							        <br>
-							        <div class="welcome-text text-center">
-		                                <input type="submit" id="submit1" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms" value="FIND!" style="font-size: 16px;"/>
-		                            </div>
-							    </form>
-							    </span>
-							    <span style="float:right; margin-right: 20%; margin-top: 50px; width: 30%;">
-							    <h3 align="center" style="color:white;">FIND PW</h3>
-							    <form action="findPW.do" method="post" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
-							        <input type="text" id="name2" name="name2" class="findfont" placeholder="NAME" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/>
-							        <input type="text" id="userId2" name="id2" class="findfont" placeholder="ID" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/><BR>
-							        <input type="email" id="email2" name="email2" class="findfont" placeholder="EMAIL" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/><div id="email_check2"></div><BR>
-							        <br>
-							        <div class="welcome-text text-center">
-		                                <input type="submit" id="submit2" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms" value="FIND!" style="font-size: 16px;"/>
-		                            </div>
-							    </form>
-							    </span>
-                            </div>
+    <!-- Header Area End -->
+    
+    
+    
+    <br><br><br>
+    <h1 style="margin-left:43%;">TUNA MUSIC</h1>
+	<form id="joinForm" style="margin-bottom: 80px;" method="post" enctype="multipart/form-data">
+		<table style="margin-left:40%; margin-top: 50px; font-family: Oswald;">
+			<tr>
+				<td style="width:130px"> <h6>* ID </h6></td>
+				<td> <h6>${loginUser.userId}</h6></td>
+				
+			</tr>
+			<tr>
+				<td><h6> * NEW PW </h6></td>
+				<td><input type="password" name="userPwd" id="userPwd" required/></td>
+			</tr>
+			<tr>
+				<td><h6> * Comfirm PW &nbsp </h6></td>
+				<td><input type="password" name="userPwd2" id="userPwd2" required/><div id="alert-success" style="color: gray">비밀번호가 일치합니다.</div><div id="alert-danger" style="color: rgb(221, 35, 121);">비밀번호가 일치하지 않습니다.</div></td>
+			</tr>
+			<tr>
+				<td><h6> * NAME </h6></td>
+				<td><h6 style="font-weight:bolder;">${loginUser.userName}</h6></td>
+			</tr>
+			<tr>
+				<td><h6> * NickName </h6></td>
+				<td><input type="text" name="nickName" id="nickName" value="${loginUser.nickName}" required/></td>
+			</tr>
+			<tr>
+				<td><h6> * date of birth</h6> </td>
+				<td><h6>
+				<fmt:parseDate value="${loginUser.birthDay}" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
+				<fmt:formatDate value="${dateFmt}"  pattern="yyyy.MM.dd." var="birth"/>
+				${birth}</h6>
+			</tr>
+			<tr>
+				<td><h6> * Gender </h6></td>
+				<td><h6>
+					<c:set var="gender" value="${loginUser.gender}"/>
+					<c:choose>
+						<c:when test="${gender eq '1'}">
+						male
+						</c:when>
+						<c:otherwise>
+						female
+						</c:otherwise>
+					</c:choose></h6>
+				</td>
+			</tr>
+			<tr>
+				<td><h6> * E-Mail </h6></td>
+				<td><input type="email" name="email" id="email" value="${loginUser.email}" required/><div id="email_check"></div></td>
+			</tr>
+			<tr>
+				<td><h6> &nbsp&nbsp&nbspPhone-Number </h6></td>
+				<td><input type="tel" name="phone" value="${loginUser.phone}"/></td>
+            </tr>			
+		</table>
+		<table align="center" style="margin-left:40%; margin-top: 0; font-family: Oswald;">
+			<tr>
+				<td style="width:130px;"><h6>&nbsp&nbsp&nbspProfile IMG</h6></td>
+				<td style="width:123px;"><img id="prePhoto" src="/TunaMusic/resources/uploadFiles/${loginUser.profileIMG}" alt="" style="width:100px;"></td>
+				<td> <div class="box-file-input"><label><input type="file" name="photo" id="input_photo" class="file-input" accept="image/*"></label></div></td>
+				
+			</tr>
+		</table>	
+		<br><br>
+		<div style="margin-left:40%;">
+		<span class="view-more-button text-center" align="center">
+                <input type="submit" id="update" style="margin-top:10px; cursor:pointer;" value="EDIT" class="btn razo-btn mt-50">
+        </span>
+        <span class="view-more-button text-center" align="center">
+                <input type="submit" id="delete" style="margin-top:10px; cursor:pointer;" value="delete" class="btn razo-btn mt-50">
+        </span>
+		</div>
+        <input type="hidden" name="oldPhoto" value="${loginUser.profileIMG}" />
+        <input type="hidden" name="userId" value="${loginUser.userId}" />
+	</form>
+	
+	<script type="text/javascript">
+		
+		// 비밀번호 확인
+		$(function(){
+			$("#alert-success").hide();
+			$("#alert-danger").hide();
+			$("input").keyup(function(){
+				var pwd1 = $("#userPwd").val();
+				var pwd2 = $("#userPwd2").val();
+				if(pwd2 == ""){
+					$("#alert-danger").hide();
+				}else{
+					
+				
+				
+				if(pwd1 != "" || pwd2 != ""){
+					if(pwd1 == pwd2){
+						$("#alert-success").show();
+	                    $("#alert-danger").hide();
+						$("#submit").removeAttr("disabled");
+					}else{
+						$("#alert-success").hide();
+	                    $("#alert-danger").show();
+	                    $("#submit").attr("disabled", "disabled");
+					}
+				}
+				}
+			});
+		});
+		
+		
+		//이메일 유효성,중복체크
+		$("#email").blur(function() {
+			
+			var email = $("#email").val();
+
+		    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+		    if (!regExp.test(email)){
+		    	$("#email_check").css("color","rgb(221, 35, 121)")
+				$("#email_check").html("이메일을 정확히 입력하세요!");
+				$("#submit").attr("disabled", "disabled");
+				$('#email').val("");
+		    }else{
+		    	
+		    	$.ajax({
+					url : 'duplicateCheck2.do',
+					type : "POST",
+					data:{
+						email : email
+					},
+					dataType:"JSON",
+					success : function(data){
+						if(data.result){
+							$("#email_check").css("color","rgb(221, 35, 121)");
+							$("#email_check").html("중복된 이메일입니다. 다른 이메일을 입력해 주세요!");
+							$("#submit").attr("disabled", "disabled");
+						}else{
+							$("#email_check").css("color","gray");
+							$("#email_check").html("사용가능한 이메일입니다!");
+							$("#submit").removeAttr("disabled");
+						}
+					}
+				
+				})
+		    	
+		    	
+		    }
+
+		});
+		
+		//미리보기 script
+
+		var sel_file;
+		
+		$(document).ready(function(){
+			$("#input_photo").on("change", handleImgFileSelect);
+		});
+		
+		function handleImgFileSelect(e){
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			
+			filesArr.forEach(function(f){
+			
+				sel_file = f;
+				
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$("#prePhoto").attr("src", e.target.result);
+				}
+				reader.readAsDataURL(f);
+			});
+			
+		}
+		
+ 		//파일 업로드 디자인
+    	
+    	$(document).on("change", ".file-input", function(){
+    	     
+            $filename = $(this).val();
+            $(".filename").text($filename);
+
+        });
+ 		
+ 		//submit js
+ 		$("#update").click(function () {
+        	   $("form").attr("action", "memberUpdate.do");
+		});
+		 
+		$("#delete").click(function () {
+			   if(confirm("정말로 탈퇴하시겠습니까")){
+			   $('#userPwd').removeAttr( 'required' );
+			   $('#userPwd2').removeAttr( 'required' );
+			   $('#nickName').removeAttr( 'required' );
+			   $('#email').removeAttr( 'required' );
+		       $("form").attr("action", "memberDelete.do");
+			   }
+		});
+
+	</script>
+
+
+        <!-- Copywrite Text -->
+        <div class="copywrite-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Copywrite Text -->
+                        <div class="copywrite-text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div>
                     </div>
                 </div>
             </div>
-    </section>
-
+        </div>
+    </footer>
+    <!-- Footer Area End -->
 
     <!-- All JS Files -->
 
@@ -276,69 +472,6 @@
 	<script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 	<!-- Active -->
 	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-	
-	<script type="text/javascript">
-
-	$("#email1").blur(function() {
-		var email1 = $("#email1").val();
-
-	    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-	    $("#submit1").removeAttr("disabled");
-	    if (!regExp.test(email1)){
-	    	$("#email_check1").css("color","rgb(221, 35, 121)")
-			$("#email_check1").html("이메일을 정확히 입력하세요!");
-			$("#submit1").attr("disabled", "disabled");
-			$('#email1').val("");
-	    }
-
-	});
-	
-	$("#email2").blur(function() {
-		var email2 = $("#email2").val();
-
-	    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-	    $("#submit1").removeAttr("disabled");
-	    if (!regExp.test(email2)){
-	    	$("#email_check2").css("color","rgb(221, 35, 121)")
-			$("#email_check2").html("이메일을 정확히 입력하세요!");
-			$("#submit2").attr("disabled", "disabled");
-			$('#email2').val("");
-	    }
-
-	});
-	
-	// FIND ID AJAX
-	$('#submit1').click(function(){
-		var name = $('#name1').val();
-		var email = $('#email1').val();
-		
-		
-		$.ajax({
-			url : 'findID.do',
-			type : "POST",
-			data:{
-				name : name,
-				email : email
-			},
-			dataType:"JSON",
-			async: false,
-			success : function(data){
-				console.log(data.msg);
-				alert(data.msg);
-			}
-			 
-		});
-	});
-	
-			
-	var message = '${Msg}';
-	if(message != "")
-	alert(message);
-
-	
-
-	
-	</script>	
 
 </body>
 

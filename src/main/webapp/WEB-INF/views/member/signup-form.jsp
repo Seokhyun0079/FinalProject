@@ -22,6 +22,22 @@
     	margin-top:5px;
     }
     
+   	.box-file-input label{
+	    display:inline-block;
+	    background:black;
+	    color:white;
+	    padding:0px 15px;
+	    line-height:35px;
+	    cursor:pointer;
+	}
+	
+	.box-file-input label:after{
+	    content:"UPLOAD";
+	}
+	
+	.box-file-input .file-input{
+	    display:none;
+	}
   
     </style>
 </head>
@@ -194,25 +210,9 @@
                                 </div>
                                 
                                 <!-- Login Icon -->
-	                            <c:choose>
-							        <c:when test="${empty loginUser }">
-			                            <div class="search-icon" data-toggle="modal" data-target="#loginModal">
-			                                <i class="fa fa-sign-in"></i>
-			                            </div>
-							        </c:when>
-						       		<c:otherwise>
-			                            <div class="search-icon" id="user-icon" OnClick="location.href ='/TunaMusic/member/logout.do'" style="cursor:pointer;">
-			                                <ul>
-			                                	<li><i class="fa fa-user"></i>
-			                                		<ul>
-			                                			<li><a href="/TunaMusic/member/mypage.do">&nbsp&nbspMY PAGE</a></li><br>
-										            	<li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
-			                                		</ul>
-			                                	</li>
-			                                </ul>
-			                            </div>
-							    	</c:otherwise>
-							    </c:choose>
+	                            <div class="search-icon" data-toggle="modal" data-target="#loginModal">
+	                                <i class="fa fa-sign-in"></i>
+	                            </div>
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -226,11 +226,11 @@
     
     
     <br><br><br>
-    <h2 align="center">SIGN-UP</h2>
+    <h1 align="center">SIGN-UP</h1>
 	<form action="memberInsert.do" id="joinForm" style="margin-bottom: 80px;" method="post" enctype="multipart/form-data">
 		<table align="center" style="margin-left:40%; margin-top: 50px; font-family: Oswald;">
 			<tr>
-				<td> <h6>* ID </h6></td>
+				<td style="width:130px"> <h6>* ID </h6></td>
 				<td><input type="text" name="userId" id="userId"/><div id="id_check"></div></td>
 				
 			</tr>
@@ -256,7 +256,6 @@
 					<script>
 						var today = new Date();
 						var toyear = parseInt(today.getFullYear());
-						var start = toyear - 10
 						var start = toyear - 10;
 						var end = toyear - 70;
 						document.write("<select id='year' name=birth>");
@@ -273,7 +272,7 @@
 						for (i=1;i<=31;i++) document.write("<option>"+i);
 						document.write("</select>일 ");
 		
-						document.write("<input name='birthDay'  value='생년월일 저장소' type = 'hidden'>");
+						document.write("<input id='storebirth' name='birthDay'  value='생년월일 저장소'  type = 'hidden' >");
 									
 						var sendBirth=function(){
 							var birth1 = $("#year").val();
@@ -303,7 +302,12 @@
 										}
 
 										$("input[name='birthDay']").val(birth1 + birth2 + birth3);
-										
+										var birth = $("input[name='birthDay']").val();
+										if(birth < 10000000){
+											$("#submit").attr("disabled", "disabled");
+										}else{
+											$("#submit").removeAttr("disabled");
+										}
 									});
 							
 						});
@@ -321,14 +325,18 @@
 				<td><input type="email" name="email" id="email" required/><div id="email_check"></div></td>
 			</tr>
 			<tr>
-				<td><h6> Phone-Number </h6></td>
+				<td><h6> &nbsp&nbsp&nbspPhone-Number </h6></td>
 				<td><input type="tel" name="phone"/></td>
             </tr>			
+			</table>
+		</table>
+		<table align="center" style="margin-left:40%; margin-top: 0; font-family: Oswald;">
 			<tr>
-				<td><h6>Profile IMG</h6></td>
-				<td><input type="file" name="photo"/></td>
+				<td style="width:130px;"><h6>&nbsp&nbsp&nbspProfile IMG</h6></td>
+				<td style="width:123px;"><img id="prePhoto" src="/TunaMusic/resources/uploadFiles/${loginUser.profileIMG}" alt="" style="width:100px;"></td>
+				<td> <div class="box-file-input"><label><input type="file" name="photo" id="input_photo" class="file-input" accept="image/*"></label></div></td>
+				
 			</tr>
-			
 		</table>
 		<br><br>
 		<div class="view-more-button text-center" align="center">
@@ -346,7 +354,6 @@
 				$("#id_check").html("아이디는 영소문자로 시작하는 4~20자 영문자 또는 숫자이어야 합니다.");
 				$("#submit").attr("disabled", "disabled");
 				$('#userId').val("");
-				$('#userId').focus();
 
 
 
@@ -365,7 +372,6 @@
 						$("#id_check").css("color","rgb(221, 35, 121)")
 						$("#id_check").html("중복된 아이디입니다. 다른 아이디를 입력해 주세요!");
 						$("#submit").attr("disabled", "disabled");
-						$('#userId').focus();
 					}else{
 						$("#id_check").css("color","gray")
 						$("#id_check").html("사용가능한 아이디입니다!");
@@ -407,8 +413,9 @@
 			});
 		});
 		
-		
+		//이메일 유효성,중복체크
 		$("#email").blur(function() {
+			
 			var email = $("#email").val();
 
 		    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -418,11 +425,69 @@
 				$("#email_check").html("이메일을 정확히 입력하세요!");
 				$("#submit").attr("disabled", "disabled");
 				$('#email').val("");
-				$('#email').focus();
+		    }else{
+		    	
+		    	$.ajax({
+					url : 'duplicateCheck2.do',
+					type : "POST",
+					data:{
+						email : email
+					},
+					dataType:"JSON",
+					success : function(data){
+						if(data.result){
+							$("#email_check").css("color","rgb(221, 35, 121)")
+							$("#email_check").html("중복된 이메일입니다. 다른 이메일을 입력해 주세요!");
+							$("#submit").attr("disabled", "disabled");
+						}else{
+							$("#email_check").css("color","gray")
+							$("#email_check").html("사용가능한 이메일입니다!");
+							$("#submit").removeAttr("disabled");
+						}
+					}
+				
+				})
+		    	
+		    	
 		    }
 
 		});
+		
+		//미리보기 script
 
+		var sel_file;
+		
+		$(document).ready(function(){
+			$("#input_photo").on("change", handleImgFileSelect);
+		});
+		
+		function handleImgFileSelect(e){
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			
+			filesArr.forEach(function(f){
+			
+				sel_file = f;
+				
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$("#prePhoto").attr("src", e.target.result);
+				}
+				reader.readAsDataURL(f);
+			});
+			
+		}
+		
+ 		//파일 업로드 디자인
+    	
+    	$(document).on("change", ".file-input", function(){
+    	     
+            $filename = $(this).val();
+            $(".filename").text($filename);
+
+        });
+ 		
+ 		
 
 	</script>
 

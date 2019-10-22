@@ -168,19 +168,70 @@
         <div class="col-12">
             <div class="section-heading text-center">
                 <h1> MUSIC MAGAZINE</h1><br>
-                	<h5 style="float: left;">total : ${pi.listCount}</h5>  <br>
-                	 	<button  class="btn razo-btn btn-3 mt-15" style="float: right; background-color: black;" onclick="location.href='minsertView.do';">Post</button> <!-- 게시글 작성 버튼 -->                       
-            			<br><br>
-
+             </div>
+         </div>
+               
+		<!---------------------------------------------------검색창  -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="razo-contact-form" style="margin:auto; ">
+                        
+                        
+                        
+                        <form action="msearch.do" class="search-form">
+                            <div class="row align-items-end">
+                              
+                               
+                                <div class="col-sm-6 col-lg-9">
+                                    <div class="form-group">
+                                        <input type="search" class="form-control" id="keyword" name="keyword"  placeholder="">
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="form-group text-right">
+                                        <button type="submit" class="btn razo-btn w-100" style="background-color: black">Search</button>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </form>
+                        
+                        
+                    </div>
+                </div>
             </div>
         </div>
-             
+        <!---------------------------------------------------검색창  -->
         
+    </div>
+               
+               
+               
+               
+               <!----------------------post버튼  --> 
+                <div class="col-12"> <!-- 가운데 정렬 -->
+                	<c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 -->
+                	 	<button class="btn razo-btn btn-3 mt-15" style="float: right;" onclick="location.href='minsertView.do';">Post</button> <!-- 게시글 작성 버튼 -->                       
+            		</c:if> 
+       			</div>
+       			
+<br><br><br>
+        
+        
+
                 
                 
                  <!-- * 게시글 시작-->
+             	
                
 			<div class="col-12">
+			<h5 style="float: left;">total : ${pi.listCount}</h5>  <br>
+            <br>  
+		
 			<c:forEach var="m" items="${list}" >
            		<div class="single-razo-event-area d-flex flex-wrap align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms" ><!-- *마우스모션?css -->
 				
@@ -295,9 +346,7 @@
                    
 
             </div>    
-
     	</div>
-    </div>
 </section>
     <!-- *게시글 끝 -->
     

@@ -1,10 +1,11 @@
 package com.music.tuna.chart.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.music.tuna.chart.vo.Chart;
-import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.util.SqlSessionFactoryBean;
 
 @Repository
@@ -19,6 +20,10 @@ public class ChartDao {
 		return sqlSession.selectOne("ChartDao.selectById", vo);
 	}
 	
+	public List<Chart> selectRealTime() {
+		return sqlSession.selectList("ChartDao.selectRealTime");
+	}
+	
 	public void insertChart(Chart vo) {
 		sqlSession.insert("ChartDao.insertChart", vo);
 	}
@@ -27,7 +32,7 @@ public class ChartDao {
 		sqlSession.update("ChartDao.updateChart", vo);
 	}
 	public void commit(){
-		sqlSession.commit();;
+		sqlSession.commit();
 	}
 
 }
