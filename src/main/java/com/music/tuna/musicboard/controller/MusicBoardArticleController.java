@@ -26,8 +26,7 @@ public class MusicBoardArticleController {
     @Autowired
     MusicBoardArticleService musicBoardArticleService;
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.GET)
-    public String  insertArticleGet(HttpSession httpSession){
-        System.out.println(httpSession.getAttribute("loginUser"));
+    public String  insertArticleGet(){
         return "/musicBoard/write";
     }
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.POST)

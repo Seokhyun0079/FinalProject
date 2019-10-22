@@ -22,9 +22,6 @@ public class MyMusicDAO {
     public void deleteMyMusic(MyMusic vo){
         sqlSession.delete("MyMusicDAO.deleteMyMusic", vo);
     }
-    private int getMusicMaximum(MyMusic vo){
-        return sqlSession.selectOne("MyMusicDAO.getMyMusicMaximum", vo);
-    }
     public void commit(){
         sqlSession.commit();
     }

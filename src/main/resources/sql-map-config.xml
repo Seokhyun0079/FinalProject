@@ -13,6 +13,7 @@
    		<typeAlias type="com.music.tuna.crowdFunding.model.vo.Funding" alias="funding"/>
 		<typeAlias type="com.music.tuna.magazineBoard.model.vo.MagazineBoard" alias="MagazineBoard"/>
 		<typeAlias type="com.music.tuna.chart.vo.Chart" alias="chart"/>
+		<typeAlias type="com.music.tuna.mymusic.vo.MyMusicShareBoardArticle" alias="myMusicShareBoardArticle"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -33,5 +34,6 @@
 		<mapper resource="mappings/member-mapping.xml"/>
 		<mapper resource="mappings/Magazine-mapping.xml"/>
 		<mapper resource="mappings/chart-mapping.xml"/>
+		<mapper resource="mappings/mymusicshareboard-article-mapping.xml"/>
 	</mappers>
 </configuration>

@@ -10,7 +10,6 @@ import com.music.tuna.util.SqlSessionFactoryBean;
 
 @Repository
 public class ChartDao {
-	
 	SqlSession sqlSession;
 	
 	public ChartDao() {
