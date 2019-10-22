@@ -34,17 +34,17 @@
 <body>
 <div>
     <h5 style="color: #DC2878; padding: 20px;">
-    <img src="/TunaMusic/resources/img/core-img/fish.png" width="50" height="50">TuNa Music 이용권</h5>
+    <img src="/TunaMusic/resources/img/core-img/fish.png" width="50" height="50">Tuna Music 이용권</h5>
     </div>
     <div style="text-align: center; border:2px solid #DC2878; border-radius: 3px; border-left-style: hidden; border-right-style: hidden; background-color:rgba(252, 252, 252);" >
-        <h5>TuNa Music Membership 
+        <h5>Tuna Music Membership 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <!-- <form id="Payform"> -->
         <span style="color: gray;"><font size="4">결제 금액</font></span> &nbsp;&nbsp;
         <span style="color: #DC2878"><font size="5">8,900</font></span> <span style="color: black;">원</span></h5>
         
         <br>
-        <form action="payment.do" name="paymentform" method="POST" id="paymentform" class="paymentform">
+        <form action="paypop.do" name="paymentform" method="POST" id="paymentform" class="paymentform">
         <span> 결제종류 &nbsp;&nbsp;<select id="paymentSelect" name="paymentSelect">
 			<option value="card">신용카드</option>
 			<option value="kakaopay">카카오페이</option>

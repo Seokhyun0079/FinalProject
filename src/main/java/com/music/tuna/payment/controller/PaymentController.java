@@ -16,18 +16,25 @@ public class PaymentController {
 	private PaymentService pService;
 	
 	@RequestMapping(value="/payment.do")
-	public String payment(@ModelAttribute Payment p) {
-		int result = pService.payConfirm(p);
+	public String payment() {
 		return "payment/payment";
+		
 	}
 	
-	@RequestMapping(value="/paypop.do")
+	@RequestMapping(value="/paypop.do", method=RequestMethod.GET)
 	public String paypop() {
 		return "payment/paypop";
 	}
 	
+	/*@RequestMapping(value="/paypop.do", method=RequestMethod.POST)
+	public String paypopPost(@ModelAttribute Payment p) {
+		int result = pService.payConfirm(p);
+		System.out.println("결제 컨트롤러");
+		return "payment/payment";
+	}*/
+	
 	@RequestMapping(value="/kakao.do")
-	public String paymentInfo() {
+	public String kakaopay() {
 		return "payment/kakaopay";
 	}
 }

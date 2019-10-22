@@ -19,8 +19,10 @@
 				pg : 'kakaopay',
 				pay_method : 'card',
 				merchant_uid : 'merchant_' + new Date().getTime(),
-				name : 'Tuna Music 이용권 결제',
+				name : 'Tuna Music 이용권',
                 amount : 8900
+                /* buyer_name : ${loginUser.userName},
+                buyer_tel : ${loginUser.phone} */
 			}, function(rsp){
 				if(rsp.success){
 					jQuery.ajax({
