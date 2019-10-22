@@ -5,10 +5,7 @@
 <!DOCTYPE html>
 <html>
 
-<!-- 
 
-	* 제목, 내용, 사진파일 가져오기(일단 폼을 뜯어 고쳐야해) 
-	* 시간 나면 댓글 폼 고쳐서 하셈-->
 <head>
 <meta charset="UTF-8">
     <meta name="description" content="">
@@ -222,36 +219,23 @@
                      
 					<!----------------------------- 내용 끝-->
 
-                        <!------------------------ 댓글 시작 -->
-          <!--               <div class="razo-contact-form">
-                            <h2 class="mb-4">Leave A Comment</h2>
 
-                            Form
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <input type="text" name="message-name" class="form-control mb-30" placeholder="Name">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="email" name="message-email" class="form-control mb-30" placeholder="Email">
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea name="message" class="form-control mb-30" placeholder="Comment"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div> -->
-                        <!------------------------ 댓글 끝 -->
+       			
+       			 <div class="col-12" align="center">
+       			 <%-- <c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 --> --%>
+                    <input type="button" onclick="location.href='mupdate.do';" class="btn razo-btn btn-3 mt-15" value="수정" > 
+                    <input type="button" onclick="location.href='mdelete.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="삭제" > 
+                 <%-- </c:if>  --%>
+                 </div>
+
+
                         
                     </div>
                 </div>
             </div>
     </section>
     
-    <!-------------------------------------------------------------- 게시물 시작 -->
+    <!-------------------------------------------------------------- 게시물 끝 -->
 
 
 
