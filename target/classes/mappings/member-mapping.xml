@@ -38,6 +38,11 @@
 	WHERE ID = #{ userId }
 </select>
 
+<select id="duplicateCheckEmail" parameterType="String" resultType="integer">
+	SELECT COUNT(*) FROM MEMBER
+	WHERE EMAIL = #{ email } AND STATUS = 'Y'
+</select>
+
 <select id="selectPwd" parameterType="String" resultType="String">
 	SELECT PASSWORD FROM MEMBER
 	WHERE ID = #{ userId } AND STATUS = 'Y'
@@ -61,6 +66,16 @@
 <update id="updatePW" parameterType="Member">
 	UPDATE MEMBER
 	SET PASSWORD = #{ userPwd } WHERE ID = #{ userId } AND NAME = #{ userName } AND EMAIL = #{ email } AND STATUS = 'Y'
+</update>
+
+<update id="updateMember">
+	UPDATE MEMBER
+	SET PASSWORD = #{ userPwd }, NICKNAME = #{ nickName }, EMAIL = #{ email }, PHONE = #{ phone }, PROFILEIMG = #{ profileIMG } WHERE ID = #{ userId }
+</update>
+
+<update id="deleteMember">
+	UPDATE MEMBER
+	SET STATUS='N' WHERE ID = #{ userId }
 </update>
 
 </mapper>

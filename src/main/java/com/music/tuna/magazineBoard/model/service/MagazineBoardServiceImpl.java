@@ -50,6 +50,12 @@ public class MagazineBoardServiceImpl implements MagazineBoardService {
 		return mDAO.selectKeySearch(keyword,pi);
 	}
 
+	@Override
+	public int insertPost(MagazineBoard m) {
+		
+		return mDAO.insertPost(m);
+	}
+
 
 
 

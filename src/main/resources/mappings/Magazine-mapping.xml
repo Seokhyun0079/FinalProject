@@ -62,6 +62,11 @@
 	where mtitle like '%'||#{keyword}||'%'
 	and status='Y'
 	</select>
+	
+	<insert id="insertPost" parameterType="MagazineBoard">
+	insert into MBOARD
+	VALUES(#{mtitle},#{mcontent},sysdate,default,default,'mpicture',mseq.nextval)
+	</insert>
 
 
 

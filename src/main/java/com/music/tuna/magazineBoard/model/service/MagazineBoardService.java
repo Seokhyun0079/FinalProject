@@ -22,6 +22,8 @@ public interface MagazineBoardService {
 
 	ArrayList<MagazineBoard> selectKeySearch(String keyword,PageInfo pi);
 
+	int insertPost(MagazineBoard m);
+
 
 
 
