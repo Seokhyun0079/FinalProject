@@ -4,6 +4,7 @@ import com.music.tuna.mymusic.dao.MyMusicDAO;
 import com.music.tuna.mymusic.dao.MyMusicShareBoardArticleDAO;
 import com.music.tuna.mymusic.vo.MyMusic;
 import com.music.tuna.mymusic.vo.MyMusicShareBoardArticle;
+import com.music.tuna.mymusic.vo.MyMusicShareBoardArticleListPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,12 @@ public class MyMusicShareBoardArticleServiceImpl implements MyMusicShareBoardArt
     }
 
     @Override
-    public List<MyMusicShareBoardArticle> selectList(MyMusicShareBoardArticle vo) {
+    public List<MyMusicShareBoardArticle> selectList(MyMusicShareBoardArticleListPage vo) {
         return myMusicShareBoardArticleDAO.selectList(vo);
+    }
+
+    @Override
+    public int getCount() {
+        return myMusicShareBoardArticleDAO.getCount();
     }
 }

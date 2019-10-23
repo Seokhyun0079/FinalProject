@@ -19,7 +19,7 @@
   </insert>
     <select id="lastInsertedArticle"  resultMap="articleResult">
         <![CDATA[
-        select * from (select * from musicboard_article ORDER BY article_no desc) where ROWNUM <= 1
+        select * from (select * from musicboard_article where id = #{id} ORDER BY article_no desc) where ROWNUM <= 1
 		]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
