@@ -68,7 +68,7 @@
 	            <div class="modal-content" style="width: 400px; height: 300px; margin-left: 30%; ">
 	                <div class="modal-body" style="position: relative; background-color: rgb(25, 25, 25); padding: 10px;">
 	                    <h1 style="color: white; padding-left: 23%">TUNA MUSIC</h1>
-	                    <form action="login.do" method="post" style="width: 100%; margin-top: 15px;">
+	                    <form action="login/login.do" method="post" style="width: 100%; margin-top: 15px;">
 	                        <input type="text" name="userId" style="width: 80%; margin-left: 40px; margin-bottom: 8px" placeholder="ID">
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
@@ -194,25 +194,10 @@
                                 </div>
                                 
                                 <!-- Login Icon -->
-	                            <c:choose>
-							        <c:when test="${empty loginUser }">
-			                            <div class="search-icon" data-toggle="modal" data-target="#loginModal">
-			                                <i class="fa fa-sign-in"></i>
-			                            </div>
-							        </c:when>
-						       		<c:otherwise>
-			                            <div class="search-icon" id="user-icon" OnClick="location.href ='/TunaMusic/member/logout.do'" style="cursor:pointer;">
-			                                <ul>
-			                                	<li><i class="fa fa-user"></i>
-			                                		<ul>
-			                                			<li><a href="/TunaMusic/member/mypage.do">&nbsp&nbspMY PAGE</a></li><br>
-										            	<li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
-			                                		</ul>
-			                                	</li>
-			                                </ul>
-			                            </div>
-							    	</c:otherwise>
-							    </c:choose>
+	                            <div class="search-icon" data-toggle="modal" data-target="#loginModal">
+	                                <i class="fa fa-sign-in"></i>
+	                            </div>
+							        
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -233,7 +218,7 @@
                             <div class="welcome-text text-center">
                                 <br><br><br><br><br>
 							    <h1 align="center" style="color:white;">TUNA MUSIC</h1>
-							    <form action="login.do" method="post" align="center" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
+							    <form action="login/login.do" method="post" align="center" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
 							        <input type="text" name="userId" placeholder="ID" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
 							        <input type="password" name="userPwd" placeholder="PW" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
 							        <br>

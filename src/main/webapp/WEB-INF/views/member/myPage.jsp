@@ -179,11 +179,13 @@
                                 </div>
                                 
                                 <!-- Login Icon -->
-	                            <div class="search-icon" id="user-icon" OnClick="location.href ='/TunaMusic/member/logout.do'" style="cursor:pointer;">
+	                            <div class="search-icon" id="user-icon" style="cursor:pointer;">
 	                                <ul>
 	                                	<li><i class="fa fa-user"></i>
 	                                		<ul>
-								            	<li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
+	                                			<li><a href="/TunaMusic/member/mypage.do">&nbsp&nbspMY PAGE</a></li><br>
+	                                			<li><a href="/TunaMusic/member/edit.do">&nbsp&nbspEDIT</a></li><br>
+									            <li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
 	                                		</ul>
 	                                	</li>
 	                                </ul>
@@ -205,7 +207,7 @@
                 <!-- Profile IMG -->
                 <div class="col-12 col-md-6">
                     <div class="chart-details-thumbnail mb-80">
-                        <img src="/TunaMusic/resources/uploadFiles/${loginUser.profileIMG}" alt="">
+                        <img style="width: 300px; margin-left: 15%" src="/TunaMusic/resources/uploadFiles/${loginUser.profileIMG}" alt="">
                     </div>
                 </div>
                 <!-- Content -->

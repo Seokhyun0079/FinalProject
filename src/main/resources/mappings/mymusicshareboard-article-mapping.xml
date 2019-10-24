@@ -23,6 +23,15 @@
         select * from mymusicshareboard_article where article_no = #{articleNo}
     </select>
     <select id="selectList" resultMap="articleResult">
-        select * from mymusicshareboard_article
+        <![CDATA[
+        select * from
+        (select rownum as rnum, A.* from
+        (select * from mymusicshareboard_article order by article_no desc) A
+        where rownum <= #{end})
+        B where B.rnum >= #{start}
+        ]]>
+    </select>
+    <select id="getCount" resultType="int">
+        select count(*) from mymusicshareboard_article
     </select>
 </mapper>

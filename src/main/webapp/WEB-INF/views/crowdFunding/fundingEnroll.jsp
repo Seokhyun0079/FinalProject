@@ -185,14 +185,15 @@
     <div class="container" style="margin-top: 50px">
         <div class="row">
             <div class="col-12">
-                <div class="section-heading text-center" style="padding: 30px 30px 0px 0px">
+                <div class="section-heading text-center">
+                    <%--style="padding: 30px 30px 0px 0px"--%>
                     <div class="d-flex justify-content-center">
                         <div class="form-group" style="margin: 0px;">
                             <h6>프로젝트명</h6>
-                            <textarea class="form-control" rows="1" cols="30" id="project-name" name="project-name" style="font-size: 32px; text-align: center" placeholder="프로젝트명을 알려주세요"></textarea>
+                            <input type="text" class="form-control" id="project-name" name="project-name" style="font-size: 24px; text-align: center" placeholder="프로젝트명을 입력해주세요">
                             <br>
                             <h6>팀명</h6>
-                            <textarea class="form-control" rows="1" cols="15" name="project-creatorName" style="font-size: 16px; text-align: center" placeholder="창작자 여러분의 팀명을 알려주세요"></textarea>
+                            <input type="text" class="form-control" name="project-creatorName" style="font-size: 16px; text-align: center" placeholder="창작자 여러분의 팀명을 입력해주세요">
                         </div>
                     </div>
                 </div>
@@ -213,34 +214,35 @@
                     <br>
 
                     <h6>프로젝트 마감일</h6>
-                    <input type="date" class="form-control">
+                    <div class="form-group">
+                        <input type="date" class="form-control">
+                    </div>
                     <br>
 
                     <h6>썸네일 이미지</h6>
                     <input type="file" id="funding_thumbnail" name="funding_thumbnail">
                     <br>
-
                 </div>
             </div>
         </div>
     </div>
     <hr>
 
-    <div class="container">
+    <div class="container" style="margin-top: 30px">
         <div class="row razo-blog-masonary">
             <!-- <div class="row razo-blog-masonary-item"> -->
             <div class="col-12">
                 <h6>창작자 소개</h6>
                 <textarea name="creater_name" rows="3" cols="100" placeholder="창작자 여러분을 소개해주세요"></textarea>
-                <br>
+                <br><br>
                 <h6>프로젝트 스토리</h6>
                 <div contenteditable="true">
-                    <form name="project_content" id="project_content">
+                    <form action="/insertFContent.do" method="post" name="project_content" id="project_content" enctype="multipart/form-data">
                         <textarea name="ir1" id="ir1" rows="10" cols="100"></textarea>
                         <%--placeholder="여러분의 멋진 프로젝트 스토리를 들려주세요"--%>
+                        <input type="button" class="razo razo-btn" id="writebtn" name="writebtn" value="저장">
                     </form>
                 </div>
-                <input type="button" class="razo razo-btn" id="writebtn" name="writebtn" value="저장">
             </div>
             <!-- </div> -->
         </div>
@@ -258,7 +260,7 @@
 <!-- All Plugins -->
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
-<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+<%--<script src="/TunaMusic/resources/js/default-assets/active.js"></script>--%>
 
 <script type="text/javascript">
     //전역변수

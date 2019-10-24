@@ -231,12 +231,13 @@
 
                 <div class="col-12 col-sm-10 col-xl-9">
                     <p>${article.title}</p>
-                    <p>${article.content}</p>
-                    <div style="background: black; display: inline-block;">
+                    <div style="color: white; background: black; display: inline-block; padding : 10px 10px 10px 10px;">
+                        <h5 style="color: white; ">${article.id} 님의 마이리스트</h5>
                     <c:forEach var="myMusic" items="${article.myMusicList}">
-                        <div style="color: white; border: 1px solid white;">${myMusic.title}</div>
+                        <div style="padding : 5px 5px 5px 5px; border: 1px solid white;">${myMusic.title} - ${myMusic.id}</div>
                     </c:forEach>
                     </div>
+                    <p>${article.content}</p>
                     <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
                     <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
@@ -469,7 +470,7 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-<script src="/TunaMusic/resources/js/comment.js"></script>
+<script src="/TunaMusic/resources/js/mymusicshareboard-comment.js"></script>
 <script src="/TunaMusic/resources/js/mylist.js"></script>
 <script>
     var zeroTenFive = -0.5;
