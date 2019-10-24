@@ -470,7 +470,7 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-<script src="/TunaMusic/resources/js/comment.js"></script>
+<script src="/TunaMusic/resources/js/mymusicshareboard-comment.js"></script>
 <script src="/TunaMusic/resources/js/mylist.js"></script>
 <script>
     var zeroTenFive = -0.5;

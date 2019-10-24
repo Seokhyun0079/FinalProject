@@ -155,6 +155,7 @@ create table mymusic_share_board(
 );
 --음악 마이리스트 공유 게시판 댓글 테이블
 create SEQUENCE msbc_seq;
+
 create table mymusicshareboard_comment(
     comment_no number(10) primary key,
     article_no number(10),
