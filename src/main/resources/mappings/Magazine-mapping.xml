@@ -5,6 +5,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Magazinemapper">
 	
+	<resultMap type="MagazineBoard" id="MagazineResultSet">
+		<result column="MTITLE" property="mtitle"/>
+		<result column="MCONTENT" property="mcontent"/>
+		<result column="CREATE_DATE" property="createdate"/>
+		<result column="STATUS" property="status"/>
+		<result column="MCOUNT" property="mcount"/>
+		<result column="MPICTURE" property="mpicture"/>
+		<result column="MSEQ" property="mseq"/>
+	</resultMap>
+	
 	<select id = "getListCount" resultType="_int">
 		select count(*)
 		from MBOARD
@@ -16,17 +26,10 @@
 		select *
 		from MBOARD
 		where status = 'Y'
+        ORDER BY mseq desc
 	</select>
 	
-	<resultMap type="MagazineBoard" id="MagazineResultSet">
-		<result column="MTITLE" property="mtitle"/>
-		<result column="MCONTENT" property="mcontent"/>
-		<result column="CREATE_DATE" property="createdate"/>
-		<result column="STATUS" property="status"/>
-		<result column="MCOUNT" property="mcount"/>
-		<result column="MPICTURE" property="mpicture"/>
-		<result column="MSEQ" property="mseq"/>
-	</resultMap>
+
 	
 	<select id="selectBoard" resultMap="MagazineResultSet">
 	    select *
@@ -67,6 +70,13 @@
 	insert into MBOARD
 	VALUES(#{mtitle},#{mcontent},sysdate,default,default,'mpicture',mseq.nextval)
 	</insert>
+	
+	<update id="updatePost">
+	update MBOARD
+	set mtitle=#{mtitle},
+	mcontent=#{mcontent}
+	where mseq=#{mseq}
+	</update>
 
 
 

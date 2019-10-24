@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -76,10 +78,15 @@ public class MagazineBoardController {
 	 @RequestMapping("mdelete.do")
 	 public String mdelete(@RequestParam(value="mseq") int mseq) {
 		
-		 mService.deletePost(mseq);
+		 int result= mService.deletePost(mseq);
 		 
-		 return "redirect:magazine.do";
-		 
+		if(result >0){
+			return "redirect:magazine.do"; 
+			}
+		else{
+			return null; //에러 발생 
+		  }
+
 	 }
 
 	 //게시물 검색(총 갯수 출력, 페이징처리)
@@ -122,12 +129,37 @@ public class MagazineBoardController {
 	 }
 	 
 
-	 // 게시물 수정
-	 @RequestMapping("mupdate.do")
-		 public String mupdate() {
-			return "magazineBoard/magazineUpdate";
-			 
+	 // 게시물 수정 view단으로 이동
+	@RequestMapping("mupdate.do")
+	public ModelAndView mupdate(@RequestParam(value="mseq")int mseq, @ModelAttribute("MagazineBoard") MagazineBoard m, ModelAndView mv) {
+		
+		MagazineBoard maga = mService.selectboard(mseq);
+		
+		mv.addObject("MagazineBoard", maga)
+		  .setViewName("magazineBoard/magazineUpdate");
+		
+		return mv;
+
 		 }
+	
+	//게시물 수정완료
+	@RequestMapping("mupdateSuccess.do")
+	public String mupdateSuccess(@ModelAttribute MagazineBoard m) {
+		System.out.println(m);
+		
+		int result= mService.mupdate(m);
+		 
+		
+		if(result >0){
+			return "redirect:magazine.do"; }
+		else{
+			return null; //에러 발생 
+		  }
+		 
+		/* return "redirect:magazine.do"; */
+	
+		 
+	}
 
 	 
 
