@@ -24,6 +24,9 @@ public interface MagazineBoardService {
 
 	int insertPost(MagazineBoard m);
 
+	int mupdate(MagazineBoard m);
+
+
 
 
 

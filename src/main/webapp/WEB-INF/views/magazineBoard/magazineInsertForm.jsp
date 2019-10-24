@@ -55,7 +55,8 @@
                             <form action="minsert.do" method="post" id="insertBoardFrm" enctype="Multipart/form-data">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <input type="text" name="mtitle" class="form-control mb-30" placeholder="제목을 입력해주세요.">
+                                        <input type="text" name="mtitle" class="form-control mb-30" placeholder="제목을 입력해주세요."
+                                        style="color: black;">
                                     </div>
                                     <div class="col-12">
                                        <textarea name="mcontent" id="editor" style="width:70%; height:400px;"></textarea>
