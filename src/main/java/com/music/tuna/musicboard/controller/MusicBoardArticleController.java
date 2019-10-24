@@ -30,21 +30,19 @@ public class MusicBoardArticleController {
         return "/musicBoard/write";
     }
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.POST)
-    public ModelAndView insertArticlePost(MusicBoardArticle vo, ModelAndView mv, HttpServletRequest request){
-        MusicBoardArticle newItem = null;
+    public String insertArticlePost(MusicBoardArticle vo, HttpServletRequest request){
+        int articleNo = 0;
 
         if(!vo.getUploadFile().isEmpty()){
             vo.setFileName(new Date().getTime() + vo.getUploadFile().getOriginalFilename());
             try {
                 vo.getUploadFile().transferTo(new File(request.getSession().getServletContext().getRealPath("/resources/upload/")+vo.getFileName()));
-                newItem = musicBoardArticleService.insertArticle(vo);
+                articleNo = musicBoardArticleService.insertArticle(vo);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        mv.setViewName("/musicBoard/read");
-        mv.addObject("article", newItem);
-        return mv;
+        return "redirect:read.do?articleNo="+articleNo;
     }
     @RequestMapping(value = "/musicBoard/article/read.do")
     public ModelAndView getArticle(ModelAndView mv, MusicBoardArticle vo){

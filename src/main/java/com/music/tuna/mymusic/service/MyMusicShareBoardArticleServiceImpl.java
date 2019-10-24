@@ -20,7 +20,7 @@ public class MyMusicShareBoardArticleServiceImpl implements MyMusicShareBoardArt
     public int insertArticle(MyMusicShareBoardArticle vo) {
         myMusicShareBoardArticleDAO.insertArticle(vo);
         myMusicShareBoardArticleDAO.commit();
-        return myMusicShareBoardArticleDAO.selectLastInsertedArticleNo();
+        return myMusicShareBoardArticleDAO.selectLastInsertedArticleNo(vo);
     }
 
     @Override

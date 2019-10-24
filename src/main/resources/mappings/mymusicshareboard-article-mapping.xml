@@ -16,7 +16,7 @@
     </insert>
     <select id="selectLastInsertedArticleNo" resultType="int">
         <![CDATA[
- select article_no from (select article_no from mymusicshareboard_article order by article_no desc) where ROWNUM <= 1
+ select article_no from (select article_no from mymusicshareboard_article where id = #{id} order by article_no desc) where ROWNUM <= 1
       ]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">

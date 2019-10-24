@@ -17,8 +17,8 @@ public class MyMusicShareBoardArticleDAO {
     public int insertArticle(MyMusicShareBoardArticle vo){
         return sqlSession.insert("MyMusicShareBoardArticleDAO.insertArticle", vo);
     }
-    public int selectLastInsertedArticleNo(){
-        return sqlSession.selectOne("MyMusicShareBoardArticleDAO.selectLastInsertedArticleNo");
+    public int selectLastInsertedArticleNo(MyMusicShareBoardArticle vo){
+        return sqlSession.selectOne("MyMusicShareBoardArticleDAO.selectLastInsertedArticleNo", vo);
     }
     public MyMusicShareBoardArticle selectArticleByArticleNo(MyMusicShareBoardArticle vo){
         return sqlSession.selectOne("MyMusicShareBoardArticleDAO.selectArticleByArticleNo", vo);
