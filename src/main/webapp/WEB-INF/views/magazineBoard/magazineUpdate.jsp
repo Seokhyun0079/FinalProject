@@ -52,19 +52,20 @@
                             <h2 class="mb-4">Write a post</h2>
 
                             <!-- Form -->
-                            <form action="minsert.do" method="post" id="insertBoardFrm" enctype="Multipart/form-data">
+                            <form action="mupdateSuccess.do" method="post" id="insertBoardFrm"  enctype="Multipart/form-data">
                                 <div class="row">
+                                <input name ="mseq" type = "text" value = "${param.mseq }" hidden>
                                     <div class="col-lg-12">
-                                        <input type="text" name="mtitle" class="form-control mb-30" placeholder="제목을 입력해주세요."
-                                        style="color: black;">
+                                        <input type="text" name="mtitle" class="form-control mb-30" style="color: black;" 
+                                        value='<c:out value="${MagazineBoard.mtitle}"></c:out>'>
                                     </div>
                                     <div class="col-12">
-                                       <textarea name="mcontent" id="editor" style="width:70%; height:400px;"></textarea>
+                                       <textarea name="mcontent" id="editor" style="width:70%; height:400px;">${MagazineBoard.mcontent}</textarea>
                                     </div>
               
                                     
                                        <div class="col-12" align="center"> 
-                                        <button type="submit" id="insertBoard" class="btn razo-btn btn-3 mt-15">Post</button> 
+                                        <button type="submit" id="insertBoard" class="btn razo-btn btn-3 mt-15">수정 완료</button> 
                                         <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
                                     </div>
                                        

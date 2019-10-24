@@ -231,41 +231,40 @@
 
             <!-- Single Podcast Area -->
             <c:forEach var ="article" items="${articlePage.pageContent}">
-            <div class="col-12 col-md-6 col-xl-3">
-                <div class="single-podcast-area mb-30 wow fadeInUp" data-wow-delay="100ms">
-                    <!-- Thumbnail -->
-                    <div class="podcast-thumb">
-                        <img src="/TunaMusic/resources/img/bg-img/69.jpg" alt="">
-                        <div class="like-comment">
-                            <a href="#" class="like">2 <i class="icon_heart"></i></a>
-                            <a href="#" class="like">2 <i class="icon_chat"></i></a>
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="single-podcast-area mb-30 wow fadeInUp" data-wow-delay="100ms">
+                        <!-- Thumbnail -->
+                        <div class="podcast-thumb">
+                            <img src="/TunaMusic/resources/img/bg-img/69.jpg" alt="">
+                            <div class="like-comment">
+                                <a href="#" class="like">2 <i class="icon_heart"></i></a>
+                                <a href="#" class="like">2 <i class="icon_chat"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Content -->
-                    <div class="podcast-content">
-                        <div class="podcast-meta">
-                            <a href="#"><i class="icon_calendar"></i> July 23, 2014</a>
-                            <a href="#"><i class="icon_clock_alt"></i> 36 min</a>
-                        </div>
-                        <h5>${article.title}</h5>
-                        <div class="border-line"></div>
-                        <div class="play-download-btn d-flex align-items-center justify-content-between">
-                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.articleNo}" class="btn razo-btn btn-sm">playing now</a>
-                            <a href="/TunaMusic/resources/upload/${article.fileName}" class="music-download-btn" download><i class="icon_download"></i></a>
+                        <!-- Content -->
+                        <div class="podcast-content">
+                            <div class="podcast-meta">
+                                <a href="#"><i class="icon_calendar"></i> July 23, 2014</a>
+                                <a href="#"><i class="icon_clock_alt"></i> 36 min</a>
+                            </div>
+                            <h5>${article.title}</h5>
+                            <div class="border-line"></div>
+                            <div class="play-download-btn d-flex align-items-center justify-content-between">
+                                <a href="/TunaMusic/myMusicShareBoard/article/read.do?articleNo=${article.articleNo}" class="btn razo-btn btn-sm">playing now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </c:forEach>
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="view-more-button text-center">
-                    <a href="/TunaMusic/musicBoard/article/list.do?page=${articlePage.page-1}" class="btn razo-btn mt-50">previous</a>
+                    <a href="/TunaMusic/myMusicShareBoard/article/list.do?page=${articlePage.page-1}" class="btn razo-btn mt-50">previous</a>
                     <c:forEach begin="${articlePage.startPage}" end="${articlePage.endPage}" step="1"  varStatus="status">
-                        <a href="/TunaMusic/musicBoard/article/list.do?page=${status.index}" class="btn razo-btn mt-50">${status.index}</a>
+                        <a href="/TunaMusic/myMusicShareBoard/article/list.do?page=${status.index}" class="btn razo-btn mt-50">${status.index}</a>
                     </c:forEach>
-                    <a href="/TunaMusic/musicBoard/article/list.do?page=${articlePage.page+1}" class="btn razo-btn mt-50">Next</a>
+                    <a href="/TunaMusic/myMusicShareBoard/article/list.do?page=${articlePage.page+1}" class="btn razo-btn mt-50">Next</a>
                 </div>
             </div>
         </div>

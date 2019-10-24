@@ -1,35 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
- <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Title -->
-    <title>TUNA MUSIC - MAGAZINE</title>
-    
+    <title>Razo - Radio HTML Template | Charts</title>
+
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
-    <style>
-     a:hover{text-decoration: underline;}
 
-        
-
-    </style>
- 
 </head>
-<body>
 
- <!-- 페이지 로드 -->
-<!--     <div id="preloader">
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
         <div>
             <div class="spinner">
                 <div class="double-bounce1"></div>
@@ -37,10 +30,9 @@
             </div>
             <span>Wait, please...</span>
         </div>
-    </div> -->
-    <!-- /페이지 로드-->
+    </div>
+    <!-- /Preloader -->
 
-<!----------------------------------------------------------------------------------------------------- *헤더  시작 -->
     <!-- Top Search Area Start -->
     <div class="top-search-area">
         <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -127,7 +119,36 @@
                                     <li><a href="./charts.html">Charts</a></li>
                                     <li><a href="./podcast.html">Podcasts</a></li>
                                     <li><a href="#">Mega</a>
-                                      
+                                        <div class="megamenu">
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="./index.jsp">- Home</a></li>
+                                                <li><a href="./charts.html">- Charts</a></li>
+                                                <li><a href="./single-charts.html">- Charts Details</a></li>
+                                                <li><a href="./podcast.html">- Podcast</a></li>
+                                                <li><a href="./single-podcast.html">- Podcast Details</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="./show.html">- Show</a></li>
+                                                <li><a href="./events.html">- Event</a></li>
+                                                <li><a href="./blog.html">- Blog</a></li>
+                                                <li><a href="./single-blog.html">- Blog Details</a></li>
+                                                <li><a href="./index.jsp">- Home</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="./charts.html">- Charts</a></li>
+                                                <li><a href="./single-charts.html">- Charts Details</a></li>
+                                                <li><a href="./podcast.html">- Podcast</a></li>
+                                                <li><a href="./single-podcast.html">- Podcast Details</a></li>
+                                                <li><a href="./show.html">- Show</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="./show.html">- Show</a></li>
+                                                <li><a href="./events.html">- Event</a></li>
+                                                <li><a href="./blog.html">- Blog</a></li>
+                                                <li><a href="./single-blog.html">- Blog Details</a></li>
+                                                <li><a href="./index.jsp">- Home</a></li>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li><a href="./events.html">Events</a></li>
                                     <li><a href="./blog.html">Blog</a></li>
@@ -151,208 +172,61 @@
         </div>
     </header>
     <!-- Header Area End -->
-<!----------------------------------------------------------------------------------------------------- *헤더  끝-->
 
-   
-
-    <!-- *게시판 (글목록, 페이지까지)-->
-<section class="uza-news-area section-padding-80">
-    <div class="container">
-        <div class="row">
-        
-        
-            
-            
-            
-        <!-- *소제목 -->
-        <div class="col-12">
-            <div class="section-heading text-center">
-                <h1> MUSIC MAGAZINE</h1><br>
-             </div>
-         </div>
-               
-		<!---------------------------------------------------검색창  -->
+    <!-- Music Charts Area Start -->
+    <section class="razo-music-charts-area section-padding-80 bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/34.jpg);">
         <div class="container">
             <div class="row">
+                <!-- Section Heading -->
                 <div class="col-12">
-                    <div class="razo-contact-form" style="margin:auto; ">
-                        
-                        
-                        
-                        <form action="msearch.do" class="search-form">
-                            <div class="row align-items-end">
-                              
-                               
-                                <div class="col-sm-6 col-lg-9">
-                                    <div class="form-group">
-                                        <input type="search" class="form-control" id="keyword" name="keyword"  placeholder="">
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="col-sm-6 col-lg-3">
-                                    <div class="form-group text-right">
-                                        <button type="submit" class="btn razo-btn w-100" style="background-color: black">Search</button>
-                                    </div>
-                                </div>
-                                
-                                
+                    <div class="section-heading text-center white">
+                        <h2>실시간 차트</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+
+
+                <!-- Single Music Chart -->
+				<c:forEach var="vo" items="${articleList}" step="1"  varStatus="status">
+					<a href="http://localhost:8989/TunaMusic/musicBoard/article/read.do?articleNo=${vo.articleNo}">
+                    <div class="single-music-chart d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
+                        <!-- Music Content -->
+                        <div class="music-content d-flex align-items-center">
+                            <div class="sl-number">
+                                <h5>${status.index+1}</h5>
                             </div>
-                        </form>
-                        
-                        
+                            <div class="music-thumb">
+                                <img src="/TunaMusic/resources/img/bg-img/25.jpg" alt="">
+                            </div>
+                            <div class="audio-player">
+                                <audio preload="auto" controls>
+                                    <source src="/TunaMusic/resources/audio/dummy-audio.mp3">
+                                </audio>
+                            </div>
+                            <div class="music-title">
+                                <h5>${vo.title} - <span>${vo.id}</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+				</c:forEach>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="view-more-button text-center">
+                        <a href="#" class="btn razo-btn mt-50">View More</a>
                     </div>
                 </div>
             </div>
         </div>
-        <!---------------------------------------------------검색창  -->
-        
-    </div>
-               
-               
-               
-               
-               <!----------------------post버튼  --> 
-                <div class="col-12"> <!-- 가운데 정렬 -->
-                	<c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 -->
-                	 	<button class="btn razo-btn btn-3 mt-15" style="float: right;" onclick="location.href='minsertView.do';">Post</button> <!-- 게시글 작성 버튼 -->                       
-            		</c:if> 
-       			</div>
-       			
-<br><br><br>
-        
-        
-
-                
-                
-                 <!-- * 게시글 시작-->
-             	
-               
-			<div class="col-12">
-			<h5 style="float: left;">total : ${pi.listCount}</h5>  <br>
-            <br>  
-		
-			<c:forEach var="m" items="${list}" >
-           		<div class="single-razo-event-area d-flex flex-wrap align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms" ><!-- *마우스모션?css -->
-				
-				<!-- 	<table >*테이블 처리 
-                		<tr >*테이블 행(가로)
-                
-                           	<td><img src="/TunaMusic/resources/img/bg-img/65.jpg" alt="" width="100%"></td> *테이블 첫번재 열(세로), 사진
-
-                        *테이블 두번재 열(세로), 설명
-                        	 <td>
-                        			<div class="event-content d-flex align-items-center">
-                            		<div class="event-text">
-                                		<a href="#"><h3>Tuna music magazine  board opne~<h3></a>			 *제목
-                                			<div class="event-meta">
-                                    			<a class="event-date"><i class="icon_calendar"></i> March 11, 2018</a> 	*날짜
-                                    			<a class="event-address"><i class="icon_pin_alt"></i>3.6k</a>				*조회수
-                                			</div>                          
-	                         		</div>     
-                            		</div>
-        
-							 </td>
-	                  </tr>
-                    </table> --> <!-- *테이블 -->
-              
-                 
-				
-							<div  style="border: 1px float: left; width: 50%;">
-                           		<img src="/TunaMusic/resources/img/bg-img/65.jpg" alt="" width="100%" > <!-- *왼쪽(사진) -->
-							</div>
-							
-                       
-                        	 <div  style="border: 1px float: right; width: 50%;"> <!-- *오른쪽 -->
-                        		<div class="event-content d-flex align-items-center">
-                            		<div class="event-text">
-                                		
-                                		<c:url var="mdetail" value="mdetaile.do"><!-- mdetaile.do?mseq=10&page=2 -->
-										<c:param name="mseq" value="${ m.mseq }"/>
-										<c:param name="page" value="${ pi.currentPage }"/>
-										</c:url> <!-- 어떤 url 걸어둘껀지 -->
-										
-							
-                                		<a href="${ mdetail }"><h3>${m.mtitle}</h3></a><!-- *제목 -->
-        
-                                		<div class="event-meta">
-                                    		<a class="event-date">${m.createdate}</a><!-- *날짜 -->
-                                    		
-                                    		
-                                    		<a class="event-address">view ${m.mcount}</a>				<!-- *조회수 -->
-                                    		<br>
-                                    		 
-    
-                                    		<a  href="${ mdetail }" class="btn read-more-btn" style="float:left;">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                		</div>                          
-	                         		</div>     
-                            	</div>  
-                			</div> 
-		                     
-                </div>
-                </c:forEach>
-                
-
-            
-
-            	<!--* 페이징 처리   -->
-                <div class="col-12 text-center" style="width: 100%;">
-                   
-                    <!-- [이전] -->
-				<c:if test="${ pi.currentPage <= 1 }">
-					[이전] &nbsp;
-				</c:if> <!-- 1페이지보다 작으면 이전글자 없어짐 -->
-				<c:if test="${ pi.currentPage > 1 }">
-					<c:url var="before" value="magazine.do"><!-- 1페이지보다 크면 이전이라는 글자 생김 -->
-						<c:param name="page" value="${ pi.currentPage - 1 }"/>
-					</c:url>
-					<a href="${ before }">[이전]</a> &nbsp;
-				</c:if><!-- [이전] 누르면 이전페이지로 가는거 -->
-				
-				<!-- 페이지 -->
-				<c:forEach var="p" begin="${ pi.startPage }" end="${ pi.endPage }">
-					<c:if test="${ p eq pi.currentPage }">
-						<font color="pink" size="4"><b>[${ p }]</b></font>
-					</c:if><!-- 선택된페이지 표시 -->
-					
-					<c:if test="${ p ne pi.currentPage }">
-						<c:url var="pagination" value="magazine.do">
-							<c:param name="page" value="${ p }"/>
-						</c:url>
-						<a href="${ pagination }">${ p }</a> &nbsp;
-					</c:if> <!-- 페이지가 넘어갈수있게끔 만든거 -->
-				</c:forEach>
-				
-				<!-- [다음] -->
-				<c:if test="${ pi.currentPage >= pi.maxPage }">
-					[다음]
-				</c:if> 
-				<c:if test="${ pi.currentPage < pi.maxPage }">
-					<c:url var="after" value="magazine.do">
-						<c:param name="page" value="${ pi.currentPage + 1 }"/>
-					</c:url> 
-					<a href="${ after }">[다음]</a>
-				</c:if>
-			
-               
-                   
-                    
-                </div>
-
-<!-- 				<div class="col-12 text-center" >
-                    <a href="#" class="btn razo-btn mt-30" style="float: right; background-color: purple;">Post</a>
-                </div> -->
-                
-                   
-
-            </div>    
-    	</div>
-</section>
-    <!-- *게시글 끝 -->
-    
-    
-    
-    
+    </section>
+    <!-- Music Charts Area End -->
 
     <!-- Footer Area Start -->
     <footer class="footer-area">
@@ -522,27 +396,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!-- Footer Area End -->
-
     <!-- All JS Files -->
-
     <!-- jQuery -->
-   <script src="/TunaMusic/resources/js/jquery.min.js"></script>
-   <!--  <script src="./resources/js/jquery.min.js"></script> -->
-
+    <script src="/TunaMusic/resources/js/jquery.min.js"></script>
     <!-- Popper -->
-     <script src="/TunaMusic/resources/js/popper.min.js"></script> 
-  <!--   <script src="./resources/js/popper.min.js"></script> -->
+    <script src="/TunaMusic/resources/js/popper.min.js"></script>
     <!-- Bootstrap -->
     <script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
-   <!--  <script src="./resources/js/bootstrap.min.js"></script> -->
     <!-- All Plugins -->
-    <script src="/TunaMusic/resources/js/razo.bundle.js"></script> 
-    <!-- <script src="./resources/js/razo.bundle.js"></script> -->
+    <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
     <!-- Active -->
-     <script src="/TunaMusic/resources/js/default-assets/active.js"></script> 
-    <!-- <script src="./resources/js/default-assets/active.js"></script> -->
-
-
-
+    <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 </body>
 </html>
+

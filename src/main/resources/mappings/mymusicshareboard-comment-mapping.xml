@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MyMusicShareBoardCommentDAO">
+    <resultMap id="commentResult" type="myMusicShareBoardComment">
+        <id column="comment_no" property="commentNo"/>
+        <result column="article_no" property="articleNo"/>
+        <result column="reply_no" property="replyNo"/>
+        <result column="content" property="content"/>
+    </resultMap>
+    <insert id="insertComment">
+        <if test="replyNo!=0"> insert into myMusicShareBoard_comment values(msbc_seq.nextval, #{articleNo}, #{id}, #{replyNo}, #{content})</if>
+        <if test="replyNo==0">insert into myMusicShareBoard_comment values(msbc_seq.nextval, #{articleNo}, #{id}, null, #{content})</if>
+    </insert>
+    <select id="selectList" resultMap="commentResult">
+        select * from myMusicShareBoard_comment where article_no = #{articleNo}
+    </select>
+
+</mapper>

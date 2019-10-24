@@ -16,6 +16,20 @@ public interface MagazineBoardService {
 
 	MagazineBoard selectboard(int mseq);
 
+	public int deletePost(int mseq);
+
+	int keySearchCount(String keyword);
+
+	ArrayList<MagazineBoard> selectKeySearch(String keyword,PageInfo pi);
+
+	int insertPost(MagazineBoard m);
+
+	int mupdate(MagazineBoard m);
+
+
+
+
+
 	
 
 	

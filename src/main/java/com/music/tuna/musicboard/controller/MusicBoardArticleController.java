@@ -55,11 +55,15 @@ public class MusicBoardArticleController {
     @RequestMapping(value="/musicBoard/article/list.do")
     public ModelAndView getList(ModelAndView mv, MusicBoardArticleListPage vo){
         int totalCount = musicBoardArticleService.getCount();
+        //한 화면에 표시될 게시글의 최대 개수
         int listCount = 16;
+        //전체 게시글 개수를 최대 개수로 나누어 전체 페이지 수를 구함
         int totalPage = totalCount/listCount;
         if(vo.getPage() == 0){
             vo.setPage(1);
         }
+
+        //전체 페이지수가 딱 떨어지지 않을 경우 나머지를 표시해줘야하기때문에 +1을 해줌
         if(totalCount % listCount > 0){
             totalPage++;
         }

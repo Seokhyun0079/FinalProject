@@ -39,10 +39,30 @@ public class MagazineBoardDAO {
 		
 		return sqlSession.selectOne("Magazinemapper.selectBoard", mseq);
 	}
-
-
-
-
 	
+	public int deletePost(int mseq) {
+		
+		return sqlSession.delete("Magazinemapper.deleteMagazine", mseq);
+	}
+	
+	public int keySearchCount(String keyword){
+		return sqlSession.selectOne("Magazinemapper.selectKeySearchCount",keyword);
+	}
+	public ArrayList<MagazineBoard> selectKeySearch(String keyword, PageInfo pi) {
+		 int offset = (pi.getCurrentPage()-1)* pi.getBoardLimit();
+		 RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		return (ArrayList)sqlSession.selectList("Magazinemapper.selectKeySearch", keyword, rowBounds);
+	}
+	public int insertPost(MagazineBoard m) {
+		
+		return sqlSession.insert("Magazinemapper.insertPost", m);
+	}
+	public int updatePost(MagazineBoard m) {
+		return sqlSession.update("Magazinemapper.updatePost", m);
+	}
+	
+	public void commit() {
+		sqlSession.commit();
+	}
 
 }
