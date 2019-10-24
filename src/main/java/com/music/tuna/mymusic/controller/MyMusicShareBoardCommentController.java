@@ -15,6 +15,7 @@ import java.io.IOException;
 @RequestMapping("/myMusicShareBoard/comment")
 public class MyMusicShareBoardCommentController {
     @Autowired
+
     MyMusicShareBoardCommentService myMusicShareBoardCommentService;
     @RequestMapping("/write.do")
     public void insertComment(MyMusicShareBoardComment vo, HttpServletResponse res){
