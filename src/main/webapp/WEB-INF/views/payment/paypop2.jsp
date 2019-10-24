@@ -39,23 +39,18 @@
     <div style="text-align: center; border:2px solid #DC2878; border-radius: 3px; border-left-style: hidden; border-right-style: hidden; background-color:rgba(252, 252, 252); padding-top: 20px;" >
         <h5>Tuna Music Membership 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- <form id="Payform"> -->
         <span style="color: gray;"><font size="4">결제 금액</font></span> &nbsp;&nbsp;
         <span style="color: #DC2878"><font size="5">8,900</font></span> <span style="color: black;">원</span></h5>
-    <br>
+        <br>
     </div>
     <br>
     	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="checkbox" name="chk_2" id="chk_2" value="agree">&nbsp;&nbsp;Tuna Music 유료서비스약관 및 하단 유의사항에 동의합니다.
     	<br><br>
 		<div style="padding-left: 50px;">
-			<input type="image" id="naverPayBtn" src="/TunaMusic/resources/img/core-img/naverpay-btn.png" style="width: 150px; height: 50px;">&nbsp;
-			<input type="image" id="kakaopayBtn" src="/TunaMusic/resources/img/core-img/kakao-btn.png">&nbsp;
-			<input type="image" id="cardBtn" src="/TunaMusic/resources/img/core-img/card44.png" style="width: 100px; height: 50px;">
 		</div>
     <div class="event-purchase-button" style="text-align: center;">
         <!-- <input type="button" class= "btn razo-btn" name="btn_1" value="결제하기" onclick="payment();"> &nbsp; &nbsp; -->
-    <br>
+        <br>
         <input type="button"class= "btn razo-btn"  name="btn_2" value="취소" onclick="window.close()"> 
     </div>
     <br><br>
@@ -69,40 +64,10 @@
                 <li><b>결제 수단의 정지/한도초과/정보변경 등의 사유로 결제상태가 변경될 경우, 결제 및 서비스가 일시 정지되며 정상으로 전환되거나 직접 일시 정지 해제를 하시면 다시 결제 및 서비스가 시작됩니다.</b></li>
             </ul>
     </div>
-    <!-- 네이버페이  스크립트-->
-    <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 
 	<script>
-	  // 카카오페이
-	  var elkakaoBtn = document.getElementById("kakaopayBtn");
-	  elkakaoBtn.addEventListener("click", function() {
-	  	if(!$("#chk_2").is(":checked")){
-		  alert("약관에 동의해 주세요.")
-	  	}else{
-	    	location.href="kakao.do";
-	  	}
-	  });
-	  //네이버페이
-	  var elnaverBtn = document.getElementById("naverPayBtn");
-	  elnaverBtn.addEventListener("click", function() {
-		  if(!$("#chk_2").is(":checked")){
-			  alert("약관에 동의해 주세요.")
-		  	}else{
-	    		location.href="naverpay.do";
-		  	}
-	   }); 
-	  // 신용카드
-	   var elcardBtn = document.getElementById("cardBtn");
-	   elcardBtn.addEventListener("click", function() {
-			  if(!$("#chk_2").is(":checked")){
-				  alert("약관에 동의해 주세요.")
-			  	}else{
-		    		location.href="card.do";
-			  	}
-		   });
-		// 선택된 옵션의 text, value 구하기
-		/* $("#paymentSelect option:selected").val(); */
-	
+	alert("결제가 완료되었습니다.");
+	window.close();
 	</script>
 	
 </body>

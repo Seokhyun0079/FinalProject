@@ -16,7 +16,7 @@ public class PaymentDaoImpl implements PaymentDao{
 	
 	@Override
 	public int insertPayment(String userId) {
-		System.out.println("다오 임플 리턴 되나");
+		System.out.println("pDAO : "+userId);
 		return sqlSession.insert("payment.insertPayment", userId);
 	}
 

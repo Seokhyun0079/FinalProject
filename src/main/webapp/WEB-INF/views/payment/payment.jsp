@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Razo - Radio HTML Template | Podcast Details</title>
+    <title>TUNA MUSIC | Payment</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
@@ -312,7 +312,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Single Footer Widget -->
                     <div class="col-12 col-sm-6 col-md-4 col-xl-3">
                         <div class="single-footer-widget mb-80">
