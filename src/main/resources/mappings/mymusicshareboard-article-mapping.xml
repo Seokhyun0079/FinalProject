@@ -34,4 +34,23 @@
     <select id="getCount" resultType="int">
         select count(*) from mymusicshareboard_article
     </select>
+    <update id="updateUpdateCount">
+        update myMusicShareBoard_article set read_count = #{readCount} where article_no = #{articleNo}
+    </update>
+    <select id="selectPrev" resultType="int">
+        <![CDATA[
+          select nvl(max(article_no), #{articleNo}) from myMusicShareBoard_article where article_no < #{articleNo}
+        ]]>
+    </select>
+    <select id="selectNext" resultType="int">
+    <![CDATA[
+        select nvl(min(article_no) , #{articleNo}) from myMusicShareBoard_article where article_no > #{articleNo}
+        ]]>
+    </select>
+    <select id="getReadCount" resultType="int">
+        select read_count from myMusicShareBoard_article where article_no = #{articleNo}
+    </select>
+    <update id="updateReadCount">
+        update myMusicShareBoard_article set read_count = #{readCount} where article_no = #{articleNo}
+    </update>
 </mapper>

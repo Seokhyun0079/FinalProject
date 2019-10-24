@@ -26,9 +26,17 @@ public class MyMusicShareBoardArticleDAO {
     public List<MyMusicShareBoardArticle> selectList(MyMusicShareBoardArticleListPage vo){
         return sqlSession.selectList("MyMusicShareBoardArticleDAO.selectList", vo);
     }
+    public int selectNext(MyMusicShareBoardArticle vo){
+       return sqlSession.selectOne("MyMusicShareBoardArticleDAO.selectNext", vo);
+    }
+    public int selectPrev(MyMusicShareBoardArticle vo){
+        return sqlSession.selectOne("MyMusicShareBoardArticleDAO.selectPrev", vo);
+    }
     public int getCount(){
         return sqlSession.selectOne("MyMusicShareBoardArticleDAO.getCount");
     }
+    public int getReadCount(MyMusicShareBoardArticle vo){ return sqlSession.selectOne("MyMusicShareBoardArticleDAO.getReadCount", vo); }
+    public void getUpdateCount (MyMusicShareBoardArticle vo){ sqlSession.update("MyMusicShareBoardArticleDAO.updateReadCount", vo); }
     public void commit(){
         sqlSession.commit();
     }
