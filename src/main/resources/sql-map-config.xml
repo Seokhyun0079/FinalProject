@@ -7,6 +7,7 @@
 	<typeAliases>
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardArticle" alias="musicBoardArticle"/>
 		<typeAlias type="com.music.tuna.payment.vo.Payment" alias="payment"/>
+		<typeAlias type="com.music.tuna.payment.vo.Goods" alias="goods"/>
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardComment" alias="musicBoardComment"/>
 		<typeAlias type="com.music.tuna.mymusic.vo.MyMusic" alias="myMusic"/>
 		<typeAlias type="com.music.tuna.member.model.vo.Member" alias="member"/>
@@ -17,6 +18,7 @@
 		<typeAlias type="com.music.tuna.mymusic.vo.MyMusicShareBoardComment" alias="myMusicShareBoardComment"/>
 		<typeAlias type="com.music.tuna.qnaboard.vo.QnaBoardArticle" alias="qnaBoardArticle"/>
 		<typeAlias type="com.music.tuna.qnaboard.vo.QnaBoardComment" alias="qnaBoardComment"/>
+		<typeAlias type="com.music.tuna.letter.vo.Letter" alias="letter"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -40,6 +42,7 @@
 		<mapper resource="mappings/mymusicshareboard-article-mapping.xml"/>
 		<mapper resource="mappings/mymusicshareboard-comment-mapping.xml"/>
 		<mapper resource="mappings/qnaboard-article-mapping.xml"/>
-  	<mapper resource="mappings/qnaboard-comment-mapping.xml"/>
+  		<mapper resource="mappings/qnaboard-comment-mapping.xml"/>
+		<mapper resource="mappings/letter-mapping.xml"/>
 	</mappers>
 </configuration>

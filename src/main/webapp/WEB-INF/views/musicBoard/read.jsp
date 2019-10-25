@@ -222,8 +222,10 @@
                 <div class="col-12 col-sm-2 col-xl-1">
                     <!-- Post Share -->
                     <div class="razo-author-avatar">
-                        <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
-                        <h6>John Milley</h6>
+                        <a href="/TunaMusic/letter/write.do?id=${article.id}" onclick="window.open(this.href, '_blanck', 'width=600, height=800'); return false">
+                            <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
+                            <h6>${article.id}</h6>
+                        </a>
                     </div>
                 </div>
 

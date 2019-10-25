@@ -3,6 +3,7 @@ package com.music.tuna.musicboard.controller;
 import com.music.tuna.musicboard.service.MusicBoardArticleService;
 import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
+import com.music.tuna.util.SHBoardFileUpload;
 import net.sf.json.JSONObject;
 import org.apache.ibatis.io.Resources;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,16 +33,12 @@ public class MusicBoardArticleController {
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.POST)
     public String insertArticlePost(MusicBoardArticle vo, HttpServletRequest request){
         int articleNo = 0;
-
-        if(!vo.getUploadFile().isEmpty()){
-            vo.setFileName(new Date().getTime() + vo.getUploadFile().getOriginalFilename());
             try {
-                vo.getUploadFile().transferTo(new File(request.getSession().getServletContext().getRealPath("/resources/upload/")+vo.getFileName()));
-                articleNo = musicBoardArticleService.insertArticle(vo);
+                vo.setFileName(SHBoardFileUpload.fileUpload(vo.getUploadFile(), "/resources/upload/", request));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        articleNo = musicBoardArticleService.insertArticle(vo);
         return "redirect:read.do?articleNo="+articleNo;
     }
     @RequestMapping(value = "/musicBoard/article/read.do")

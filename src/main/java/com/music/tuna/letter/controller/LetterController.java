@@ -1,0 +1,30 @@
+package com.music.tuna.letter.controller;
+
+import com.music.tuna.letter.service.LetterService;
+import com.music.tuna.letter.vo.Letter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.mail.Session;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+@Controller
+@RequestMapping("/letter")
+public class LetterController {
+    @Autowired
+    LetterService letterService;
+    @RequestMapping(value = "/write.do", method = RequestMethod.GET)
+    public String insertLetterGet(){
+        return "/letter/letter";
+    }
+    @RequestMapping(value = "/write.do", method = RequestMethod.POST)
+    public void insertLetterPost(Letter vo, HttpSession session){
+        vo.setFromId(session.getId());
+        System.out.println("session.getId() = " + session.getId());
+        letterService.insertLetter(vo);
+    }
+
+}
