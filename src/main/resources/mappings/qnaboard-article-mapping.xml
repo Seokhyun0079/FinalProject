@@ -15,9 +15,9 @@
     insert into qnaboard_article
     values(qb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, 0)
   </insert>
-    <select id="lastInsertedArticle"  resultMap="articleResult">
+    <select id="lastInsertedArticle"  resultType="int">
         <![CDATA[
-        select * from (select * from qnaboard_article where id = #{id} ORDER BY article_no desc) where ROWNUM <= 1
+        select article_no from (select article_no from qnaboard_article where id = #{id} ORDER BY article_no desc) where ROWNUM <= 1
 		]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">

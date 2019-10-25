@@ -6,8 +6,8 @@ import com.music.tuna.qnaboard.vo.QnaBoardArticle;
 import com.music.tuna.qnaboard.vo.QnaBoardArticleListPage;
 
 public interface QnaBoardArticleService {
-	public QnaBoardArticle insertArticle(QnaBoardArticle vo);
-	public QnaBoardArticle getArticle(QnaBoardArticle vo);
-	public List<QnaBoardArticle> getArticleList(QnaBoardArticleListPage vo);
-	public int getCount();
+    public int insertArticle(QnaBoardArticle vo);
+    public QnaBoardArticle getArticle(QnaBoardArticle vo);
+    public List<QnaBoardArticle> getArticleList(QnaBoardArticleListPage vo);
+    public int getCount();
 }
