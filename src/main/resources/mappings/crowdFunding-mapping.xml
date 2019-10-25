@@ -22,6 +22,9 @@
         <result column="gname" property="goodsName"/>
         <result column="gprice" property="goodsPrice"/>
     </resultMap>
+    <select id="selectFunding" parameterType="_int" resultMap="fundingResult">
+        select * from funding where fno = #{fno}
+    </select>
     <insert id="insertFunding" parameterType="funding">
         insert into funding
         values(

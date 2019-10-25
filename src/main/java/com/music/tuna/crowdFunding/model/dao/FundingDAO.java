@@ -16,8 +16,11 @@ public class FundingDAO {
         System.out.println("[fDAO] fvo : "+funding.toString());
         sqlSession.insert("crowdFunding.insertFunding", funding);
     }
+    public Funding selectFunding(int fno){
+        return sqlSession.selectOne("crowdFunding.selectFunding", fno);
+    }
     public Funding lastInsertedFunding(){
-        return (Funding) sqlSession.selectOne("crowdFunding.lastInsertedFunding");
+        return sqlSession.selectOne("crowdFunding.lastInsertedFunding");
     }
     public int insertReward(Goods gvo) {
         int result = sqlSession.insert("crowdFunding.insertReward", gvo);
@@ -26,7 +29,7 @@ public class FundingDAO {
 
         return result;
     }
-    public Goods lastinsertedGoods(){
+    public Goods lastInsertedGoods(){
         Goods goods = sqlSession.selectOne("crowdFunding.lastInsetedGoods");
         return goods;
     }
