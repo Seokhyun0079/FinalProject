@@ -1,5 +1,6 @@
 package com.music.tuna.musicboard.controller;
 
+import com.music.tuna.member.model.vo.Member;
 import com.music.tuna.musicboard.service.MusicBoardArticleService;
 import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
@@ -95,6 +96,19 @@ public class MusicBoardArticleController {
         JSONObject json = new JSONObject();
         res.setContentType("application/x-json; charset=utf-8");
         json.put("bad", musicBoardArticleService.updateBad(vo));
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/musicBoard/article/myList.do")
+    public void selectMyWrittenList(HttpSession httpSession, HttpServletResponse res){
+        JSONObject json = new JSONObject();
+        res.setContentType("application/x-json; charset=utf-8");
+        MusicBoardArticle musicBoardArticle = new MusicBoardArticle();
+        musicBoardArticle.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+        json.put("result", musicBoardArticleService.getMyWrittenList(musicBoardArticle));
         try{
             res.getWriter().print(json);
         }catch(IOException e){

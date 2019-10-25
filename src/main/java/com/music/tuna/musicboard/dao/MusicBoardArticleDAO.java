@@ -58,4 +58,8 @@ public class MusicBoardArticleDAO {
     public void commit(){
         sqlSession.commit();
     }
+
+    public List<MusicBoardArticle> selectMyWrittenList(MusicBoardArticle vo) {
+        return sqlSession.selectList("selectMyWrittenList", vo);
+    }
 }
