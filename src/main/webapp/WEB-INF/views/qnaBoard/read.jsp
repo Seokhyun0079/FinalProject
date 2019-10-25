@@ -175,43 +175,18 @@
 <!-- Header Area End -->
 
 <!-- Podcast Thumbnail Area Start -->
-<section class="podcast-hero-area section-padding-80 bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/11.jpg);">
-    <div class="container">
-        <div class="row">
+<section class="blog-details-post-thumbnail-area bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/53.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
             <div class="col-12">
-                <div class="podcast-hero-text section-padding-80 d-flex align-items-center">
-                    <div class="podcast-txt- pr-5">
-                        <h2>Episode 2 – Guess what we’ve missed watching world cup 2014. We made a list!</h2>
-                        <div class="podcast-meta-data">
-                            <a href="#" class="event-date"><i class="icon_calendar"></i> July 23, 2019</a>
-                            <a href="#" class="event-time"><i class="icon_clock_alt"></i> 36 min</a>
-                            <a href="#" class="event-time"><i class="icon_heart_alt"></i> 38</a>
-                            <a href="#" class="event-address"><i class="icon_chat_alt"></i> 23</a>
-                        </div>
-                    </div>
-                    <a href="#" class="pt-5 pt-md-0 pl-md-5"><img src="/TunaMusic/resources/img/core-img/itunes.png" alt=""></a>
+                <div class="post-title-text">
+                    <h2>Tuna Music Q&A Board</h2>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- Podcast Thumbnail Area End -->
-
-<!-- Audio Player Area Start -->
-<div class="podcast-audio-player-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="audio-player">
-                    <audio id="music-player" preload="auto" controls>
-                        <source src="/TunaMusic/resources/upload/${article.fileName}">
-                    </audio>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Audio Player Area End -->
 
 <!-- Blog Details Area Start -->
 <section class="blog-details-area section-padding-80">
@@ -222,32 +197,30 @@
                 <div class="col-12 col-sm-2 col-xl-1">
                     <!-- Post Share -->
                     <div class="razo-author-avatar">
-                        <a href="/TunaMusic/letter/write.do?id=${article.id}" onclick="window.open(this.href, '_blanck', 'width=600, height=800'); return false">
-                            <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
-                            <h6>${article.id}</h6>
-                        </a>
+                        <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
+                        <h6>John Milley</h6>
                     </div>
                 </div>
 
                 <div class="col-12 col-sm-10 col-xl-9">
                     <p>${article.title}</p>
                     <p>${article.text}</p>
-                    <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
-                    <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div>
+<%--                     <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
+                    <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div> --%>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
                         <div class="prev-pager">
-                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.prev}"><span>Previous</span>
+                            <a href="/TunaMusic/qnaBoard/article/read.do?articleNo=${article.prev}"><span>Previous</span>
                                 <h6><i class="fa fa-long-arrow-left" aria-hidden="true"></i> 이전글 보러가기</h6>
                             </a>
                         </div>
                         <div class="next-pager text-right">
-                            <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.next}"><span>Next</span>
+                            <a href="/TunaMusic/qnaBoard/article/read.do?articleNo=${article.next}"><span>Next</span>
                                 <h6>다음 글 보러가기 <i class="fa fa-long-arrow-right" aria-hidden="true"></i></h6>
                             </a>
                         </div>
                     </div>
                     <div class="comment_area mb-50 clearfix">
-                        <h5 class="title">${article.commentCount} Comments</h5>
+                        <h5 class="title">${article.commentCount} 개의 댓글</h5>
 
                         <ol id="comment-list">
                             <!-- Single Comment Area -->
@@ -256,14 +229,14 @@
                     </div>
                     <!-- Leave A Reply -->
                     <div class="razo-contact-form">
-                        <h2 class="mb-4" id="point">Leave A Comment</h2>
+                        <h2 class="mb-4" id="point">댓글을 남겨주세요.</h2>
                         <!-- Form -->
                             <div class="row">
                                 <div class="col-12">
                                     <textarea id="message" name="message" class="form-control mb-30" placeholder="Comment"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button id ="comment-buutton" type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
+                                    <button id ="comment-buutton" type="submit" class="btn razo-btn btn-3 mt-15">댓글 쓰기</button>
                                 </div>
                                 <div class="col-lg-12">
                                     <input id="articleNo" type="text" name="message-name" class="form-control mb-30" style="visibility:hidden;" value="${article.articleNo}">
@@ -467,7 +440,7 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-<script src="/TunaMusic/resources/js/comment.js"></script>
+<script src="/TunaMusic/resources/js/qnacomment.js"></script>
 <script src="/TunaMusic/resources/js/mylist.js"></script>
 <script>
     var zeroTenFive = -0.5;
@@ -492,6 +465,6 @@
         });
     }
 </script>
-<script src="/TunaMusic/resources/js/musicboard-read.js"></script>
+<!-- <script src="/TunaMusic/resources/js/musicboard-read.js"></script> -->
 </body>
 </html>

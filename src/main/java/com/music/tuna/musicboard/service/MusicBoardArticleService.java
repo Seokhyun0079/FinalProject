@@ -12,4 +12,5 @@ public interface MusicBoardArticleService {
     int updateBest(MusicBoardArticle vo);
     int updateBad(MusicBoardArticle vo);
     public int getCount();
+    List<MusicBoardArticle> getMyWrittenList(MusicBoardArticle vo);
 }
