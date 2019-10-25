@@ -14,6 +14,8 @@
 		<typeAlias type="com.music.tuna.magazineBoard.model.vo.MagazineBoard" alias="MagazineBoard"/>
 		<typeAlias type="com.music.tuna.chart.vo.Chart" alias="chart"/>
 		<typeAlias type="com.music.tuna.mymusic.vo.MyMusicShareBoardArticle" alias="myMusicShareBoardArticle"/>
+		<typeAlias type="com.music.tuna.qnaboard.vo.QnaBoardArticle" alias="qnaBoardArticle"/>
+		<typeAlias type="com.music.tuna.qnaboard.vo.QnaBoardComment" alias="qnaBoardComment"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -35,5 +37,7 @@
 		<mapper resource="mappings/Magazine-mapping.xml"/>
 		<mapper resource="mappings/chart-mapping.xml"/>
 		<mapper resource="mappings/mymusicshareboard-article-mapping.xml"/>
+		<mapper resource="mappings/qnaboard-article-mapping.xml"/>
+  	 	<mapper resource="mappings/qnaboard-comment-mapping.xml"/>
 	</mappers>
 </configuration>
