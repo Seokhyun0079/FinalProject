@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.music.tuna.member.model.vo.Member;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.qnaboard.service.QnaBoardArticleService;
 import com.music.tuna.qnaboard.vo.QnaBoardArticle;
@@ -38,18 +40,27 @@ public class QnaBoardArticleController {
         return "redirect:read.do?articleNo="+articleNo;
     }
     @RequestMapping(value = "/qnaBoard/article/read.do")
-    public ModelAndView getArticle(ModelAndView mv, QnaBoardArticle vo){
+    public ModelAndView getArticle(ModelAndView mv, QnaBoardArticle vo, HttpSession httpSession){
+    	
+    	vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+    	
         mv.setViewName("/qnaBoard/read");
         mv.addObject("article", qnaBoardArticleService.getArticle(vo));
         return mv;
     }
     @RequestMapping(value="/qnaBoard/article/list.do")
-    public ModelAndView getList(ModelAndView mv, QnaBoardArticleListPage vo){
+    public ModelAndView getList(ModelAndView mv, QnaBoardArticleListPage vo, HttpSession httpSession){
+    	
+    	vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+    
         int totalCount = qnaBoardArticleService.getCount();
         //한 화면에 표시될 게시글의 최대 개수
         int listCount = 16;
         //전체 게시글 개수를 최대 개수로 나누어 전체 페이지 수를 구함
         int totalPage = totalCount/listCount;
+        
+//        System.out.println("id:" + vo.getId() + "page:" + vo.getPage());
+        
         if(vo.getPage() == 0){
             vo.setPage(1);
         }
@@ -73,6 +84,12 @@ public class QnaBoardArticleController {
         vo.setPageContent(qnaBoardArticleService.getArticleList(vo));
         mv.setViewName("/qnaBoard/list");
         mv.addObject("articlePage", vo);
+        
+//        System.out.println("id   :" + vo.getId() + "page   :" + vo.getPage());
+        
         return mv;
+        
+        
+        
     }
 }
