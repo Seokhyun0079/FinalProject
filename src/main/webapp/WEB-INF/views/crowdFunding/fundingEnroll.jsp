@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -182,71 +183,75 @@
 <!-- Header Area End -->
 
 <section class="uza-news-area section-padding-0-80">
-    <div class="container" style="margin-top: 50px">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading text-center">
-                    <%--style="padding: 30px 30px 0px 0px"--%>
-                    <div class="d-flex justify-content-center">
-                        <div class="form-group" style="margin: 0px;">
-                            <h6>프로젝트명</h6>
-                            <input type="text" class="form-control" id="project-name" name="project-name" style="font-size: 24px; text-align: center" placeholder="프로젝트명을 입력해주세요">
-                            <br>
-                            <h6>팀명</h6>
-                            <input type="text" class="form-control" name="project-creatorName" style="font-size: 16px; text-align: center" placeholder="창작자 여러분의 팀명을 입력해주세요">
+    <form action="/TunaMusic/crowdFunding/insertFunding.do" method="post" enctype="multipart/form-data">
+        <div class="container" style="margin-top: 50px">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <%--style="padding: 30px 30px 0px 0px"--%>
+                        <div class="d-flex justify-content-center">
+                            <div class="form-group" style="margin: 0px;">
+                                <h6>프로젝트명</h6>
+                                <input type="text" class="form-control" id="ftitle" name="ftitle" style="font-size: 24px; text-align: center" placeholder="프로젝트명을 입력해주세요">
+                                <br>
+                                <h6>팀명</h6>
+                                <input type="text" class="form-control" id="fcreator" name="fcreator" style="font-size: 16px; text-align: center" placeholder="창작자 여러분의 팀명을 입력해주세요">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        <div class="razo-blog-masonary">
-            <div class="row razo-blog-masonary-item">
-                <div class="col-8">
-                    <img src="/TunaMusic/resources/img/etc-img/noimage.png" alt="" class="img-responsive">
-                    <!-- <img src="./img/tunamusuc_funding_banner.png" alt=""> -->
-                </div>
-                <div class="col-4">
-                    <h6>목표 금액</h6>
-                    <input type="number" class="form-control">
-                    <br>
-
-                    <h6>프로젝트 마감일</h6>
-                    <div class="form-group">
-                        <input type="date" class="form-control">
+        <div class="container">
+            <div class="razo-blog-masonary">
+                <div class="row razo-blog-masonary-item">
+                    <div class="col-8">
+                        <img src="/TunaMusic/resources/img/etc-img/noimage.png" alt="" class="img-responsive">
+                        <!-- <img src="./img/tunamusuc_funding_banner.png" alt=""> -->
                     </div>
-                    <br>
+                    <div class="col-4">
+                        <h6>목표 금액</h6>
+                        <input type="number" id="fgoal" name="fgoal" class="form-control">
+                        <br>
 
-                    <h6>썸네일 이미지</h6>
-                    <input type="file" id="funding_thumbnail" name="funding_thumbnail">
-                    <br>
+                        <h6>프로젝트 마감일</h6>
+                        <input type="date" id="endDate" name="endDate" class="form-control">
+                        <br>
+
+                        <h6>썸네일 이미지</h6>
+                        <input type="file" id="fuploadFile" name="fuploadFile">
+                        <br><br>
+
+                        <h6>후원 리워드</h6>
+                        <input type="button" class="razo razo-btn" onclick="rewardPopup();" value="추가하기">
+                        <br>
+
+                        <input type="hidden" name="fno" id="fno" value="0">
+                        <input type="hidden" name="fbacker" id="fbacker" value="0">
+                        <input type="hidden" name="famount" id="famount" value="0">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr>
+        <hr>
 
-    <div class="container" style="margin-top: 30px">
-        <div class="row razo-blog-masonary">
-            <!-- <div class="row razo-blog-masonary-item"> -->
-            <div class="col-12">
-                <h6>창작자 소개</h6>
-                <textarea name="creater_name" rows="3" cols="100" placeholder="창작자 여러분을 소개해주세요"></textarea>
-                <br><br>
-                <h6>프로젝트 스토리</h6>
-                <div contenteditable="true">
-                    <form action="/insertFContent.do" method="post" name="project_content" id="project_content" enctype="multipart/form-data">
-                        <textarea name="ir1" id="ir1" rows="10" cols="100"></textarea>
-                        <%--placeholder="여러분의 멋진 프로젝트 스토리를 들려주세요"--%>
-                        <input type="button" class="razo razo-btn" id="writebtn" name="writebtn" value="저장">
-                    </form>
+        <div class="container" style="margin-top: 30px">
+            <div class="row razo-blog-masonary">
+                <!-- <div class="row razo-blog-masonary-item"> -->
+                <div class="col-12">
+                    <h6>창작자 소개</h6>
+                    <textarea name="fcreatorInfo" rows="3" cols="100" placeholder="창작자 여러분을 소개해주세요"></textarea>
+                    <br><br>
+                    <h6>프로젝트 스토리</h6>
+                    <textarea name="fcontent" id="fcontent" rows="10" cols="100"></textarea>
+                    <%--placeholder="여러분의 멋진 프로젝트 스토리를 들려주세요"--%>
+                    <input type="submit" class="razo razo-btn" id="writebtn" name="writebtn" value="저장">
                 </div>
+                <!-- </div> -->
             </div>
-            <!-- </div> -->
         </div>
-    </div>
+    </form>
 </section>
 
 <!-- All JS Files -->
@@ -262,6 +267,14 @@
 <!-- Active -->
 <%--<script src="/TunaMusic/resources/js/default-assets/active.js"></script>--%>
 
+<script>
+    function rewardPopup() {
+        var url = "/TunaMusic/crowdFunding/insertReward.do";
+        var name = "reward_popup";
+        var option = "width = 500, height = 500, top = 100, left = 200";
+        window.open(url, name, option);
+    }
+</script>
 <script type="text/javascript">
     //전역변수
     var oEditors = [];
@@ -269,7 +282,7 @@
     //스마트에디터 프레임생성
     nhn.husky.EZCreator.createInIFrame({
         oAppRef: oEditors,
-        elPlaceHolder: "ir1",
+        elPlaceHolder: "fcontent",
         sSkinURI: "/TunaMusic/resources/editor/SmartEditor2Skin.html",
         htParams:{
             bUseToolbar:true,
@@ -280,7 +293,7 @@
             },
         },
         fOnAppLoad:function(){
-            oEditors.getById["ir1"].exec("PASTE_HTML", ["여러분의 멋진 프로젝트 스토리를 들려주세요"])
+            oEditors.getById["fcontent"].exec("PASTE_HTML", ["여러분의 멋진 프로젝트 스토리를 들려주세요"])
         },
         fCreator:"createSEditor2"
     });
@@ -288,17 +301,18 @@
 <script>
     window.onload = function () {
         var btn = document.getElementById("writebtn");
+        console.log(btn.form);
         btn.onclick = function () {
             submitContents(btn);
         }
     }
     function submitContents(clickedObj) {
-        oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
+        oEditors.getById["fcontent"].exec("UPDATE_CONTENTS_FIELD", []);
 
         try{
             clickedObj.form.submit();
         }catch(e) {
-
+            console.log(e);
         }
     }
 </script>
