@@ -6,6 +6,7 @@ import java.sql.Date;
 public class Funding {
 
     private int fno;            // 펀딩 프로젝트 번호
+    private String id;
     private String ftitle;      // 펀딩 프로젝트명
     private String freward;     // 펀딩 리워드
     private String fcontent;    // 프로젝트설명
@@ -16,22 +17,8 @@ public class Funding {
     private int famount;        // 누적 금액
     private Date regDate;       // 등록 날짜
     private Date endDate;       // 마감 날짜
+    private String fileName;    // 이미지 파일 이름
     private MultipartFile fuploadFile;  // 리워드 이미지
-
-    public Funding(int fno, String ftitle, String freward, String fcontent, String fcreator, String fcreatorInfo, int fbacker, int fgoal, int famount, Date regDate, Date endDate, MultipartFile fuploadFile) {
-        this.fno = fno;
-        this.ftitle = ftitle;
-        this.freward = freward;
-        this.fcontent = fcontent;
-        this.fcreator = fcreator;
-        this.fcreatorInfo = fcreatorInfo;
-        this.fbacker = fbacker;
-        this.fgoal = fgoal;
-        this.famount = famount;
-        this.regDate = regDate;
-        this.endDate = endDate;
-        this.fuploadFile = fuploadFile;
-    }
 
     public int getFno() {
         return fno;
@@ -39,6 +26,14 @@ public class Funding {
 
     public void setFno(int fno) {
         this.fno = fno;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFtitle() {
@@ -121,6 +116,14 @@ public class Funding {
         this.endDate = endDate;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     public MultipartFile getFuploadFile() {
         return fuploadFile;
     }
@@ -133,6 +136,7 @@ public class Funding {
     public String toString() {
         return "Funding{" +
                 "fno=" + fno +
+                ", id=" + id +
                 ", ftitle='" + ftitle + '\'' +
                 ", freward='" + freward + '\'' +
                 ", fcontent='" + fcontent + '\'' +
@@ -143,6 +147,7 @@ public class Funding {
                 ", famount=" + famount +
                 ", regDate=" + regDate +
                 ", endDate=" + endDate +
+                ", fileName=" + fileName +
                 ", fuploadFile=" + fuploadFile +
                 '}';
     }
