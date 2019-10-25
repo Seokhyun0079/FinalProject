@@ -21,12 +21,12 @@
 		]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
-        select qnaboard_article.*, (select count(*) from qnaboard_comment where qnaboard_comment.article_no= #{articleNo}) as comment_count from qnaboard_article where article_no = #{articleNo}
+        select qnaboard_article.*, (select count(*) from qnaboard_comment where qnaboard_comment.article_no= #{articleNo}) as comment_count from qnaboard_article where article_no = #{articleNo} and id = #{id}
     </select>
     <select id="selectArticleCount" resultType="int">
         select count(*) from qnaBoard_article
     </select>
-    <select id="selectArticleList" resultMap="articleResult">
+<!--     <select id="selectArticleList" resultMap="articleResult">
         <![CDATA[
         select * from (
         select rownum as rnum, A.article_no, A.id, A.title, A.text, A.file_name
@@ -36,6 +36,9 @@
         order by article_no desc ) A where rownum <= #{end})
         B where B.rnum >= #{start}
         		]]>
+    </select> -->
+    <select id="selectArticleList" resultMap="articleResult">
+    	select * from qnaboard_article where id = #{id}
     </select>
     <select id="getReadCount" resultType="int" >
         select read_count from qnaboard_article where article_no = #{articleNo}

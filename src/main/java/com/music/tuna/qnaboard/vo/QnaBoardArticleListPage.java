@@ -3,6 +3,7 @@ package com.music.tuna.qnaboard.vo;
 import java.util.List;
 
 public class QnaBoardArticleListPage {
+	private String id;
     //페이지에서 보여줄 리스트의 첫번째 번호
     private int start;
     //페이지에서 보여줄 리스트의 마지막 번호
@@ -14,6 +15,14 @@ public class QnaBoardArticleListPage {
     //표시할 페이지중 마지막 페이지
     private int endPage;
     private List<QnaBoardArticle> pageContent;
+    
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
     
 	public int getStart() {
 		return start;
