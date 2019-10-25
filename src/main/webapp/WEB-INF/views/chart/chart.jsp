@@ -216,14 +216,6 @@
 
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="view-more-button text-center">
-                        <a href="#" class="btn razo-btn mt-50">View More</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!-- Music Charts Area End -->

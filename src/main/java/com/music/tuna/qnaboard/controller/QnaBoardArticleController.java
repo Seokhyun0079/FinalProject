@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.qnaboard.service.QnaBoardArticleService;
 import com.music.tuna.qnaboard.vo.QnaBoardArticle;
 import com.music.tuna.qnaboard.vo.QnaBoardArticleListPage;
+import com.music.tuna.util.SHBoardFileUpload;
 
 @Controller
 public class QnaBoardArticleController {
@@ -27,16 +29,12 @@ public class QnaBoardArticleController {
     @RequestMapping(value = "/qnaBoard/article/write.do", method = RequestMethod.POST)
     public String insertArticlePost(QnaBoardArticle vo, HttpServletRequest request){
         int articleNo = 0;
-
-        if(!vo.getUploadFile().isEmpty()){
-            vo.setFileName(new Date().getTime() + vo.getUploadFile().getOriginalFilename());
             try {
-                vo.getUploadFile().transferTo(new File(request.getSession().getServletContext().getRealPath("/resources/upload/")+vo.getFileName()));
-                articleNo = qnaBoardArticleService.insertArticle(vo);
+                vo.setFileName(SHBoardFileUpload.fileUpload(vo.getUploadFile(), request.getSession().getServletContext().getRealPath("/resources/upload/")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        articleNo = qnaBoardArticleService.insertArticle(vo);
         return "redirect:read.do?articleNo="+articleNo;
     }
     @RequestMapping(value = "/qnaBoard/article/read.do")
