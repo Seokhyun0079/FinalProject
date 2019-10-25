@@ -33,11 +33,27 @@ public class FundingController {
         return "crowdFunding/funding";
     }
 
-//    @RequestMapping(value = "/fundingRead.do")
-//    public String getFundingDetail() {
-//        //mv.setViewName("/crowdFunding/fundingDetail");
-//        return "crowdFunding/fundingDetail";
-//    }
+    @RequestMapping(value = "/fundingRead.do")
+    public ModelAndView getFundingDetail(ModelAndView mv, @RequestParam int fno) {
+        Funding fvo = fundingService.selectFunding(fno);
+
+        if(fvo.getFamount()!=0) {
+            int percent = fvo.getFgoal() / fvo.getFamount();
+            mv.addObject("percent", percent);
+        }else {
+            int percent = 0;
+            mv.addObject("percent", percent);
+        }
+        long dDay = diffOfDate(fvo.getRegDate(), fvo.getEndDate());
+        System.out.println("[fcontroller] d-day : "+dDay);
+        mv.addObject("dDay", dDay);
+
+        if(fvo!=null){
+            mv.addObject("funding", fvo);
+            mv.setViewName("crowdFunding/fundingDetail");
+        }
+        return mv;
+    }
 
     @RequestMapping(value = "/insertReward.do")
     public String insertReward(){
@@ -57,7 +73,7 @@ public class FundingController {
         return "crowdFunding/fundingEnroll";
     }
     @RequestMapping(value = "/insertFunding.do", method = RequestMethod.POST)
-    public ModelAndView insertFContent(Funding fvo, ModelAndView mv, HttpServletRequest request, @RequestParam(value = "fuploadFile") MultipartFile fuploadFile) {
+    public String insertFContent(Funding fvo, HttpServletRequest request, @RequestParam(value = "fuploadFile") MultipartFile fuploadFile) {
         System.out.println("fvo = " + fvo);
         Funding fd = null;
         Goods gvo = fundingService.lastInsertedGoods();
@@ -93,10 +109,8 @@ public class FundingController {
 
         fd = fundingService.insertFunding(fvo);
 
-        System.out.println("[fcontroller] insertFContent : "+fvo.toString());
-        mv.setViewName("/crowdFunding/fundingDetail");
-        mv.addObject("funding", fd);
-        return mv;
+        System.out.println("[fcontroller] insertFContent : "+fd.toString());
+        return "redirect:/crowdFunding/fundingRead.do?fno="+fd.getFno();
     }
 
     // 다중 파일 업로드
@@ -140,6 +154,14 @@ public class FundingController {
 
         System.out.println("[fundingController] : "+sb.toString());
         return sb.toString();
+    }
+
+    public static long diffOfDate(Date beginDate, Date endDate) {
+        //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        long diffDay = (endDate.getTime() - beginDate.getTime()) / (24*60*60*1000);
+
+        System.out.println("[funding] d-day : "+diffDay+"일");
+        return diffDay;
     }
 
 }

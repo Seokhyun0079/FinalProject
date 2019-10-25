@@ -8,6 +8,8 @@ import java.util.List;
 public interface FundingService {
     public List<Funding> getArticleList(Funding funding);
 
+    public Funding selectFunding(int fno);
+
     public Funding insertFunding(Funding fvo);
 
     public int insertReward(Goods gvo);
