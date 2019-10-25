@@ -173,6 +173,16 @@ create table mymusicshareboard_comment(
     REFERENCES mymusicshareboard_article(article_no)
 );
 
+create SEQUENCE letter_seq;
+create table letter(
+    letter_no number(10) primary key,
+    to_id varchar2(30),
+    from_id varchar2(30),
+    message varchar2(300),
+    CONSTRAINT FK_LETTER_TO FOREIGN KEY(to_id) REFERENCES MEMBER(ID),
+    CONSTRAINT FK_LETTER_FROM FOREIGN KEY(from_id) REFERENCES MEMBER(ID)
+);
+
 
 -- QNA 게시판 게시글 테이블
 create table qnaboard_article(
