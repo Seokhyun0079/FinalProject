@@ -1,7 +1,6 @@
 -- 계정 생성문
 create user tuna IDENTIFIED by tuna;
 grant resource, connect to tuna;
---계정 생성문
 
 -- 꼬였을 때 drop
 drop table member;
@@ -19,6 +18,10 @@ drop table chartboard;
 drop sequence msb_seq;
 drop sequence msbc_seq;
 drop table mymusicshareboard_comment;
+=======
+drop table qnaboard_article;
+drop sequence qb_comment_seq;
+drop table qnaboard_comment;
 
 -- 회원 테이블
 CREATE TABLE MEMBER(
@@ -142,7 +145,7 @@ CREATE TABLE CHARTBOARD(
 
 create SEQUENCE msb_seq;
 -- 음악 마이리스트 공유 게시판
-create table mymusic_share_board(
+create table mymusicshareboard_article(
     article_no number(10) primary key,
     id varchar2(30),
     title varchar2(60),
@@ -170,5 +173,45 @@ create table mymusicshareboard_comment(
     REFERENCES mymusicshareboard_article(article_no)
 );
 
+
+-- QNA 게시판 게시글 테이블
+create table qnaboard_article(
+    article_no number(10) primary key,
+    id varchar2(30),
+    title varchar2(60),
+    text varchar2(2000),
+    file_name varchar2(200),
+    read_count number(10),
+    CONSTRAINT FK_MEMBERR FOREIGN KEY(id)
+    REFERENCES member(id)
+);
+
+-- QNA 게시판 게시글 시퀀스
+create sequence qb_article_seq
+	start with 1
+	increment by 1
+	maxvalue 10000
+	minvalue 1
+	nocycle;
+	
+-- QNA 게시판 댓글 기본키를 위한 시퀀스
+create sequence qb_comment_seq
+    start with 1
+    increment BY 1;
+    
+-- QNA 게시판 댓글 테이블
+create table qnaboard_comment(
+    comment_no number(10) primary key,
+    article_no number(10),
+    id varchar2(30),
+    reply_no number(10),
+    content varchar2(2000),
+    CONSTRAINT FK_QNABOARD_COMMENT1 FOREIGN KEY(id)
+    REFERENCES member(id),
+    CONSTRAINT FK_QNABOARD_COMMENT2 FOREIGN KEY(reply_no)
+    REFERENCES qnaboard_comment(comment_no),
+    CONSTRAINT FK_QNABOARD_COMMENT3 FOREIGN KEY(article_no)
+    REFERENCES qnaboard_article(article_no)
+);
 
 COMMIT;
