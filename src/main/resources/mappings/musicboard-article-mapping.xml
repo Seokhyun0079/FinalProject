@@ -17,9 +17,9 @@
     insert into musicboard_article
     values(mb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, 0, 0, 0)
   </insert>
-    <select id="lastInsertedArticle"  resultMap="articleResult">
+    <select id="lastInsertedArticle"  resultType="int">
         <![CDATA[
-        select * from (select * from musicboard_article ORDER BY article_no desc) where ROWNUM <= 1
+        select article_no from (select article_no from musicboard_article where id = #{id} ORDER BY article_no desc) where ROWNUM <= 1
 		]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">

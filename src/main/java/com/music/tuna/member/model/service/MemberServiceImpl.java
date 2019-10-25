@@ -36,6 +36,11 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
+	public String mailCheck(String userId) {
+		return memberDao.mailCheck(userId);
+	}
+	
+	@Override
 	public Member loginMember(Member m) {
 		Member loginUser = null;
 		
@@ -85,6 +90,7 @@ public class MemberServiceImpl implements MemberService{
 		}
 		return result;
 	}
+
 
 
 

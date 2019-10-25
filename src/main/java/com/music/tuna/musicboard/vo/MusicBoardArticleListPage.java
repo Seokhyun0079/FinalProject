@@ -3,11 +3,15 @@ package com.music.tuna.musicboard.vo;
 import java.util.List;
 
 public class MusicBoardArticleListPage {
-
+    //페이지에서 보여줄 리스트의 첫번째 번호
     private int start;
+    //페이지에서 보여줄 리스트의 마지막 번호
     private int end;
+    //현재 페이지
     private int page;
+    //표시할 페이지 중 첫번째 페이지
     private int startPage;
+    //표시할 페이지중 마지막 페이지
     private int endPage;
     private List<MusicBoardArticle> pageContent;
 

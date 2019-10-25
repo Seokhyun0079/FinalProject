@@ -17,13 +17,15 @@
 	</bean>
 	
 
-	<!-- <bean id="loginInterceptor" class="com.music.tuna.common.interceptor.LoginInterceptor"/>
+	<!-- logincheck -->
+	<bean id="loginInterceptor" class="com.music.tuna.common.loginCheckInterceptor"/>
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/member/login/**"/>
+			<mvc:mapping path="/member/mypage.do"/>
+			<mvc:mapping path="/member/edit.do"/>
 			<ref bean="loginInterceptor"/>
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors>
 	
 	<!-- gmail -->
     <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >

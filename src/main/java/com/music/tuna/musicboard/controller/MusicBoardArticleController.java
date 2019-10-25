@@ -30,21 +30,19 @@ public class MusicBoardArticleController {
         return "/musicBoard/write";
     }
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.POST)
-    public ModelAndView insertArticlePost(MusicBoardArticle vo, ModelAndView mv, HttpServletRequest request){
-        MusicBoardArticle newItem = null;
+    public String insertArticlePost(MusicBoardArticle vo, HttpServletRequest request){
+        int articleNo = 0;
 
         if(!vo.getUploadFile().isEmpty()){
             vo.setFileName(new Date().getTime() + vo.getUploadFile().getOriginalFilename());
             try {
                 vo.getUploadFile().transferTo(new File(request.getSession().getServletContext().getRealPath("/resources/upload/")+vo.getFileName()));
-                newItem = musicBoardArticleService.insertArticle(vo);
+                articleNo = musicBoardArticleService.insertArticle(vo);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        mv.setViewName("/musicBoard/read");
-        mv.addObject("article", newItem);
-        return mv;
+        return "redirect:read.do?articleNo="+articleNo;
     }
     @RequestMapping(value = "/musicBoard/article/read.do")
     public ModelAndView getArticle(ModelAndView mv, MusicBoardArticle vo){
@@ -55,11 +53,15 @@ public class MusicBoardArticleController {
     @RequestMapping(value="/musicBoard/article/list.do")
     public ModelAndView getList(ModelAndView mv, MusicBoardArticleListPage vo){
         int totalCount = musicBoardArticleService.getCount();
+        //한 화면에 표시될 게시글의 최대 개수
         int listCount = 16;
+        //전체 게시글 개수를 최대 개수로 나누어 전체 페이지 수를 구함
         int totalPage = totalCount/listCount;
         if(vo.getPage() == 0){
             vo.setPage(1);
         }
+
+        //전체 페이지수가 딱 떨어지지 않을 경우 나머지를 표시해줘야하기때문에 +1을 해줌
         if(totalCount % listCount > 0){
             totalPage++;
         }

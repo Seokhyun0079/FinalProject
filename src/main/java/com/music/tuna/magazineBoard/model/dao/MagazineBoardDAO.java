@@ -57,15 +57,12 @@ public class MagazineBoardDAO {
 		
 		return sqlSession.insert("Magazinemapper.insertPost", m);
 	}
-
-
-
-
+	public int updatePost(MagazineBoard m) {
+		return sqlSession.update("Magazinemapper.updatePost", m);
+	}
 	
-
-
-
-
-	
+	public void commit() {
+		sqlSession.commit();
+	}
 
 }

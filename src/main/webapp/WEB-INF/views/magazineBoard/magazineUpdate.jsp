@@ -18,6 +18,11 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
 
+
+ <!-- Smart Editor required -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="/TunaMusic/resources/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
 </head>
 <body>
 	 <!-- *로드 -->
@@ -47,22 +52,20 @@
                             <h2 class="mb-4">Write a post</h2>
 
                             <!-- Form -->
-                            <form action="#" method="post" enctype="Multipart/form-data">
+                            <form action="mupdateSuccess.do" method="post" id="insertBoardFrm"  enctype="Multipart/form-data">
                                 <div class="row">
+                                <input name ="mseq" type = "text" value = "${param.mseq }" hidden>
                                     <div class="col-lg-12">
-                                
-                                        <input type="text" name="message-name" class="form-control mb-30" placeholder="제목 입력">
+                                        <input type="text" name="mtitle" class="form-control mb-30" style="color: black;" 
+                                        value='<c:out value="${MagazineBoard.mtitle}"></c:out>'>
                                     </div>
                                     <div class="col-12">
-                                        <textarea rows="20"  name="message" class="form-control mb-30"  placeholder="내용 입력" style="height: 100%"></textarea>
+                                       <textarea name="mcontent" id="editor" style="width:70%; height:400px;">${MagazineBoard.mcontent}</textarea>
                                     </div>
-                                    
-                                    <div class="col-lg-12">
-                                        <input type="file" name="message-name" class="form-control mb-30" style="background-color: pink">
-                                    </div>
+              
                                     
                                        <div class="col-12" align="center"> 
-                                        <button type="submit" class="btn razo-btn btn-3 mt-15">수정완료</button> 
+                                        <button type="submit" id="insertBoard" class="btn razo-btn btn-3 mt-15">수정 완료</button> 
                                         <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
                                     </div>
                                        
@@ -80,6 +83,7 @@
             </div>
           
         </div>
+
         
         
     </section>
@@ -253,16 +257,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!-- Footer Area End -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
 
 
@@ -279,6 +274,51 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Active -->
     <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 	
+	<script>
+    $(function(){
+        //전역변수
+        var obj = [];              
+        //스마트에디터 프레임생성
+        nhn.husky.EZCreator.createInIFrame({
+            oAppRef: obj,
+            elPlaceHolder: "editor",
+            sSkinURI: "/TunaMusic/resources/editor/SmartEditor2Skin.html",
+            htParams : {
+                // 툴바 사용 여부
+                bUseToolbar : true,            
+                // 입력창 크기 조절바 사용 여부
+                bUseVerticalResizer : true,    
+                // 모드 탭(Editor | HTML | TEXT) 사용 여부
+                bUseModeChanger : true,
+            }
+        });
+        //전송버튼
+        $("#insertBoard").click(function(){
+            //id가 smarteditor인 textarea에 에디터에서 대입
+            obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+            //폼 submit
+            $("#insertBoardFrm").submit();
+        });
+    });
+</script>
+
+<script>
+    window.onload = function () {
+        var btn = document.getElementById("#insertBoard");
+        btn.onclick = function () {
+            submitContents(btn);
+        }
+    }
+    function submitContents(clickedObj) {
+        oEditors.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+
+        try{
+            clickedObj.form.submit();
+        }catch(e) {
+
+        }
+    }
+</script>
 
 
 </body>

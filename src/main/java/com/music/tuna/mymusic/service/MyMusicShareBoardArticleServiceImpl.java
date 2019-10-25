@@ -4,6 +4,7 @@ import com.music.tuna.mymusic.dao.MyMusicDAO;
 import com.music.tuna.mymusic.dao.MyMusicShareBoardArticleDAO;
 import com.music.tuna.mymusic.vo.MyMusic;
 import com.music.tuna.mymusic.vo.MyMusicShareBoardArticle;
+import com.music.tuna.mymusic.vo.MyMusicShareBoardArticleListPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +20,17 @@ public class MyMusicShareBoardArticleServiceImpl implements MyMusicShareBoardArt
     public int insertArticle(MyMusicShareBoardArticle vo) {
         myMusicShareBoardArticleDAO.insertArticle(vo);
         myMusicShareBoardArticleDAO.commit();
-        return myMusicShareBoardArticleDAO.selectLastInsertedArticleNo();
+        return myMusicShareBoardArticleDAO.selectLastInsertedArticleNo(vo);
     }
 
     @Override
     public MyMusicShareBoardArticle selectArticleByArticleNo(MyMusicShareBoardArticle vo) {
+        vo.setReadCount(myMusicShareBoardArticleDAO.getReadCount(vo)+1);
+        myMusicShareBoardArticleDAO.getUpdateCount(vo);
+        myMusicShareBoardArticleDAO.commit();
         MyMusicShareBoardArticle myMusicShareBoardArticle = myMusicShareBoardArticleDAO.selectArticleByArticleNo(vo);
+        myMusicShareBoardArticle.setNext(myMusicShareBoardArticleDAO.selectNext(vo));
+        myMusicShareBoardArticle.setPrev(myMusicShareBoardArticleDAO.selectPrev(vo));
         MyMusic myMusic = new MyMusic();
         myMusic.setId(myMusicShareBoardArticle.getId());
         myMusicShareBoardArticle.setMyMusicList(myMusicDAO.getMyMusicList(myMusic));
@@ -32,7 +38,12 @@ public class MyMusicShareBoardArticleServiceImpl implements MyMusicShareBoardArt
     }
 
     @Override
-    public List<MyMusicShareBoardArticle> selectList(MyMusicShareBoardArticle vo) {
+    public List<MyMusicShareBoardArticle> selectList(MyMusicShareBoardArticleListPage vo) {
         return myMusicShareBoardArticleDAO.selectList(vo);
+    }
+
+    @Override
+    public int getCount() {
+        return myMusicShareBoardArticleDAO.getCount();
     }
 }
