@@ -7,6 +7,7 @@
 	<typeAliases>
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardArticle" alias="musicBoardArticle"/>
 		<typeAlias type="com.music.tuna.payment.vo.Payment" alias="payment"/>
+		<typeAlias type="com.music.tuna.payment.vo.Goods" alias="goods"/>
 		<typeAlias type="com.music.tuna.musicboard.vo.MusicBoardComment" alias="musicBoardComment"/>
 		<typeAlias type="com.music.tuna.mymusic.vo.MyMusic" alias="myMusic"/>
 		<typeAlias type="com.music.tuna.member.model.vo.Member" alias="member"/>
