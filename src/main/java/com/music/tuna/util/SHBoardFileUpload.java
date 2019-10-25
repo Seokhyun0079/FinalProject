@@ -8,11 +8,11 @@ import java.io.IOException;
 import java.util.Date;
 
 public class SHBoardFileUpload {
-    public static String fileUpload(MultipartFile multipartFile, String filePath, HttpServletRequest request) throws IOException{
+    public static String fileUpload(MultipartFile multipartFile, String filePath) throws IOException{
         String fileName = null;
         if(!multipartFile.isEmpty()){
             fileName = new Date().getTime() + multipartFile.getOriginalFilename();
-            multipartFile.transferTo(new File(request.getSession().getServletContext().getRealPath(filePath)+fileName));
+            multipartFile.transferTo(new File(filePath+fileName));
         }
         return fileName;
     }

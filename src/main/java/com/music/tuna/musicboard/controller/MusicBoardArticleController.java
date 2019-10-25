@@ -34,7 +34,7 @@ public class MusicBoardArticleController {
     public String insertArticlePost(MusicBoardArticle vo, HttpServletRequest request){
         int articleNo = 0;
             try {
-                vo.setFileName(SHBoardFileUpload.fileUpload(vo.getUploadFile(), "/resources/upload/", request));
+                vo.setFileName(SHBoardFileUpload.fileUpload(vo.getUploadFile(), request.getSession().getServletContext().getRealPath("/resources/upload/")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
