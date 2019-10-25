@@ -74,7 +74,7 @@
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
 	                        <div style="float: right;">
-	                            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:gray;">FORGOT PW?</a></div>
+	                            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:gray;">FORGOT ID/PW?</a></div>
 	                            <div style="color:gray; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
 	                        </div>
 	                    </form>
@@ -236,8 +236,8 @@
 							    <span style="float:left; margin-left: 20%; margin-top: 50px; width: 30%;">
 							    <h3 align="center" style="color:white;">FIND ID</h3>
 							    <form method="post" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
-							        <input type="text" id="name1" name="userName" class="findfont" placeholder="NAME" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/>
-							        <input type="email" id="email1" name="email" class="findfont" placeholder="EMAIL" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/><div id="email_check1"></div><BR>
+							        <input type="text" id="name1" name="userName" class="findfont" placeholder="NAME" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt; background-color: rgba( 255, 255, 255, 0.5 ); border:none;" required/>
+							        <input type="email" id="email1" name="email" class="findfont" placeholder="EMAIL" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt; background-color: rgba( 255, 255, 255, 0.5 ); border:none;" required/><div id="email_check1"></div><BR>
 							        <br>
 							        <div class="welcome-text text-center">
 		                                <input type="submit" id="submit1" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms" value="FIND!" style="font-size: 16px;"/>
@@ -247,9 +247,9 @@
 							    <span style="float:right; margin-right: 20%; margin-top: 50px; width: 30%;">
 							    <h3 align="center" style="color:white;">FIND PW</h3>
 							    <form action="findPW.do" method="post" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
-							        <input type="text" id="name2" name="name2" class="findfont" placeholder="NAME" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/>
-							        <input type="text" id="userId2" name="id2" class="findfont" placeholder="ID" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/><BR>
-							        <input type="email" id="email2" name="email2" class="findfont" placeholder="EMAIL" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt" required/><div id="email_check2"></div><BR>
+							        <input type="text" id="name2" name="name2" class="findfont" placeholder="NAME" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt; background-color: rgba( 255, 255, 255, 0.5 ); border:none;" required/>
+							        <input type="text" id="userId2" name="id2" class="findfont" placeholder="ID" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt; background-color: rgba( 255, 255, 255, 0.5 ); border:none;" required/><BR>
+							        <input type="email" id="email2" name="email2" class="findfont" placeholder="EMAIL" style="width: 60%; height: 50px; padding-left: 10px; font-size: 20pt; background-color: rgba( 255, 255, 255, 0.5 ); border:none;" required/><div id="email_check2"></div><BR>
 							        <br>
 							        <div class="welcome-text text-center">
 		                                <input type="submit" id="submit2" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms" value="FIND!" style="font-size: 16px;"/>

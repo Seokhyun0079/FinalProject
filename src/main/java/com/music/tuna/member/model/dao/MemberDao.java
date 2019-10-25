@@ -9,6 +9,7 @@ public interface MemberDao {
 	int insertMember(Member m);
 	boolean duplicateCheck(String userId);
 	boolean duplicateCheckEmail(String email);
+	String mailCheck(String userId);
 	Member selectMember(Member m);
 	String selectEncPassword(Member m);
 	Member findId(String name, String email);

@@ -20,12 +20,17 @@ public class MyMusicShareBoardArticleServiceImpl implements MyMusicShareBoardArt
     public int insertArticle(MyMusicShareBoardArticle vo) {
         myMusicShareBoardArticleDAO.insertArticle(vo);
         myMusicShareBoardArticleDAO.commit();
-        return myMusicShareBoardArticleDAO.selectLastInsertedArticleNo();
+        return myMusicShareBoardArticleDAO.selectLastInsertedArticleNo(vo);
     }
 
     @Override
     public MyMusicShareBoardArticle selectArticleByArticleNo(MyMusicShareBoardArticle vo) {
+        vo.setReadCount(myMusicShareBoardArticleDAO.getReadCount(vo)+1);
+        myMusicShareBoardArticleDAO.getUpdateCount(vo);
+        myMusicShareBoardArticleDAO.commit();
         MyMusicShareBoardArticle myMusicShareBoardArticle = myMusicShareBoardArticleDAO.selectArticleByArticleNo(vo);
+        myMusicShareBoardArticle.setNext(myMusicShareBoardArticleDAO.selectNext(vo));
+        myMusicShareBoardArticle.setPrev(myMusicShareBoardArticleDAO.selectPrev(vo));
         MyMusic myMusic = new MyMusic();
         myMusic.setId(myMusicShareBoardArticle.getId());
         myMusicShareBoardArticle.setMyMusicList(myMusicDAO.getMyMusicList(myMusic));

@@ -16,7 +16,7 @@
     </insert>
     <select id="selectLastInsertedArticleNo" resultType="int">
         <![CDATA[
- select article_no from (select article_no from mymusicshareboard_article order by article_no desc) where ROWNUM <= 1
+ select article_no from (select article_no from mymusicshareboard_article where id = #{id} order by article_no desc) where ROWNUM <= 1
       ]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
@@ -34,4 +34,23 @@
     <select id="getCount" resultType="int">
         select count(*) from mymusicshareboard_article
     </select>
+    <update id="updateUpdateCount">
+        update myMusicShareBoard_article set read_count = #{readCount} where article_no = #{articleNo}
+    </update>
+    <select id="selectPrev" resultType="int">
+        <![CDATA[
+          select nvl(max(article_no), #{articleNo}) from myMusicShareBoard_article where article_no < #{articleNo}
+        ]]>
+    </select>
+    <select id="selectNext" resultType="int">
+    <![CDATA[
+        select nvl(min(article_no) , #{articleNo}) from myMusicShareBoard_article where article_no > #{articleNo}
+        ]]>
+    </select>
+    <select id="getReadCount" resultType="int">
+        select read_count from myMusicShareBoard_article where article_no = #{articleNo}
+    </select>
+    <update id="updateReadCount">
+        update myMusicShareBoard_article set read_count = #{readCount} where article_no = #{articleNo}
+    </update>
 </mapper>

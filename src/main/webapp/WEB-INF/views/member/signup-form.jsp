@@ -89,7 +89,7 @@
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
 	                        <div style="float: right;">
-	                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;">FORGOT PW?</a></div>
+	                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;">FORGOT ID/PW?</a></div>
 	                            <div style="color:gray; width: 100%;"><a href="memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
 	                        </div>
 	                    </form>
@@ -201,12 +201,12 @@
 
                                 <!-- Share Icon -->
                                 <div class="social-share-icon">
-                                    <i class="social_share"></i>
+                                    <i class="fa fa-music"></i>
                                 </div>
 
                                 <!-- Search Icon -->
                                 <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                    <i class="icon_search"></i>
+                                    <i class="fa fa-search"></i>
                                 </div>
                                 
                                 <!-- Login Icon -->

@@ -1,12 +1,13 @@
 $(function(){
     $.ajax({
-        url: "/TunaMusic/musicBoard/comment/list.do",
+        url: "/TunaMusic/myMusicShareBoard/comment/list.do",
         type: "GET",
         data: {
             "articleNo" : $("#articleNo").val(),
         },
         success: function (data) {
             for(var i = 0 ; i < data.result.commentList.length; i++){
+                console.log(data.result.commentList[i]);
                 if(data.result.commentList[i].replyNo==0){
                     $("#comment-list").append('<li class="single_comment_area" id="i'+data.result.commentList[i].commentNo+'">' +
                         '                                 <div class="comment-content d-flex">\n' +
@@ -50,10 +51,10 @@ $(function(){
     });
     $("#comment-buutton").click(function(){
         $.ajax({
-            url: "/TunaMusic/musicBoard/comment/write.do",
+            url: "/TunaMusic/myMusicShareBoard/comment/write.do",
             type : "GET",
             data : {
-               "articleNo" : $("#articleNo").val(),
+                "articleNo" : $("#articleNo").val(),
                 "replyNo":$("#reply-no").val()  ? $("#reply-no").val() : 0,
                 "id" : $("#id").val(),
                 "content" : $("#message").val()
@@ -61,6 +62,7 @@ $(function(){
             success : function(data){
                 $("#comment-list").html("");
                 for(var i = 0 ; i < data.result.commentList.length; i++){
+                    console.log(data.result.commentList[i]);
                     if(data.result.commentList[i].replyNo==0){
                         $("#comment-list").append('<li class="single_comment_area" id="i'+data.result.commentList[i].commentNo+'">' +
                             '                                 <div class="comment-content d-flex">\n' +

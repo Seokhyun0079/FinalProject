@@ -17,12 +17,6 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
     
-	<script type="text/javascript">
-		/*비밀번호 찾기 후 alert(findPW.getUserName()+"님의 이메일로 임시 비밀번호를 발송하였습니다!)*/
-		var message = '${Msg}';
-		if(message != "")
-		alert(message);
-	</script>
     
 </head>
 
@@ -69,7 +63,7 @@
 	                <div class="modal-body" style="position: relative; background-color: rgb(25, 25, 25); padding: 10px;">
 	                    <h1 style="color: white; padding-left: 23%">TUNA MUSIC</h1>
 	                    <form action="login/login.do" method="post" style="width: 100%; margin-top: 15px;">
-	                        <input type="text" name="userId" style="width: 80%; margin-left: 40px; margin-bottom: 8px" placeholder="ID">
+	                        <input type="text" name="userId" style="width: 80%; margin-left: 40px; margin-bottom: 8px;" placeholder="ID">
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
 	                        <div style="float: right;">
@@ -219,16 +213,16 @@
                                 <br><br><br><br><br>
 							    <h1 align="center" style="color:white;">TUNA MUSIC</h1>
 							    <form action="login/login.do" method="post" align="center" style="width: 100%; margin-top: 35px; margin-bottom: 180px">
-							        <input type="text" name="userId" placeholder="ID" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
-							        <input type="password" name="userPwd" placeholder="PW" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt"><BR>
+							        <input type="text" name="userId" id="userId" placeholder="Identification" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt; background-color: rgba( 255, 255, 255, 0.5 ); border:none;"><BR>
+							        <input type="password" name="userPwd" id="userPwd" placeholder="Password" style="width: 40%; height: 50px; padding-left: 10px; font-size: 20pt; background-color: rgba( 255, 255, 255, 0.5 ); border:none;"><BR>
 							        <br>
 							        <div class="view-more-button text-center">
-							                        <input type="submit" style="margin-top:20px; cursor:pointer;" value="LOGIN" class="btn razo-btn mt-50"></a>
+							        <input type="submit" style="margin-top:20px; cursor:pointer;" value="LOGIN" class="btn razo-btn mt-50"></a>
 							        </div>
 							        <br>
 							        <div>
-							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:white;">FORGOT ID/PW?</a></div>
-							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:white;" >SIGN-UP</a></div><br>
+							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/findIDPW.do" style="color:white; font-weight:bold;">FORGOT ID/PW?</a></div>
+							            <div style="color:white; width: 100%;"><a href="/TunaMusic/member/memberJoinView.do" style="color:white; font-weight:bold;" >SIGN-UP</a></div><br>
 							        </div>
 							    </form>
                             </div>
@@ -253,6 +247,21 @@
 	<script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 	<!-- Active -->
 	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+	
+		<script type="text/javascript">
+		/*비밀번호 찾기 후 alert(findPW.getUserName()+"님의 이메일로 임시 비밀번호를 발송하였습니다!)*/
+		var message = '${Msg}';
+		if(message != "")
+		alert(message);
+		
+		/*초기 아이디,비밀번호 값 지우기*/
+		$(function(){
+			var userId = $("#userId").val();
+			var userPwd = $("#userPwd").val();
+			console.log(userId);
+		})
+		
+	</script>
 
 </body>
 

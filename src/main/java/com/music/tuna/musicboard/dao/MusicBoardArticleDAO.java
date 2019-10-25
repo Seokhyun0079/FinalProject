@@ -17,8 +17,8 @@ public class MusicBoardArticleDAO {
     public void insertArticle(MusicBoardArticle vo){
         sqlSession.insert("MusicBoardArticleDAO.insertArticle", vo);
     }
-    public MusicBoardArticle lastInsertedArticle(){
-        return (MusicBoardArticle)sqlSession.selectOne("MusicBoardArticleDAO.lastInsertedArticle");
+    public int lastInsertedArticle(MusicBoardArticle vo){
+        return sqlSession.selectOne("MusicBoardArticleDAO.lastInsertedArticle", vo);
     }
     public MusicBoardArticle getArticle(MusicBoardArticle vo){
         return sqlSession.selectOne("MusicBoardArticleDAO.selectArticleByArticleNo", vo);

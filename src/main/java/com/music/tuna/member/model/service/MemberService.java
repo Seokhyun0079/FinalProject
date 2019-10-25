@@ -11,6 +11,8 @@ public interface MemberService {
 
 	boolean duplicateCheckEmail(String email);
 	
+	String mailCheck(String email);
+
 	Member loginMember(Member m);
 
 	Member findId(String name, String email);
@@ -22,6 +24,7 @@ public interface MemberService {
 	int updateMember(Member m);
 
 	int deleteMember(String userId);
+
 
 
 }
