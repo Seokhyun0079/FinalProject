@@ -22,15 +22,28 @@ public class MagazineBoardServiceImpl implements MagazineBoardService {
 
 	@Override
 	public ArrayList<MagazineBoard> selectList(PageInfo pi) {
-		
-		return mDAO.selectList(pi);
+		ArrayList<MagazineBoard> list = mDAO.selectList(pi);
+		for(MagazineBoard maga : list) {
+			int s =maga.getMcontent().indexOf("mphotoUpload");
+			if(s!=-1) {
+				String sub = maga.getMcontent().substring(s+"mphotoUpload".length(), maga.getMcontent().length());
+				maga.setThumbnail(sub.substring(1, sub.indexOf("\"")));
+			}
+		}
+		return list;
 	}
 
 	@Override
 	public MagazineBoard selectboard(int mseq) {
 		mDAO.addReadCount(mseq);
 		mDAO.commit();
-		return mDAO.selectBoard(mseq);
+		MagazineBoard maga = mDAO.selectBoard(mseq);
+		int s =maga.getMcontent().indexOf("mphotoUpload");
+		if(s!=-1) {
+			String sub = maga.getMcontent().substring(s+"mphotoUpload".length(), maga.getMcontent().length());
+			maga.setThumbnail(sub.substring(1, sub.indexOf("\"")));
+		}
+		return maga;
 	}
 
 	@Override
@@ -43,13 +56,11 @@ public class MagazineBoardServiceImpl implements MagazineBoardService {
 
 	@Override
 	public int keySearchCount(String keyword) {
-		
 		return mDAO.keySearchCount(keyword);
 	}
 
 	@Override
 	public ArrayList<MagazineBoard> selectKeySearch(String keyword,PageInfo pi) {
-		
 		return mDAO.selectKeySearch(keyword,pi);
 	}
 

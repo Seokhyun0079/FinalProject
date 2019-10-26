@@ -54,25 +54,29 @@
                             <!-- Form -->
                             <form action="minsert.do" method="post" id="insertBoardFrm" enctype="Multipart/form-data">
                                 <div class="row">
+                                 
                                     <div class="col-lg-12">
                                         <input type="text" name="mtitle" class="form-control mb-30" placeholder="제목을 입력해주세요."
                                         style="color: black;">
                                     </div>
+                                    
+                               
                                     <div class="col-12">
-                                       <textarea name="mcontent" id="editor" style="width:70%; height:400px;"></textarea>
+                                       <textarea name="mcontent" id="mcontent" style="width:70%; height:400px;"></textarea>
                                     </div>
+                        		
               
                                     
-                                       <div class="col-12" align="center"> 
-                                        <button type="submit" id="insertBoard" class="btn razo-btn btn-3 mt-15">Post</button> 
-                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
-                                    </div>
+                                       
                                        
                                        
                                 </div>
                                  
                           </form>
-                            
+                            <div class="col-12" align="center"> 
+                                        <button id="insertBoard" class="btn razo-btn btn-3 mt-15">Post</button> 
+                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
+                                    </div>
                         </div>
                         
                     </div>
@@ -280,8 +284,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         //스마트에디터 프레임생성
         nhn.husky.EZCreator.createInIFrame({
             oAppRef: obj,
-            elPlaceHolder: "editor",
-            sSkinURI: "/TunaMusic/resources/editor/SmartEditor2Skin.html",
+            elPlaceHolder: "mcontent",
+            sSkinURI: "/TunaMusic/resources/editor/mSmartEditor2Skin.html",
             htParams : {
                 // 툴바 사용 여부
                 bUseToolbar : true,            
@@ -294,30 +298,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         //전송버튼
         $("#insertBoard").click(function(){
             //id가 smarteditor인 textarea에 에디터에서 대입
-            obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+            obj.getById["mcontent"].exec("UPDATE_CONTENTS_FIELD", []);
             //폼 submit
             $("#insertBoardFrm").submit();
         });
     });
 </script>
 
-<script>
-    window.onload = function () {
-        var btn = document.getElementById("#insertBoard");
-        btn.onclick = function () {
-            submitContents(btn);
-        }
-    }
-    function submitContents(clickedObj) {
-        oEditors.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
-
-        try{
-            clickedObj.form.submit();
-        }catch(e) {
-
-        }
-    }
-</script>
 
 
 </body>
