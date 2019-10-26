@@ -5,10 +5,13 @@
     <resultMap id="letterResult" type="letter">
         <id column="letter_no" property="letterNo"/>
         <result column="to_id" property="toId"/>
-        <result column="form_id" property="fromId"/>
+        <result column="from_id" property="fromId"/>
         <result column="message" property="message"/>
     </resultMap>
     <insert id = "insertLetter">
         insert into letter values(letter_seq.nextval, #{toId}, #{fromId}, #{message})
     </insert>
+    <select id="selectList" resultMap="letterResult">
+        select * from letter where to_id = #{toId} and from_id = #{fromId}
+    </select>
 </mapper>
