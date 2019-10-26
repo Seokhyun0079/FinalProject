@@ -175,10 +175,12 @@
     <!------------------------------------------------------------- 메뉴바 끝 -->
 
     <!-------------------------------------------------------------- 게시물 시작 -->
-    <section class="blog-details-post-thumbnail-area bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/53.jpg);">
+    <section class="blog-details-post-thumbnail-area bg-overlay bg-img jarallax" style="background-image: url('/TunaMusic/resources/editor/mphotoUpload/${MagazineBoard.thumbnail}');">
         <div class="container h-100">
+        
             <div class="row h-100 align-items-center">
                 <div class="col-12">
+
                     <div class="post-title-text">
                         <h2>${MagazineBoard.mtitle}</h2>
 
@@ -222,10 +224,10 @@
 
        			
        			 <div class="col-12" align="center">
-       			 <%-- <c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 --> --%>
+       			 <c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 -->
                     <input type="button" onclick="location.href='mupdate.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="수정" > 
                     <input type="button" onclick="location.href='mdelete.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="삭제" > 
-                 <%-- </c:if>  --%>
+                 </c:if>
                  </div>
 
 
