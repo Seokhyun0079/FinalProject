@@ -88,11 +88,20 @@ public class MemberController {
 		}
 	}
 	
-	@RequestMapping(value = "/duplicateCheck2.do", method = RequestMethod.POST)
-	public void duplicateCheckEmail(@RequestParam("email") String email, HttpServletResponse response){
+	@RequestMapping(value = "/duplicateCheck2.do", method = RequestMethod.POST)//회원가입,회원정보변경 공용 사용
+	public void duplicateCheckEmail(@RequestParam(value = "userId", required=false) String userId,@RequestParam("email") String email, HttpServletResponse response){
 		boolean duplicate = memberService.duplicateCheckEmail(email);
 		JSONObject obj = new JSONObject();
-		obj.put("result", duplicate);
+		if(userId != null) {//회원정보 변경시에만 사용
+			String mailCheck = memberService.mailCheck(userId);// 본인 메일은 중복체크 안되게 검사
+			if(!email.equals(mailCheck)) {
+				obj.put("result", duplicate);
+			}else {
+				obj.put("result", false);//기존 이메일
+			}
+		}else {
+			obj.put("result", duplicate);
+		}
 		response.setContentType("application/x-json; charset=UTF-8");
 		try {
 			response.getWriter().print(obj);

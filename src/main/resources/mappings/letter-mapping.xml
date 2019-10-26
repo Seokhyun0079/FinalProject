@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="LetterDAO">
+    <resultMap id="letterResult" type="letter">
+        <id column="letter_no" property="letterNo"/>
+        <result column="to_id" property="toId"/>
+        <result column="from_id" property="fromId"/>
+        <result column="message" property="message"/>
+    </resultMap>
+    <insert id = "insertLetter">
+        insert into letter values(letter_seq.nextval, #{toId}, #{fromId}, #{message})
+    </insert>
+    <select id="selectList" resultMap="letterResult">
+        select * from letter where to_id = #{toId} and from_id = #{fromId}
+    </select>
+</mapper>

@@ -19,11 +19,11 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
     @Autowired
     private ChartDao chartDao;
     @Override
-    public MusicBoardArticle insertArticle(MusicBoardArticle vo){
+    public int insertArticle(MusicBoardArticle vo){
         musicBoardArticleDAO.insertArticle(vo);
-        MusicBoardArticle newArticle =  musicBoardArticleDAO.lastInsertedArticle();
+        int articleNo =  musicBoardArticleDAO.lastInsertedArticle(vo);
         musicBoardArticleDAO.commit();
-        return newArticle;
+        return articleNo;
     }
 
     @Override
@@ -75,4 +75,8 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
         return musicBoardArticleDAO.getBad(vo);
     }
 
+    @Override
+    public List<MusicBoardArticle> getMyWrittenList(MusicBoardArticle vo) {
+        return musicBoardArticleDAO.selectMyWrittenList(vo);
+    }
 }

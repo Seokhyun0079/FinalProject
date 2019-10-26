@@ -55,12 +55,11 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div id = "my-list-div" class="razo-social-share-area" style="width : 20%; color : white; background: #5a6268; opacity: 0;">
-    <br>my List<br><br>
-    <audio id="my-list-player" controls="controls">
+<div id = "my-list-div" class="razo-social-share-area" style="width : 25%; color : white; background: #5a6268; opacity: 0; padding :10px 10px 10px 10px;">
+    <audio id="my-list-player" controls="controls" style="">
         <source src="/TunaMusic/resources/upload/${article.fileName}" type="audio/mp3" />
     </audio>
-    <div > 여기 클릭</div>
+    <div id = "my-list-name"></div>
 </div>
 <!-- Social Share Area End -->
 
@@ -222,8 +221,10 @@
                 <div class="col-12 col-sm-2 col-xl-1">
                     <!-- Post Share -->
                     <div class="razo-author-avatar">
-                        <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
-                        <h6>John Milley</h6>
+                        <a href="/TunaMusic/letter/write.do?id=${article.id}" onclick="window.open(this.href, '_blanck', 'width=600, height=800'); return false">
+                            <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
+                            <h6>${article.id}</h6>
+                        </a>
                     </div>
                 </div>
 

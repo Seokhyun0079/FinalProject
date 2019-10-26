@@ -43,6 +43,11 @@
 	WHERE EMAIL = #{ email } AND STATUS = 'Y'
 </select>
 
+<select id="mailCheck" parameterType="String" resultType="String">
+	SELECT EMAIL FROM MEMBER
+	WHERE ID = #{ userId } AND STATUS = 'Y'
+</select>
+
 <select id="selectPwd" parameterType="String" resultType="String">
 	SELECT PASSWORD FROM MEMBER
 	WHERE ID = #{ userId } AND STATUS = 'Y'
@@ -77,5 +82,6 @@
 	UPDATE MEMBER
 	SET STATUS='N' WHERE ID = #{ userId }
 </update>
+
 
 </mapper>
