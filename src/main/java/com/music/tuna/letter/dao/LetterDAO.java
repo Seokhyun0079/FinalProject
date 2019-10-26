@@ -5,6 +5,8 @@ import com.music.tuna.util.SqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class LetterDAO {
     private SqlSession sqlSession;
@@ -14,7 +16,11 @@ public class LetterDAO {
     public void insertLetter(Letter vo){
         sqlSession.insert("LetterDAO.insertLetter", vo);
     }
+    public List<Letter> selectList(Letter vo) {
+        return sqlSession.selectList("LetterDAO.selectList", vo);
+    }
     public void commit(){
         sqlSession.commit();
     }
+
 }

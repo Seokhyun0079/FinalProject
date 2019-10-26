@@ -55,8 +55,8 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div id = "my-list-div" class="razo-social-share-area" style="width : 20%; color : white; background: #5a6268; opacity: 0;">
-    <br>my List<br><br>
+<div id = "my-list-div" class="razo-social-share-area"
+     style="width : 20%; color : white; background: #5a6268; opacity: 0; padding : 10px 10px 10px 10px; ">
     <audio id="my-list-player" controls="controls">
         <source src="/TunaMusic/resources/upload/${article.fileName}" type="audio/mp3" />
     </audio>
