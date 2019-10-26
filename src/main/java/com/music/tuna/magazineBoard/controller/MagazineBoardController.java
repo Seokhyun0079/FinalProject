@@ -124,7 +124,7 @@ public class MagazineBoardController {
 	 public String minsert(@ModelAttribute MagazineBoard m) {
 		
 		 System.out.println(m);
-		 
+ 
 		 int result = mService.insertPost(m);
 		 
 		 if(result >0) {
@@ -141,7 +141,6 @@ public class MagazineBoardController {
 	public ModelAndView mupdate(@RequestParam(value="mseq")int mseq, @ModelAttribute("MagazineBoard") MagazineBoard m, ModelAndView mv) {
 		
 		MagazineBoard maga = mService.selectboard(mseq);
-		
 		mv.addObject("MagazineBoard", maga)
 		  .setViewName("magazineBoard/magazineUpdate");
 		

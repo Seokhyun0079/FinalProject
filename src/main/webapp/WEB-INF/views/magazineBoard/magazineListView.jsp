@@ -259,7 +259,7 @@
                  
 				
 							<div  style="border: 1px float: left; width: 50%;">
-                           		<img src="/TunaMusic/resources/img/bg-img/65.jpg" alt="" width="100%" > <!-- *왼쪽(사진) -->
+                           		<img src="/TunaMusic/resources/editor/mphotoUpload/${m.thumbnail}" alt="" width="100%" style="height:300px" > <!-- *왼쪽(사진) -->
 							</div>
 							
                        

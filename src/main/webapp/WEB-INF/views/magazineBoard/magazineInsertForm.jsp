@@ -54,25 +54,29 @@
                             <!-- Form -->
                             <form action="minsert.do" method="post" id="insertBoardFrm" enctype="Multipart/form-data">
                                 <div class="row">
+                                 
                                     <div class="col-lg-12">
                                         <input type="text" name="mtitle" class="form-control mb-30" placeholder="제목을 입력해주세요."
                                         style="color: black;">
                                     </div>
+                                    
+                               
                                     <div class="col-12">
                                        <textarea name="mcontent" id="mcontent" style="width:70%; height:400px;"></textarea>
                                     </div>
+                        		
               
                                     
-                                       <div class="col-12" align="center"> 
-                                        <button type="submit" id="insertBoard" class="btn razo-btn btn-3 mt-15">Post</button> 
-                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
-                                    </div>
+                                       
                                        
                                        
                                 </div>
                                  
                           </form>
-                            
+                            <div class="col-12" align="center"> 
+                                        <button id="insertBoard" class="btn razo-btn btn-3 mt-15">Post</button> 
+                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
+                                    </div>
                         </div>
                         
                     </div>
@@ -301,23 +305,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     });
 </script>
 
-<script>
-    window.onload = function () {
-        var btn = document.getElementById("#insertBoard");
-        btn.onclick = function () {
-            submitContents(btn);
-        }
-    }
-    function submitContents(clickedObj) {
-        oEditors.getById["mtitle"].exec("UPDATE_CONTENTS_FIELD", []);
-
-        try{
-            clickedObj.form.submit();
-        }catch(e) {
-
-        }
-    }
-</script>
 
 
 </body>
