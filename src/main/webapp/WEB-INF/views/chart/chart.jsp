@@ -65,7 +65,7 @@
 
                 <!-- Single Music Chart -->
 				<c:forEach var="vo" items="${articleList}" step="1"  varStatus="status">
-					<a href="http://localhost:8989/TunaMusic/musicBoard/article/read.do?articleNo=${vo.articleNo}">
+					<a href="/TunaMusic/musicBoard/article/read.do?articleNo=${vo.articleNo}">
                     <div class="single-music-chart d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
                         <!-- Music Content -->
                         <div class="music-content d-flex align-items-center">
