@@ -180,8 +180,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading text-center" style="padding: 30px 30px 30px 0px">
-                    <h1>프로젝트명</h1>
-                    <span>프로젝트 팀명</span>
+                    <h1>${funding.ftitle}</h1>
+                    <span>${funding.fcreator}</span>
                 </div>
             </div>
         </div>
@@ -190,19 +190,19 @@
     <div class="container">
         <div class="razo-blog-masonary">
             <div class="row razo-blog-masonary-item">
-                <div class="col-8">
-                    <img src="/TunaMusic/resources/img/bg-img/1.jpg" alt="">
+                <div style="width: 730px; height: 486px; padding: 15px; overflow: hidden; text-align: center; ">
+                    <img src="/TunaMusic/resources/editor/photoUpload/${funding.fileName}" alt="" style="width: 730px; height: auto;">
                 </div>
-                <div class="col-4">
+                <div style="width: 350px; height: 486px; padding: 15px;">
                     <span>모인 금액</span><br>
-                    <h2 style="display: inline-block">1,000,000</h2>&nbsp;<span>원</span>&nbsp;&nbsp;
-                    <h5 style="display: inline-block">100%</h5><br><br>
+                    <h2 style="display: inline-block">${funding.famount}</h2>&nbsp;<span>원</span>&nbsp;&nbsp;
+                    <h5 style="display: inline-block">${percent}%</h5><br><br>
 
                     <span>남은시간</span><br>
-                    <h2 style="display: inline-block">21</h2>&nbsp;<span>일</span><br><br>
+                    <h2 style="display: inline-block">${dDay}</h2>&nbsp;<span>일</span><br><br>
 
                     <span>후원자</span><br>
-                    <h2 style="display: inline-block">100</h2>&nbsp;<span>명</span><br><br>
+                    <h2 style="display: inline-block">${funding.fbacker}</h2>&nbsp;<span>명</span><br><br>
 
                     <div class="event-purchase-button">
                         <a href="#" class="btn razo-btn"><i class="icon_cart"></i> 프로젝트 밀어주기</a>
@@ -218,11 +218,11 @@
             <!-- <div class="row razo-blog-masonary-item"> -->
             <div class="col-8">
                 <h6>프로젝트 스토리</h6>
-                <p>안뇽하세요 우리 프로젝트는 멋찐 프로젝트에요</p>
+                <p>${funding.fcontent}</p>
             </div>
             <div class="col-4">
                 <h6>창작자 소개</h6>
-                <p>안녕하세요하하호호히히</p>
+                <p>${funding.fcreatorInfo}</p>
             </div>
             <!-- </div> -->
         </div>

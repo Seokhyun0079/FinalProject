@@ -67,4 +67,7 @@
     <update id="updateBad">
         update musicboard_article set bad = #{bad} where article_no =#{articleNo}
     </update>
+    <select id = "selectMyWrittenList" resultMap="articleResult">
+        select * from musicBoard_article where id = #{id}
+    </select>
 </mapper>

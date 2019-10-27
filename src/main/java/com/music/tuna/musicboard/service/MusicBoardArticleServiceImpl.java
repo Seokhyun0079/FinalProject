@@ -75,4 +75,8 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
         return musicBoardArticleDAO.getBad(vo);
     }
 
+    @Override
+    public List<MusicBoardArticle> getMyWrittenList(MusicBoardArticle vo) {
+        return musicBoardArticleDAO.selectMyWrittenList(vo);
+    }
 }

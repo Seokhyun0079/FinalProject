@@ -6,12 +6,12 @@ public class Goods {
 	private String goodsName;
 	private int goodsPrice;
 	
-	public Goods(int goodsNo, String goodsName, int goodsPrice) {
-		super();
-		this.goodsNo = goodsNo;
-		this.goodsName = goodsName;
-		this.goodsPrice = goodsPrice;
-	}
+//	public Goods(int goodsNo, String goodsName, int goodsPrice) {
+//		super();
+//		this.goodsNo = goodsNo;
+//		this.goodsName = goodsName;
+//		this.goodsPrice = goodsPrice;
+//	}
 
 	public int getGoodsNo() {
 		return goodsNo;

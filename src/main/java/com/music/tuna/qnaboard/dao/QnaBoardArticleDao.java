@@ -5,23 +5,23 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.music.tuna.musicboard.vo.MusicBoardArticle;
+import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
 import com.music.tuna.qnaboard.vo.QnaBoardArticle;
 import com.music.tuna.qnaboard.vo.QnaBoardArticleListPage;
 import com.music.tuna.util.SqlSessionFactoryBean;
 
 @Repository
 public class QnaBoardArticleDao {
-	
-	SqlSession sqlSession;
-	
-	public QnaBoardArticleDao() {
-		this.sqlSession = SqlSessionFactoryBean.getSqlSessionInstance();
-	}
+    SqlSession sqlSession;
+    public QnaBoardArticleDao(){
+        this.sqlSession = SqlSessionFactoryBean.getSqlSessionInstance();
+    }
     public void insertArticle(QnaBoardArticle vo){
         sqlSession.insert("QnaBoardArticleDao.insertArticle", vo);
     }
-    public QnaBoardArticle lastInsertedArticle(){
-        return (QnaBoardArticle)sqlSession.selectOne("QnaBoardArticleDao.lastInsertedArticle");
+    public int lastInsertedArticle(QnaBoardArticle vo){
+        return sqlSession.selectOne("QnaBoardArticleDao.lastInsertedArticle", vo);
     }
     public QnaBoardArticle getArticle(QnaBoardArticle vo){
         return sqlSession.selectOne("QnaBoardArticleDao.selectArticleByArticleNo", vo);
@@ -47,5 +47,4 @@ public class QnaBoardArticleDao {
     public void commit(){
         sqlSession.commit();
     }
-
 }

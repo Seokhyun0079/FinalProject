@@ -18,7 +18,8 @@ public class QnaBoardCommentDao {
 	}
 	
 	public void insertComment(QnaBoardComment vo) {
-		sqlSession.insert("QnaBoardCommnetDao.insertComment", vo);
+		sqlSession.insert("QnaBoardCommentDao.insertComment", vo);
+		commit();
 	}
 	
 	public void getCount() {
