@@ -19,6 +19,11 @@ public class FundingServiceImpl implements FundingService {
     }
 
     @Override
+    public Funding selectFunding(int fno) {
+        return fundingDAO.selectFunding(fno);
+    }
+
+    @Override
     public Funding insertFunding(Funding fvo) {
         fundingDAO.insertFunding(fvo);
         Funding funding =  fundingDAO.lastInsertedFunding();
@@ -37,7 +42,7 @@ public class FundingServiceImpl implements FundingService {
     @Override
     public Goods lastInsertedGoods() {
         System.out.println("[fserviceImpl] lastInserted");
-        Goods goods = fundingDAO.lastinsertedGoods();
+        Goods goods = fundingDAO.lastInsertedGoods();
         return goods;
     }
 

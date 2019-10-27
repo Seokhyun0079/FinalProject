@@ -1,11 +1,11 @@
 package com.music.tuna.musicboard.controller;
 
+import com.music.tuna.member.model.vo.Member;
 import com.music.tuna.musicboard.service.MusicBoardArticleService;
 import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.util.SHBoardFileUpload;
 import net.sf.json.JSONObject;
-import org.apache.ibatis.io.Resources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
-import java.util.Date;
-import java.util.Properties;
-import java.util.Set;
-
 @Controller
 public class MusicBoardArticleController {
     @Autowired
@@ -35,6 +29,7 @@ public class MusicBoardArticleController {
         int articleNo = 0;
             try {
                 vo.setFileName(SHBoardFileUpload.fileUpload(vo.getUploadFile(), request.getSession().getServletContext().getRealPath("/resources/upload/")));
+                vo.setAlbumFile(SHBoardFileUpload.fileUpload(vo.getAlbumUploadFile(), request.getSession().getServletContext().getRealPath("/resources/albumImageUpload/")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -95,6 +90,19 @@ public class MusicBoardArticleController {
         JSONObject json = new JSONObject();
         res.setContentType("application/x-json; charset=utf-8");
         json.put("bad", musicBoardArticleService.updateBad(vo));
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/musicBoard/article/myList.do")
+    public void selectMyWrittenList(HttpSession httpSession, HttpServletResponse res){
+        JSONObject json = new JSONObject();
+        res.setContentType("application/x-json; charset=utf-8");
+        MusicBoardArticle musicBoardArticle = new MusicBoardArticle();
+        musicBoardArticle.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+        json.put("result", musicBoardArticleService.getMyWrittenList(musicBoardArticle));
         try{
             res.getWriter().print(json);
         }catch(IOException e){

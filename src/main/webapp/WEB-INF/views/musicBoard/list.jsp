@@ -1,10 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="kr">
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -58,14 +56,7 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div class="razo-social-share-area">
-    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-    <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
-    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-    <a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a>
-    <a href="#" class="ss-close-btn"><i class="arrow_right"></i></a>
-</div>
+<%@ include file="/WEB-INF/views/common/mylist.jsp" %>
 <!-- Social Share Area End -->
 
 <!-- Header Area Start -->
@@ -157,7 +148,7 @@
                             </ul>
 
                             <!-- Share Icon -->
-                            <div class="social-share-icon">
+                            <div id ="list-button" class="social-share-icon">
                                 <i class="social_share"></i>
                             </div>
 
@@ -454,7 +445,8 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-
+<u:isLogin>
+    <script src="/TunaMusic/resources/js/mylist.js"></script>
+</u:isLogin>
 </body>
-
 </html>

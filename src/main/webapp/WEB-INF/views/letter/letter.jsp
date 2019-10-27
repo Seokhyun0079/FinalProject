@@ -13,8 +13,9 @@
     <script src="/TunaMusic/resources/js/letter.js"></script>
 </head>
 <body style="background: #0c0c0c; color : white; margin: 0 0 0 0;">
-<h1 id = "to">To.${param.id}</h1>
-<div>
+<input type="text" id="to" value="${param.id}" hidden>
+<h1>To.${param.id}</h1>
+<div id="letter-list" style="height:  650px; overflow-y:scroll;">
     <table style="float: left;">
         <tr>
             <th><h1>id </h1></th>

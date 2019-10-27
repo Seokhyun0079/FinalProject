@@ -206,11 +206,11 @@
         <div class="container">
             <div class="razo-blog-masonary">
                 <div class="row razo-blog-masonary-item">
-                    <div class="col-8">
-                        <img src="/TunaMusic/resources/img/etc-img/noimage.png" alt="" class="img-responsive">
+                    <div style="width: 730px; height: 486px; padding: 15px; overflow: hidden; text-align: center; ">
+                        <img src="/TunaMusic/resources/img/etc-img/noimage.png" alt="" style="width: 730px; height: auto;">
                         <!-- <img src="./img/tunamusuc_funding_banner.png" alt=""> -->
                     </div>
-                    <div class="col-4">
+                    <div style="width: 350px; height: 486px; padding: 15px;">
                         <h6>목표 금액</h6>
                         <input type="number" id="fgoal" name="fgoal" class="form-control">
                         <br>

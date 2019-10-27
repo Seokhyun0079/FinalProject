@@ -212,11 +212,15 @@
                                     <textarea name="text" class="form-control mb-30" placeholder="Text"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <input id = "fileinput" style ="width : 0px; height : 0px;"  type = "file" name="uploadFile" onchange="$('#filename').val(this.value)">
-                                    <input class="form-control mb-30" id="filename" type="text" value="Here Is The Place Your Soul" readonly><label  class="btn btn-danger remove-margin" for="fileinput">Select Your Soul</label>
+                                    <input class="form-control mb-30" id="filename" type="text" value="Here Is The Place Your Soul" readonly>
+                                    <input class="form-control mb-30" id="filename2" type="text" value="Here Is The Place Your Soul's Shape" readonly>
+                                    <label  class="btn btn-danger remove-margin" for="fileinput">Select Your Soul</label>
+                                    <label  class="btn btn-danger remove-margin" for="fileinput2">Select Your Soul's Shape</label>
+                                    <button type="submit" class="btn btn-danger remove-margin" style="margin-bottom: 8px;">Post Emotion</button>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn razo-btn btn-3 mt-15">Post Emotion</button>
+                                    <input id = "fileinput" style ="width : 0px; height : 0px;"  type = "file" name="uploadFile" onchange="$('#filename').val(this.value)">
+                                    <input id = "fileinput2" style ="width : 0px; height : 0px;"  type = "file" name="albumUploadFile" onchange="$('#filename2').val(this.value)">
                                 </div>
                             </div>
                         </form>

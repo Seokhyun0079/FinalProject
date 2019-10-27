@@ -60,6 +60,5 @@ public class MyMusicShareBoardArticleController {
         mv.setViewName("/myMusicShareBoard/list");
         mv.addObject("articlePage", vo);
         return mv;
-        //        mv.setViewName("/myMusicShareBoard/list");
     }
 }
