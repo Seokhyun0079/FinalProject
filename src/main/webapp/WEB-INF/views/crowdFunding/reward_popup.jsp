@@ -55,7 +55,7 @@
 
     <script>
         function moveClose() {
-            opener.location.reload();
+            // opener.location.reload();
             window.close();
         }
     </script>

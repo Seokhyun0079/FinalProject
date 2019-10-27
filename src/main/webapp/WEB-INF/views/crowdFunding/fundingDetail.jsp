@@ -190,16 +190,16 @@
     <div class="container">
         <div class="razo-blog-masonary">
             <div class="row razo-blog-masonary-item">
-                <div style="width: 730px; height: 486px; padding: 15px; overflow: hidden; text-align: center; ">
+                <div style="width: 730px; height: 486px; padding: 15px; overflow: hidden; text-align: center; display: flex">
                     <img src="/TunaMusic/resources/editor/photoUpload/${funding.fileName}" alt="" style="width: 730px; height: auto;">
                 </div>
                 <div style="width: 350px; height: 486px; padding: 15px;">
                     <span>모인 금액</span><br>
                     <h2 style="display: inline-block">${funding.famount}</h2>&nbsp;<span>원</span>&nbsp;&nbsp;
-                    <h5 style="display: inline-block">${percent}%</h5><br><br>
+                    <h5 style="display: inline-block">${funding.percent}%</h5><br><br>
 
                     <span>남은시간</span><br>
-                    <h2 style="display: inline-block">${dDay}</h2>&nbsp;<span>일</span><br><br>
+                    <h2 style="display: inline-block">${funding.dDay}</h2>&nbsp;<span>일</span><br><br>
 
                     <span>후원자</span><br>
                     <h2 style="display: inline-block">${funding.fbacker}</h2>&nbsp;<span>명</span><br><br>

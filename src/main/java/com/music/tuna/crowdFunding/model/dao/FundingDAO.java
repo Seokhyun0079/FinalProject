@@ -6,15 +6,35 @@ import com.music.tuna.util.SqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Repository
 public class FundingDAO {
     SqlSession sqlSession;
     public FundingDAO(){
         this.sqlSession = SqlSessionFactoryBean.getSqlSessionInstance();
     }
+    public int getHotListCount() {
+        return sqlSession.selectOne("crowdFunding.getHotListCount");
+    }
+    public int getNewListCount() {
+        return sqlSession.selectOne("crowdFunding.getNewListCount");
+    }
+    public int getAlmostListCount() {
+        return sqlSession.selectOne("crowdFunding.getAlmostListCount");
+    }
     public void insertFunding(Funding funding){
-        System.out.println("[fDAO] fvo : "+funding.toString());
         sqlSession.insert("crowdFunding.insertFunding", funding);
+    }
+    public ArrayList<Funding> selectHotList() {
+        return (ArrayList)sqlSession.selectList("crowdFunding.selectHotList");
+    }
+    public ArrayList<Funding> selectNewList() {
+        return (ArrayList)sqlSession.selectList("crowdFunding.selectNewList");
+    }
+    public ArrayList<Funding> selectAlmostList() {
+        return (ArrayList)sqlSession.selectList("crowdFunding.selectAlmostList");
     }
     public Funding selectFunding(int fno){
         return sqlSession.selectOne("crowdFunding.selectFunding", fno);
@@ -24,9 +44,6 @@ public class FundingDAO {
     }
     public int insertReward(Goods gvo) {
         int result = sqlSession.insert("crowdFunding.insertReward", gvo);
-        //Goods goods = sqlSession.selectOne("crowdFunding.lastInsetedGoods");
-        System.out.println("[fDAO] 리워드 넣기 성공");
-
         return result;
     }
     public Goods lastInsertedGoods(){

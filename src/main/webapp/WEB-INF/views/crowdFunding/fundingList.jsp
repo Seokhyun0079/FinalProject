@@ -222,9 +222,13 @@
 <section class="uza-news-area section-padding-0-80">
     <div class="container">
         <!-- <div class="row razo-blog-masonary"> -->
-        <div style="margin-top: 30px; margin-bottom: 30px;">
+        <div class="bg-overlay bg-img" style="margin-top: 30px; margin-bottom: 30px; text-align: center; padding: 30px; background-image: url(/TunaMusic/resources/img/bg-img/54.jpg);">
             <!-- <img src="img/tunamusuc_funding_banner.png"> -->
-            <a href="#"><img src="/TunaMusic/resources/img/etc-img/tunamusic_funding_banner(3).png"></a>
+            <%--<a href="#"><img src="/TunaMusic/resources/img/etc-img/tunamusic_funding_banner(3).png"></a>--%>
+            <h2 style="color: #FFFFFF">당신만의 굿즈, 마음속의 꿈을 현실로</h2>
+            <p style="color: #FFFFFF">당신의 이야기를 소개하고 든든한 후원자들을 만나보세요</p>
+            <br>
+            <a href="#" class="btn razo-btn ">내 프로젝트 등록하기</a>
         </div>
     </div>
     <div class="container" style="margin-bottom: 50px">
@@ -244,94 +248,30 @@
         <div class="row razo-blog-masonary">
             <!-- Single Blog Item -->
             <div class="row">
+                <c:forEach var="fd" items="${hotList}">
                 <div class="col-3 razo-blog-masonary-item">
                     <div class="razo-blog-masonary-single-item">
                         <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/44.jpg" alt=""></a>
+                        <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
+                            <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt=""></a>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
+                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> ${fd.regDate}</div>
+                            <a href="#" class="post-title">${fd.ftitle}</a>
                             <p>funding subtitle</p>
                             <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
                             <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; background-color:#dc2878"></div>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="${fd.percent}" aria-valuemin="0" aria-valuemax="100" style="width:${fd.percent}%; background-color:#dc2878"></div>
                             </div>
                             <br>
-                            <span>D-23</span>
-                            <span>1,000,000원</span>
-                            <span>100%</span>
+                            <span>D-${fd.dDay}</span>
+                            <span>${fd.fgoal}원</span>
+                            <span>${fd.percent}%</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/44.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; background-color:#dc2878"></div>
-                            </div>
-                            <br>
-                            <span>D-23</span>
-                            <span>1,000,000원</span>
-                            <span>100%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/44.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; background-color:#dc2878"></div>
-                            </div>
-                            <br>
-                            <span>D-23</span>
-                            <span>1,000,000원</span>
-                            <span>100%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/44.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; background-color:#dc2878"></div>
-                            </div>
-                            <br>
-                            <span>D-23</span>
-                            <span>1,000,000원</span>
-                            <span>100%</span>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -353,96 +293,30 @@
         <div class="row razo-blog-masonary">
             <!-- Single Blog Item -->
             <div class="row">
+                <c:forEach var="fd" items="${newList}">
                 <div class="col-3 razo-blog-masonary-item">
                     <div class="razo-blog-masonary-single-item">
                         <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/45.jpg" alt=""></a>
+                        <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
+                            <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" style="width: 255px; height: 100%;" alt=""></a>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
+                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> ${fd.regDate}</div>
+                            <a href="#" class="post-title" style="font-size: 16px;">${fd.ftitle}</a>
                             <p>funding subtitle</p>
                             <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
                             <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%; background-color:#dc2878"></div>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="${fd.percent}" aria-valuemin="0" aria-valuemax="100" style="width:${fd.percent}%; background-color:#dc2878"></div>
                             </div>
                             <br>
-                            <span>D-23</span>
-                            <span>300,000원</span>
-                            <span>30%</span>
+                            <span>D-${fd.dDay}</span>
+                            <span>${fd.fgoal}원</span>
+                            <span>${fd.percent}%</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/45.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%; background-color:#dc2878"></div>
-                            </div>
-                            <br>
-                            <span>D-23</span>
-                            <span>100,000원</span>
-                            <span>10%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/45.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width:15%; background-color:#dc2878"></div>
-                            </div>
-                            <br>
-                            <span>D-23</span>
-                            <span>150,000원</span>
-                            <span>15%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/45.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%; background-color:#dc2878"></div>
-                            </div>
-                            <br>
-                            <span>D-23</span>
-                            <span>200,000원</span>
-                            <span>20%</span>
-                        </div>
-                    </div>
-                </div>
-
-
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -464,97 +338,30 @@
         <div class="row razo-blog-masonary">
             <!-- Single Blog Item -->
             <div class="row">
+                <c:forEach var="fd" items="${almostList}">
                 <div class="col-3 razo-blog-masonary-item">
                     <div class="razo-blog-masonary-single-item">
                         <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/46.jpg" alt=""></a>
+                        <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
+                            <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt=""></a>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
+                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> ${fd.regDate}</div>
+                            <a href="#" class="post-title">${fd.ftitle}</a>
                             <p>funding subtitle</p>
                             <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
                             <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; background-color:#dc2878"></div>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="${fd.percent}" aria-valuemin="0" aria-valuemax="100" style="width:${fd.percent}%; background-color:#dc2878"></div>
                             </div>
                             <br>
-                            <span>D-23</span>
-                            <span>800,000원</span>
-                            <span>80%</span>
+                            <span>D-${fd.dDay}</span>
+                            <span>${fd.fgoal}원</span>
+                            <span>${fd.percent}%</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/46.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%; background-color:#dc2878"></div>
-                            </div>
-                            <br>
-                            <span>D-23</span>
-                            <span>950,000원</span>
-                            <span>95%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/46.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; background-color:#dc2878"></div>
-                            </div>
-                            <br>
-                            <span>D-23</span>
-                            <span>900,000원</span>
-                            <span>90%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail">
-                            <a href="#"><img src="/TunaMusic/resources/img/bg-img/46.jpg" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> March 19, 2018</div>
-                            <a href="#" class="post-title">Funding Title</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%; background-color:#dc2878"></div>
-                            </div>
-                            <br>
-                            <span>D-23</span>
-                            <span>850,000원</span>
-                            <span>85%</span>
-                        </div>
-                    </div>
-                </div>
-
-
-
+                </c:forEach>
             </div>
         </div>
     </div>
