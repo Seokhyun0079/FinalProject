@@ -44,9 +44,20 @@ public class QnaBoardArticleServiceImpl implements QnaBoardArticleService {
     public List<QnaBoardArticle> getArticleList(QnaBoardArticleListPage vo) {
         return qnaBoardArticleDao.getArticleList(vo);
     }
+    
     @Override
     public int getCount() {
         return qnaBoardArticleDao.getCount();
     }
+
+	@Override
+	public List<QnaBoardArticle> getNoticeArticleList(QnaBoardArticleListPage vo) {
+		return qnaBoardArticleDao.getNoticeArticleList(vo);
+	}
+	
+	@Override
+	public List<QnaBoardArticle> getAllArticleList(QnaBoardArticleListPage vo) {
+		return qnaBoardArticleDao.getAllArticleList(vo);
+	}
 
 }

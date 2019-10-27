@@ -10,4 +10,7 @@ public interface QnaBoardArticleService {
     public QnaBoardArticle getArticle(QnaBoardArticle vo);
     public List<QnaBoardArticle> getArticleList(QnaBoardArticleListPage vo);
     public int getCount();
+    
+    public List<QnaBoardArticle> getNoticeArticleList(QnaBoardArticleListPage vo);
+    public List<QnaBoardArticle> getAllArticleList(QnaBoardArticleListPage vo);
 }

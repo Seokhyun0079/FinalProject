@@ -15,6 +15,9 @@ public class QnaBoardArticleListPage {
     //표시할 페이지중 마지막 페이지
     private int endPage;
     private List<QnaBoardArticle> pageContent;
+    private List<QnaBoardArticle> noticePageContent;
+    
+    private String grade;
     
 	public String getId() {
 		return id;
@@ -67,9 +70,27 @@ public class QnaBoardArticleListPage {
 	public List<QnaBoardArticle> getPageContent() {
 		return pageContent;
 	}
-	
+
 	public void setPageContent(List<QnaBoardArticle> pageContent) {
 		this.pageContent = pageContent;
 	}
+	
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
+	public List<QnaBoardArticle> getNoticePageContent() {
+		return noticePageContent;
+	}
+
+	public void setNoticePageContent(List<QnaBoardArticle> noticePageContent) {
+		this.noticePageContent = noticePageContent;
+	}
+	
+	
     
 }

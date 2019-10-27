@@ -8,6 +8,7 @@ public class QnaBoardArticle {
     private String title;
     private String fileName;
     private String text;
+    private String grade;
     //조인을 통해 연결한 값
     private int readCount;
     //실제론 테이블에 들어가지 않는 값들
@@ -19,6 +20,14 @@ public class QnaBoardArticle {
     private int prev;
     private int next;
     
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
 	public int getArticleNo() {
 		return articleNo;
 	}
@@ -126,9 +135,9 @@ public class QnaBoardArticle {
 	@Override
 	public String toString() {
 		return "QnaBoardArticle [articleNo=" + articleNo + ", id=" + id + ", title=" + title + ", fileName=" + fileName
-				+ ", text=" + text + ", readCount=" + readCount + ", start=" + start + ", last=" + last + ", page="
-				+ page + ", commentCount=" + commentCount + ", uploadFile=" + uploadFile + ", prev=" + prev + ", next="
-				+ next + "]";
+				+ ", text=" + text + ", grade=" + grade + ", readCount=" + readCount + ", start=" + start + ", last="
+				+ last + ", page=" + page + ", commentCount=" + commentCount + ", uploadFile=" + uploadFile + ", prev="
+				+ prev + ", next=" + next + "]";
 	}
 	
 }
