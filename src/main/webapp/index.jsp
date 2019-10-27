@@ -36,11 +36,11 @@
 <!-- /Preloader -->
 
 <!-- Top Login Area Start -->
-<%@ include file="WEB-INF/views/common/iconmodal.jsp"%>
+<%@ include file="/WEB-INF/views/common/iconmodal.jsp"%>
 <!-- Top Login Area End -->
 
 <!-- Social Share Area Start -->
-<%@ include file="WEB-INF/views/common/mylist.jsp"%>
+<%@ include file="/WEB-INF/views/common/mylist.jsp"%>
 <!-- Social Share Area End -->
 
 <!-- Header Area Start -->
