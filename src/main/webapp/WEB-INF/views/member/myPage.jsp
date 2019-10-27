@@ -238,42 +238,13 @@
                             <h2>MY MUSIC</h2>
                         </div>
                     </div>
-                    <div class="col-sm-6" >
-                        <div class="show-all-button mb-50 text-right">
-                                <a href="#" class="btn razo-btn mt-30" style="margin-top:0px; margin-right: 45px; background-color: black ; color: white">PLAY ALL</a>
-                        </div>
-                    </div>                      
                 </div>
-                <!-- <div class="col-12">
-                <ul class="lists" id = "myUplMusicList">
-					<li class="lists__item">    
-                    Single Music Chart
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        Music Content
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>1.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
+                <div class="col-12">
+                <ul class="lists" id = "myUplMusic">
+                    
                 </ul>
-                </div> -->
-            </div>
+                </div>
+         </div>
     </section>
     <!-- 업로드 뮤직 END -->
 
@@ -289,7 +260,7 @@
                     </div>
                     <div class="col-sm-6" >
                         <div class="show-all-button mb-50 text-right">
-                                <a href="#" class="btn razo-btn mt-30" style="margin-top:0px; margin-right: 45px; background-color: black ; color: white">PLAY ALL</a>
+                                <a href="javascript:Alldel();" class="btn razo-btn mt-30" style="margin-top:0px; margin-right: 45px; background-color: black ; color: white">DELETE ALL</a>
                         </div>
                     </div>                      
                 </div>
@@ -340,27 +311,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
     
     <script>
-  		//FAVORATE MUSIC AJAX  	
-  		
-
-
-  		
-  		//-LIST
-	    $(function(){
+  		//UPLOAD MUSIC AJAX  	
+  		$(function(){
 	    	$.ajax({
-	    		url: "/TunaMusic/myMusic/list.do",
+	    		url: "/TunaMusic/musicBoard/article/myList.do",
 	    		type: "GET",
 	    		data: {},
 	    		success: function(data){
-	    			$('#myFavMusic').html(data).trigger("create");
 	    			for(var i = 0; i < data.result.length; i++){
-	    				$("#myFavMusic").append('<li class="lists__item">'+
+	    				$("#myUplMusic").append('<li class="lists__item">'+
 	    						'<div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">'+
 	    						'<div class="music-content d-flex align-items-center">'+
-	    						'<div class="sl-number"><h5>○</h5></div><div class="music-thumb">'+
+	    						'<div class="sl-number"><h5>●</h5></div><div class="music-thumb">'+
 	    						'<img src="/TunaMusic/resources/albumImageUpload/'+data.result[i].albumFile+'" alt=""></div>'+
 	    						'<div class="audio-player"><div class="audioplayer"><audio preload="auto" controls="" style="width: 0px; height: 0px; visibility: hidden;">'+
-	                            '<source src=""></audio><div class="audioplayer-playpause" title=""><a href="#"></a></div><div class="audioplayer-bar"><div class="audioplayer-bar-loaded"></div><div class="audioplayer-bar-played"></div></div><div class="audioplayer-time audioplayer-time-duration">…</div><div class="audioplayer-volume"><div class="audioplayer-volume-button" title=""><a href="#"></a></div><div class="audioplayer-volume-adjust"><div><div style="width: 100%;"></div></div></div></div></div></div>'+
+	                            '<source src=""></audio><div class="audioplayer-playpause" title=""><a href="/TunaMusic/musicBoard/article/read.do?articleNo='+data.result[i].articleNo+'"></a></div><div class="audioplayer-bar"><div class="audioplayer-bar-loaded"></div><div class="audioplayer-bar-played"></div></div><div class="audioplayer-time audioplayer-time-duration">…</div><div class="audioplayer-volume"><div class="audioplayer-volume-button" title=""><a href="#"></a></div><div class="audioplayer-volume-adjust"><div><div style="width: 100%;"></div></div></div></div></div></div>'+
 	    						'<div class="music-title"><h5>'+data.result[i].title+' - <span>'+data.result[i].nickName+'</span></h5>'+
 	    						'</div></div><div class="music-price"><div onclick="del()" style="cursor: pointer;" id="'+data.result[i].articleNo+'" class="remove-btn razo-btn">DELETE</a></div></div></li>');
 	    			}
@@ -368,7 +333,59 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	    		});
 	    });
   		
-	  	//-delete
+	  	//-UPLdelete
+		function del(){
+   			var articleNo = $(event.target).attr("id");
+   			$.ajax({
+	            url : "/TunaMusic/myMusic/remove.do",
+	            type : "GET",
+	            data : {
+	                "articleNo" : articleNo
+	            	},
+	            success :
+	             	$("#"+articleNo).parent().parent().remove() 
+	            })
+			
+   		}
+	  	
+		//-UPLALLdelete
+		function Alldel(){
+   			$.ajax({
+	            url : "/TunaMusic/myMusic/deleteAll.do",
+	            type : "GET",
+	            data : {
+	            },
+	            success :
+	             	$("#myFavMusic").remove()
+	            })
+			
+   		}
+
+
+  		
+  		//-FAV_MUISC_LIST
+	    $(function(){
+	    	$.ajax({
+	    		url: "/TunaMusic/myMusic/list.do",
+	    		type: "GET",
+	    		data: {},
+	    		success: function(data){
+	    			for(var i = 0; i < data.result.length; i++){
+	    				$("#myFavMusic").append('<li class="lists__item">'+
+	    						'<div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">'+
+	    						'<div class="music-content d-flex align-items-center">'+
+	    						'<div class="sl-number"><h5>●</h5></div><div class="music-thumb">'+
+	    						'<img src="/TunaMusic/resources/albumImageUpload/'+data.result[i].albumFile+'" alt=""></div>'+
+	    						'<div class="audio-player"><div class="audioplayer"><audio preload="auto" controls="" style="width: 0px; height: 0px; visibility: hidden;">'+
+	                            '<source src=""></audio><div class="audioplayer-playpause" title=""><a href="/TunaMusic/musicBoard/article/read.do?articleNo='+data.result[i].articleNo+'"></a></a></div><div class="audioplayer-bar"><div class="audioplayer-bar-loaded"></div><div class="audioplayer-bar-played"></div></div><div class="audioplayer-time audioplayer-time-duration">…</div><div class="audioplayer-volume"><div class="audioplayer-volume-button" title=""><a href="#"></a></div><div class="audioplayer-volume-adjust"><div><div style="width: 100%;"></div></div></div></div></div></div>'+
+	    						'<div class="music-title"><h5>'+data.result[i].title+' - <span>'+data.result[i].nickName+'</span></h5>'+
+	    						'</div></div><div class="music-price"><div onclick="del()" style="cursor: pointer;" id="'+data.result[i].articleNo+'" class="remove-btn razo-btn">DELETE</a></div></div></li>');
+	    			}
+	    		}	    	
+	    		});
+	    });
+  		
+	  	//-FAVdelete
 		function del(){
    			var articleNo = $(event.target).attr("id");
    			$.ajax({

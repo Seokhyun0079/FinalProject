@@ -22,8 +22,11 @@ public class MusicBoardArticle {
     private int next;
     private int best;
     private int bad;
+    private String nickName;
 
-    public MultipartFile getAlbumUploadFile() {
+   
+
+	public MultipartFile getAlbumUploadFile() {
         return albumUploadFile;
     }
 
@@ -158,6 +161,14 @@ public class MusicBoardArticle {
     public void setPage(int page) {
         this.page = page;
     }
+    
+    public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 
     @Override
     public String toString() {

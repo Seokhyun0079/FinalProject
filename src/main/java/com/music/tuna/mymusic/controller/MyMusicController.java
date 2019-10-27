@@ -67,4 +67,10 @@ public class MyMusicController {
             e.printStackTrace();
         }
     }
+    
+    @RequestMapping("/myMusic/deleteAll.do")
+    public void deleteAll(MyMusic vo, HttpSession httpSession) {
+    	vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+    	myMusicService.deleteAllMyMusic(vo);
+    }
 }
