@@ -46,34 +46,34 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/memberInsert.do")
-	public String insertMember(Member m, HttpServletRequest request, 
-			@RequestParam(name="photo", required=false) MultipartFile photo) {
-		
-		String filePath = request.getSession().getServletContext().getRealPath("\\resources\\uploadFiles");
-		System.out.println("filePath:" + filePath);
-		m.setProfileIMG("not profile img");//null값 에러 방지
-		if(!photo.isEmpty()) {
-			String originFileName = photo.getOriginalFilename();
-			String changeName = CommonUtils.getRandomString();
-			String ext = originFileName.substring(originFileName.lastIndexOf("."));
-			String changeNameExt = changeName+ext;
-			try {
-				photo.transferTo(new File(filePath + "\\" + changeNameExt));
-				m.setProfileIMG(changeNameExt);
-				System.out.println("프로필 사진 업로드 성공");
-			} catch (IllegalStateException | IOException e) {
-				new File(filePath + "\\" + changeName + ext).delete();
-				System.out.println("프로필 사진 업로드 실패");
-			}
-		
-		}
-		String encPassword = passwordEncoder.encode(m.getUserPwd());
-		m.setUserPwd(encPassword);
-		int result = memberService.insertMember(m);
-		System.out.println("회원가입 result : " + result);
-		return "redirect:/";
+	   public String insertMember(Member m, HttpServletRequest request, 
+	         @RequestParam(name="photo", required=false) MultipartFile photo) {
+	      
+	      String filePath = request.getSession().getServletContext().getRealPath("\\resources\\uploadFiles");
+	      System.out.println("filePath:" + filePath);
+	      m.setProfileIMG("not profile img");//null값 에러 방지
+	      if(!photo.isEmpty()) {
+	         String originFileName = photo.getOriginalFilename();
+	         String changeName = CommonUtils.getRandomString();
+	         String ext = originFileName.substring(originFileName.lastIndexOf("."));
+	         String changeNameExt = changeName+ext;
+	         try {
+	            photo.transferTo(new File(filePath + "\\" + changeNameExt));
+	            m.setProfileIMG(changeNameExt);
+	            System.out.println("프로필 사진 업로드 성공");
+	         } catch (IllegalStateException | IOException e) {
+	            new File(filePath + "\\" + changeName + ext).delete();
+	            System.out.println("프로필 사진 업로드 실패");
+	         }
+	      
+	      }
+	      String encPassword = passwordEncoder.encode(m.getUserPwd());
+	      m.setUserPwd(encPassword);
+	      int result = memberService.insertMember(m);
+	      System.out.println("회원가입 result : " + result);
+	      return "redirect:/";
 
-	}
+	   }
 	
 	@RequestMapping(value = "/duplicateCheck.do", method = RequestMethod.POST)
 	public void duplicateCheck(@RequestParam("id") String userId, HttpServletResponse response){
@@ -182,6 +182,7 @@ public class MemberController {
 		//임시 비밀번호 생성
 		String pw = "";
 		for (int i = 0; i < 12 ; i++) {
+			pw += (char)((Math.random()*26)+97);
 		}
 		String encPassword = passwordEncoder.encode(pw);
 		findPW.setUserPwd(encPassword);
@@ -219,11 +220,9 @@ public class MemberController {
 	public String updateMember(Member m, HttpServletRequest request, Model model,
 			@RequestParam(name="photo", required=false) MultipartFile photo, @RequestParam(name="oldPhoto", required=false) String oldPhoto) {
 		String filePath = request.getSession().getServletContext().getRealPath("\\resources\\uploadFiles");
-		m.setProfileIMG("not profile img");//null값 에러 방지
 		if(!photo.isEmpty()) {
 			if(!oldPhoto.isEmpty()) {
 				new File(filePath + "\\" + oldPhoto).delete();
-				System.out.println("기존 사진 제거");
 			}
 			String originFileName = photo.getOriginalFilename();
 			String changeName = CommonUtils.getRandomString();
@@ -236,6 +235,12 @@ public class MemberController {
 			} catch (IllegalStateException | IOException e) {
 				new File(filePath + "\\" + changeName + ext).delete();
 				System.out.println("프로필 사진 업로드 실패");
+			}
+		}else {
+			if(!oldPhoto.isEmpty()) {
+				m.setProfileIMG(oldPhoto);
+			}else {
+				m.setProfileIMG("not profile img");
 			}
 		}
 		String encPassword = passwordEncoder.encode(m.getUserPwd());

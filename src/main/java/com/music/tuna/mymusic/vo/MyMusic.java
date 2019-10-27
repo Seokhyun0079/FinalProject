@@ -6,6 +6,8 @@ public class MyMusic {
     private String title;
     private String text;
     private String fileName;
+    private String nickName;
+    private String albumFile;
 
     public String getId() {
         return id;
@@ -47,6 +49,13 @@ public class MyMusic {
         this.fileName = fileName;
     }
 
+    public String getNickName() {
+    	return nickName;
+    }
+    
+    public void setNickName(String nickName) {
+    	this.nickName = nickName;
+    }
     @Override
     public String toString() {
         return "MyMusic{" +
@@ -54,7 +63,19 @@ public class MyMusic {
                 ", articleNo=" + articleNo +
                 ", title='" + title + '\'' +
                 ", text='" + text + '\'' +
-                ", fileName='" + fileName + '\'' +
+                ", fileName='" + fileName + '\'' + 
+                ", nickName='" + nickName +
                 '}';
     }
+
+	public String getAlbumFile() {
+		return albumFile;
+	}
+
+	public void setAlbumFile(String albumFile) {
+		this.albumFile = albumFile;
+	}
+
+
+
 }

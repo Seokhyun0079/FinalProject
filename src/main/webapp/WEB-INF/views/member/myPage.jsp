@@ -18,19 +18,6 @@
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
 	<!-- Font Awesome 4 -->
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-	
-	
-    <style>
-    /*더보기*/
-    .js-load {
-        display: none;
-    }
-    .js-load.active {
-        display: block;
-    }
-    /*더보기END*/
-    
-    </style>
 
 </head>
 
@@ -257,12 +244,12 @@
                         </div>
                     </div>                      
                 </div>
-                <div class="col-12" id = "js-load1">
-                <ul class="lists">
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
+                <!-- <div class="col-12">
+                <ul class="lists" id = "myUplMusicList">
+					<li class="lists__item">    
+                    Single Music Chart
                     <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
+                        Music Content
                         <div class="music-content d-flex align-items-center">
                             <div class="sl-number">
                                 <h5>1.</h5>
@@ -284,166 +271,9 @@
                         </div>
                     </div>
                     </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>2.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>3.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>4.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>5.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>6.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>7.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
                 </ul>
-                </div>
+                </div> -->
             </div>
-        </div>
-        <!-- Show All Button -->
-        <div class="col-sm-6" style="padding-left: 45%">
-            <div class="show-all-button mb-50 text-right" id="js-btn-wrap1"> 
-                <a href="#" onclick="load('#js-load1', '10000', '#js-btn-wrap1')" class="btn show-all-btn" id="uplbtn">Show All</a>
-            </div>
-        </div>
     </section>
     <!-- 업로드 뮤직 END -->
 
@@ -463,394 +293,18 @@
                         </div>
                     </div>                      
                 </div>
-                <div class="col-12" id = "js-load2">
-                <ul class="lists">
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>1.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>2.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>3.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>4.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>5.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>6.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>7.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
+                <div class="col-12">
+                <ul class="lists" id = "myFavMusic">
+                    
                 </ul>
                 </div>
-            </div>
-        </div>
-        <!-- Show All Button -->
-        <div class="col-sm-6" style="padding-left: 45%">
-            <div class="show-all-button mb-50 text-right" id="js-btn-wrap2"> 
-                <a href="#" onclick="load('#js-load2', '10000', '#js-btn-wrap2')" class="btn show-all-btn" id="uplbtn">Show All</a>
-            </div>
         </div>
     </section>
     <!-- 선호 뮤직 END -->
 
     <!-- 내가 쓴 글 -->
     <section class="razo-music-charts-area section-padding-80" id="my-writing">
-        <div class="container">
-                <div class="row">
-                    <!-- Section Heading -->
-                    <div class="col-sm-6">
-                        <div class="#section-heading" style="padding-left: 5%">
-                            <h2>MY WRITING</h2>
-                        </div>
-                    </div>                     
-                </div>
-                <div class="col-12" id = "js-load3">
-                <ul class="lists">
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>1.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>2.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>3.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>4.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>5.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>6.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="lists__item js-load">    
-                    <!-- Single Music Chart -->
-                    <div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Music Content -->
-                        <div class="music-content d-flex align-items-center">
-                            <div class="sl-number">
-                                <h5>7.</h5>
-                            </div>
-                            <div class="music-thumb">
-                                <img src="img/bg-img/25.jpg" alt="">
-                            </div>
-                            <div class="audio-player">
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                            </div>
-                            <div class="music-title">
-                                <h5>Way Back Home - <span>RadioDaily Show</span></h5>
-                            </div>
-                        </div>
-                        <div class="music-price">
-                            <a href="#" class="btn razo-btn">EDIT</a>
-                        </div>
-                    </div>
-                    </li>
-                </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Show All Button -->
-        <div class="col-sm-6" style="padding-left: 45%">
-            <div class="show-all-button mb-50 text-right" id="js-btn-wrap3"> 
-                <a href="#" onclick="load('#js-load3', '10000', '#js-btn-wrap3')" class="btn show-all-btn" id="uplbtn">Show All</a>
-            </div>
-        </div>
+        
     </section>
     <!-- 내가 쓴 글 END -->
         
@@ -886,30 +340,58 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
     
     <script>
+  		//FAVORATE MUSIC AJAX  	
+  		
+
+
+  		
+  		//-LIST
+	    $(function(){
+	    	$.ajax({
+	    		url: "/TunaMusic/myMusic/list.do",
+	    		type: "GET",
+	    		data: {},
+	    		success: function(data){
+	    			$('#myFavMusic').html(data).trigger("create");
+	    			for(var i = 0; i < data.result.length; i++){
+	    				$("#myFavMusic").append('<li class="lists__item">'+
+	    						'<div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">'+
+	    						'<div class="music-content d-flex align-items-center">'+
+	    						'<div class="sl-number"><h5>○</h5></div><div class="music-thumb">'+
+	    						'<img src="/TunaMusic/resources/albumImageUpload/'+data.result[i].albumFile+'" alt=""></div>'+
+	    						'<div class="audio-player"><div class="audioplayer"><audio preload="auto" controls="" style="width: 0px; height: 0px; visibility: hidden;">'+
+	                            '<source src=""></audio><div class="audioplayer-playpause" title=""><a href="#"></a></div><div class="audioplayer-bar"><div class="audioplayer-bar-loaded"></div><div class="audioplayer-bar-played"></div></div><div class="audioplayer-time audioplayer-time-duration">…</div><div class="audioplayer-volume"><div class="audioplayer-volume-button" title=""><a href="#"></a></div><div class="audioplayer-volume-adjust"><div><div style="width: 100%;"></div></div></div></div></div></div>'+
+	    						'<div class="music-title"><h5>'+data.result[i].title+' - <span>'+data.result[i].nickName+'</span></h5>'+
+	    						'</div></div><div class="music-price"><div onclick="del()" style="cursor: pointer;" id="'+data.result[i].articleNo+'" class="remove-btn razo-btn">DELETE</a></div></div></li>');
+	    			}
+	    		}	    	
+	    		});
+	    });
+  		
+	  	//-delete
+		function del(){
+   			var articleNo = $(event.target).attr("id");
+   			$.ajax({
+	            url : "/TunaMusic/myMusic/remove.do",
+	            type : "GET",
+	            data : {
+	                "articleNo" : articleNo
+	            	},
+	            success :
+	             	$("#"+articleNo).parent().parent().remove() 
+	            })
+			
+   		}
+   		
+    
+    	// 스크롤 이동
         function fnMove(pagePart){
             var offset = $("#" + pagePart).offset();
             $('html, body').animate({scrollTop : offset.top}, 400);
         }
-
-        // 더보기
-        $(window).on('load', function () {
-            load('#js-load1', '5');
-            load('#js-load2', '5');
-            load('#js-load3', '5');
-        });
-
-        function load(id, cnt, btn) {
-            var list = id + " .js-load:not(.active)";
-            var length = $(list).length;
-            var total_cnt;
-            if (cnt < length) {
-                total_cnt = cnt;
-            } else {
-                total_cnt = length;
-                $(btn).hide();
-            }
-            $(list + ":lt(" + total_cnt + ")").addClass("active");
-        }
+        
+        
+        
     </script>
 
 </body>
