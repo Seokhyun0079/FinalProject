@@ -79,14 +79,15 @@
                         <h2 class="mb-4">Leave Your Soul</h2>
 
                         <!-- Form -->
-                        <form action="/TunaMusic/musicBoard/article/write.do" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
+                        <form action="/TunaMusic/musicBoard/article/${uri}" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
                             <div class="row">
+                                <<input type="text" name="articleNo" value="${article.articleNo}" hidden >
                                 <input name="id" type = "text" style="visibility: hidden;" value="${sessionScope.loginUser.userId }">
                                 <div class="col-12">
-                                    <input type="text" name="title" class="form-control mb-30" placeholder="Title">
+                                    <input type="text" name="title" class="form-control mb-30" placeholder="Title" value="${article.title}">
                                 </div>
                                 <div class="col-12">
-                                    <textarea name="text" class="form-control mb-30" placeholder="Text"></textarea>
+                                    <textarea name="text" class="form-control mb-30" placeholder="Text" >${article.text}</textarea>
                                 </div>
                                 <div class="col-12">
                                     <input class="form-control mb-30" id="filename" type="text" value="Here Is The Place Your Soul" readonly>

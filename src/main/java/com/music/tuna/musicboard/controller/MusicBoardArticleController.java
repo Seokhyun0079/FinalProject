@@ -1,5 +1,6 @@
 package com.music.tuna.musicboard.controller;
 
+import com.music.tuna.member.model.service.IdMissMatchException;
 import com.music.tuna.member.model.vo.Member;
 import com.music.tuna.musicboard.service.MusicBoardArticleService;
 import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
@@ -21,8 +22,11 @@ public class MusicBoardArticleController {
     @Autowired
     MusicBoardArticleService musicBoardArticleService;
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.GET)
-    public String  insertArticleGet(){
-        return "/musicBoard/write";
+    public ModelAndView insertArticleGet(ModelAndView mv){
+
+        mv.setViewName("/musicBoard/write");
+        mv.addObject("uri", "write.do");
+        return mv;
     }
     @RequestMapping(value = "/musicBoard/article/write.do", method = RequestMethod.POST)
     public String insertArticlePost(MusicBoardArticle vo, HttpServletRequest request){
@@ -108,5 +112,34 @@ public class MusicBoardArticleController {
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+    @RequestMapping("/musicBoard/article/remove.do")
+    public String deleteArticle(MusicBoardArticle vo, HttpSession httpSession){
+        vo = musicBoardArticleService.getArticle(vo);
+        String userId = ((Member)httpSession.getAttribute("loginUser")).getUserId();
+        if(!vo.getId().equals(userId)) throw new IdMissMatchException();
+        musicBoardArticleService.deleteArticle(vo);
+        return "redirect:list.do";
+    }
+    @RequestMapping(value = "/musicBoard/article/edit.do", method = RequestMethod.GET)
+    public ModelAndView editArticleGet(ModelAndView mv, MusicBoardArticle vo, HttpSession httpSession){
+        vo = musicBoardArticleService.getArticle(vo);
+        mv.setViewName("/musicBoard/write");
+        mv.addObject("uri", "edit.do");
+        mv.addObject("article", vo);
+        return mv;
+    }
+    @RequestMapping(value = "/musicBoard/article/edit.do", method = RequestMethod.POST)
+    public String editArticlePost(ModelAndView mv, MusicBoardArticle vo, HttpSession httpSession, HttpServletRequest request){
+        String userId = ((Member)httpSession.getAttribute("loginUser")).getUserId();
+        if(!vo.getId().equals(userId)) throw new IdMissMatchException();
+        try {
+            vo.setFileName(SHBoardFileUpload.fileUpload(vo.getUploadFile(), request.getSession().getServletContext().getRealPath("/resources/upload/")));
+            vo.setAlbumFile(SHBoardFileUpload.fileUpload(vo.getAlbumUploadFile(), request.getSession().getServletContext().getRealPath("/resources/albumImageUpload/")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        musicBoardArticleService.updateArticle(vo);
+        return "redirect:read.do?articleNo="+vo.getArticleNo();
     }
 }

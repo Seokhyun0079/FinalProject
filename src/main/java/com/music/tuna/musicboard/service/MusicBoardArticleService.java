@@ -13,4 +13,6 @@ public interface MusicBoardArticleService {
     int updateBad(MusicBoardArticle vo);
     public int getCount();
     List<MusicBoardArticle> getMyWrittenList(MusicBoardArticle vo);
+    void deleteArticle(MusicBoardArticle vo);
+    void updateArticle(MusicBoardArticle vo);
 }

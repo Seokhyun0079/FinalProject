@@ -71,4 +71,10 @@
     <select id = "selectMyWrittenList" resultMap="articleResult">
         select * from musicBoard_article where id = #{id}
     </select>
+    <delete id="deleteArticle">
+        delete from musicboard_article where article_no = ${articleNo}
+    </delete>
+    <update id="updateArticle">
+        update musicBoard_article set title = #{title} , text = #{text} , file_name = #{fileName} , album_file = #{albumFile} where article_no = #{articleNo}
+    </update>
 </mapper>
