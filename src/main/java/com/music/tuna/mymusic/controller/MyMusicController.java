@@ -56,4 +56,15 @@ public class MyMusicController {
             e.printStackTrace();
         }
     }
+    @RequestMapping("/myMusic/count.do")
+    public void countMyMusic(MyMusic vo, HttpSession httpSession, HttpServletResponse res){
+        JSONObject json = new JSONObject();
+        json.put("myMusicCount", myMusicService.insertedMyMusicCount(vo));
+        res.setContentType("application/x-json; charset=utf-8");
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 }
