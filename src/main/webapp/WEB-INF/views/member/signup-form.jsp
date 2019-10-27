@@ -328,7 +328,6 @@
 				<td><h6> &nbsp&nbsp&nbspPhone-Number </h6></td>
 				<td><input type="tel" name="phone"/></td>
             </tr>			
-			</table>
 		</table>
 		<table align="center" style="margin-left:40%; margin-top: 0; font-family: Oswald;">
 			<tr>
@@ -340,7 +339,7 @@
 		</table>
 		<br><br>
 		<div class="view-more-button text-center" align="center">
-                <input type="submit" id="submit" style="margin-top:10px; cursor:pointer;" value="ENROLL" class="btn razo-btn mt-50"></a>
+                <input type="submit" id="submit" style="margin-top:10px; cursor:pointer;" value="ENROLL" class="btn razo-btn mt-50">
         </div>
 	</form>
 	
