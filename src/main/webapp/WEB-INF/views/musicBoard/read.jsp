@@ -1,3 +1,4 @@
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,12 +56,7 @@
 <!-- Top Search Area End -->
 
 <!-- Social Share Area Start -->
-<div id = "my-list-div" class="razo-social-share-area" style="width : 25%; color : white; background: #5a6268; opacity: 0; padding :10px 10px 10px 10px;">
-    <audio id="my-list-player" controls="controls" style="">
-        <source src="/TunaMusic/resources/upload/${article.fileName}" type="audio/mp3" />
-    </audio>
-    <div id = "my-list-name"></div>
-</div>
+<%@ include file="/WEB-INF/views/common/mylist.jsp" %>
 <!-- Social Share Area End -->
 
 <!-- Header Area Start -->
@@ -174,18 +170,15 @@
 <!-- Header Area End -->
 
 <!-- Podcast Thumbnail Area Start -->
-<section class="podcast-hero-area section-padding-80 bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/11.jpg);">
+<section class="podcast-hero-area section-padding-80 bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/albumImageUpload/${article.albumFile});">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="podcast-hero-text section-padding-80 d-flex align-items-center">
                     <div class="podcast-txt- pr-5">
-                        <h2>Episode 2 – Guess what we’ve missed watching world cup 2014. We made a list!</h2>
+                        <h2>${article.title}</h2>
                         <div class="podcast-meta-data">
-                            <a href="#" class="event-date"><i class="icon_calendar"></i> July 23, 2019</a>
-                            <a href="#" class="event-time"><i class="icon_clock_alt"></i> 36 min</a>
-                            <a href="#" class="event-time"><i class="icon_heart_alt"></i> 38</a>
-                            <a href="#" class="event-address"><i class="icon_chat_alt"></i> 23</a>
+                            <a href="#" class="event-date"><i class="icon_calendar"></i> ${article.id}</a>
                         </div>
                     </div>
                     <a href="#" class="pt-5 pt-md-0 pl-md-5"><img src="/TunaMusic/resources/img/core-img/itunes.png" alt=""></a>
@@ -229,10 +222,13 @@
                 </div>
 
                 <div class="col-12 col-sm-10 col-xl-9">
-                    <p>${article.title}</p>
-                    <p>${article.text}</p>
-                    <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
-                    <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div>
+                    <h5>${article.title}</h5><br><br>
+                    <p>${article.text}</p><br><br>
+                    <div style="display: inline-block; width : 50%; margin-left: 25%; text-align: center">
+                        <div style=" display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px; "><h5 style="background-color: black; color : white;">Best</h5><br><h5 id="best">${article.best}</h5></div>
+                        <div  style="display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px;"><h5 style="background-color: black; color : white;">Bad</h5><br><h5 id="bad">${article.bad}</h5></div><br><br>
+                        <div><h5 id="myMusicCount" style="display: inline"></h5> 명이 마이리스트에 넣은 곡입니다.</div>
+                    </div>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
                         <div class="prev-pager">
                             <a href="/TunaMusic/musicBoard/article/read.do?articleNo=${article.prev}"><span>Previous</span>
@@ -467,30 +463,9 @@
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 <script src="/TunaMusic/resources/js/comment.js"></script>
-<script src="/TunaMusic/resources/js/mylist.js"></script>
-<script>
-    var zeroTenFive = -0.5;
-    var opacity = 0.5;
-    var playingIndex = 0;
-    $(function () {
-            $("#list-button").click(function(){
-                $('#my-list-div').css('opacity', opacity);
-                opacity += zeroTenFive;
-                zeroTenFive *= -1;
-            });
-    });
-    function myListClickEvent(fileName, index, length){
-
-        $("#"+playingIndex).css('font-size', 14);
-        $("#"+index).css('font-size', 20);
-        playingIndex = index;
-        $('#my-list-player').attr('src', '/TunaMusic/resources/upload/'+fileName);
-        document.getElementById('my-list-player').play();
-        $("#my-list-player").on('ended', function(){
-            $('#'+(playingIndex+1 == length ? 0 : playingIndex+1)).trigger('click');
-        });
-    }
-</script>
+<u:isLogin>
+    <script src="/TunaMusic/resources/js/mylist.js"></script>
+</u:isLogin>
 <script src="/TunaMusic/resources/js/musicboard-read.js"></script>
 </body>
 </html>

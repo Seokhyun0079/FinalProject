@@ -8,14 +8,15 @@
         <result column="title" property="title"/>
         <result column="text" property="text"/>
         <result column="file_name" property="fileName"/>
+        <result column="album_file" property="albumFile"/>
         <result column="read_count" property="readCount"/>
         <result column="comment_count" property="commentCount"/>
         <result column="best" property="best"/>
         <result column="bad" property="bad"/>
     </resultMap>
     <insert id="insertArticle">
-    insert into musicboard_article
-    values(mb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, 0, 0, 0)
+    insert into musicboard_article(article_no, id, title, text, file_name, album_file, read_count, best, bad)
+    values(mb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, #{albumFile},0, 0, 0)
   </insert>
     <select id="lastInsertedArticle"  resultType="int">
         <![CDATA[

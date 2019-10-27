@@ -50,6 +50,7 @@ create table musicboard_article(
     title varchar2(60),
     text varchar2(2000),
     file_name varchar2(200),
+    album_file varchar2(200),
     read_count number(10),
     best number(10),
     bad number(10),

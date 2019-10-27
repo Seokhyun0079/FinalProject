@@ -6,7 +6,6 @@ import com.music.tuna.musicboard.vo.MusicBoardArticleListPage;
 import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.util.SHBoardFileUpload;
 import net.sf.json.JSONObject;
-import org.apache.ibatis.io.Resources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,13 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
-import java.util.Date;
-import java.util.Properties;
-import java.util.Set;
-
 @Controller
 public class MusicBoardArticleController {
     @Autowired
@@ -36,6 +29,7 @@ public class MusicBoardArticleController {
         int articleNo = 0;
             try {
                 vo.setFileName(SHBoardFileUpload.fileUpload(vo.getUploadFile(), request.getSession().getServletContext().getRealPath("/resources/upload/")));
+                vo.setAlbumFile(SHBoardFileUpload.fileUpload(vo.getAlbumUploadFile(), request.getSession().getServletContext().getRealPath("/resources/albumImageUpload/")));
             } catch (IOException e) {
                 e.printStackTrace();
             }
