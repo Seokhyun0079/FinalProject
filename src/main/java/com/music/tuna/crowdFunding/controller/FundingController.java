@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Controller
@@ -29,27 +29,48 @@ public class FundingController {
 
     // url mapping 먼저 해놓음
     @RequestMapping(value = "/fundingList.do")
-    public String fundingList() {
-        return "crowdFunding/funding";
+    public ModelAndView fundingList(ModelAndView mv) {
+
+        ArrayList<Funding> hotList = fundingService.selectHotList();
+        ArrayList<Funding> newList = fundingService.selectNewList();
+        ArrayList<Funding> almostList = fundingService.selectAlmostList();
+
+        mv.addObject("hotList", hotList);
+        mv.addObject("newList", newList);
+        mv.addObject("almostList", almostList);
+        mv.setViewName("crowdFunding/fundingList");
+        return mv;
+    }
+    @RequestMapping(value = "/fundingList/hotList.do")
+    public ModelAndView fHotList(ModelAndView mv) {
+        int totalCount = fundingService.getHotListCount();
+
+        mv.setViewName("crowdFunding/fundingHotList");
+        return mv;
+    }
+    @RequestMapping(value = "/fundingList/newList.do")
+    public ModelAndView fNewList(ModelAndView mv) {
+        int totalCount = fundingService.getNewListCount();
+
+        mv.setViewName("crowdFunding/fundingNewList");
+        return mv;
+    }
+    @RequestMapping(value = "/fundingList/almostList.do")
+    public ModelAndView fAlmostList(ModelAndView mv) {
+        int totalCount = fundingService.getAlmostListCount();
+
+        mv.setViewName("crowdFunding/fundingAlmostList");
+        return mv;
     }
 
     @RequestMapping(value = "/fundingRead.do")
     public ModelAndView getFundingDetail(ModelAndView mv, @RequestParam int fno) {
         Funding fvo = fundingService.selectFunding(fno);
 
-        if(fvo.getFamount()!=0) {
-            int percent = fvo.getFgoal() / fvo.getFamount();
-            mv.addObject("percent", percent);
-        }else {
-            int percent = 0;
-            mv.addObject("percent", percent);
-        }
-        long dDay = diffOfDate(fvo.getRegDate(), fvo.getEndDate());
-        System.out.println("[fcontroller] d-day : "+dDay);
-        mv.addObject("dDay", dDay);
-
         if(fvo!=null){
             mv.addObject("funding", fvo);
+            mv.addObject("percent", fvo.getPercent());
+            mv.addObject("dDay", fvo.getdDay());
             mv.setViewName("crowdFunding/fundingDetail");
         }
         return mv;
@@ -97,19 +118,19 @@ public class FundingController {
                 fuploadFile.transferTo(new File(filePath+"\\"+saveName));
                 fvo.setFileName(saveName);
 
-                System.out.println("funding image upload success");
+                System.out.println("[fcontroller] : funding image upload success");
             }catch (IOException e){
                 new File(filePath+"\\"+saveName).delete();
-                System.out.println("funding image upload failed");
+                System.out.println("[fcontroller] : funding image upload failed");
                 e.printStackTrace();
             }
         }else{
-            System.out.println("file is empty!!");
+            System.out.println("[fcontroller] : file is empty!!");
         }
 
         fd = fundingService.insertFunding(fvo);
 
-        System.out.println("[fcontroller] insertFContent : "+fd.toString());
+        System.out.println("[fcontroller] : "+fd.toString());
         return "redirect:/crowdFunding/fundingRead.do?fno="+fd.getFno();
     }
 
@@ -126,8 +147,8 @@ public class FundingController {
             // 파일 기본경로_상세경로
             String filePath = "C:\\FinalProject\\src\\main\\webapp\\resources\\editor\\photoUpload\\";
             String saveName = sb.append(new SimpleDateFormat("yyyyMMddHHmmss")
-                                .format(System.currentTimeMillis()))
-                                .append(UUID.randomUUID().toString())
+                    .format(System.currentTimeMillis()))
+                    .append(UUID.randomUUID().toString())
                     .append(oldName.substring(oldName.lastIndexOf("."))).toString();
 
             InputStream is = request.getInputStream();
@@ -152,16 +173,8 @@ public class FundingController {
             e.printStackTrace();
         }
 
-        System.out.println("[fundingController] : "+sb.toString());
+        System.out.println("[fcontroller] : "+sb.toString());
         return sb.toString();
-    }
-
-    public static long diffOfDate(Date beginDate, Date endDate) {
-        //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        long diffDay = (endDate.getTime() - beginDate.getTime()) / (24*60*60*1000);
-
-        System.out.println("[funding] d-day : "+diffDay+"일");
-        return diffDay;
     }
 
 }

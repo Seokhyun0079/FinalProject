@@ -6,7 +6,7 @@ import java.sql.Date;
 public class Funding {
 
     private int fno;            // 펀딩 프로젝트 번호
-    private String id;
+    private String id;          // 유저아이디
     private String ftitle;      // 펀딩 프로젝트명
     private String freward;     // 펀딩 리워드
     private String fcontent;    // 프로젝트설명
@@ -18,7 +18,10 @@ public class Funding {
     private Date regDate;       // 등록 날짜
     private Date endDate;       // 마감 날짜
     private String fileName;    // 이미지 파일 이름
+    // db에 들어가지않는 항목
     private MultipartFile fuploadFile;  // 리워드 이미지
+    private int percent;
+    private long dDay;
 
     public int getFno() {
         return fno;
@@ -151,4 +154,20 @@ public class Funding {
                 ", fuploadFile=" + fuploadFile +
                 '}';
     }
+
+    public int getPercent() {
+        int percent = 0;
+        if (getFamount() != 0) {
+            return getFgoal() / getFamount();
+        } else {
+            return percent;
+        }
+    }
+
+    public long getdDay() {
+        //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        long diffDay = (getEndDate().getTime() - getRegDate().getTime()) / (24*60*60*1000);
+        return diffDay;
+    }
+
 }
