@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -203,9 +206,10 @@
                 </div>
 
                 <div class="col-12 col-sm-10 col-xl-9">
-                	<div><h5>날짜</h5><br><h5 id="best">${article.date}</h5></div>
-                    <p>${article.title}</p>
-                    <p>${article.text}</p>
+                    <h3>${article.title}</h3>
+                    <p><fmt:formatDate value="${article.date}" pattern="yyyy-MM-dd"/></p>
+                    <img src="/TunaMusic/resources/upload/${article.fileName}" width="500" height="300"/>
+                    <h5>${article.text}</h5>
 <%--                     <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
                     <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div> --%>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
