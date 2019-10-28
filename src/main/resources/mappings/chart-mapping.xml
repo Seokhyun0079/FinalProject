@@ -11,6 +11,8 @@
         <result column="id" property="id"/>
         <result column="title" property="title"/>
         <result column="text" property="text"/>
+		<result column="file_name" property="fileName"/>
+		<result column="album_file" property="albumFile"/>
     </resultMap>
     
     <select id="selectById" resultMap="chartResult">
