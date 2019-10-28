@@ -3,15 +3,35 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="payment">
 
-<insert id="insertPayment" parameterType="String">
-    INSERT INTO PAYMENT
-    VALUES (SEQ_PAY_NO.NEXTVAL, #{userId}, SYSDATE, 1)
-    <!-- INSERT INTO PAYMENT VALUES (SEQ_PAY_NO.NEXTVAL,'aaaa',SYSDATE,(SELECT GNO FROM GOODS WHERE GNO=1)); -->
+    <insert id="insertPayment" parameterType="String">
+        INSERT INTO PAYMENT
+        VALUES (SEQ_PAY_NO.NEXTVAL, #{userId}, SYSDATE, 1)
+        <!-- INSERT INTO PAYMENT VALUES (SEQ_PAY_NO.NEXTVAL,'aaaa',SYSDATE,(SELECT GNO FROM GOODS WHERE GNO=1)); -->
+    </insert>
+
+	<update id="updatePaymember">
+		UPDATE MEMBER M SET GRADE = 'B' WHERE (SELECT GNO FROM PAYMENT)=1 AND M.ID='#{userId}';
+	</update>
+
+    <!--
+    crowd-funding payment
+-->
+    <resultMap id="fGoodsResult" type="goods">
+        <id column="gno" property="goodsNo"/>
+        <result column="gname" property="goodsName"/>
+        <result column="gprice" property="goodsPrice"/>
+    </resultMap>
+    <select id="selectGoods" parameterType="_int" resultMap="fGoodsResult">
+    select * from goods where gno = #{gno}
+</select>
+    <insert id="insertfPay" parameterType="payment">
+    insert into payment values (seq_pay_no.nextval, #{userId}, sysdate, #{goodsNo})
 </insert>
-
-<update id="updatePaymember">
-	UPDATE MEMBER M SET GRADE = 'B' WHERE (SELECT GNO FROM PAYMENT)=1 AND M.ID='#{userId}';
+    <update id="updateFunding" parameterType="payment">
+    UPDATE FUNDING F
+    SET FBACKER = SEQ_FBACKER.nextval,
+        FAMOUNT = (SELECT G.GPRICE + F.FAMOUNT FROM FUNDING F, GOODS G WHERE G.GNO=#{goodsNo} AND F.FNO=#{fno})
+    WHERE F.FNO = #{fno}
 </update>
-
 
 </mapper>
