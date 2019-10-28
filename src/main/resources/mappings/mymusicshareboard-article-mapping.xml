@@ -10,6 +10,8 @@
         <result column="read_count" property="readCount"/>
         <result column="bad" property="bad"/>
         <result column="best" property="best"/>
+        <result column="nickname" property="nickname"/>
+        <result column="profileimg" property="profileIMG"/>
     </resultMap>
     <insert id="insertArticle">
         insert into mymusicshareboard_article values(msb_seq.nextval, #{id}, #{title}, #{content}, 0, 0, 0)
@@ -20,7 +22,9 @@
       ]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
-        select * from mymusicshareboard_article where article_no = #{articleNo}
+      select id, title, nickname, article_no, content, bad, best, profileimg, (select count(*) from mymusicshareboard_comment where mymusicshareboard_comment.article_no= #{articleNo}) as comment_count
+      from mymusicshareboard_article  join (select id, nickname, profileimg  from member) using (id)
+      where article_no = #{articleNo}
     </select>
     <select id="selectList" resultMap="articleResult">
         <![CDATA[

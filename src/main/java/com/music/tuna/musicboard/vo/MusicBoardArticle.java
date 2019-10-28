@@ -9,6 +9,25 @@ public class MusicBoardArticle {
     private String fileName;
     private String albumFile;
     private String text;
+    private String nickname;
+    private String profileIMG;
+
+    public String getProfileIMG() {
+        return profileIMG;
+    }
+
+    public void setProfileIMG(String profileIMG) {
+        this.profileIMG = profileIMG;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     //조인을 통해 연결한 값
     private int readCount;
     //실제론 테이블에 들어가지 않는 값들

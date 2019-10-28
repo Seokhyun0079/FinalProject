@@ -73,9 +73,10 @@
                                 </div>
                                  
                           </form>
+                          <br>
                             <div class="col-12" align="center"> 
-                                        <button id="insertBoard" class="btn razo-btn btn-3 mt-15">Post</button> 
-                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
+                                        <button id="insertBoard" class="btn razo-btn btn-3 mt-15" style="font-size: medium;">Post</button> &nbsp;&nbsp;
+                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="Back" style="font-size: medium;"> 
                                     </div>
                         </div>
                         

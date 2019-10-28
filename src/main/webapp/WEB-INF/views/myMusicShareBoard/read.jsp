@@ -53,16 +53,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="podcast-hero-text section-padding-80 d-flex align-items-center">
-                    <div class="podcast-txt- pr-5">
-                        <h2>Episode 2 – Guess what we’ve missed watching world cup 2014. We made a list!</h2>
-                        <div class="podcast-meta-data">
-                            <a href="#" class="event-date"><i class="icon_calendar"></i> July 23, 2019</a>
-                            <a href="#" class="event-time"><i class="icon_clock_alt"></i> 36 min</a>
-                            <a href="#" class="event-time"><i class="icon_heart_alt"></i> 38</a>
-                            <a href="#" class="event-address"><i class="icon_chat_alt"></i> 23</a>
-                        </div>
+                    <div class="podcast-txt- pr-md-5">
+                        <h5>이 달의 인기곡!</h5>
+                        <h2 id="title"></h2>
                     </div>
-                    <a href="#" class="pt-5 pt-md-0 pl-md-5"><img src="/TunaMusic/resources/img/core-img/itunes.png" alt=""></a>
+                    <a href="#" class="pt-5 pt-md-0 pl-md-5"><img  id="albumFile" src="/TunaMusic/resources/img/core-img/itunes.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -77,7 +72,7 @@
             <div class="col-12">
                 <div class="audio-player">
                     <audio id="music-player" preload="auto" controls>
-                        <source src="/TunaMusic/resources/upload/">
+                        <source src="/TunaMusic/resources/upload/Ekey2-5-1.mp3">
                     </audio>
                 </div>
             </div>
@@ -95,22 +90,24 @@
                 <div class="col-12 col-sm-2 col-xl-1">
                     <!-- Post Share -->
                     <div class="razo-author-avatar">
-                        <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
-                        <h6>John Milley</h6>
+                        <img src="/TunaMusic/resources/uploadFiles/${article.profileIMG}" alt="">
+                        <h6>${article.nickname}</h6>
                     </div>
                 </div>
 
                 <div class="col-12 col-sm-10 col-xl-9">
-                    <p>${article.title}</p>
+                    <h5>${article.title}</h5><br><br>
                     <div style="color: white; background: black; display: inline-block; padding : 10px 10px 10px 10px;">
-                        <h5 style="color: white; ">${article.id} 님의 마이리스트</h5>
+                        <h5 style="color: white; ">${article.nickname} 님의 마이리스트</h5>
                     <c:forEach var="myMusic" items="${article.myMusicList}">
-                        <div style="padding : 5px 5px 5px 5px; border: 1px solid white;">${myMusic.title} - ${myMusic.id}</div>
+                        <div style="padding : 5px 5px 5px 5px; border: 1px solid white;">${myMusic.title} - ${myMusic.nickName}</div>
                     </c:forEach>
+                    </div><br><br>
+                    <p>${article.content}</p><br><br>
+                    <div style="display: inline-block; width : 50%; margin-left: 25%; text-align: center">
+                        <div style=" display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px; "><h5 style="background-color: black; color : white;">Best</h5><br><h5 id="best">${article.best}</h5></div>
+                        <div  style="display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px;"><h5 style="background-color: black; color : white;">Bad</h5><br><h5 id="bad">${article.bad}</h5></div><br><br>
                     </div>
-                    <p>${article.content}</p>
-                    <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
-                    <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
                         <div class="prev-pager">
                             <a href="/TunaMusic/myMusicShareBoard/article/read.do?articleNo=${article.prev}"><span>Previous</span>
@@ -331,7 +328,6 @@
 
 <!-- All JS Files -->
 
-<!-- jQuery -->
 <script src="/TunaMusic/resources/js/jquery.min.js"></script>
 <!-- Popper -->
 <script src="/TunaMusic/resources/js/popper.min.js"></script>
@@ -342,33 +338,10 @@
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 <script src="/TunaMusic/resources/js/mymusicshareboard-comment.js"></script>
-<script src="/TunaMusic/resources/js/mylist.js"></script>
-<script>
-    var zeroTenFive = -0.5;
-    var opacity = 0.5;
-    var playingIndex = 0;
-    $(function () {
-            $("#list-button").click(function(){
-                $('#my-list-div').css('opacity', opacity);
-                opacity += zeroTenFive;
-                zeroTenFive *= -1;
-            });
-    });
-    function myListClickEvent(fileName, index, length){
-
-        $("#"+playingIndex).css('font-size', 14);
-        $("#"+index).css('font-size', 20);
-        playingIndex = index;
-        $('#my-list-player').attr('src', '/TunaMusic/resources/upload/'+fileName);
-        document.getElementById('my-list-player').play();
-        $("#my-list-player").on('ended', function(){
-            $('#'+(playingIndex+1 == length ? 0 : playingIndex+1)).trigger('click');
-        });
-    }
-</script>
 <script src="/TunaMusic/resources/js/musicboard-read.js"></script>
 <u:isLogin>
     <script src="/TunaMusic/resources/js/mylist.js"></script>
 </u:isLogin>
+<script src="/TunaMusic/resources/js/music-list.js"></script>
 </body>
 </html>

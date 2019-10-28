@@ -68,6 +68,11 @@
 		where mseq = #{mseq}
 	</delete>
 	
+<!-- 	<update id="deleteMagazine">    //삭제대신 update써서 status N으로 만듦
+        update mboard 
+        set status='N' where mseq = #{mseq}
+	</update> -->
+	
 	<select id = "selectKeySearchCount" resultType="_int">
 		select count(*)
 		from MBOARD

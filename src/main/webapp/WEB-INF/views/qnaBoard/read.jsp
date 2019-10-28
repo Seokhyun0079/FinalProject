@@ -196,13 +196,14 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-2 col-xl-1">
                     <!-- Post Share -->
-                    <div class="razo-author-avatar">
+<!--                     <div class="razo-author-avatar">
                         <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
                         <h6>John Milley</h6>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-12 col-sm-10 col-xl-9">
+                	<div><h5>날짜</h5><br><h5 id="best">${article.date}</h5></div>
                     <p>${article.title}</p>
                     <p>${article.text}</p>
 <%--                     <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
