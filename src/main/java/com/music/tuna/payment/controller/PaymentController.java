@@ -176,7 +176,7 @@ public class PaymentController {
 		if (result>0) System.out.println("[pcontroller] KakaoPay success: "+pm.toString());
 		else System.out.println("[pcontroller] KakaoPay fail : "+pm.toString());
 
-    	return "payment/fSuccess";
+    	return "payment/funding/fPaySuccess";
 	}
 	@RequestMapping(value = "/payment/fPaySuccess2.do")
 	public String fPaySuccess2(HttpServletRequest request, @RequestParam(value = "gno") String GoodsNo, @RequestParam(value = "fno") String FundingNo) {
@@ -198,11 +198,11 @@ public class PaymentController {
 		if (result>0) System.out.println("[pcontroller] NaverPay success: "+pm.toString());
 		else System.out.println("[pcontroller] NaverPay fail : "+pm.toString());
 
-		return "payment/fPaySuccess";
+		return "payment/funding/fPaySuccess";
 	}
 	@RequestMapping(value = "/payment/fPayFail.do")
 	public String fPayFail() {
-    	return "payment/fPayFail";
+    	return "payment/funding/fPayFail";
 	}
 	
 }

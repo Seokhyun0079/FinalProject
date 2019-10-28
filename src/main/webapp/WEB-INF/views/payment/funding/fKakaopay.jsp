@@ -61,8 +61,9 @@
                 console.log(fno);
                 console.log(gno);
                 alert("결제가 완료되었습니다.");
+                location.href="fPaySuccess.do?gno="+gno+"&fno="+fno;
+                //opener.location.reload();
                 window.close();
-                location.href='fPaySuccess.do?gno='+gno+"&fno="+fno;
             } else{
                 msg = "결제에 실패했습니다.";
                 msg += '에러내용 : ' + rsp.error_msg;
