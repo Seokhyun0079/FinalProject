@@ -27,6 +27,16 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
+	<!-- gradecheck -->
+<!-- 	<bean id="gradeCheckInterceptor" class="com.music.tuna.common.gradeCheckInterceptor"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/member/mypage.do"/>
+			<mvc:mapping path="/member/edit.do"/>
+			<ref bean="gradeCheckInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+	
 	<!-- gmail -->
     <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
         <property name="host" value="smtp.gmail.com" />

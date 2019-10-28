@@ -23,4 +23,14 @@ $(function () {
             }
         })
     });
+    $.ajax({
+        url : "/TunaMusic/myMusic/count.do",
+        type :"GET",
+        data :{
+            articleNo : $("#articleNo").val()
+        },
+        success : function (data) {
+            $("#myMusicCount").html(data.myMusicCount);
+        }
+    });
 });

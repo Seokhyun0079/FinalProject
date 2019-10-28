@@ -30,8 +30,8 @@ public class ChartServiceImpl implements ChartService {
 	}
 
 	@Override
-	public List<Chart> selectRealTime() {
-		return chartDao.selectRealTime();
+	public List<Chart> selectRealTime(Chart chart) {
+		return chartDao.selectRealTime(chart);
 	}
 	
 	

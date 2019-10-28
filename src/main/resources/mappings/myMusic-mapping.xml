@@ -7,15 +7,23 @@
         <id column="article_no" property="articleNo"/>
         <result column="title" property="title"/>
         <result column="text" property="text"/>
+        <result column="nickname" property="nickName"/>
         <result column="file_name" property="fileName"/>
+        <result column="album_file" property="albumFile"/>
     </resultMap>
     <select id="selectMyMusicList" resultMap="myMusicResult">
-      select * from (select * from my_music where id = #{id}) join musicboard_article using(article_no)
+      select * from (select * from my_music join member using(id) where id = #{id}) join musicboard_article using(article_no)
     </select>
     <insert id="insertMyMusic">
         insert into my_music values(#{id}, #{articleNo})
     </insert>
     <delete id="deleteMyMusic">
-    delete from (select * from my_music where id = #{id}) where article_no = #{articleNo}
+    	delete from (select * from my_music where id = #{id}) where article_no = #{articleNo}
+    </delete>
+    <select id = "insertedMyMusicCount" resultType="int">
+        select count(article_no) from my_music where article_no = #{articleNo}
+    </select>
+    <delete id="deleteAllMyMusic">
+    	delete from (select * from my_music where id = #{id})
     </delete>
 </mapper>

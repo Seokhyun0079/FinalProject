@@ -79,4 +79,15 @@ public class MusicBoardArticleServiceImpl implements MusicBoardArticleService {
     public List<MusicBoardArticle> getMyWrittenList(MusicBoardArticle vo) {
         return musicBoardArticleDAO.selectMyWrittenList(vo);
     }
+
+    @Override
+    public void deleteArticle(MusicBoardArticle vo) {
+        musicBoardArticleDAO.deleteArticle(vo);
+    }
+
+    @Override
+    public void updateArticle(MusicBoardArticle vo) {
+        musicBoardArticleDAO.updateArticle(vo);
+        musicBoardArticleDAO.commit();
+    }
 }
