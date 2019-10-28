@@ -6,6 +6,7 @@ import com.music.tuna.payment.vo.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,8 +15,29 @@ public class FundingServiceImpl implements FundingService {
     FundingDAO fundingDAO;
 
     @Override
-    public List<Funding> getArticleList(Funding funding) {
-        return null;
+    public int getHotListCount() {
+        return fundingDAO.getHotListCount();
+    }
+    @Override
+    public int getNewListCount() {
+        return fundingDAO.getNewListCount();
+    }
+    @Override
+    public int getAlmostListCount() {
+        return fundingDAO.getAlmostListCount();
+    }
+
+    @Override
+    public ArrayList<Funding> selectHotList() {
+        return fundingDAO.selectHotList();
+    }
+    @Override
+    public ArrayList<Funding> selectNewList() {
+        return fundingDAO.selectNewList();
+    }
+    @Override
+    public ArrayList<Funding> selectAlmostList() {
+        return fundingDAO.selectAlmostList();
     }
 
     @Override
@@ -33,7 +55,6 @@ public class FundingServiceImpl implements FundingService {
 
     @Override
     public int insertReward(Goods gvo) {
-        System.out.println("[fserviceImpl] 리워드 넣기");
         int result = fundingDAO.insertReward(gvo);
         fundingDAO.commit();
         return result;
@@ -41,7 +62,6 @@ public class FundingServiceImpl implements FundingService {
 
     @Override
     public Goods lastInsertedGoods() {
-        System.out.println("[fserviceImpl] lastInserted");
         Goods goods = fundingDAO.lastInsertedGoods();
         return goods;
     }
