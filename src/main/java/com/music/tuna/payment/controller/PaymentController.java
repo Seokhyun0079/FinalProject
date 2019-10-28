@@ -62,13 +62,17 @@ public class PaymentController {
 	public String paypopPost2(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Member loginUser = (Member) session.getAttribute("loginUser");
-		String userId = loginUser.getUserId();
+		String userId = (String)loginUser.getUserId();
 		System.out.println(userId);
 		
 		int result = pService.payConfirm(userId);
 		System.out.println("[paymentController] : "+result);
 		return "payment/paypop2";
 	}
+	
+	
+	
+	
 	
 	
 }

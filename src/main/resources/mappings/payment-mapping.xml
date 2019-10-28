@@ -3,11 +3,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="payment">
 
-<insert id="insertPayment" parameterType="string">
+<insert id="insertPayment" parameterType="String">
     INSERT INTO PAYMENT
     VALUES (SEQ_PAY_NO.NEXTVAL, #{userId}, SYSDATE, 1)
     <!-- INSERT INTO PAYMENT VALUES (SEQ_PAY_NO.NEXTVAL,'aaaa',SYSDATE,(SELECT GNO FROM GOODS WHERE GNO=1)); -->
 </insert>
+
+
+
+<update id="updatePaymember">
+	UPDATE 
+</update>
 
 
 </mapper>
