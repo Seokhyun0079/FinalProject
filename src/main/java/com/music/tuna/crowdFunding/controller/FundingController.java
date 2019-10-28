@@ -69,8 +69,10 @@ public class FundingController {
 
         if(fvo!=null){
             mv.addObject("funding", fvo);
+            //바보코드
             mv.addObject("percent", fvo.getPercent());
             mv.addObject("dDay", fvo.getdDay());
+            //코드 낙제점
             mv.setViewName("crowdFunding/fundingDetail");
         }
         return mv;
