@@ -9,4 +9,5 @@ public interface MyMusicService {
     public void insertMyMusic(MyMusic vo);
     void deleteMyMusic(MyMusic vo);
     int insertedMyMusicCount(MyMusic vo);
+	public void deleteAllMyMusic(MyMusic vo);
 }

@@ -18,9 +18,12 @@
         insert into my_music values(#{id}, #{articleNo})
     </insert>
     <delete id="deleteMyMusic">
-    delete from (select * from my_music where id = #{id}) where article_no = #{articleNo}
+    	delete from (select * from my_music where id = #{id}) where article_no = #{articleNo}
     </delete>
     <select id = "insertedMyMusicCount" resultType="int">
         select count(article_no) from my_music where article_no = #{articleNo}
     </select>
+    <delete id="deleteAllMyMusic">
+    	delete from (select * from my_music where id = #{id})
+    </delete>
 </mapper>

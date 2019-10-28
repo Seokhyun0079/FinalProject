@@ -13,6 +13,7 @@
         <result column="comment_count" property="commentCount"/>
         <result column="best" property="best"/>
         <result column="bad" property="bad"/>
+        <result column="nickName" property="nickName"/>
     </resultMap>
     <insert id="insertArticle">
     insert into musicboard_article(article_no, id, title, text, file_name, album_file, read_count, best, bad)
@@ -69,6 +70,6 @@
         update musicboard_article set bad = #{bad} where article_no =#{articleNo}
     </update>
     <select id = "selectMyWrittenList" resultMap="articleResult">
-        select * from musicBoard_article where id = #{id}
+        select * from musicBoard_article join member using(id) where id = #{id}
     </select>
 </mapper>
