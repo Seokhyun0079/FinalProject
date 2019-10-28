@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,17 +12,29 @@
     <!-- Title -->
     <title>TUNA MUSIC | Payment</title>
 
+
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
+    
+    <!-- All JS Files -->
+
+    <!-- jQuery -->
+	<script src="/TunaMusic/resources/js/jquery.min.js"></script>
+	<!-- Popper -->
+	<script src="/TunaMusic/resources/js/popper.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
+	<!-- All Plugins -->
+	<script src="/TunaMusic/resources/js/razo.bundle.js"></script>
+	<!-- Active -->
+	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+	<script src="/TunaMusic/resources/js/comment.js"></script>
+    
 
 </head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -240,7 +253,22 @@
                                     <span style="color: #DC2878"><font size="5">₩8900</font></span></h5>
                                 </div>
                                     <div class="event-purchase-button" style="position: absolute; top: 50%; right: 5%; transform: translate(-0%, -50%)" >
-                                        <a href="#"  class="btn razo-btn" onclick="window.open('paypop.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-500)/2+',width=500px,height=500px')"><!-- <i class="icon_cart"></i>  -->구매</a>
+                                    		
+                                       	<a href="#" class="btn razo-btn" id="btn_buy">
+                                       	 <!-- <i class="icon_cart"></i>  -->구매</a>
+                                       	 <c:if test="${empty sessionScope.loginUser }">
+                                       	 	<input type="hidden" id="loginUserCheck" class="loginUserCheck" value="0">
+                                       	 </c:if>
+                                       	 
+                                       	  <c:if test="${!empty sessionScope.loginUser }">
+                                       	 	<input type="hidden" id="loginUserCheck" class="loginUserCheck" value="1">
+                                       	 </c:if>
+                                       	 
+                                       	 <!--원래거  -->
+                                       	<!-- <a href="#"  class="btn razo-btn"
+                                       	 onclick="window.open('paypop.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-500)/2+',width=500px,height=500px')">
+                                       	 구매</a>  -->	
+                                       
                                     </div>
                                 </div>
                         </div>
@@ -258,6 +286,20 @@
     <!-- Razo Event Area End -->
 
     <script>
+    	$(function(){
+
+    		var loginChk = $("#loginUserCheck").val();
+    			
+    		$("#btn_buy").click(function(){
+    			
+    			if(loginChk == 0){
+    				location.href="member/loginPage.do";
+    			}else {
+    				window.open('paypop.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-500)/2+',width=500px,height=500px');
+    			}
+    		});
+    	});
+    	
     
     </script>
 
@@ -429,27 +471,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </footer>
     <!-- Footer Area End -->
 
-    <!-- All JS Files -->
-
-    <!-- jQuery -->
-	<script src="/TunaMusic/resources/js/jquery.min.js"></script>
-	<!-- Popper -->
-	<script src="/TunaMusic/resources/js/popper.min.js"></script>
-	<!-- Bootstrap -->
-	<script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
-	<!-- All Plugins -->
-	<script src="/TunaMusic/resources/js/razo.bundle.js"></script>
-	<!-- Active -->
-	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-	<script src="/TunaMusic/resources/js/comment.js"></script>
+    
 
 </body>
 
-</html>
-
-
-
-
-
-</body>
 </html>
