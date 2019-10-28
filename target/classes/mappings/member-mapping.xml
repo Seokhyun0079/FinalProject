@@ -7,7 +7,6 @@
 
 <resultMap id="memberResultSet" type="member">
 		<id column="ID" property="userId"/>
-		<result column="PASSWORD" property="userPwd"/>
 		<result column="NAME" property="userName"/>
 		<result column="NICKNAME" property="nickName"/>
 		<result column="BIRTH" property="birthDay"/>
@@ -19,6 +18,12 @@
 		<result column="UPDATEDATE" property="updatedate"/>
 		<result column="GRADE" property="grade"/>
 		<result column="STATUS" property="status"/>
+</resultMap>
+<resultMap id="memberPwResultSet" type="member">
+		<id column="ID" property="userId"/>
+		<result column="NAME" property="userName"/>
+		<result column="PASSWORD" property="userPwd"/>
+		<result column="EMAIL" property="email"/>
 </resultMap>
 
 <insert id="insertMember">
@@ -33,6 +38,16 @@
 	WHERE ID = #{ userId }
 </select>
 
+<select id="duplicateCheckEmail" parameterType="String" resultType="integer">
+	SELECT COUNT(*) FROM MEMBER
+	WHERE EMAIL = #{ email } AND STATUS = 'Y'
+</select>
+
+<select id="mailCheck" parameterType="String" resultType="String">
+	SELECT EMAIL FROM MEMBER
+	WHERE ID = #{ userId } AND STATUS = 'Y'
+</select>
+
 <select id="selectPwd" parameterType="String" resultType="String">
 	SELECT PASSWORD FROM MEMBER
 	WHERE ID = #{ userId } AND STATUS = 'Y'
@@ -43,6 +58,30 @@
 	WHERE ID = #{ userId } AND STATUS = 'Y'
 </select>
 
-	
-	
+<select id="findId" parameterType="Member" resultMap="memberResultSet">
+	SELECT ID FROM MEMBER
+	WHERE NAME = #{ userName } AND EMAIL = #{ email } AND STATUS = 'Y'
+</select>
+
+<select id="findPW" parameterType="Member" resultMap="memberPwResultSet">
+	SELECT * FROM MEMBER
+	WHERE NAME = #{ userName } AND EMAIL = #{ email } AND ID = #{ userId } AND STATUS = 'Y'
+</select>
+
+<update id="updatePW" parameterType="Member">
+	UPDATE MEMBER
+	SET PASSWORD = #{ userPwd } WHERE ID = #{ userId } AND NAME = #{ userName } AND EMAIL = #{ email } AND STATUS = 'Y'
+</update>
+
+<update id="updateMember">
+	UPDATE MEMBER
+	SET PASSWORD = #{ userPwd }, NICKNAME = #{ nickName }, EMAIL = #{ email }, PHONE = #{ phone }, PROFILEIMG = #{ profileIMG } WHERE ID = #{ userId }
+</update>
+
+<update id="deleteMember">
+	UPDATE MEMBER
+	SET STATUS='N' WHERE ID = #{ userId }
+</update>
+
+
 </mapper>

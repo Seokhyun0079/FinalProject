@@ -5,44 +5,94 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Magazinemapper">
 	
+	
+   <!--  MTITLE VARCHAR2(100),   	제목
+    MCONTENT VARCHAR2(4000), 	내용
+    MCOUNT NUMBER DEFAULT 0,	조회수
+    CREATE_DATE DATE			작성일
+	MSEQ						게시물번호(시퀀스)
+	STATUS						존재여부(y,n)
+	thumbnail;					썸네일 사진		
+	
+	private String mtitle;		//제목
+	private String mcontent;	//내용
+	private int mcount;			//조회수
+	private Date createdate;	//작성일
+	private int mseq;			//게시물 번호(시퀀스)
+	private String status;
+	private String thumbnail;	//썸네일 사진 -->
+
+	<resultMap type="MagazineBoard" id="MagazineResultSet">
+		<result column="MTITLE" property="mtitle"/>
+		<result column="MCONTENT" property="mcontent"/>
+		<result column="MCOUNT" property="mcount"/>
+		<result column="CREATE_DATE" property="createdate"/>
+		<result column="MSEQ" property="mseq"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+	
 	<select id = "getListCount" resultType="_int">
 		select count(*)
 		from MBOARD
 		where status = 'Y'
 	</select>
 
-
-
 	<select id = "selectList" resultMap="MagazineResultSet">
-		select *
+    	select *
 		from MBOARD
 		where status = 'Y'
+		ORDER BY mseq desc
 	</select>
 	
-	<resultMap type="MagazineBoard" id="MagazineResultSet">
-		<result column="MTITLE" property="MTITLE"/>
-		<result column="MCONTENT" property="MCONTENT"/>
-		<result column="CREATE_DATE " property="CREATEDATE "/>
-		<result column="STATUS" property="STATUS"/>
-		<result column="MCOUNT" property="MCOUNT"/>
-		<result column="MPICTURE" property="MPICTURE"/>
-	</resultMap>
 
-		<!-- 		  MTITLE VARCHAR2(100), 
-	  MCONTENT VARCHAR2(4000), 
-	  CREATE_DATE DATE,
-	  STATUS VARCHAR2(1) DEFAULT 'Y' CHECK (STATUS IN('Y', 'N')),
-	  MCOUNT NUMBER DEFAULT 0,
-	  MPICTURE VARCHAR2(100)*/
+	<select id="selectBoard" resultMap="MagazineResultSet">
+	    select *
+	    from MBOARD
+        where mseq = #{mseq}
+        and status = 'Y'
+	</select>
 	
-	private String MTITLE;
-	private String MCONTENT;
-	private Date CREATEDATE;
-	private String STATUS;
-	private int MCOUNT;
-	private String MPICTURE; -->
-
-
+	<select id="seladdmReadCount" parameterType="_int">
+	    select mcount from MBOARD
+		where mseq = #{mseq}
+	</select>
+	
+	<update id="addmReadCount" parameterType="_int">
+	    update MBOARD
+		set mcount = mcount +1
+		where mseq = #{mseq}
+	</update>
+	
+	<delete id="deleteMagazine">
+		delete from MBOARD
+		where mseq = #{mseq}
+	</delete>
+	
+	<select id = "selectKeySearchCount" resultType="_int">
+		select count(*)
+		from MBOARD
+		where mtitle like '%'||#{keyword}||'%'
+		and status='Y'
+	</select>
+	
+	<select id="selectKeySearch" resultMap="MagazineResultSet">
+	select *
+	from MBOARD
+	where mtitle like '%'||#{keyword}||'%'
+	and status='Y'
+	</select>
+	
+	<insert id="insertPost" parameterType="MagazineBoard">
+	insert into MBOARD
+	VALUES(mseq.nextval,#{mtitle},#{mcontent},default,sysdate,default)
+	</insert>
+	
+	<update id="updatePost">
+	update MBOARD
+	set mtitle=#{mtitle},
+	mcontent=#{mcontent}
+	where mseq=#{mseq}
+	</update>
 
 
 </mapper>

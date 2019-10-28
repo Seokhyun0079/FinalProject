@@ -7,13 +7,72 @@ public class MusicBoardArticle {
     private String id;
     private String title;
     private String fileName;
+    private String albumFile;
     private String text;
+    //조인을 통해 연결한 값
+    private int readCount;
+    //실제론 테이블에 들어가지 않는 값들
     private int start;
     private int last;
     private int page;
-    private int readCount;
     private int commentCount;
     private MultipartFile uploadFile;
+    private MultipartFile albumUploadFile;
+    private int prev;
+    private int next;
+    private int best;
+    private int bad;
+    private String nickName;
+
+   
+
+	public MultipartFile getAlbumUploadFile() {
+        return albumUploadFile;
+    }
+
+    public void setAlbumUploadFile(MultipartFile albumUploadFile) {
+        this.albumUploadFile = albumUploadFile;
+    }
+
+    public String getAlbumFile() {
+        return albumFile;
+    }
+
+    public void setAlbumFile(String albumFile) {
+        this.albumFile = albumFile;
+    }
+
+    public int getBad() {
+        return bad;
+    }
+
+    public void setBad(int bad) {
+        this.bad = bad;
+    }
+
+    public int getBest() {
+        return best;
+    }
+
+    public void setBest(int best) {
+        this.best = best;
+    }
+
+    public int getPrev() {
+        return prev;
+    }
+
+    public void setPrev(int prev) {
+        this.prev = prev;
+    }
+
+    public int getNext() {
+        return next;
+    }
+
+    public void setNext(int next) {
+        this.next = next;
+    }
 
     public int getCommentCount() {
         return commentCount;
@@ -102,6 +161,14 @@ public class MusicBoardArticle {
     public void setPage(int page) {
         this.page = page;
     }
+    
+    public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 
     @Override
     public String toString() {
@@ -115,7 +182,12 @@ public class MusicBoardArticle {
                 ", last=" + last +
                 ", page=" + page +
                 ", readCount=" + readCount +
+                ", commentCount=" + commentCount +
                 ", uploadFile=" + uploadFile +
+                ", prev=" + prev +
+                ", next=" + next +
+                ", best=" + best +
+                ", bad=" + bad +
                 '}';
     }
 }

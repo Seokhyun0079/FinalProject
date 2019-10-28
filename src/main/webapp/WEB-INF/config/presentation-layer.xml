@@ -8,6 +8,7 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<bean id ="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="-1"></property>
+        <property name="maxInMemorySize" value="-1"></property>
 	</bean>
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
@@ -15,12 +16,49 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<!-- intercept bean 등록 (로그인 관련) -->
-	<bean id="loginInterceptor" class="com.music.tuna.common.interceptor.LoginInterceptor"/>
+
+	<!-- logincheck -->
+	<bean id="loginInterceptor" class="com.music.tuna.common.loginCheckInterceptor"/>
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/member/login/**"/>
+			<mvc:mapping path="/member/mypage.do"/>
+			<mvc:mapping path="/member/edit.do"/>
 			<ref bean="loginInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
+	
+	<!-- gradecheck -->
+<!-- 	<bean id="gradeCheckInterceptor" class="com.music.tuna.common.gradeCheckInterceptor"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/member/mypage.do"/>
+			<mvc:mapping path="/member/edit.do"/>
+			<ref bean="gradeCheckInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+	
+	<!-- gmail -->
+    <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="username" value="kmbin92@gmail.com" />
+        <property name="password" value="asdf8520!" />
+       
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.auth">true</prop>
+               
+               
+            </props>
+        </property>
+       
+    </bean>
+    <bean id="email" class="com.music.tuna.email.Email">
+    </bean>
+    <bean id="emailSender" class="com.music.tuna.email.EmailSender">
+    </bean>
+
+
 </beans>

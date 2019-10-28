@@ -29,8 +29,48 @@ public class MyMusicController {
         }
     }
     @RequestMapping("/myMusic/add.do")
-    public void insertMyMusic(MyMusic vo, HttpSession httpSession){
+    public void insertMyMusic(MyMusic vo, HttpSession httpSession, HttpServletResponse res){
         vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
         myMusicService.insertMyMusic(vo);
+        JSONObject json = new JSONObject();
+        json.put("result", myMusicService.getMyMusicList(vo));
+        json.put("status", "add");
+        res.setContentType("application/x-json; charset=utf-8");
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/myMusic/remove.do")
+    public void deleteMyMusic(MyMusic vo, HttpSession httpSession, HttpServletResponse res){
+        vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+        myMusicService.deleteMyMusic(vo);
+        JSONObject json = new JSONObject();
+        json.put("result", myMusicService.getMyMusicList(vo));
+        json.put("status", "remove");
+        res.setContentType("application/x-json; charset=utf-8");
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/myMusic/count.do")
+    public void countMyMusic(MyMusic vo, HttpSession httpSession, HttpServletResponse res){
+        JSONObject json = new JSONObject();
+        json.put("myMusicCount", myMusicService.insertedMyMusicCount(vo));
+        res.setContentType("application/x-json; charset=utf-8");
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    
+    @RequestMapping("/myMusic/deleteAll.do")
+    public void deleteAll(MyMusic vo, HttpSession httpSession) {
+    	vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+    	myMusicService.deleteAllMyMusic(vo);
     }
 }

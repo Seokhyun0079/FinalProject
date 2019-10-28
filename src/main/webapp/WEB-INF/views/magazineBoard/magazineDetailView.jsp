@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
-<!-- 
 
-	* 제목, 내용, 사진파일 가져오기(일단 폼을 뜯어 고쳐야해) 
-	* 시간 나면 댓글 폼 고쳐서 하셈-->
 <head>
 <meta charset="UTF-8">
     <meta name="description" content="">
@@ -21,12 +20,21 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
+    
+    
+    <!-----------뒤로가기버튼 css  -->
+  	<style>
+  	#goback{ position:fixed; left:100px; bottom:30px; 
+  	}
+  	</style>
+
+
+    
 
 </head>
 <body>
-
-	  <!-- Preloader -->
-    <div id="preloader">
+    <!-- Preloader -->
+<!--     <div id="preloader">
         <div>
             <div class="spinner">
                 <div class="double-bounce1"></div>
@@ -34,19 +42,151 @@
             </div>
             <span>Wait, please...</span>
         </div>
-    </div>
+    </div> -->
     <!-- /Preloader -->
 
- 
-    <!-- Blog Details Post Thumbnail Area Start -->
-    <section class="blog-details-post-thumbnail-area bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/53.jpg);">
+    <!-- Top Search Area Start -->
+    <div class="top-search-area">
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Close Button -->
+                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        <!-- Form -->
+                        <form action="index.jsp" method="post">
+                            <input type="search" name="top-search-bar" class="form-control" placeholder="Type keywords and hit enter...">
+                            <button type="submit">Search</button>
+                        </form>
+                        <!-- Search Button -->
+                        <div class="search-btn"><i class="icon_search"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  <!------------------------------------------------------------- 메뉴바 시작 -->
+    <header class="header-area">
+        <!-- Main Header Start -->
+        <div class="main-header-area">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Classy Menu -->
+                    <nav class="classy-navbar justify-content-between" id="razoNav">
+
+                        <!-- Logo -->
+                        <a class="nav-brand" href="index.jsp"><img src="/TunaMusic/resources/img/core-img/logo.png" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Menu Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul id="nav">
+                                    <li><a href="./index.jsp">Home</a></li>
+                                    <li><a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="./index.jsp">- Home</a></li>
+                                            <li><a href="./charts.html">- Charts</a></li>
+                                            <li><a href="./single-charts.html">- Charts Details</a></li>
+                                            <li><a href="./podcast.html">- Podcast</a></li>
+                                            <li><a href="./single-podcast.html">- Podcast Details</a></li>
+                                            <li><a href="./show.html">- Show</a></li>
+                                            <li><a href="./events.html">- Event</a></li>
+                                            <li><a href="./blog.html">- Blog</a></li>
+                                            <li><a href="./single-blog.html">- Blog Details</a></li>
+                                            <li><a href="#">- Dropdown</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="#">- Dropdown Item</a></li>
+                                                    <li><a href="#">- Dropdown Item</a></li>
+                                                    <li><a href="#">- Dropdown Item</a></li>
+                                                    <li><a href="#">- Dropdown Item</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./show.html">Shows</a></li>
+                                    <li><a href="./charts.html">Charts</a></li>
+                                    <li><a href="./podcast.html">Podcasts</a></li>
+                                    <li><a href="#">Mega</a>
+                                        <div class="megamenu">
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="./index.jsp">- Home</a></li>
+                                                <li><a href="./charts.html">- Charts</a></li>
+                                                <li><a href="./single-charts.html">- Charts Details</a></li>
+                                                <li><a href="./podcast.html">- Podcast</a></li>
+                                                <li><a href="./single-podcast.html">- Podcast Details</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="./show.html">- Show</a></li>
+                                                <li><a href="./events.html">- Event</a></li>
+                                                <li><a href="./blog.html">- Blog</a></li>
+                                                <li><a href="./single-blog.html">- Blog Details</a></li>
+                                                <li><a href="./index.jsp">- Home</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="./charts.html">- Charts</a></li>
+                                                <li><a href="./single-charts.html">- Charts Details</a></li>
+                                                <li><a href="./podcast.html">- Podcast</a></li>
+                                                <li><a href="./single-podcast.html">- Podcast Details</a></li>
+                                                <li><a href="./show.html">- Show</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li><a href="./show.html">- Show</a></li>
+                                                <li><a href="./events.html">- Event</a></li>
+                                                <li><a href="./blog.html">- Blog</a></li>
+                                                <li><a href="./single-blog.html">- Blog Details</a></li>
+                                                <li><a href="./index.jsp">- Home</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="./events.html">Events</a></li>
+                                    <li><a href="./blog.html">Blog</a></li>
+                                </ul>
+
+                                <!-- Share Icon -->
+                                <div class="social-share-icon">
+                                    <i class="social_share"></i>
+                                </div>
+
+                                <!-- Search Icon -->
+                                <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+                                    <i class="icon_search"></i>
+                                </div>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!------------------------------------------------------------- 메뉴바 끝 -->
+
+    <!-------------------------------------------------------------- 게시물 시작 -->
+    <section class="blog-details-post-thumbnail-area bg-overlay bg-img jarallax" style="background-image: url('/TunaMusic/resources/editor/mphotoUpload/${MagazineBoard.thumbnail}');">
         <div class="container h-100">
+        
             <div class="row h-100 align-items-center">
                 <div class="col-12">
+
                     <div class="post-title-text">
-                        <h2>이곳은 첨부파일 사진 가져올것, 제목</h2>
-                        <div class="post-meta">
-                        </div>
+                        <h2>${MagazineBoard.mtitle}</h2>
+
+                            <a style="color: white;">${MagazineBoard.createdate}</a>&nbsp;
+                            <a style="color: white;">|</a>&nbsp;
+                            <a style="color: white;">view ${MagazineBoard.mcount}</a>
                     </div>
                 </div>
             </div>
@@ -60,127 +200,215 @@
             <!-- Post Details Text -->
             <div class="post-details-text">
                 <div class="row justify-content-center">
-
-
-                    <div class="col-10 col-md-10 col-lg-9">
-                      <h3>jam wa!!!!!!!!!!!!</h3>
-                    
-                        <p>5G NR is a new air interface being developed for 5G. An air interface is the radio frequency portion of the circuit between the mobile device and the active base station. The active base station can change as the user is on the move, with each changeover known as a handoff.5G will initially be made available through improvements in LTE, LTE-Advanced and LTE Pro technologies. But it will be soon be followed by a major step-up with the introduction of a new air interface.</p>
-
-                        <p>The 3GPP (3rd Generation Partnership Project) made decisions on some of the technologies to be used in 5G NR as part of the 5G NR Release 14 Study Item which officially began in March 2016. The first 3GPP 5G NR specification will be part of Release 15, on which work began in June 2016 and is set to complete in September 2018. With Release 14 frozen (completed) in June 2017, from the second half of 2017 3GPP’s work has been focused on Release 15 to deliver the first set of 5G standards.</p>
-
-                        <!-- Blockquote -->
-                        <blockquote class="razo-blockquote d-flex"> <!-- *분홍글씨로 바꿔줌 -->
-                            <div class="icon">
-                                <i class="icon_quotations" aria-hidden="true"></i> <!-- *괄호 아이콘 -->
-                            </div>
-                            <div class="text">
-                                <p>“Speaking at a press conference after winning his award, Bottura explained why his Modena restaurant deserved to reclaim its number one ranking.”</p>
-                                <h6>Ollie Schneider</h6>
-                            </div>
-                        </blockquote>
-
-                        <h4>ABCDE~~~</h4>
-
-                        <p>In a nutshell, the 5G NR is being designed to significantly improve the performance, flexibility, scalability and efficiency of current mobile networks, and to get the most out of the available spectrum, be that licensed, shared or unlicensed, across a wide variety of spectrum bands. Furthermore, the 5G NR air interface is just one component of the future 5G network so it must also be designed to work as part of a wider flexible network architecture.</p>
-
-                        <p>The 5G NR must be able to: deliver a huge number of varied services provided across a diverse set of devices with different performance and latency requirements; support a wide range of deployment models from traditional macro to hotspot deployments; and allow new ways for devices to interconnect, such as device-to-device and multi-hop mesh. And it must do all this at unprecedented levels of cost, power and deployment efficiencies.</p>
-
-
-<!--                         Comments Area
-                        <div class="comment_area mb-50 clearfix">
-                            <h5 class="title">12 Comments</h5>
-
-                            <ol> -->
-<!--                                 Single Comment Area
-                                <li class="single_comment_area">
-                                    Comment Content
-                                    <div class="comment-content d-flex">
-                                        Comment Author
-                                        <div class="comment-author">
-                                            <img src="/TunaMusic/resources/img/bg-img/15.jpg" alt="author">
-                                        </div>
-                                        Comment Meta
-                                        <div class="comment-meta">
-                                            <a href="#" class="author-name">Brandon Kelley <span class="post-date">- May 14, 2018</span></a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                            <a href="#" class="like">Like</a>
-                                            <a href="#" class="reply">Reply</a>
-                                        </div>
-                                    </div>
-
-                                    <ol class="children">
-                                        <li class="single_comment_area">
-                                            Comment Content
-                                            <div class="comment-content d-flex">
-                                                Comment Author
-                                                <div class="comment-author">
-                                                    <img src="/TunaMusic/resources/img/bg-img/16.jpg" alt="author">
-                                                </div>
-                                                Comment Meta
-                                                <div class="comment-meta">
-                                                    <a href="#" class="author-name">Milley Cyrus <span class="post-date">- May 20, 2018</span></a>
-                                                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                                    <a href="#" class="like">Like</a>
-                                                    <a href="#" class="reply">Reply</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </li> -->
-
-<!--                               Single Comment Area
-                                <li class="single_comment_area">
-                                    Comment Content
-                                    <div class="comment-content d-flex">
-                                        Comment Author
-                                        <div class="comment-author">
-                                            <img src="/TunaMusic/resources/img/bg-img/17.jpg" alt="author">
-                                        </div>
-                                        Comment Meta
-                                        <div class="comment-meta">
-                                            <a href="#" class="author-name">John Tyler <span class="post-date">- May 28, 2018</span></a>
-                                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.</p>
-                                            <a href="#" class="like">Like</a>
-                                            <a href="#" class="reply">Reply</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ol>
+                    <div class="col-2 col-md-2 col-lg-1">
+                        
+                        <!----------------------------- 뒤로가기 스크롤 버튼 만들기 -->
+                        
+                        <div class="razo-post-share" id="goback"> <!---------동그라미  -->
+                            <a href="javascript:window.history.back();" data-toggle="tooltip" data-placement="left" title="뒤로가기" style="background-color:#FACC2E; color: black;">back</a>
                         </div>
+                    </div>
+                     <!----------------------------- 스크롤 버튼 만들기 끝-->
 
-                        Leave A Reply
-                        <div class="razo-contact-form">
-                            <h2 class="mb-4">Leave A Comment</h2>
+					<!----------------------------- 내용 시작-->
+                    <div class="col-10 col-md-10 col-lg-9">
+                    	<h1>내용~</h1>
+                    	
+                    	<h3>사진</h3><br>
 
-                            Form
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <input type="text" name="message-name" class="form-control mb-30" placeholder="Name">
+                        <h3>내용 : ${MagazineBoard.mcontent}</h3>
+                        </div>
+                     
+					<!----------------------------- 내용 끝-->
+
+
+       			
+       			 <div class="col-12" align="center">
+       			 <c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 -->
+                    <input type="button" onclick="location.href='mupdate.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="수정" > 
+                    <input type="button" onclick="location.href='mdelete.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="삭제" > 
+                 </c:if>
+                 </div>
+
+
+                        
+                    </div>
+                </div>
+            </div>
+    </section>
+    
+    <!-------------------------------------------------------------- 게시물 끝 -->
+
+
+
+    <!--------------------------------------- Footer Area Start -->
+    <footer class="footer-area">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area section-padding-80-0">
+            <div class="container">
+                <div class="row justify-content-between">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                        <div class="single-footer-widget mb-80">
+                            <!-- Footer Logo -->
+                            <a href="#" class="footer-logo"><img src="/TunaMusic/resources/img/core-img/logo2.png" alt=""></a>
+
+                            <p class="mb-30">Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                            <!-- Footer Content -->
+                            <div class="footer-content">
+
+                                <!-- Single Contact Info -->
+                                <div class="single-contact-info d-flex">
+                                    <div class="icon">
+                                        <i class="icon_pin"></i>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <input type="email" name="message-email" class="form-control mb-30" placeholder="Email">
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea name="message" class="form-control mb-30" placeholder="Comment"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button type="submit" class="btn razo-btn btn-3 mt-15">Post Comment</button>
+                                    <div class="text">
+                                        <p>24 No. Amazing Valley, Aewsome St. New York, USA</p>
                                     </div>
                                 </div>
-                            </form>
-                        </div>   --><!-- *댓글(시간 나면 하셈)  -->
-                   
+
+                                <!-- Single Contact Info -->
+                                <div class="single-contact-info d-flex">
+                                    <div class="icon">
+                                        <i class="icon_phone"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>+11 123 4567890</p>
+                                    </div>
+                                </div>
+
+                                <!-- Single Contact Info -->
+                                <div class="single-contact-info d-flex">
+                                    <div class="icon">
+                                        <i class="icon_mail_alt"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>info.colorlib@gmail.com</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                        <div class="single-footer-widget mb-80">
+
+                            <!-- Widget Title -->
+                            <h4 class="widget-title">Twitter Feed</h4>
+
+                            <!-- Single Twitter Feed -->
+                            <div class="single-twitter-feed d-flex">
+                                <div class="tweet-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <div class="tweet">
+                                    <p><a href="#">Kerem Suer</a> @kerem American conducts it first ever done strike Qaeda</p>
+                                </div>
+                            </div>
+
+                            <!-- Single Twitter Feed -->
+                            <div class="single-twitter-feed d-flex">
+                                <div class="tweet-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <div class="tweet">
+                                    <p><a href="#">Axel Hervelle</a> @axel_hervelle Tens of thousands attend rallies held in D.C.</p>
+                                </div>
+                            </div>
+
+                            <!-- Single Twitter Feed -->
+                            <div class="single-twitter-feed d-flex">
+                                <div class="tweet-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <div class="tweet">
+                                    <p><a href="#">Chris Pratt</a> @chris_pratt Hundreds of protesters shut down meeting.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-md-4 col-xl-3">
+                        <div class="single-footer-widget mb-80">
+                            <!-- Widget Title -->
+                            <h4 class="widget-title">Instagram</h4>
+
+                            <!-- Instagram Area -->
+                            <div class="razo-instagram-area d-flex flex-wrap">
+                                <!-- Single Instagram Feed -->
+                                <div class="single-instagram-feed">
+                                    <a href="#"><img src="/TunaMusic/resources/img/bg-img/2.jpg" alt=""></a>
+                                </div>
+
+                                <!-- Single Instagram Feed -->
+                                <div class="single-instagram-feed">
+                                    <a href="#"><img src="/TunaMusic/resources/img/bg-img/3.jpg" alt=""></a>
+                                </div>
+
+                                <!-- Single Instagram Feed -->
+                                <div class="single-instagram-feed">
+                                    <a href="#"><img src="/TunaMusic/resources/img/bg-img/4.jpg" alt=""></a>
+                                </div>
+
+                                <!-- Single Instagram Feed -->
+                                <div class="single-instagram-feed">
+                                    <a href="#"><img src="/TunaMusic/resources/img/bg-img/5.jpg" alt=""></a>
+                                </div>
+
+                                <!-- Single Instagram Feed -->
+                                <div class="single-instagram-feed">
+                                    <a href="#"><img src="/TunaMusic/resources/img/bg-img/6.jpg" alt=""></a>
+                                </div>
+
+                                <!-- Single Instagram Feed -->
+                                <div class="single-instagram-feed">
+                                    <a href="#"><img src="/TunaMusic/resources/img/bg-img/7.jpg" alt=""></a>
+                                </div>
+
+                                <!-- Single Instagram Feed -->
+                                <div class="single-instagram-feed">
+                                    <a href="#"><img src="/TunaMusic/resources/img/bg-img/8.jpg" alt=""></a>
+                                </div>
+
+                                <!-- Single Instagram Feed -->
+                                <div class="single-instagram-feed">
+                                    <a href="#"><img src="/TunaMusic/resources/img/bg-img/9.jpg" alt=""></a>
+                                </div>
+
+                                <!-- Single Instagram Feed -->
+                                <div class="single-instagram-feed">
+                                    <a href="#"><img src="/TunaMusic/resources/img/bg-img/10.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Blog Details Area End -->
-
-  
-
+        <!-- Main Footer Area End -->
+        
+        <!-- Copywrite Text -->
+        <div class="copywrite-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Copywrite Text -->
+                        <div class="copywrite-text">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End -->
 
 
     <!-- All JS Files -->

@@ -6,32 +6,19 @@ import java.sql.Date;
 public class Funding {
 
     private int fno;            // 펀딩 프로젝트 번호
-    private String fTitle;      // 펀딩 프로젝트명
-    private String fReward;     // 펀딩 리워드
-    private String fContent;    // 프로젝트설명
-    private String fCreator;       // 팀(창작자)명
-    private String fCreatorInfo;   // 팀 소개글
-    private int fBacker;        // 후원자 수
-    private int fGoal;          // 목표 금액
-    private int fAmount;        // 누적 금액
+    private String id;
+    private String ftitle;      // 펀딩 프로젝트명
+    private String freward;     // 펀딩 리워드
+    private String fcontent;    // 프로젝트설명
+    private String fcreator;       // 팀(창작자)명
+    private String fcreatorInfo;   // 팀 소개글
+    private int fbacker;        // 후원자 수
+    private int fgoal;          // 목표 금액
+    private int famount;        // 누적 금액
     private Date regDate;       // 등록 날짜
     private Date endDate;       // 마감 날짜
+    private String fileName;    // 이미지 파일 이름
     private MultipartFile fuploadFile;  // 리워드 이미지
-
-    public Funding(int fno, String fTitle, String fReward, String fContent, String fCreator, String fCreatorInfo, int fBacker, int fGoal, int fAmount, Date regDate, Date endDate, MultipartFile fuploadFile) {
-        this.fno = fno;
-        this.fTitle = fTitle;
-        this.fReward = fReward;
-        this.fContent = fContent;
-        this.fCreator = fCreator;
-        this.fCreatorInfo = fCreatorInfo;
-        this.fBacker = fBacker;
-        this.fGoal = fGoal;
-        this.fAmount = fAmount;
-        this.regDate = regDate;
-        this.endDate = endDate;
-        this.fuploadFile = fuploadFile;
-    }
 
     public int getFno() {
         return fno;
@@ -41,68 +28,76 @@ public class Funding {
         this.fno = fno;
     }
 
-    public String getfTitle() {
-        return fTitle;
+    public String getId() {
+        return id;
     }
 
-    public void setfTitle(String fTitle) {
-        this.fTitle = fTitle;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getfReward() {
-        return fReward;
+    public String getFtitle() {
+        return ftitle;
     }
 
-    public void setfReward(String fReward) {
-        this.fReward = fReward;
+    public void setFtitle(String ftitle) {
+        this.ftitle = ftitle;
     }
 
-    public String getfContent() {
-        return fContent;
+    public String getFreward() {
+        return freward;
     }
 
-    public void setfContent(String fContent) {
-        this.fContent = fContent;
+    public void setFreward(String freward) {
+        this.freward = freward;
     }
 
-    public String getfCreator() {
-        return fCreator;
+    public String getFcontent() {
+        return fcontent;
     }
 
-    public void setfCreator(String fCreator) {
-        this.fCreator = fCreator;
+    public void setFcontent(String fcontent) {
+        this.fcontent = fcontent;
     }
 
-    public String getfCreatorInfo() {
-        return fCreatorInfo;
+    public String getFcreator() {
+        return fcreator;
     }
 
-    public void setfCreatorInfo(String fCreatorInfo) {
-        this.fCreatorInfo = fCreatorInfo;
+    public void setFcreator(String fcreator) {
+        this.fcreator = fcreator;
     }
 
-    public int getfBacker() {
-        return fBacker;
+    public String getFcreatorInfo() {
+        return fcreatorInfo;
     }
 
-    public void setfBacker(int fBacker) {
-        this.fBacker = fBacker;
+    public void setFcreatorInfo(String fcreatorInfo) {
+        this.fcreatorInfo = fcreatorInfo;
     }
 
-    public int getfGoal() {
-        return fGoal;
+    public int getFbacker() {
+        return fbacker;
     }
 
-    public void setfGoal(int fGoal) {
-        this.fGoal = fGoal;
+    public void setFbacker(int fbacker) {
+        this.fbacker = fbacker;
     }
 
-    public int getfAmount() {
-        return fAmount;
+    public int getFgoal() {
+        return fgoal;
     }
 
-    public void setfAmount(int fAmount) {
-        this.fAmount = fAmount;
+    public void setFgoal(int fgoal) {
+        this.fgoal = fgoal;
+    }
+
+    public int getFamount() {
+        return famount;
+    }
+
+    public void setFamount(int famount) {
+        this.famount = famount;
     }
 
     public Date getRegDate() {
@@ -121,6 +116,14 @@ public class Funding {
         this.endDate = endDate;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     public MultipartFile getFuploadFile() {
         return fuploadFile;
     }
@@ -133,16 +136,18 @@ public class Funding {
     public String toString() {
         return "Funding{" +
                 "fno=" + fno +
-                ", fTitle='" + fTitle + '\'' +
-                ", fReward='" + fReward + '\'' +
-                ", fContent='" + fContent + '\'' +
-                ", fCreator='" + fCreator + '\'' +
-                ", fCreatorInfo='" + fCreatorInfo + '\'' +
-                ", fBacker=" + fBacker +
-                ", fGoal=" + fGoal +
-                ", fAmount=" + fAmount +
+                ", id=" + id +
+                ", ftitle='" + ftitle + '\'' +
+                ", freward='" + freward + '\'' +
+                ", fcontent='" + fcontent + '\'' +
+                ", fcreator='" + fcreator + '\'' +
+                ", fcreatorInfo='" + fcreatorInfo + '\'' +
+                ", fbacker=" + fbacker +
+                ", fgoal=" + fgoal +
+                ", famount=" + famount +
                 ", regDate=" + regDate +
                 ", endDate=" + endDate +
+                ", fileName=" + fileName +
                 ", fuploadFile=" + fuploadFile +
                 '}';
     }

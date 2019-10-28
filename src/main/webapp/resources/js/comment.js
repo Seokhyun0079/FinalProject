@@ -7,7 +7,6 @@ $(function(){
         },
         success: function (data) {
             for(var i = 0 ; i < data.result.commentList.length; i++){
-                console.log(data.result.commentList[i]);
                 if(data.result.commentList[i].replyNo==0){
                     $("#comment-list").append('<li class="single_comment_area" id="i'+data.result.commentList[i].commentNo+'">' +
                         '                                 <div class="comment-content d-flex">\n' +
@@ -62,7 +61,6 @@ $(function(){
             success : function(data){
                 $("#comment-list").html("");
                 for(var i = 0 ; i < data.result.commentList.length; i++){
-                    console.log(data.result.commentList[i]);
                     if(data.result.commentList[i].replyNo==0){
                         $("#comment-list").append('<li class="single_comment_area" id="i'+data.result.commentList[i].commentNo+'">' +
                             '                                 <div class="comment-content d-flex">\n' +

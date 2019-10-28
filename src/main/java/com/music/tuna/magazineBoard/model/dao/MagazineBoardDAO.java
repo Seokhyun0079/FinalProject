@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.music.tuna.magazineBoard.model.vo.MagazineBoard;
@@ -25,13 +23,44 @@ public class MagazineBoardDAO {
 	}
 
 	public ArrayList<MagazineBoard> selectList(PageInfo pi) {
-		
-		
 		 int offset = (pi.getCurrentPage()-1)* pi.getBoardLimit();
 		 RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		return (ArrayList)sqlSession.selectList("Magazinemapper.selectList", null, rowBounds);
 	}
 
+	public void addReadCount(int mseq) {
+		sqlSession.update("Magazinemapper.addmReadCount", mseq);
+	}
+
 	
+	public MagazineBoard selectBoard(int mseq) {
+		
+		return sqlSession.selectOne("Magazinemapper.selectBoard", mseq);
+	}
+	
+	public int deletePost(int mseq) {
+		
+		return sqlSession.delete("Magazinemapper.deleteMagazine", mseq);
+	}
+	
+	public int keySearchCount(String keyword){
+		return sqlSession.selectOne("Magazinemapper.selectKeySearchCount",keyword);
+	}
+	public ArrayList<MagazineBoard> selectKeySearch(String keyword, PageInfo pi) {
+		 int offset = (pi.getCurrentPage()-1)* pi.getBoardLimit();
+		 RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		return (ArrayList)sqlSession.selectList("Magazinemapper.selectKeySearch", keyword, rowBounds);
+	}
+	public int insertPost(MagazineBoard m) {
+		
+		return sqlSession.insert("Magazinemapper.insertPost", m);
+	}
+	public int updatePost(MagazineBoard m) {
+		return sqlSession.update("Magazinemapper.updatePost", m);
+	}
+	
+	public void commit() {
+		sqlSession.commit();
+	}
 
 }

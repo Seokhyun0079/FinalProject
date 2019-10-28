@@ -19,10 +19,17 @@ public class MyMusicDAO {
     public void insertMyMusic(MyMusic vo){
         sqlSession.insert("MyMusicDAO.insertMyMusic", vo);
     }
-    private int getMusicMaximum(MyMusic vo){
-        return sqlSession.selectOne("MyMusicDAO.getMyMusicMaximum", vo);
+    public void deleteMyMusic(MyMusic vo){
+        sqlSession.delete("MyMusicDAO.deleteMyMusic", vo);
     }
     public void commit(){
         sqlSession.commit();
     }
+
+    public int insertedMyMusicCount(MyMusic vo) {
+        return sqlSession.selectOne("MyMusicDAO.insertedMyMusicCount", vo);
+    }
+	public void deleteAllMyMusic(MyMusic vo) {
+		sqlSession.delete("MyMusicDAO.deleteAllMyMusic", vo);
+	}
 }

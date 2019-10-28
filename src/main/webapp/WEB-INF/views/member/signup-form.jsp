@@ -21,24 +21,24 @@
     h6{
     	margin-top:5px;
     }
-
-	/*로그아웃, 마이페이지 드롭다운*/
-	#user-icon li ul {
-			background: rgb(109,109,109);
-			display:none;  
-			height:auto;
-			padding-bottom:10px;
-			margin:0px;
-			border:0px;
-			position:absolute;
-			width:120px;
-			z-index:200;
-		}
-		
-	#user-icon li:hover ul {
-		display:block;   
+    
+   	.box-file-input label{
+	    display:inline-block;
+	    background:black;
+	    color:white;
+	    padding:0px 15px;
+	    line-height:35px;
+	    cursor:pointer;
 	}
-
+	
+	.box-file-input label:after{
+	    content:"UPLOAD";
+	}
+	
+	.box-file-input .file-input{
+	    display:none;
+	}
+  
     </style>
 </head>
 
@@ -89,7 +89,7 @@
 	                        <input type="password" name="userPwd" style="width: 80%; margin-left: 40px;" placeholder="PW">
 	                        <input type="submit" value="LOGIN" style="cursor:pointer; color: rgb(221, 35, 121);font-weight: bold; font-family:sans-serif; font-style:normal; background-color:transparent;  margin-top: 15px; font-size: 35px; box-shadow: 0px 0px 0px 0px;">
 	                        <div style="float: right;">
-	                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;">FORGOT PW?</a></div>
+	                            <div style="color:gray; width: 100%;"><a href="#" style="color:gray;">FORGOT ID/PW?</a></div>
 	                            <div style="color:gray; width: 100%;"><a href="memberJoinView.do" style="color:gray; float: right;" >SIGN-UP</a></div>
 	                        </div>
 	                    </form>
@@ -201,34 +201,18 @@
 
                                 <!-- Share Icon -->
                                 <div class="social-share-icon">
-                                    <i class="social_share"></i>
+                                    <i class="fa fa-music"></i>
                                 </div>
 
                                 <!-- Search Icon -->
                                 <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                    <i class="icon_search"></i>
+                                    <i class="fa fa-search"></i>
                                 </div>
                                 
                                 <!-- Login Icon -->
-	                            <c:choose>
-							        <c:when test="${empty loginUser }">
-			                            <div class="search-icon" data-toggle="modal" data-target="#loginModal">
-			                                <i class="fa fa-sign-in"></i>
-			                            </div>
-							        </c:when>
-						       		<c:otherwise>
-			                            <div class="search-icon" id="user-icon" OnClick="location.href ='/TunaMusic/member/logout.do'" style="cursor:pointer;">
-			                                <ul>
-			                                	<li><i class="fa fa-user"></i>
-			                                		<ul>
-			                                			<li><a href="#">&nbsp&nbspMY PAGE</a></li><br>
-											            <li><a href="#">&nbsp&nbspLOG-OUT</a></li><br>
-			                                		</ul>
-			                                	</li>
-			                                </ul>
-			                            </div>
-							    	</c:otherwise>
-							    </c:choose>
+	                            <div class="search-icon" data-toggle="modal" data-target="#loginModal">
+	                                <i class="fa fa-sign-in"></i>
+	                            </div>
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -238,12 +222,15 @@
         </div>
     </header>
     <!-- Header Area End -->
+    
+    
+    
     <br><br><br>
-    <h2 align="center">SIGN-UP</h2>
+    <h1 align="center">SIGN-UP</h1>
 	<form action="memberInsert.do" id="joinForm" style="margin-bottom: 80px;" method="post" enctype="multipart/form-data">
 		<table align="center" style="margin-left:40%; margin-top: 50px; font-family: Oswald;">
 			<tr>
-				<td> <h6>* ID </h6><!-- <input  type="button" value="ENROLL"  style="color: white; background-color: gray; outline-style: outset;   margin-top: 15px; font-size: 20px; box-shadow: 0px 0px 0px 0px;"> --></td>
+				<td style="width:130px"> <h6>* ID </h6></td>
 				<td><input type="text" name="userId" id="userId"/><div id="id_check"></div></td>
 				
 			</tr>
@@ -269,11 +256,7 @@
 					<script>
 						var today = new Date();
 						var toyear = parseInt(today.getFullYear());
-<<<<<<< HEAD
-						var start = toyear - 10
-=======
 						var start = toyear - 10;
->>>>>>> c7e5b3254554f69a38550809493f10adcb05b133
 						var end = toyear - 70;
 						document.write("<select id='year' name=birth>");
 						document.write("<option value='' selected>");
@@ -289,64 +272,87 @@
 						for (i=1;i<=31;i++) document.write("<option>"+i);
 						document.write("</select>일 ");
 		
-						document.write("<input type = 'hidden' name='birthDay' value='생년월일 저장소'>");
-												
-						$(function(){
-							$("select[name='birth']").click(function(){
-								var birth1 = $("#year").val();
-								var birth2 = $("#month").val();
-								var birth3 = $("#day").val();
-								if(birth2<10){
-									birth2='0'+birth2;
-								}
-								if(birth3<10){
-									birth3='0'+birth3;
-								}
+						document.write("<input id='storebirth' name='birthDay'  value='생년월일 저장소'  type = 'hidden' >");
+									
+						var sendBirth=function(){
+							var birth1 = $("#year").val();
+							var birth2 = $("#month").val();
+							var birth3 = $("#day").val();
+							if(birth2<10){
+								birth2='0'+birth2;
+							}
+							if(birth3<10){
+								birth3='0'+birth3;
+							}
 
-								$("input[name='birthDay']").val(birth1 + birth2 + birth3);
-								
-							});
+							$("input[name='birthDay']").val(birth1 + birth2 + birth3);
+							
+						};
+						
+						$(function(){
+							$("select[name='birth']").blur(function(){
+										var birth1 = $("#year").val();
+										var birth2 = $("#month").val();
+										var birth3 = $("#day").val();
+										if(birth2<10){
+											birth2='0'+birth2;
+										}
+										if(birth3<10){
+											birth3='0'+birth3;
+										}
+
+										$("input[name='birthDay']").val(birth1 + birth2 + birth3);
+										var birth = $("input[name='birthDay']").val();
+										if(birth < 10000000){
+											$("#submit").attr("disabled", "disabled");
+										}else{
+											$("#submit").removeAttr("disabled");
+										}
+									});
+							
 						});
+						
 						
 					</script>
 				</td>
 			</tr>
 			<tr>
 				<td><h6> * Gender </h6></td>
-				<td><input type="radio" name="gender" value="1" required>&nbsp;&nbsp;male&nbsp;&nbsp;<input type="radio" name="gender" value="2">&nbsp;&nbsp;female</td>
+				<td><input type="radio" name="gender" value="1" required/>&nbsp;&nbsp;male&nbsp;&nbsp;<input type="radio" name="gender" value="2">&nbsp;&nbsp;female</td>
 			</tr>
 			<tr>
-				<td><h6> E-Mail </h6></td>
-				<td><input type="email" name="email"></td>
+				<td><h6> * E-Mail </h6></td>
+				<td><input type="email" name="email" id="email" required/><div id="email_check"></div></td>
 			</tr>
 			<tr>
-				<td><h6> Phone-Number </h6></td>
-				<td><input type="tel" name="phone"></td>
+				<td><h6> &nbsp&nbsp&nbspPhone-Number </h6></td>
+				<td><input type="tel" name="phone"/></td>
             </tr>			
+		</table>
+		<table align="center" style="margin-left:40%; margin-top: 0; font-family: Oswald;">
 			<tr>
-				<td><h6>Profile IMG</h6></td>
-				<td><input type="file" name="photo"></td>
+				<td style="width:130px;"><h6>&nbsp&nbsp&nbspProfile IMG</h6></td>
+				<td style="width:123px;"><img id="prePhoto" src="/TunaMusic/resources/uploadFiles/${loginUser.profileIMG}" alt="" style="width:100px;"></td>
+				<td> <div class="box-file-input"><label><input type="file" name="photo" id="input_photo" class="file-input" accept="image/*"></label></div></td>
+				
 			</tr>
-			
 		</table>
 		<br><br>
-		<div align="center" style="margin-top:20px;">
-                <input id="submit"  type="submit" disabled="true" value="ENROLL"  style="color: white; background-color: gray; outline-style: outset;   margin-top: 15px; font-size: 20px; box-shadow: 0px 0px 0px 0px;">
-		</div>
+		<div class="view-more-button text-center" align="center">
+                <input type="submit" id="submit" style="margin-top:10px; cursor:pointer;" value="ENROLL" class="btn razo-btn mt-50">
+        </div>
 	</form>
 	
 	<script type="text/javascript">
 		//아이디 중복 체크, 유효성 검사
 		$("#userId").blur(function(){
 			var userId = $('#userId').val();
-			//
 			var idReg = /^[a-zA-Z]+[a-z0-9A-Z]{3,19}$/g;
 			if( !idReg.test( userId ) ) {
 				$("#id_check").css("color","rgb(221, 35, 121)")
 				$("#id_check").html("아이디는 영소문자로 시작하는 4~20자 영문자 또는 숫자이어야 합니다.");
 				$("#submit").attr("disabled", "disabled");
 				$('#userId').val("");
-				$('#userId').focus();
 
 
 
@@ -365,7 +371,6 @@
 						$("#id_check").css("color","rgb(221, 35, 121)")
 						$("#id_check").html("중복된 아이디입니다. 다른 아이디를 입력해 주세요!");
 						$("#submit").attr("disabled", "disabled");
-						$('#userId').focus();
 					}else{
 						$("#id_check").css("color","gray")
 						$("#id_check").html("사용가능한 아이디입니다!");
@@ -407,9 +412,82 @@
 			});
 		});
 		
+		//이메일 유효성,중복체크
+		$("#email").blur(function() {
+			
+			var email = $("#email").val();
+
+		    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+		    if (!regExp.test(email)){
+		    	$("#email_check").css("color","rgb(221, 35, 121)")
+				$("#email_check").html("이메일을 정확히 입력하세요!");
+				$("#submit").attr("disabled", "disabled");
+				$('#email').val("");
+		    }else{
+		    	
+		    	$.ajax({
+					url : 'duplicateCheck2.do',
+					type : "POST",
+					data:{
+						email : email
+					},
+					dataType:"JSON",
+					success : function(data){
+						if(data.result){
+							$("#email_check").css("color","rgb(221, 35, 121)")
+							$("#email_check").html("중복된 이메일입니다. 다른 이메일을 입력해 주세요!");
+							$("#submit").attr("disabled", "disabled");
+						}else{
+							$("#email_check").css("color","gray")
+							$("#email_check").html("사용가능한 이메일입니다!");
+							$("#submit").removeAttr("disabled");
+						}
+					}
+				
+				})
+		    	
+		    	
+		    }
+
+		});
 		
+		//미리보기 script
+
+		var sel_file;
 		
-	 
+		$(document).ready(function(){
+			$("#input_photo").on("change", handleImgFileSelect);
+		});
+		
+		function handleImgFileSelect(e){
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			
+			filesArr.forEach(function(f){
+			
+				sel_file = f;
+				
+				var reader = new FileReader();
+				reader.onload = function(e){
+					$("#prePhoto").attr("src", e.target.result);
+				}
+				reader.readAsDataURL(f);
+			});
+			
+		}
+		
+ 		//파일 업로드 디자인
+    	
+    	$(document).on("change", ".file-input", function(){
+    	     
+            $filename = $(this).val();
+            $(".filename").text($filename);
+
+        });
+ 		
+ 		
+
 	</script>
 
 
