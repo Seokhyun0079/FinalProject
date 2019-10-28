@@ -14,4 +14,5 @@ public interface PaymentDao {
 	public Goods selectGoods(int gno);
 	public int insertfPay(Payment pm);
 	public int updateFunding(Payment pm);
+
 }

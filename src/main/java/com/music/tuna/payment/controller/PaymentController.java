@@ -46,16 +46,19 @@ public class PaymentController {
 		System.out.println("[paymentController] : "+result);
 		return "payment/payment";
 	}
+
 	
 	@RequestMapping(value="/kakao.do")
 	public String kakaopay() {
 		return "payment/kakaopay";
 	}
 	
+
 	@RequestMapping(value="/naverpay.do")
 	public String naverpay() {
 		return "payment/naverpay";
 	}
+
 	
 	@RequestMapping(value="/card.do")
 	public String cardpay() {
@@ -66,13 +69,14 @@ public class PaymentController {
 	public String paypopPost2(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Member loginUser = (Member) session.getAttribute("loginUser");
-		String userId = loginUser.getUserId();
+		String userId = (String)loginUser.getUserId();
 		System.out.println(userId);
 		
 		int result = pService.payConfirm(userId);
 		System.out.println("[paymentController] : "+result);
 		return "payment/paypop2";
 	}
+
 
     /**
      * crowd-funding payment

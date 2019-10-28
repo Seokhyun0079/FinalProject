@@ -25,4 +25,11 @@ public class MyMusicDAO {
     public void commit(){
         sqlSession.commit();
     }
+
+    public int insertedMyMusicCount(MyMusic vo) {
+        return sqlSession.selectOne("MyMusicDAO.insertedMyMusicCount", vo);
+    }
+	public void deleteAllMyMusic(MyMusic vo) {
+		sqlSession.delete("MyMusicDAO.deleteAllMyMusic", vo);
+	}
 }

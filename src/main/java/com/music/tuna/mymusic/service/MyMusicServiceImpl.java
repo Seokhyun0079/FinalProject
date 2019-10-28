@@ -26,4 +26,15 @@ public class MyMusicServiceImpl implements  MyMusicService{
         myMusicDAO.deleteMyMusic(vo);
         myMusicDAO.commit();
     }
+
+    @Override
+    public int insertedMyMusicCount(MyMusic vo) {
+        return myMusicDAO.insertedMyMusicCount(vo);
+    }
+	@Override
+	public void deleteAllMyMusic(MyMusic vo) {
+		myMusicDAO.deleteAllMyMusic(vo);
+        myMusicDAO.commit();
+		
+	}
 }
