@@ -66,7 +66,6 @@ public class MusicBoardArticleDAO {
     public void deleteArticle(MusicBoardArticle vo) {
         sqlSession.delete("MusicBoardArticleDAO.deleteArticle", vo);
     }
-
     public void updateArticle(MusicBoardArticle vo) {
         sqlSession.update("MusicBoardArticleDAO.updateArticle",vo);
     }

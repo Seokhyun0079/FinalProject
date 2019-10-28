@@ -338,10 +338,10 @@
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 <script src="/TunaMusic/resources/js/mymusicshareboard-comment.js"></script>
-<script src="/TunaMusic/resources/js/musicboard-read.js"></script>
 <u:isLogin>
     <script src="/TunaMusic/resources/js/mylist.js"></script>
 </u:isLogin>
 <script src="/TunaMusic/resources/js/music-list.js"></script>
+<script src="/TunaMusic/resources/js/musicshare-read.js"></script>
 </body>
 </html>
