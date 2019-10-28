@@ -57,4 +57,25 @@
     <update id="updateReadCount">
         update myMusicShareBoard_article set read_count = #{readCount} where article_no = #{articleNo}
     </update>
+    <update id="updateBad">
+        update myMusicShareBoard_article set bad = #{bad} where article_no =#{articleNo}
+    </update>
+    <update id="updateBest">
+        update myMusicShareBoard_article set best = #{best} where article_no =#{articleNo}
+    </update>
+    <select id = "selectMyWrittenList" resultMap="articleResult">
+        select * from myMusicShareBoard_article join member using(id) where id = #{id}
+    </select>
+    <delete id="deleteArticle">
+        delete from myMusicShareBoard_article where article_no = ${articleNo}
+    </delete>
+    <update id="updateArticle">
+        update myMusicShareBoard_article set title = #{title} , content = #{text} where article_no = #{articleNo}
+    </update>
+    <select id="getBest" resultType="int">
+        select best from myMusicShareBoard_article  where article_no = #{articleNo}
+    </select>
+    <select id="getBad" resultType="int">
+        select bad from myMusicShareBoard_article  where article_no = #{articleNo}
+    </select>
 </mapper>
