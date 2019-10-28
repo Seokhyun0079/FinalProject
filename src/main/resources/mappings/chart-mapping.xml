@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ChartDao">
+
+    <resultMap id="chartResult" type="Chart">
+        <id column="article_date" property="articleDate"/>
+        <result column="article_no" property="articleNo"/>
+        <result column="read_count" property="readCount"/>
+        <result column="rc" property="rc"/>
+        <result column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="text" property="text"/>
+		<result column="file_name" property="fileName"/>
+		<result column="album_file" property="albumFile"/>
+    </resultMap>
+    
+    <select id="selectById" resultMap="chartResult">
+    SELECT * FROM CHARTBOARD WHERE ARTICLE_NO = #{articleNo} and article_date = #{articleDate}
+  	</select>
+  	
+  	<select id="selectRealTime" resultMap="chartResult">
+  	<![CDATA[
+  	SELECT * FROM
+	(SELECT article_no, SUM(READ_COUNT) AS RC FROM CHARTBOARD WHERE 30 >= SYSDATE - ARTICLE_DATE
+	GROUP BY ARTICLE_NO ORDER BY RC DESC) JOIN musicboard_article USING(ARTICLE_NO) WHERE ROWNUM <= #{chartMax}
+	]]>
+<!--   	SELECT SUM(READ_COUNT) AS RC FROM CHARTBOARD WHERE 30 >= SYSDATE - ARTICLE_DATE
+	GROUP BY ARTICLE_NO ORDER BY RC DESC -->
+  	</select>
+  	
+  	<insert id="insertChart">
+  	INSERT INTO CHARTBOARD VALUES(#{articleDate}, #{articleNo}, 0)
+  	</insert>
+  	
+  	<update id="updateChart">
+  	UPDATE CHARTBOARD
+  	SET READ_COUNT = #{readCount} WHERE ARTICLE_NO = #{articleNo} and ARTICLE_DATE = #{articleDate}
+  	</update>
+  	
+</mapper>
