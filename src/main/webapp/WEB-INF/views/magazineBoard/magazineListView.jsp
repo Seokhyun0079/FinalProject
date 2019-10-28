@@ -180,12 +180,12 @@
                         
                         
                         <form action="msearch.do" class="search-form">
-                            <div class="row align-items-end">
+                            <div class="row align-items-end" >
                               
                                
                                 <div class="col-sm-6 col-lg-9">
                                     <div class="form-group">
-                                        <input type="search" class="form-control" id="keyword" name="keyword"  placeholder="">
+                                        <input type="search" class="form-control" id="keyword" name="keyword"  placeholder="" style="color: black; font-weight: bold; font-size: large;">
                                     </div>
                                 </div>
                                 
@@ -229,37 +229,15 @@
              	
                
 			<div class="col-12">
-			<h5 style="float: left;">total : ${pi.listCount}</h5>  <br>
+			<h4 style="float: left;">total : ${pi.listCount}</h4>  <br>
             <br>  
+            <br>
 		
 			<c:forEach var="m" items="${list}" >
            		<div class="single-razo-event-area d-flex flex-wrap align-items-center mb-50 wow fadeInUp" data-wow-delay="300ms" ><!-- *마우스모션?css -->
-				
-				<!-- 	<table >*테이블 처리 
-                		<tr >*테이블 행(가로)
-                
-                           	<td><img src="/TunaMusic/resources/img/bg-img/65.jpg" alt="" width="100%"></td> *테이블 첫번재 열(세로), 사진
 
-                        *테이블 두번재 열(세로), 설명
-                        	 <td>
-                        			<div class="event-content d-flex align-items-center">
-                            		<div class="event-text">
-                                		<a href="#"><h3>Tuna music magazine  board opne~<h3></a>			 *제목
-                                			<div class="event-meta">
-                                    			<a class="event-date"><i class="icon_calendar"></i> March 11, 2018</a> 	*날짜
-                                    			<a class="event-address"><i class="icon_pin_alt"></i>3.6k</a>				*조회수
-                                			</div>                          
-	                         		</div>     
-                            		</div>
-        
-							 </td>
-	                  </tr>
-                    </table> --> <!-- *테이블 -->
-              
-                 
-				
-							<div  style="border: 1px float: left; width: 50%;">
-                           		<img src="/TunaMusic/resources/editor/mphotoUpload/${m.thumbnail}" alt="" width="100%" style="height:300px" > <!-- *왼쪽(사진) -->
+							<div  style="border: 1px float: left; width:50%;">
+                           		<img src="/TunaMusic/resources/editor/mphotoUpload/${m.thumbnail}" alt="" width="100%" style="height:280px" > <!-- *왼쪽(사진) -->
 							</div>
 							
                        
@@ -273,17 +251,17 @@
 										</c:url> <!-- 어떤 url 걸어둘껀지 -->
 										
 							
-                                		<a href="${ mdetail }"><h3>${m.mtitle}</h3></a><!-- *제목 -->
-        
+                                		<a href="${ mdetail }"><h2 style="font-weight:600;">${m.mtitle}</h2></a><!-- *제목 -->
+        								<hr>
                                 		<div class="event-meta">
                                     		<a class="event-date">${m.createdate}</a><!-- *날짜 -->
                                     		
                                     		
-                                    		<a class="event-address">view ${m.mcount}</a>				<!-- *조회수 -->
+                                    		<a class="event-address" >view ${m.mcount}</a>				<!-- *조회수 -->
                                     		<br>
                                     		 
     
-                                    		<a  href="${ mdetail }" class="btn read-more-btn" style="float:left;">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    		<a  href="${ mdetail }" class="btn read-more-btn" style="float:left; color:grqy;">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                 		</div>                          
 	                         		</div>     
                             	</div>  
@@ -293,20 +271,20 @@
                 </c:forEach>
                 
 
-            
+            <br>
 
             	<!--* 페이징 처리   -->
-                <div class="col-12 text-center" style="width: 100%;">
+                <div class="col-12 text-center" style="width:100%; font-weight:bold; font-size: medium;">
                    
                     <!-- [이전] -->
 				<c:if test="${ pi.currentPage <= 1 }">
-					[이전] &nbsp;
+					[before] &nbsp;
 				</c:if> <!-- 1페이지보다 작으면 이전글자 없어짐 -->
 				<c:if test="${ pi.currentPage > 1 }">
 					<c:url var="before" value="magazine.do"><!-- 1페이지보다 크면 이전이라는 글자 생김 -->
 						<c:param name="page" value="${ pi.currentPage - 1 }"/>
 					</c:url>
-					<a href="${ before }">[이전]</a> &nbsp;
+					<a href="${ before }" style="font-weight:bold;">[before]</a> &nbsp;
 				</c:if><!-- [이전] 누르면 이전페이지로 가는거 -->
 				
 				<!-- 페이지 -->
@@ -319,7 +297,7 @@
 						<c:url var="pagination" value="magazine.do">
 							<c:param name="page" value="${ p }"/>
 						</c:url>
-						<a href="${ pagination }">${ p }</a> &nbsp;
+						<a href="${ pagination }" style="font-weight:bold;">${ p }</a> &nbsp;
 					</c:if> <!-- 페이지가 넘어갈수있게끔 만든거 -->
 				</c:forEach>
 				
@@ -331,7 +309,7 @@
 					<c:url var="after" value="magazine.do">
 						<c:param name="page" value="${ pi.currentPage + 1 }"/>
 					</c:url> 
-					<a href="${ after }">[다음]</a>
+					<a href="${ after }" style="font-weight:bold;">[next]</a>
 				</c:if>
 			
                

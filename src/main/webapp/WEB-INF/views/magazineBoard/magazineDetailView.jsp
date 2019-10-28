@@ -181,7 +181,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
 
-                    <div class="post-title-text">
+                    <div class="post-title-text" >
                         <h2>${MagazineBoard.mtitle}</h2>
 
                             <a style="color: white;">${MagazineBoard.createdate}</a>&nbsp;
@@ -205,18 +205,15 @@
                         <!----------------------------- 뒤로가기 스크롤 버튼 만들기 -->
                         
                         <div class="razo-post-share" id="goback"> <!---------동그라미  -->
-                            <a href="javascript:window.history.back();" data-toggle="tooltip" data-placement="left" title="뒤로가기" style="background-color:#FACC2E; color: black;">back</a>
+                            <a href="javascript:window.history.back();" data-toggle="tooltip" data-placement="left" title="뒤로가기" style="background-color:#FACC2E; "></a>
                         </div>
                     </div>
                      <!----------------------------- 스크롤 버튼 만들기 끝-->
 
 					<!----------------------------- 내용 시작-->
                     <div class="col-10 col-md-10 col-lg-9">
-                    	<h1>내용~</h1>
-                    	
-                    	<h3>사진</h3><br>
-
-                        <h3>내용 : ${MagazineBoard.mcontent}</h3>
+                    
+                        <h3>${MagazineBoard.mcontent}</h3>
                         </div>
                      
 					<!----------------------------- 내용 끝-->
@@ -225,8 +222,8 @@
        			
        			 <div class="col-12" align="center">
        			 <c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 -->
-                    <input type="button" onclick="location.href='mupdate.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="수정" > 
-                    <input type="button" onclick="location.href='mdelete.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="삭제" > 
+                    <input type="button" onclick="location.href='mupdate.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="Modify" style="font-size: medium;">&nbsp;&nbsp;
+                    <input type="button" onclick="location.href='mdelete.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="Delete" style="font-size: medium;"> 
                  </c:if>
                  </div>
 

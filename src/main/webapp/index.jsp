@@ -45,7 +45,7 @@
 
 <!-- Header Area Start -->
 <header class="header-area">
-<%@ include file="/WEB-INF/views/common/titlebar.jsp" %>
+<%@ include file="/WEB-INF/views/common/titlebar.jsp"%>
 </header>
 <!-- Header Area End -->
 

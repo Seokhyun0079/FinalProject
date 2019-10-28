@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="kr">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
+<html lang="kr">
 <html lang="en">
 
 <head>
@@ -215,14 +216,13 @@
 			<tr>
 				<td>
 					<div class="play-download-btn d-flex align-items-center justify-content-between">
-						<a href="/TunaMusic/qnaBoard/article/read.do?articleNo=${article.articleNo}" class="btn razo-btn btn-sm">${article.title}</a>
+						<a href="/TunaMusic/qnaBoard/article/read.do?articleNo=${article.articleNo}" class="btn">${article.title}</a>
 						<a href="/TunaMusic/resources/upload/${article.fileName}"></a>
 					</div>
 				</td>
 				<td>${article.id}</td>
-				<td>${article.date}</td>
+				<td><fmt:formatDate value="${article.date}" pattern="yyyy-MM-dd" /></td>
 				<td>${article.readCount}</td>
-
 			</tr>
 			</tbody>
 			</c:forEach>
@@ -244,19 +244,23 @@
 			<tr>
 				<td>
 					<div class="play-download-btn d-flex align-items-center justify-content-between">
-						<a href="/TunaMusic/qnaBoard/article/read.do?articleNo=${article.articleNo}" class="btn razo-btn btn-sm">${article.title}</a>
+						<a href="/TunaMusic/qnaBoard/article/read.do?articleNo=${article.articleNo}" class="btn">${article.title}</a>
 						<a href="/TunaMusic/resources/upload/${article.fileName}"></a>
 					</div>
 				</td>
 				<td>${article.id}</td>
-				<td>${article.date}</td>
+				<td><fmt:formatDate value="${article.date}" pattern="yyyy-MM-dd" /></td>
 				<td>${article.readCount}</td>
-
 			</tr>
 			</tbody>
 			</c:forEach>
+			
+			<a href="/TunaMusic/qnaBoard/article/write.do" class="btn razo-btn btn-sm" style="float: right;">글쓰기</a><br><br>
+			
 			</table>
-            
+			
+			
+
         </div>
         <div class="row">
             <div class="col-12">
