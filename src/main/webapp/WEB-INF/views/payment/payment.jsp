@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Razo - Radio HTML Template | Podcast Details</title>
+    <title>TUNA MUSIC | Payment</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
@@ -29,7 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Razo - Radio HTML Template | Podcast</title>
+    <title>TUNA MUSIC | Payment</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
@@ -199,8 +199,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="event-search-content">
-                        <h5 style="text-align: center">TuNa Music Membership 이란?</h5>
-                        <h6 style="text-align: center">TuNa Music Membership은 온라인과 오프라인에서 무제한 듣기가 가능한 이용권입니다.<br>
+                        <h5 style="text-align: center">Tuna Music Membership 이란?</h5>
+                        <h6 style="text-align: center">Tuna Music Membership은 온라인과 오프라인에서 무제한 듣기가 가능한 이용권입니다.<br>
                         오프라인 파일의 저장 및 재생은 인증된 모바일 디바이스 1대에서 가능하며, <br>오프라인 재생 기능을 통해 데이터 연결 없이 음악을 감상할 수 있습니다.    
                         </h6>
                         <br>
@@ -220,7 +220,7 @@
                 <!-- Single Razo Event Area -->
                 <div class="col-12">
                     <h5 style="color: #DC2878"> 
-                    <img src="/TunaMusic/resources/img/core-img/fish.png" width="50" height="50">&nbsp;&nbsp;TuNa Music 이용권</h5>
+                    <img src="/TunaMusic/resources/img/core-img/fish.png" width="50" height="50">&nbsp;&nbsp;Tuna Music 이용권</h5>
                     <div class="single-razo-event-area d-flex flex-wrap align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms" style="border-color: grey">
                         <!-- Thumbnail -->
                         <div class="event-thumbnail">
@@ -235,12 +235,12 @@
                                 max-width:100%; width: 100%; 
                                 height: 199.97px;" >
                                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                                    <h5>TuNa Music Membership 
+                                    <h5>Tuna Music Membership 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <span style="color: #DC2878"><font size="5">₩8900</font></span></h5>
                                 </div>
                                     <div class="event-purchase-button" style="position: absolute; top: 50%; right: 5%; transform: translate(-0%, -50%)" >
-                                        <a href="#"  class="btn razo-btn" onclick="window.open('C:\\Users\\user1\\Desktop\\razo\\razo\\paypop.html','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-480)/2+',width=500px,height=480px')"><i class="icon_cart"></i> 구매</a>
+                                        <a href="#"  class="btn razo-btn" onclick="window.open('paypop.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-500)/2+',width=500px,height=500px')"><!-- <i class="icon_cart"></i>  -->구매</a>
                                     </div>
                                 </div>
                         </div>
@@ -312,7 +312,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Single Footer Widget -->
                     <div class="col-12 col-sm-6 col-md-4 col-xl-3">
                         <div class="single-footer-widget mb-80">
