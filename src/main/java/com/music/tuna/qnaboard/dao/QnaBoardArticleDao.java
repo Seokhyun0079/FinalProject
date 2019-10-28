@@ -44,6 +44,15 @@ public class QnaBoardArticleDao {
     public int getNextArticleNo(QnaBoardArticle vo){
         return sqlSession.selectOne("QnaBoardArticleDao.getNextArticleNo", vo);
     }
+    
+    public List<QnaBoardArticle> getNoticeArticleList(QnaBoardArticleListPage vo){
+        return sqlSession.selectList("QnaBoardArticleDao.selectNoticeArticleList");
+    }
+    
+    public List<QnaBoardArticle> getAllArticleList(QnaBoardArticleListPage vo){
+        return sqlSession.selectList("QnaBoardArticleDao.selectAllArticleList", vo);
+    }
+    
     public void commit(){
         sqlSession.commit();
     }
