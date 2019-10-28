@@ -263,6 +263,7 @@
                                        	  <c:if test="${!empty sessionScope.loginUser }">
                                        	 	<input type="hidden" id="loginUserCheck" class="loginUserCheck" value="1">
                                        	 </c:if>
+                                       	 <input type="hidden" id="userId" name="userId" value="${sessionScope.loginUser.grade}">
                                        	 
                                        	 <!--원래거  -->
                                        	<!-- <a href="#"  class="btn razo-btn"
@@ -289,14 +290,20 @@
     	$(function(){
 
     		var loginChk = $("#loginUserCheck").val();
+    		var grade = document.getElementById('userId').value;
     			
     		$("#btn_buy").click(function(){
     			
     			if(loginChk == 0){
     				location.href="member/loginPage.do";
     			}else {
-    				window.open('paypop.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-500)/2+',width=500px,height=500px');
+    				if(grade=='B'){
+    					window.open('paymember.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-300)/2+',width=500px,height=300px')
+    				}else{
+    					window.open('paypop.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-500)/2+',width=500px,height=500px');
+    				} 
     			}
+    			
     		});
     	});
     	

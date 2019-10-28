@@ -1,13 +1,23 @@
 package com.music.tuna.mymusic.controller;
 
+import com.music.tuna.member.model.service.IdMissMatchException;
+import com.music.tuna.member.model.vo.Member;
+import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.mymusic.service.MyMusicShareBoardArticleService;
 import com.music.tuna.mymusic.vo.MyMusicShareBoardArticle;
 import com.music.tuna.mymusic.vo.MyMusicShareBoardArticleListPage;
+import com.music.tuna.util.SHBoardFileUpload;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller()
 @RequestMapping("/myMusicShareBoard/article")
@@ -60,5 +70,50 @@ public class MyMusicShareBoardArticleController {
         mv.setViewName("/myMusicShareBoard/list");
         mv.addObject("articlePage", vo);
         return mv;
+    }
+    @RequestMapping("/remove.do")
+    public String deleteArticle(MyMusicShareBoardArticle vo, HttpSession httpSession){
+        vo = myMusicShareBoardArticleService.selectArticleByArticleNo(vo);
+        String userId = ((Member)httpSession.getAttribute("loginUser")).getUserId();
+        if(!vo.getId().equals(userId)) throw new IdMissMatchException();
+        myMusicShareBoardArticleService.deleteArticle(vo);
+        return "redirect:list.do";
+    }
+    @RequestMapping(value = "/edit.do", method = RequestMethod.GET)
+    public ModelAndView editArticleGet(ModelAndView mv, MyMusicShareBoardArticle vo, HttpSession httpSession){
+        vo = myMusicShareBoardArticleService.selectArticleByArticleNo(vo);
+        mv.setViewName("/myMusicShareBoard//write");
+        mv.addObject("uri", "edit.do");
+        mv.addObject("article", vo);
+        return mv;
+    }
+    @RequestMapping(value = "/edit.do", method = RequestMethod.POST)
+    public String editArticlePost(ModelAndView mv, MyMusicShareBoardArticle vo, HttpSession httpSession, HttpServletRequest request){
+        String userId = ((Member)httpSession.getAttribute("loginUser")).getUserId();
+        if(!vo.getId().equals(userId)) throw new IdMissMatchException();
+        myMusicShareBoardArticleService.updateArticle(vo);
+        return "redirect:read.do?articleNo="+vo.getArticleNo();
+    }
+    @RequestMapping("/best.do")
+    public void updateBest( MyMusicShareBoardArticle vo, HttpServletResponse res){
+        JSONObject json = new JSONObject();
+        json.put("best",  myMusicShareBoardArticleService.updateBest(vo));
+        res.setContentType("application/x-json; charset=utf-8");
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    @RequestMapping("/bad.do")
+    public void updateBad( MyMusicShareBoardArticle vo, HttpServletResponse res){
+        JSONObject json = new JSONObject();
+        res.setContentType("application/x-json; charset=utf-8");
+        json.put("bad",  myMusicShareBoardArticleService.updateBad(vo));
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }

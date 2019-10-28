@@ -1,5 +1,6 @@
 package com.music.tuna.mymusic.service;
 
+import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.mymusic.dao.MyMusicDAO;
 import com.music.tuna.mymusic.dao.MyMusicShareBoardArticleDAO;
 import com.music.tuna.mymusic.vo.MyMusic;
@@ -45,5 +46,29 @@ public class MyMusicShareBoardArticleServiceImpl implements MyMusicShareBoardArt
     @Override
     public int getCount() {
         return myMusicShareBoardArticleDAO.getCount();
+    }
+
+    @Override
+    public void deleteArticle(MyMusicShareBoardArticle vo) {
+        myMusicShareBoardArticleDAO.deleteArticle(vo);
+    }
+
+    @Override
+    public void updateArticle(MyMusicShareBoardArticle vo) {
+        myMusicShareBoardArticleDAO.updateArticle(vo);
+    }
+
+    @Override
+    public int updateBest(MyMusicShareBoardArticle vo) {
+        myMusicShareBoardArticleDAO.updateBest(vo);
+        myMusicShareBoardArticleDAO.commit();
+        return myMusicShareBoardArticleDAO.getBest(vo);
+    }
+
+    @Override
+    public int updateBad(MyMusicShareBoardArticle vo) {
+        myMusicShareBoardArticleDAO.updateBad(vo);
+        myMusicShareBoardArticleDAO.commit();
+        return myMusicShareBoardArticleDAO.getBad(vo);
     }
 }
