@@ -18,7 +18,6 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.UUID;
 
 @Controller
@@ -42,21 +41,21 @@ public class FundingController {
         mv.setViewName("crowdFunding/fundingList");
         return mv;
     }
-    @RequestMapping(value = "hotList.do")
+    @RequestMapping(value = "/fundingList/hotList.do")
     public ModelAndView fHotList(ModelAndView mv) {
         int totalCount = fundingService.getHotListCount();
 
         mv.setViewName("crowdFunding/fundingHotList");
         return mv;
     }
-    @RequestMapping(value = "newList.do")
+    @RequestMapping(value = "/fundingList/newList.do")
     public ModelAndView fNewList(ModelAndView mv) {
         int totalCount = fundingService.getNewListCount();
 
         mv.setViewName("crowdFunding/fundingNewList");
         return mv;
     }
-    @RequestMapping(value = "almostList.do")
+    @RequestMapping(value = "/fundingList/almostList.do")
     public ModelAndView fAlmostList(ModelAndView mv) {
         int totalCount = fundingService.getAlmostListCount();
 
@@ -148,8 +147,8 @@ public class FundingController {
             // 파일 기본경로_상세경로
             String filePath = "C:\\FinalProject\\src\\main\\webapp\\resources\\editor\\photoUpload\\";
             String saveName = sb.append(new SimpleDateFormat("yyyyMMddHHmmss")
-                                .format(System.currentTimeMillis()))
-                                .append(UUID.randomUUID().toString())
+                    .format(System.currentTimeMillis()))
+                    .append(UUID.randomUUID().toString())
                     .append(oldName.substring(oldName.lastIndexOf("."))).toString();
 
             InputStream is = request.getInputStream();

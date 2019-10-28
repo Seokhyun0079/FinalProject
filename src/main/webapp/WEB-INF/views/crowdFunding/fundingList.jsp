@@ -249,28 +249,28 @@
             <!-- Single Blog Item -->
             <div class="row">
                 <c:forEach var="fd" items="${hotList}">
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
-                            <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> ${fd.regDate}</div>
-                            <a href="#" class="post-title">${fd.ftitle}</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="${fd.percent}" aria-valuemin="0" aria-valuemax="100" style="width:${fd.percent}%; background-color:#dc2878"></div>
+                    <div class="col-3 razo-blog-masonary-item">
+                        <div class="razo-blog-masonary-single-item">
+                            <!-- Post Thumbnail -->
+                            <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
+                                <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt=""></a>
                             </div>
-                            <br>
-                            <span>D-${fd.dDay}</span>
-                            <span>${fd.fgoal}원</span>
-                            <span>${fd.percent}%</span>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> ${fd.regDate}</div>
+                                <a href="#" class="post-title">${fd.ftitle}</a>
+                                <p>funding subtitle</p>
+                                <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="${fd.percent}" aria-valuemin="0" aria-valuemax="100" style="width:${fd.percent}%; background-color:#dc2878"></div>
+                                </div>
+                                <br>
+                                <span>D-${fd.dDay}</span>
+                                <span>${fd.fgoal}원</span>
+                                <span>${fd.percent}%</span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </c:forEach>
             </div>
         </div>
@@ -294,28 +294,28 @@
             <!-- Single Blog Item -->
             <div class="row">
                 <c:forEach var="fd" items="${newList}">
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
-                            <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" style="width: 255px; height: 100%;" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> ${fd.regDate}</div>
-                            <a href="#" class="post-title" style="font-size: 16px;">${fd.ftitle}</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="${fd.percent}" aria-valuemin="0" aria-valuemax="100" style="width:${fd.percent}%; background-color:#dc2878"></div>
+                    <div class="col-3 razo-blog-masonary-item">
+                        <div class="razo-blog-masonary-single-item">
+                            <!-- Post Thumbnail -->
+                            <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
+                                <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" style="width: 255px; height: 100%;" alt=""></a>
                             </div>
-                            <br>
-                            <span>D-${fd.dDay}</span>
-                            <span>${fd.fgoal}원</span>
-                            <span>${fd.percent}%</span>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> ${fd.regDate}</div>
+                                <a href="#" class="post-title" style="font-size: 16px;">${fd.ftitle}</a>
+                                <p>funding subtitle</p>
+                                <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="${fd.percent}" aria-valuemin="0" aria-valuemax="100" style="width:${fd.percent}%; background-color:#dc2878"></div>
+                                </div>
+                                <br>
+                                <span>D-${fd.dDay}</span>
+                                <span>${fd.fgoal}원</span>
+                                <span>${fd.percent}%</span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </c:forEach>
             </div>
         </div>
@@ -339,28 +339,28 @@
             <!-- Single Blog Item -->
             <div class="row">
                 <c:forEach var="fd" items="${almostList}">
-                <div class="col-3 razo-blog-masonary-item">
-                    <div class="razo-blog-masonary-single-item">
-                        <!-- Post Thumbnail -->
-                        <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
-                            <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt=""></a>
-                        </div>
-                        <!-- Post Content -->
-                        <div class="post-content">
-                            <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> ${fd.regDate}</div>
-                            <a href="#" class="post-title">${fd.ftitle}</a>
-                            <p>funding subtitle</p>
-                            <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
-                            <div class="progress" style="height: 5px;">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="${fd.percent}" aria-valuemin="0" aria-valuemax="100" style="width:${fd.percent}%; background-color:#dc2878"></div>
+                    <div class="col-3 razo-blog-masonary-item">
+                        <div class="razo-blog-masonary-single-item">
+                            <!-- Post Thumbnail -->
+                            <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
+                                <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt=""></a>
                             </div>
-                            <br>
-                            <span>D-${fd.dDay}</span>
-                            <span>${fd.fgoal}원</span>
-                            <span>${fd.percent}%</span>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <div class="post-date"><i class="fa fa-calendar" aria-hidden="true"></i> ${fd.regDate}</div>
+                                <a href="#" class="post-title">${fd.ftitle}</a>
+                                <p>funding subtitle</p>
+                                <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="${fd.percent}" aria-valuemin="0" aria-valuemax="100" style="width:${fd.percent}%; background-color:#dc2878"></div>
+                                </div>
+                                <br>
+                                <span>D-${fd.dDay}</span>
+                                <span>${fd.fgoal}원</span>
+                                <span>${fd.percent}%</span>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </c:forEach>
             </div>
         </div>

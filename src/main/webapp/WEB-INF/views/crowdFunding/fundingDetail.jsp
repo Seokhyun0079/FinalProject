@@ -204,8 +204,11 @@
                     <span>후원자</span><br>
                     <h2 style="display: inline-block">${funding.fbacker}</h2>&nbsp;<span>명</span><br><br>
 
+                    <input type="hidden" id="gno" name="gno" value="${funding.freward}">
+                    <input type="hidden" id="fno" name="fno" value="${funding.fno}">
+
                     <div class="event-purchase-button">
-                        <a href="#" class="btn razo-btn"><i class="icon_cart"></i> 프로젝트 밀어주기</a>
+                        <a href="#" class="btn razo-btn" onclick="paymentPopup();"><i class="icon_cart"></i> 프로젝트 밀어주기</a>
                     </div>
                 </div>
             </div>
@@ -242,5 +245,18 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+<script>
+    var fno = document.getElementById("fno").value;
+    var gno = document.getElementById("gno").value;
+    var res = gno.split(':');
+
+    function paymentPopup() {
+        var url = "/TunaMusic/payment/fundingPay.do?gno="+res[0]+"&fno="+fno;
+        var name = "fundingPayment_popup";
+        var option = "width = 500, height = 500, top = 100, left = 200";
+        window.open(url, name, option);
+    }
+</script>
+
 </body>
 </html>

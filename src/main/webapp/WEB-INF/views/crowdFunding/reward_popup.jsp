@@ -24,40 +24,40 @@
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
 </head>
 <body>
-    <form action="/TunaMusic/crowdFunding/insertReward2.do" method="post">
-        <div class="container">
-            <h6>후원 금액</h6>
-            <input type="number" id="goodsPrice" name="goodsPrice" class="form-control">
-            <br>
+<form action="/TunaMusic/crowdFunding/insertReward2.do" method="post">
+    <div class="container">
+        <h6>후원 금액</h6>
+        <input type="number" id="goodsPrice" name="goodsPrice" class="form-control">
+        <br>
 
-            <h6>아이템 이름</h6>
-            <input type="text" id="goodsName" name="goodsName" class="form-control">
-            <br>
+        <h6>아이템 이름</h6>
+        <input type="text" id="goodsName" name="goodsName" class="form-control">
+        <br>
 
-            <input type="hidden" name="goodsNo" id="goodsNo" value="0">
+        <input type="hidden" name="goodsNo" id="goodsNo" value="0">
 
-            <input type="submit" class="razo razo-btn" value="확인" onclick="moveClose();">
-        </div>
-    </form>
+        <input type="submit" class="razo razo-btn" value="확인" onclick="moveClose();">
+    </div>
+</form>
 
-    <!-- All JS Files -->
+<!-- All JS Files -->
 
-    <!-- jQuery -->
-    <script src="/TunaMusic/resources/js/jquery.min.js"></script>
-    <!-- Popper -->
-    <script src="/TunaMusic/resources/js/popper.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
-    <!-- All Plugins -->
-    <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
-    <!-- Active -->
-    <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+<!-- jQuery -->
+<script src="/TunaMusic/resources/js/jquery.min.js"></script>
+<!-- Popper -->
+<script src="/TunaMusic/resources/js/popper.min.js"></script>
+<!-- Bootstrap -->
+<script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
+<!-- All Plugins -->
+<script src="/TunaMusic/resources/js/razo.bundle.js"></script>
+<!-- Active -->
+<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 
-    <script>
-        function moveClose() {
-            // opener.location.reload();
-            window.close();
-        }
-    </script>
+<script>
+    function moveClose() {
+        // opener.location.reload();
+        window.close();
+    }
+</script>
 </body>
 </html>

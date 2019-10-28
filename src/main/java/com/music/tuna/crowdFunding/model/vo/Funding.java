@@ -23,7 +23,6 @@ public class Funding {
     private int percent;
     private long dDay;
 
-
     public int getFno() {
         return fno;
     }
@@ -161,7 +160,7 @@ public class Funding {
         if (getFamount() != 0) {
             return getFgoal() / getFamount();
         } else {
-             return percent;
+            return percent;
         }
     }
 
@@ -170,4 +169,5 @@ public class Funding {
         long diffDay = (getEndDate().getTime() - getRegDate().getTime()) / (24*60*60*1000);
         return diffDay;
     }
+
 }
