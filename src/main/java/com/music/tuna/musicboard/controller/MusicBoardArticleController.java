@@ -121,6 +121,10 @@ public class MusicBoardArticleController {
         musicBoardArticleService.deleteArticle(vo);
         return "redirect:list.do";
     }
+    @RequestMapping("/musicBoard/article/mydelete.do")//mypage 내에서 업로드 뮤직 삭제
+    public void deleteMyArticle(MusicBoardArticle vo){
+    	musicBoardArticleService.deleteArticle(vo);
+    }
     @RequestMapping(value = "/musicBoard/article/edit.do", method = RequestMethod.GET)
     public ModelAndView editArticleGet(ModelAndView mv, MusicBoardArticle vo, HttpSession httpSession){
         vo = musicBoardArticleService.getArticle(vo);
