@@ -12,6 +12,25 @@ public class Chart {
 	private String id;
 	private String title;
 	private String text;
+	private String fileName;
+	private String albumFile;
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getAlbumFile() {
+		return albumFile;
+	}
+
+	public void setAlbumFile(String albumFile) {
+		this.albumFile = albumFile;
+	}
+
 	public Date getArticleDate() {
 		return articleDate;
 	}

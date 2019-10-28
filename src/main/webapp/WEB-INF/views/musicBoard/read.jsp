@@ -188,6 +188,14 @@
                         <div style=" display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px; "><h5 style="background-color: black; color : white;">Best</h5><br><h5 id="best">${article.best}</h5></div>
                         <div  style="display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px;"><h5 style="background-color: black; color : white;">Bad</h5><br><h5 id="bad">${article.bad}</h5></div><br><br>
                         <div><h5 id="myMusicCount" style="display: inline"></h5> 명이 마이리스트에 넣은 곡입니다.</div>
+                        <c:set var="id" value="${article.id}" />
+                        <c:if test="${loginUser.userId eq id }">
+                            <div>
+                                <br><br>
+                                <a href="/TunaMusic/musicBoard/article/edit.do?articleNo=${article.articleNo}" style="color:white;" class="btn razo-btn btn-3 mt-15">Edit</a>
+                                <a href="/TunaMusic/musicBoard/article/remove.do?articleNo=${article.articleNo}" style="color:white;" class="btn razo-btn btn-3 mt-15">Delete</a>
+                            </div>
+                        </c:if>
                     </div>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
                         <div class="prev-pager">

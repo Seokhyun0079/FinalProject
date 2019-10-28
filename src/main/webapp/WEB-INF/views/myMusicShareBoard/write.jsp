@@ -84,7 +84,7 @@
                             <div class="row">
                                 <input name="id" type = "text" style="visibility: hidden;" value="${sessionScope.loginUser.userId }">
                                 <div class="col-12">
-                                    <input type="text" name="title" class="form-control mb-30" placeholder="Title">
+                                    <input type="text" name="title" class="form-control mb-30" placeholder="Title" ${article.title}>
                                 </div>
                                 <div class="col-12">
                                     <textarea name="content" class="form-control mb-30" placeholder="Text"></textarea>

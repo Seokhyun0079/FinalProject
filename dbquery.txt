@@ -83,7 +83,7 @@ create table musicboard_comment(
     CONSTRAINT FK_MUSICBOARD_COMMENT2 FOREIGN KEY(reply_no)
     REFERENCES musicboard_comment(comment_no),
     CONSTRAINT FK_MUSICBOARD_COMMENT3 FOREIGN KEY(article_no)
-    REFERENCES musicboard_article(article_no)
+    REFERENCES musicboard_article(article_no) ON DELETE CASCADE
 );
 
 create table my_music(
