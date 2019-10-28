@@ -16,6 +16,12 @@ public class PaymentServiceImpl implements PaymentService{
 	@Override
 	public int payConfirm(String userId) {		
 		int result =  pDao.insertPayment(userId);
+		if(result >0) {
+			pDao.updatePaymember(userId);
+		}else {
+			System.out.println("아직 무료회원");
+		}
+			
 		pDao.commit();
 		return result;
 	}
