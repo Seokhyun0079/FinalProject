@@ -14,8 +14,8 @@
 	<!-- /Preloader -->
 	<script>
 		window.onload = function () {
-		 alert("잘못된 접근입니다. 이전페이지로 돌아갑니다");
-		 history.go(-1);
+			 alert("페이지가 존재하지 않습니다. 이전페이지로 돌아갑니다");
+			 history.go(-1);
 		}
 	</script>
 	<!-- Preloader -->

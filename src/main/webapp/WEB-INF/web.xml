@@ -46,7 +46,7 @@
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	
 	<!-- error page -->
-    <error-page>
+   <!--  <error-page>
 	    <error-code>404</error-code>
 	    <location>/WEB-INF/views/common/error404.jsp</location>
 	</error-page>
@@ -54,6 +54,6 @@
 	<error-page>
 	    <error-code>500</error-code>
 	    <location>/WEB-INF/views/common/error500.jsp</location>
-	</error-page>
+	</error-page> -->
 
 </web-app>
