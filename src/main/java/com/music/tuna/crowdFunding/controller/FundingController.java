@@ -63,16 +63,13 @@ public class FundingController {
         return mv;
     }
 
-    @RequestMapping(value = "/fundingRead.do")
+    @RequestMapping(value = "/fundingRead.do", method = RequestMethod.GET)
     public ModelAndView getFundingDetail(ModelAndView mv, @RequestParam int fno) {
         Funding fvo = fundingService.selectFunding(fno);
+        System.out.println("[fcontroller] : "+fvo.toString());
 
         if(fvo!=null){
             mv.addObject("funding", fvo);
-            //바보코드
-            mv.addObject("percent", fvo.getPercent());
-            mv.addObject("dDay", fvo.getdDay());
-            //코드 낙제점
             mv.setViewName("crowdFunding/fundingDetail");
         }
         return mv;
@@ -108,7 +105,7 @@ public class FundingController {
         fvo.setRegDate(fvo.getEndDate());
         fvo.setFreward(gvo.getGoodsNo()+":"+gvo.getGoodsName());
 
-        String filePath = "C:\\FinalProject\\src\\main\\webapp\\resources\\editor\\photoUpload\\";
+        String filePath = request.getSession().getServletContext().getRealPath("/resources/editor/photoUpload/");
         String oldName = fuploadFile.getOriginalFilename();
 
         if(!fuploadFile.isEmpty()){
@@ -147,7 +144,7 @@ public class FundingController {
             String oldName = request.getHeader("file-name");
 
             // 파일 기본경로_상세경로
-            String filePath = "C:\\FinalProject\\src\\main\\webapp\\resources\\editor\\photoUpload\\";
+            String filePath = request.getSession().getServletContext().getRealPath("/resources/editor/photoUpload/");
             String saveName = sb.append(new SimpleDateFormat("yyyyMMddHHmmss")
                     .format(System.currentTimeMillis()))
                     .append(UUID.randomUUID().toString())
