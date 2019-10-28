@@ -350,7 +350,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
     
     <script>
-  		//UPLOAD MUSIC AJAX  	
+  		//-UPL_MUISC_LIST 	
   		$(function(){
 	    	$.ajax({
 	    		url: "/TunaMusic/musicBoard/article/myList.do",
@@ -366,17 +366,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	    						'<div class="audio-player"><div class="audioplayer"><audio preload="auto" controls="" style="width: 0px; height: 0px; visibility: hidden;">'+
 	                            '<source src=""></audio><div class="audioplayer-playpause" title=""><a href="/TunaMusic/musicBoard/article/read.do?articleNo='+data.result[i].articleNo+'"></a></div><div class="audioplayer-volume"><div class="audioplayer-volume-button" title=""></div><div class="audioplayer-volume-adjust"><div><div style="width: 100%;"></div></div></div></div></div></div>'+
 	    						'<div class="music-title"><h5>'+data.result[i].title+' - <span>'+data.result[i].nickName+'</span></h5>'+
-	    						'</div></div><div class="music-price"><div onclick="del()" style="cursor: pointer;" id="'+data.result[i].articleNo+'" class="remove-btn razo-btn">DELETE</a></div></div></li>');
+	    						'</div></div><div class="music-price"><div onclick="uplDel()" style="cursor: pointer;" id="'+data.result[i].articleNo+'" class="remove-btn razo-btn">DELETE</a></div></div></li>');
 	    			}
 	    		}	    	
 	    		});
 	    });
   		
-	  	//-UPLdelete
-		function del(){
+	  	//-UPL_MUISC_DELETE	
+		function uplDel(){
    			var articleNo = $(event.target).attr("id");
    			$.ajax({
-	            url : "/TunaMusic/myMusic/remove.do",
+	            url : "/TunaMusic/musicBoard/article/mydelete.do",
 	            type : "GET",
 	            data : {
 	                "articleNo" : articleNo
@@ -387,21 +387,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			
    		}
 	  	
-		//-UPLALLdelete
-		function Alldel(){
-   			$.ajax({
-	            url : "/TunaMusic/myMusic/deleteAll.do",
-	            type : "GET",
-	            data : {
-	            },
-	            success :
-	             	$("#myFavMusic").remove()
-	            })
-			
-   		}
-
-
-  		
   		//-FAV_MUISC_LIST
 	    $(function(){
 	    	$.ajax({
@@ -424,7 +409,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	    		});
 	    });
   		
-	  	//-FAVdelete
+	  	//-FAV_MUISC_DELETE
 		function del(){
    			var articleNo = $(event.target).attr("id");
    			$.ajax({
@@ -435,6 +420,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	            	},
 	            success :
 	             	$("#"+articleNo).parent().parent().remove() 
+	            })
+			
+   		}
+	  	
+		//-FAV_MUISC_DELETEALL
+		function Alldel(){
+   			$.ajax({
+	            url : "/TunaMusic/myMusic/deleteAll.do",
+	            type : "GET",
+	            data : {
+	            },
+	            success :
+	             	$("#myFavMusic").remove()
 	            })
 			
    		}
