@@ -34,6 +34,12 @@ public class PaymentController {
 	public String paypop() {
 		return "payment/paypop";
 	}
+		
+	@RequestMapping(value="/paymember.do", method=RequestMethod.GET)
+	public String paymember() {
+		return "payment/paymember";	
+	}
+	
 	
 	@RequestMapping(value="/paySucess.do")
 	public String paypopPost(HttpServletRequest request) {

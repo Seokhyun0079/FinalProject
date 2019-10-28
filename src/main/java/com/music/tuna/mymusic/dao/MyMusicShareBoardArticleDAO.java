@@ -1,5 +1,6 @@
 package com.music.tuna.mymusic.dao;
 
+import com.music.tuna.musicboard.vo.MusicBoardArticle;
 import com.music.tuna.mymusic.vo.MyMusicShareBoardArticle;
 import com.music.tuna.mymusic.vo.MyMusicShareBoardArticleListPage;
 import com.music.tuna.util.SqlSessionFactoryBean;
@@ -39,5 +40,27 @@ public class MyMusicShareBoardArticleDAO {
     public void getUpdateCount (MyMusicShareBoardArticle vo){ sqlSession.update("MyMusicShareBoardArticleDAO.updateReadCount", vo); }
     public void commit(){
         sqlSession.commit();
+    }
+
+    public void deleteArticle(MyMusicShareBoardArticle vo) {
+        sqlSession.delete("MyMusicShareBoardArticleDAO.deleteArticle", vo);
+    }
+
+    public void updateArticle(MyMusicShareBoardArticle vo) {
+        sqlSession.update("MyMusicShareBoardArticleDAO.updateArticle", vo);
+    }
+    public int getBest(MyMusicShareBoardArticle vo){
+        return sqlSession.selectOne("MyMusicShareBoardArticleDAO.getBest", vo);
+    }
+    public int getBad(MyMusicShareBoardArticle vo){
+        return sqlSession.selectOne("MyMusicShareBoardArticleDAO.getBad", vo);
+    }
+    public void updateBest(MyMusicShareBoardArticle vo){
+        vo.setBest(((int)sqlSession.selectOne("MyMusicShareBoardArticleDAO.getBest", vo))+1);
+        sqlSession.update("MyMusicShareBoardArticleDAO.updateBest", vo);
+    }
+    public void updateBad(MyMusicShareBoardArticle vo){
+        vo.setBad(((int)sqlSession.selectOne("MyMusicShareBoardArticleDAO.getBad", vo))+1);
+        sqlSession.update("MyMusicShareBoardArticleDAO.updateBad", vo);
     }
 }

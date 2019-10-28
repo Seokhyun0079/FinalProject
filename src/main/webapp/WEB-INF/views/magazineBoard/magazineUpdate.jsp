@@ -64,8 +64,8 @@
                                     </div>
               
                                        <div class="col-12" align="center"> 
-                                        <button type="submit" id="insertBoard" class="btn razo-btn btn-3 mt-15">수정완료</button> 
-                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="BACK" > 
+                                        <button type="submit" id="insertBoard" class="btn razo-btn btn-3 mt-15" style="font-size: medium;">Complete</button> &nbsp;&nbsp;
+                                        <input type="button" onclick="location.href='javascript:window.history.back()';" class="btn razo-btn btn-3 mt-15" value="Back" style="font-size: medium;"> 
                                     </div>
                                        
                                        

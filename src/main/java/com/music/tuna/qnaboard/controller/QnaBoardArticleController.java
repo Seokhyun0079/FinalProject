@@ -48,6 +48,7 @@ public class QnaBoardArticleController {
     public ModelAndView getArticle(ModelAndView mv, QnaBoardArticle vo, HttpSession httpSession){
     	
     	vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+    	vo.setGrade(((Member)httpSession.getAttribute("loginUser")).getGrade());
     	
         mv.setViewName("/qnaBoard/read");
         mv.addObject("article", qnaBoardArticleService.getArticle(vo));

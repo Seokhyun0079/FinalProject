@@ -14,6 +14,24 @@ public class MyMusicShareBoardArticle {
     private int prev;
     private int next;
     private int commentCount;
+    private String nickname;
+    private String profileIMG;
+
+    public String getProfileIMG() {
+        return profileIMG;
+    }
+
+    public void setProfileIMG(String profileIMG) {
+        this.profileIMG = profileIMG;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
     public int getCommentCount() {
         return commentCount;
