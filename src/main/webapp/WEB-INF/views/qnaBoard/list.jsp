@@ -221,6 +221,29 @@
                 </div>
             </div>
             </c:forEach>
+            
+            
+            
+            <c:forEach var ="article" items="${articlePage.noticePageContent}">
+            <div class="col-12 col-md-6 col-xl-3">
+                <div class="single-podcast-area mb-30 wow fadeInUp" data-wow-delay="100ms">
+                    <!-- Content -->
+                    <div class="podcast-content">
+                        <div class="podcast-meta">
+                        </div>
+                        <h5>${article.title}</h5>
+                        <div class="border-line"></div>
+                        <div class="play-download-btn d-flex align-items-center justify-content-between">
+                            <a href="/TunaMusic/qnaBoard/article/read.do?articleNo=${article.articleNo}" class="btn razo-btn btn-sm">playing now</a>
+                            <a href="/TunaMusic/resources/upload/${article.fileName}" class="music-download-btn" download></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </c:forEach>
+            
+            
+            
         </div>
         <div class="row">
             <div class="col-12">

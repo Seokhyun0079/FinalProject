@@ -26,7 +26,7 @@
     <select id="selectArticleCount" resultType="int">
         select count(*) from qnaBoard_article
     </select>
-<!--     <select id="selectArticleList" resultMap="articleResult">
+    <select id="selectAllArticleList" resultMap="articleResult">
         <![CDATA[
         select * from (
         select rownum as rnum, A.article_no, A.id, A.title, A.text, A.file_name
@@ -36,7 +36,7 @@
         order by article_no desc ) A where rownum <= #{end})
         B where B.rnum >= #{start}
         		]]>
-    </select> -->
+    </select>
     <select id="selectArticleList" resultMap="articleResult">
     	select * from qnaboard_article where id = #{id}
     </select>
@@ -53,6 +53,11 @@
         select nvl(min(article_no), 0) from(select * from qnaboard_article where article_no > #{articleNo})
         ]]>
     </select>
+    
+	<select id="selectNoticeArticleList" resultMap="articleResult">
+    	select * from qnaboard_article join (select id, grade from member where grade = 'A') using(id)
+    </select>
+    
     <update id="updateReadCount">
         update qnaBoard_article set read_count = #{readCount} where article_no = #{articleNo}
     </update>
