@@ -12,11 +12,11 @@ $(function(){
                         '                                 <div class="comment-content d-flex">\n' +
                         '                                    <!-- Comment Author -->\n' +
                         '                                    <div class="comment-author">\n' +
-                        '                                        <img src="/TunaMusic/resources/img/bg-img/15.jpg" alt="author">\n' +
+                        '                                        <img src="/TunaMusic/resources/uploadFiles/'+data.result.commentList[i].profileIMG+'" alt="author">\n' +
                         '                                    </div>\n' +
                         '                                    <!-- Comment Meta -->\n' +
                         '                                    <div class="comment-meta">\n' +
-                        '                                        <a href="#" class="author-name">'+data.result.commentList[i].id+'<span class="post-date">- May 14, 2018</span></a>\n' +
+                        '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+'<span class="post-date">- May 14, 2018</span></a>\n' +
                         '                                        <p>'+data.result.commentList[i].content+'</p>\n' +
                         '                                        <a href="#" class="like">Like</a>\n' +
                         '                                        <a href="#comment-list" id ="'+data.result.commentList[i].commentNo+'" class="reply">Reply</a>\n' +
@@ -29,11 +29,11 @@ $(function(){
                         '                                        <div class="comment-content d-flex">\n' +
                         '                                            <!-- Comment Author -->\n' +
                         '                                            <div class="comment-author">\n' +
-                        '                                                <img src="/TunaMusic/resources/img/bg-img/16.jpg" alt="author">\n' +
+                        '                                                <img src="/TunaMusic/resources/uploadFiles/'+data.result.commentList[i].profileIMG+'" alt="author">\n' +
                         '                                            </div>\n' +
                         '                                            <!-- Comment Meta -->\n' +
                         '                                            <div class="comment-meta">\n' +
-                        '                                        <a href="#" class="author-name">'+data.result.commentList[i].id+'<span class="post-date">- May 14, 2018</span></a>\n' +
+                        '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+'<span class="post-date">- May 14, 2018</span></a>\n' +
                         '                                        <p>'+data.result.commentList[i].content+'</p>\n' +
                         '                                        <a href="#" class="like">Like</a>\n' +
                         '                                        <a href="#message" id ="'+data.result.commentList[i].replyNo+'" class="reply">Reply</a>\n' +
@@ -66,11 +66,11 @@ $(function(){
                             '                                 <div class="comment-content d-flex">\n' +
                             '                                    <!-- Comment Author -->\n' +
                             '                                    <div class="comment-author">\n' +
-                            '                                        <img src="/TunaMusic/resources/img/bg-img/15.jpg" alt="author">\n' +
+                            '                                        <img src="/TunaMusic/resources/uploadFiles/'+data.result.commentList[i].profileIMG+'" alt="author">\n' +
                             '                                    </div>\n' +
                             '                                    <!-- Comment Meta -->\n' +
                             '                                    <div class="comment-meta">\n' +
-                            '                                        <a href="#" class="author-name">'+data.result.commentList[i].id+'<span class="post-date">- May 14, 2018</span></a>\n' +
+                            '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+'<span class="post-date">- May 14, 2018</span></a>\n' +
                             '                                        <p>'+data.result.commentList[i].content+'</p>\n' +
                             '                                        <a href="#" class="like">Like</a>\n' +
                             '                                        <a href="#message" id ="'+data.result.commentList[i].commentNo+'" class="reply">Reply</a>\n' +
@@ -83,11 +83,11 @@ $(function(){
                             '                                        <div class="comment-content d-flex">\n' +
                             '                                            <!-- Comment Author -->\n' +
                             '                                            <div class="comment-author">\n' +
-                            '                                                <img src="/TunaMusic/resources/img/bg-img/16.jpg" alt="author">\n' +
+                            '                                                <img src="/TunaMusic/resources/uploadFiles/'+data.result.commentList[i].profileIMG+'" alt="author">\n' +
                             '                                            </div>\n' +
                             '                                            <!-- Comment Meta -->\n' +
                             '                                            <div class="comment-meta">\n' +
-                            '                                        <a href="#" class="author-name">'+data.result.commentList[i].id+'<span class="post-date">- May 14, 2018</span></a>\n' +
+                            '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+'<span class="post-date">- May 14, 2018</span></a>\n' +
                             '                                        <p>'+data.result.commentList[i].content+'</p>\n' +
                             '                                        <a href="#" class="like">Like</a>\n' +
                             '                                        <a href="#message" id ="'+data.result.commentList[i].replyNo+'" class="reply">Reply</a>\n' +

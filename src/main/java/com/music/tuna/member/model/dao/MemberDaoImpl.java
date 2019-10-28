@@ -78,7 +78,9 @@ public class MemberDaoImpl implements MemberDao{
 	}
 	@Override
 	public int updateMember(Member m) {
-		return sqlSession.update("member.updateMember",m);
+		int result = sqlSession.update("member.updateMember",m);
+		sqlSession.commit();
+		return  result;
 	}
 	@Override
 	public int deleteMember(String userId) {

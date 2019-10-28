@@ -6,7 +6,24 @@ public class MusicBoardComment {
     private int commentNo;
     private int replyNo;
     private String content;
+    private String nickname;
+    private String profileIMG;
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getProfileIMG() {
+        return profileIMG;
+    }
+
+    public void setProfileIMG(String profileIMG) {
+        this.profileIMG = profileIMG;
+    }
 
     public int getArticleNo() {
         return articleNo;
