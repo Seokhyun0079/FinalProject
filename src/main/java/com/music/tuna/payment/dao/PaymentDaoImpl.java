@@ -21,12 +21,16 @@ public class PaymentDaoImpl implements PaymentDao{
 		return sqlSession.insert("payment.insertPayment", userId);
 	}
 
+	
+	// 결제하면 유료회원으로 업데이트
+	@Override
+	public int updatePaymember(String userId) {
+		return sqlSession.update("payment.updatePaymember",userId);
+	}
 	@Override
 	public void commit() {
-		// TODO Auto-generated method stub
 		sqlSession.commit();
 		System.out.println("sql문 커밋 된다");
-		
 	}
 
 	/**
