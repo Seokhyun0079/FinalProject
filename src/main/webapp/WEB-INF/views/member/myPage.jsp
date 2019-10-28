@@ -364,7 +364,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	    						'<div class="sl-number"><h5>●</h5></div><div class="music-thumb">'+
 	    						'<img src="/TunaMusic/resources/albumImageUpload/'+data.result[i].albumFile+'" alt=""></div>'+
 	    						'<div class="audio-player"><div class="audioplayer"><audio preload="auto" controls="" style="width: 0px; height: 0px; visibility: hidden;">'+
-	                            '<source src=""></audio><div class="audioplayer-playpause" title=""><a href="/TunaMusic/musicBoard/article/read.do?articleNo='+data.result[i].articleNo+'"></a></div><div class="audioplayer-bar"><div class="audioplayer-bar-loaded"></div><div class="audioplayer-bar-played"></div></div><div class="audioplayer-time audioplayer-time-duration">…</div><div class="audioplayer-volume"><div class="audioplayer-volume-button" title=""><a href="#"></a></div><div class="audioplayer-volume-adjust"><div><div style="width: 100%;"></div></div></div></div></div></div>'+
+	                            '<source src=""></audio><div class="audioplayer-playpause" title=""><a href="/TunaMusic/musicBoard/article/read.do?articleNo='+data.result[i].articleNo+'"></a></div><div class="audioplayer-volume"><div class="audioplayer-volume-button" title=""></div><div class="audioplayer-volume-adjust"><div><div style="width: 100%;"></div></div></div></div></div></div>'+
 	    						'<div class="music-title"><h5>'+data.result[i].title+' - <span>'+data.result[i].nickName+'</span></h5>'+
 	    						'</div></div><div class="music-price"><div onclick="del()" style="cursor: pointer;" id="'+data.result[i].articleNo+'" class="remove-btn razo-btn">DELETE</a></div></div></li>');
 	    			}
