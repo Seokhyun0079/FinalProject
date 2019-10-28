@@ -22,10 +22,17 @@ public class ChartController {
 //	}
 	
 	@RequestMapping(value="/chartView.do")
-	public ModelAndView getRealTime(ModelAndView mv) {
+	public ModelAndView getRealTime(ModelAndView mv, Chart chart) {
+		chart.setChartMax(10);
 		mv.setViewName("chart/chart");
-		mv.addObject("articleList", chartService.selectRealTime());
+		mv.addObject("articleList", chartService.selectRealTime(chart));
+		
 		return mv;
+	}
+	
+	@RequestMapping(value="/chartOne.do")
+	public void getChartOne() {
+		
 	}
 	
 }

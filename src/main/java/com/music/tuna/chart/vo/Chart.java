@@ -8,6 +8,7 @@ public class Chart {
 	private int articleNo;
 	private int readCount;
 	private int rc;
+	private int chartMax;
 	private String id;
 	private String title;
 	private String text;
@@ -54,11 +55,20 @@ public class Chart {
 		this.text = text;
 	}
 	
+	public int getChartMax() {
+		return chartMax;
+	}
+	public void setChartMax(int chartMax) {
+		this.chartMax = chartMax;
+	}
+	
 	@Override
 	public String toString() {
 		return "Chart [articleDate=" + articleDate + ", articleNo=" + articleNo + ", readCount=" + readCount + ", rc="
-				+ rc + ", id=" + id + ", title=" + title + ", text=" + text + "]";
+				+ rc + ", chartMax=" + chartMax + ", id=" + id + ", title=" + title + ", text=" + text + "]";
 	}
+	
+	
 	
 	
 }
