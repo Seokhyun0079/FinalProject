@@ -113,6 +113,12 @@
 	<u:isLogin>
     <script src="/TunaMusic/resources/js/mylist.js"></script>
 	</u:isLogin>
+	<script>
+		//massage
+		var message = '${Msg}';
+		if(message != "")
+		alert(message);
+	</script>
 
 
 </body>
