@@ -9,6 +9,25 @@ public class MusicBoardArticle {
     private String fileName;
     private String albumFile;
     private String text;
+    private String nickname;
+    private String profileIMG;
+
+    public String getProfileIMG() {
+        return profileIMG;
+    }
+
+    public void setProfileIMG(String profileIMG) {
+        this.profileIMG = profileIMG;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     //조인을 통해 연결한 값
     private int readCount;
     //실제론 테이블에 들어가지 않는 값들
@@ -22,8 +41,11 @@ public class MusicBoardArticle {
     private int next;
     private int best;
     private int bad;
+    private String nickName;
 
-    public MultipartFile getAlbumUploadFile() {
+   
+
+	public MultipartFile getAlbumUploadFile() {
         return albumUploadFile;
     }
 
@@ -158,6 +180,14 @@ public class MusicBoardArticle {
     public void setPage(int page) {
         this.page = page;
     }
+    
+    public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 
     @Override
     public String toString() {

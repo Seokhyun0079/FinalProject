@@ -13,6 +13,8 @@
         <result column="comment_count" property="commentCount"/>
         <result column="best" property="best"/>
         <result column="bad" property="bad"/>
+        <result column="nickname" property="nickname"/>
+        <result column="profileimg" property="profileIMG"/>
     </resultMap>
     <insert id="insertArticle">
     insert into musicboard_article(article_no, id, title, text, file_name, album_file, read_count, best, bad)
@@ -24,7 +26,9 @@
 		]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
-        select musicboard_article.*, (select count(*) from musicboard_comment where musicboard_comment.article_no= #{articleNo}) as comment_count from musicboard_article where article_no = #{articleNo}
+      select id, title, nickname, article_no, text, file_name, bad, best, profileimg, album_file, (select count(*) from musicboard_comment where musicboard_comment.article_no= #{articleNo}) as comment_count
+      from musicboard_article  join (select id, nickname, profileimg  from member) using (id)
+      where article_no = #{articleNo}
     </select>
     <select id="selectArticleCount" resultType="int">
         select count(*) from musicBoard_article
@@ -41,7 +45,7 @@
         		]]>
     </select>
     <select id="getReadCount" resultType="int" >
-        select read_count from musicboard_article where article_no = #{articleNo}
+        select read_count from  musicboard_article  where article_no = #{articleNo}
     </select>
     <select id="getPrevArticleNo" resultType="int">
         <![CDATA[
@@ -69,6 +73,12 @@
         update musicboard_article set bad = #{bad} where article_no =#{articleNo}
     </update>
     <select id = "selectMyWrittenList" resultMap="articleResult">
-        select * from musicBoard_article where id = #{id}
+        select * from musicBoard_article join member using(id) where id = #{id}
     </select>
+    <delete id="deleteArticle">
+        delete from musicboard_article where article_no = ${articleNo}
+    </delete>
+    <update id="updateArticle">
+        update musicBoard_article set title = #{title} , text = #{text} , file_name = #{fileName} , album_file = #{albumFile} where article_no = #{articleNo}
+    </update>
 </mapper>

@@ -1,5 +1,6 @@
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,31 +33,12 @@
     </div>
 </div>
 <!-- /Preloader -->
-
-<!-- Top Search Area Start -->
-<div class="top-search-area">
-    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <!-- Close Button -->
-                    <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
-                    <!-- Form -->
-                    <form action="index.jsp" method="post">
-                        <input type="search" name="top-search-bar" class="form-control" placeholder="Type keywords and hit enter...">
-                        <button type="submit">Search</button>
-                    </form>
-                    <!-- Search Button -->
-                    <div class="search-btn"><i class="icon_search"></i></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Top Search Area End -->
+<!-- Top Login Area Start -->
+<%@ include file="/WEB-INF/views/common/iconmodal.jsp"%>
+<!-- Top Login Area End -->
 
 <!-- Social Share Area Start -->
-<%@ include file="/WEB-INF/views/common/mylist.jsp" %>
+<%@ include file="/WEB-INF/views/common/mylist.jsp"%>
 <!-- Social Share Area End -->
 
 <!-- Header Area Start -->
@@ -69,7 +51,7 @@
                 <nav class="classy-navbar justify-content-between" id="razoNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="index.jsp"><img src="/TunaMusic/resources/img/core-img/logo.png" alt=""></a>
+                    <a class="nav-brand" href="/TunaMusic/"><img src="/TunaMusic/resources/img/core-img/logo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -86,79 +68,56 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul id="nav">
-                                <li><a href="./index.jsp">Home</a></li>
+                                <li><a href="/TunaMusic">Home</a></li>
                                 <li><a href="#">Pages</a>
                                     <ul class="dropdown">
-                                        <li><a href="./index.jsp">- Home</a></li>
-                                        <li><a href="./charts.html">- Charts</a></li>
-                                        <li><a href="./single-charts.html">- Charts Details</a></li>
-                                        <li><a href="./podcast.html">- Podcast</a></li>
-                                        <li><a href="./single-podcast.html">- Podcast Details</a></li>
-                                        <li><a href="./show.html">- Show</a></li>
-                                        <li><a href="./events.html">- Event</a></li>
-                                        <li><a href="./blog.html">- Blog</a></li>
-                                        <li><a href="./single-blog.html">- Blog Details</a></li>
-                                        <li><a href="#">- Dropdown</a>
+                                        <li><a href="/TunaMusic/">- Home</a></li>
+                                        <li><a href="/TunaMusic/chart/chartView.do">- Charts</a></li>
+                                        <li><a href="/TunaMusic/musicBoard/article/list.do">-MusicBoard</a>
                                             <ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                            </ul>
-                                        </li>
+                                                <li><a href="/TunaMusic/musicBoard/article/list.do">- list</a></li>
+                                                <li><a href="/TunaMusic/musicBoard/article/write.do">- write</a></li>
+                                            </ul></li>
+                                        <li><a href="/TunaMusic/myMusicShareBoard/article/list.do">-My Music Share Board</a>
+                                            <ul class="dropdown">
+                                                <li><a href="/TunaMusic/myMusicShareBoard/article/list.do">- list</a></li>
+                                                <li><a href="/TunaMusic/myMusicShareBoard/article/write.do">- write</a></li>
+                                            </ul></li>
                                     </ul>
                                 </li>
-                                <li><a href="./show.html">Shows</a></li>
-                                <li><a href="./charts.html">Charts</a></li>
-                                <li><a href="./podcast.html">Podcasts</a></li>
-                                <li><a href="#">Mega</a>
-                                    <div class="megamenu">
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="./index.jsp">- Home</a></li>
-                                            <li><a href="./charts.html">- Charts</a></li>
-                                            <li><a href="./single-charts.html">- Charts Details</a></li>
-                                            <li><a href="./podcast.html">- Podcast</a></li>
-                                            <li><a href="./single-podcast.html">- Podcast Details</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="./show.html">- Show</a></li>
-                                            <li><a href="./events.html">- Event</a></li>
-                                            <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Blog Details</a></li>
-                                            <li><a href="./index.jsp">- Home</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="./charts.html">- Charts</a></li>
-                                            <li><a href="./single-charts.html">- Charts Details</a></li>
-                                            <li><a href="./podcast.html">- Podcast</a></li>
-                                            <li><a href="./single-podcast.html">- Podcast Details</a></li>
-                                            <li><a href="./show.html">- Show</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="./show.html">- Show</a></li>
-                                            <li><a href="./events.html">- Event</a></li>
-                                            <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Blog Details</a></li>
-                                            <li><a href="./index.jsp">- Home</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a href="./events.html">Events</a></li>
-                                <li><a href="./blog.html">Blog</a></li>
+                                <li><a href="/TunaMusic/chart/chartView.do">Charts</a></li>
+                                <li><a href="/TunaMusic/musicBoard/article/list.do">MusicBoard</a></li>
+                                <li><a href="/TunaMusic/myMusicShareBoard/article/list.do">My Music Share Board</a></li>
+                                <li><a href="/TunaMusic/magazine.do">Magazine</a></li>
                             </ul>
-
-                            <!-- Share Icon -->
-                            <div id="list-button" class="social-share-icon">
-                                <i class="social_share"></i>
-                            </div>
-
-                            <!-- Search Icon -->
-                            <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                            <i class="icon_search"></i>
-                        </div>
                             <div class="search-icon" >
                                 <i id ="add-my-music" class="">+</i>
                             </div>
+                            <!-- Share Icon -->
+                            <div id="list-button" class="social-share-icon">
+                                <i class="fa fa-music"></i>
+                            </div>
+                            <!-- Login Icon -->
+                            <c:choose>
+                                <c:when test="${empty loginUser }">
+                                    <div class="search-icon" data-toggle="modal" data-target="#loginModal">
+                                        <i class="fa fa-sign-in"></i>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="search-icon" id="user-icon" style="cursor:pointer;">
+                                        <ul>
+                                            <li><i class="fa fa-user"></i>
+                                                <ul>
+                                                    <li><a href="/TunaMusic/member/mypage.do">&nbsp&nbspMY PAGE</a></li><br>
+                                                    <li><a href="/TunaMusic/member/edit.do">&nbsp&nbspEDIT</a></li><br>
+                                                    <li><a href="/TunaMusic/member/logout.do">&nbsp&nbspLOG-OUT</a></li><br>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                         <!-- Nav End -->
                     </div>
@@ -167,10 +126,10 @@
         </div>
     </div>
 </header>
+<!-- Main Header Start -->
 <!-- Header Area End -->
-
 <!-- Podcast Thumbnail Area Start -->
-<section class="podcast-hero-area section-padding-80 bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/albumImageUpload/${article.albumFile});">
+<section class="podcast-hero-area section-padding-80 bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/11.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -181,7 +140,7 @@
                             <a href="#" class="event-date"><i class="icon_calendar"></i> ${article.id}</a>
                         </div>
                     </div>
-                    <a href="#" class="pt-5 pt-md-0 pl-md-5"><img src="/TunaMusic/resources/img/core-img/itunes.png" alt=""></a>
+                    <a href="#" class="pt-5 pt-md-0 pl-md-5"><img src="/TunaMusic/resources/albumImageUpload/${article.albumFile}" alt=""></a>
                 </div>
             </div>
         </div>
@@ -215,8 +174,8 @@
                     <!-- Post Share -->
                     <div class="razo-author-avatar">
                         <a href="/TunaMusic/letter/write.do?id=${article.id}" onclick="window.open(this.href, '_blanck', 'width=600, height=800'); return false">
-                            <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
-                            <h6>${article.id}</h6>
+                            <img src="/TunaMusic/resources/uploadFiles/${article.profileIMG}" alt="">
+                            <h6>${article.nickname}</h6>
                         </a>
                     </div>
                 </div>
@@ -228,6 +187,14 @@
                         <div style=" display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px; "><h5 style="background-color: black; color : white;">Best</h5><br><h5 id="best">${article.best}</h5></div>
                         <div  style="display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px;"><h5 style="background-color: black; color : white;">Bad</h5><br><h5 id="bad">${article.bad}</h5></div><br><br>
                         <div><h5 id="myMusicCount" style="display: inline"></h5> 명이 마이리스트에 넣은 곡입니다.</div>
+                        <c:set var="id" value="${article.id}" />
+                        <c:if test="${loginUser.userId eq id }">
+                            <div>
+                                <br><br>
+                                <a href="/TunaMusic/musicBoard/article/edit.do?articleNo=${article.articleNo}" style="color:white;" class="btn razo-btn btn-3 mt-15">Edit</a>
+                                <a href="/TunaMusic/musicBoard/article/remove.do?articleNo=${article.articleNo}" style="color:white;" class="btn razo-btn btn-3 mt-15">Delete</a>
+                            </div>
+                        </c:if>
                     </div>
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
                         <div class="prev-pager">
