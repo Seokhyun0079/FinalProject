@@ -1,8 +1,3 @@
-/*//massage
-var message = '${Msg}';
-		if(message != "")
-		alert(message);*/
-
 //email 유효성 검사
 $("#email1").blur(function() {
 	var email1 = $("#email1").val();
