@@ -216,10 +216,15 @@
                         	</c:when>
                         	
                         </c:choose>
-                        <div class="app-download-btn">
-                            <a href="#" onclick="fnMove('my-music')" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms">MY MUSIC</a>
-                            <a href="#" onclick="fnMove('fav-music')" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms">FAVORITE MUSIC</a>
-                            <a href="#" onclick="fnMove('my-writing')" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms">MY WIRTING</a>
+                        <div class="app-download-btn" style="width: 400px; height: 100px;">
+                        	<div style="margin-bottom: 4px;">
+	                            <span style="width: 150px" onclick="fnMove('my-music')" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms">MY MUSIC</span>
+	                            <span style="width: 150px; padding-left: 20px;" onclick="fnMove('fav-music')" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms">FAVORITE MUSIC</span>
+                        	</div>
+                        	<div>
+	                            <span style="width: 150px" onclick="fnMove('my-funding')" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms">MY FUNDING</span>
+	                            <span style="width: 150px" onclick="fnMove('paylist')" class="btn razo-btn btn-2" data-animation="fadeInUpBig" data-delay="700ms">PAYLIST</span>
+                        	</div>
                         </div>
                     </div>
                 </div>
@@ -273,11 +278,45 @@
     </section>
     <!-- 선호 뮤직 END -->
 
-    <!-- 내가 쓴 글 -->
-    <section class="razo-music-charts-area section-padding-80" id="my-writing">
-        
+    <!-- 내가 올린 펀딩 -->
+    <section class="razo-music-charts-area section-padding-80" id="my-funding">
+        <div class="container">
+                <div class="row">
+                    <!-- Section Heading -->
+                    <div class="col-sm-6">
+                        <div class="#section-heading" style="padding-left: 5%">
+                            <h2>MY FUNDING</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                <ul class="lists" id = "myFunding">
+                    
+                </ul>
+                </div>
+        </div>
     </section>
-    <!-- 내가 쓴 글 END -->
+    <!-- 내가 올린 펀딩 END -->
+ 
+    <!-- 결제 내역 -->
+    <section class="razo-music-charts-area section-padding-80" id="paylist">
+        <div class="container">
+                <div class="row">
+                    <!-- Section Heading -->
+                    <div class="col-sm-6">
+                        <div class="#section-heading" style="padding-left: 5%">
+                            <h2>PAY LIST</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                <ul class="lists" id = "payList">
+                    
+                </ul>
+                </div>
+        </div>
+    </section>
+    <!-- 결제 내역 END -->
         
         <!-- Copywrite Text -->
         <div class="copywrite-area">
