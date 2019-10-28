@@ -15,7 +15,7 @@
     </resultMap>
     <insert id="insertArticle">
     insert into qnaboard_article
-    values(qb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, #{date}, 0)
+    values(qb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, 0, SYSDATE)
   </insert>
     <select id="lastInsertedArticle"  resultType="int">
         <![CDATA[
@@ -23,13 +23,16 @@
 		]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
-        select qnaboard_article.*, (select count(*) from qnaboard_comment where qnaboard_comment.article_no= #{articleNo}) as comment_count from qnaboard_article where article_no = #{articleNo} and id = #{id}
+    select qnaboard_article.*, (select count(*) from qnaboard_comment where qnaboard_comment.article_no= #{articleNo}) as comment_count 
+	from qnaboard_article
+	where article_no = #{articleNo} and (id= #{id} or 'A' = #{grade} or 'B' = #{grade} or 'C' = #{grade})
+        <!-- select qnaboard_article.*, (select count(*) from qnaboard_comment where qnaboard_comment.article_no= #{articleNo}) as comment_count from qnaboard_article where article_no = #{articleNo} and id = #{id} -->
     </select>
     <select id="selectArticleCount" resultType="int">
         select count(*) from qnaBoard_article
     </select>
     <select id="selectAllArticleList" resultMap="articleResult">
-		select * from qnaboard_article join (select id, grade from member where grade = 'B' or grade = 'C') using(id)
+ 		select * from qnaboard_article join (select id, grade from member where grade = 'B' or grade = 'C') using(id)
     </select>    
     <select id="selectArticleList" resultMap="articleResult">
     	select * from qnaboard_article where id = #{id}
