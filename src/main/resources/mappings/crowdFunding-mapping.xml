@@ -87,5 +87,39 @@
         select * from (select * from goods order by gno desc) where ROWNUM<=1
         ]]>
     </select>
+    <select id="getHotList" resultMap="fundingResult">
+        <![CDATA[
+        select * from (
+        select rownum as rnum, A.fno, A.id, A.ftitle, A.freward, A.fcontent, A.fcreator, A.fcreatorInfo, A.fbacker, A.fgoal, A.famount, A.regDate, A.endDate, A.fileName
+        from (select * from funding where (famount/fgoal)*100 > 100) A
+        where rownum <= #{end}) B
+        where B.rnum >= #{start}
+        ]]>
+    </select>
+    <select id="getNewList" resultMap="fundingResult">
+        <![CDATA[
+        select * from (
+        select rownum as rnum, A.fno, A.id, A.ftitle, A.freward, A.fcontent, A.fcreator, A.fcreatorInfo, A.fbacker, A.fgoal, A.famount, A.regDate, A.endDate, A.fileName
+        from (select * from funding where (sysdate - regdate)<=7) A
+        where rownum <= #{end}) B
+        where B.rnum >= #{start}
+        ]]>
+    </select>
+    <select id="getAlmostList" resultMap="fundingResult">
+        <![CDATA[
+        select * from (
+        select rownum as rnum, A.fno, A.id, A.ftitle, A.freward, A.fcontent, A.fcreator, A.fcreatorInfo, A.fbacker, A.fgoal, A.famount, A.regDate, A.endDate, A.fileName
+        from (select * from funding where (famount/fgoal)*100 > 80 AND (famount/fgoal)*100 < 100) A
+        where rownum <= #{end}) B
+        where B.rnum >= #{start}
+        ]]>
+    </select>
+    <update id="modifyFunding" parameterType="funding">
+        update funding
+        set ftitle = #{ftitle}, fcontent = #{fcontent}, fcreator = #{fcreator}, fcreatorInfo = #{fcreatorInfo}, fgoal = #{fgoal}, endDate = #{endDate}
+    </update>
+    <select id="myFundingList" resultMap="fundingResult">
+        select * from funding where id = {#userId}
+    </select>
 
 </mapper>

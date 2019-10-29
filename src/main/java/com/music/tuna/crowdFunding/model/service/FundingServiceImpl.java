@@ -2,6 +2,7 @@ package com.music.tuna.crowdFunding.model.service;
 
 import com.music.tuna.crowdFunding.model.dao.FundingDAO;
 import com.music.tuna.crowdFunding.model.vo.Funding;
+import com.music.tuna.crowdFunding.model.vo.FundingList;
 import com.music.tuna.payment.vo.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,15 +29,15 @@ public class FundingServiceImpl implements FundingService {
     }
 
     @Override
-    public ArrayList<Funding> selectHotList() {
+    public List<Funding> selectHotList() {
         return fundingDAO.selectHotList();
     }
     @Override
-    public ArrayList<Funding> selectNewList() {
+    public List<Funding> selectNewList() {
         return fundingDAO.selectNewList();
     }
     @Override
-    public ArrayList<Funding> selectAlmostList() {
+    public List<Funding> selectAlmostList() {
         return fundingDAO.selectAlmostList();
     }
 
@@ -64,6 +65,28 @@ public class FundingServiceImpl implements FundingService {
     public Goods lastInsertedGoods() {
         Goods goods = fundingDAO.lastInsertedGoods();
         return goods;
+    }
+
+    @Override
+    public List<Funding> getHotList(FundingList lvo) {
+        return fundingDAO.getHotList(lvo);
+    }
+
+    @Override
+    public List<Funding> getNewList(FundingList lvo) {
+        return fundingDAO.getNewList(lvo);
+    }
+
+    @Override
+    public List<Funding> getAlmostList(FundingList lvo) {
+        return fundingDAO.getAlmostList(lvo);
+    }
+
+    @Override
+    public int modifyFunding(Funding fd) {
+        int result = fundingDAO.modifyFunding(fd);
+        fundingDAO.commit();
+        return result;
     }
 
 
