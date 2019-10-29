@@ -20,8 +20,8 @@ public class ChartDao {
 		return sqlSession.selectOne("ChartDao.selectById", vo);
 	}
 	
-	public List<Chart> selectRealTime() {
-		return sqlSession.selectList("ChartDao.selectRealTime");
+	public List<Chart> selectRealTime(Chart chart) {
+		return sqlSession.selectList("ChartDao.selectRealTime", chart);
 	}
 	
 	public void insertChart(Chart vo) {

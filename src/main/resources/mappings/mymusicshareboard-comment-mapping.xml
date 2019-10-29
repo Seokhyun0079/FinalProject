@@ -7,13 +7,15 @@
         <result column="article_no" property="articleNo"/>
         <result column="reply_no" property="replyNo"/>
         <result column="content" property="content"/>
+        <result column="nickname" property="nickname"/>
+        <result column="profileimg" property="profileIMG"/>
     </resultMap>
     <insert id="insertComment">
         <if test="replyNo!=0"> insert into myMusicShareBoard_comment values(msbc_seq.nextval, #{articleNo}, #{id}, #{replyNo}, #{content})</if>
         <if test="replyNo==0">insert into myMusicShareBoard_comment values(msbc_seq.nextval, #{articleNo}, #{id}, null, #{content})</if>
     </insert>
     <select id="selectList" resultMap="commentResult">
-        select * from myMusicShareBoard_comment where article_no = #{articleNo}
+        select * from mymusicshareboard_comment  join (select id, nickname, profileimg  from member) using (id) where article_no = #{articleNo}
     </select>
 
 </mapper>

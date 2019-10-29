@@ -9,11 +9,13 @@
         <result column="text" property="text"/>
         <result column="file_name" property="fileName"/>
         <result column="read_count" property="readCount"/>
+        <result column="article_date" property="date"/>
         <result column="comment_count" property="commentCount"/>
+
     </resultMap>
     <insert id="insertArticle">
     insert into qnaboard_article
-    values(qb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, 0)
+    values(qb_article_seq.nextval, #{id}, #{title}, #{text}, #{fileName}, 0, SYSDATE)
   </insert>
     <select id="lastInsertedArticle"  resultType="int">
         <![CDATA[
@@ -21,22 +23,17 @@
 		]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
-        select qnaboard_article.*, (select count(*) from qnaboard_comment where qnaboard_comment.article_no= #{articleNo}) as comment_count from qnaboard_article where article_no = #{articleNo} and id = #{id}
+    select qnaboard_article.*, (select count(*) from qnaboard_comment where qnaboard_comment.article_no= #{articleNo}) as comment_count 
+	from qnaboard_article
+	where article_no = #{articleNo} and (id= #{id} or 'A' = #{grade} or 'B' = #{grade} or 'C' = #{grade})
+        <!-- select qnaboard_article.*, (select count(*) from qnaboard_comment where qnaboard_comment.article_no= #{articleNo}) as comment_count from qnaboard_article where article_no = #{articleNo} and id = #{id} -->
     </select>
     <select id="selectArticleCount" resultType="int">
         select count(*) from qnaBoard_article
     </select>
-<!--     <select id="selectArticleList" resultMap="articleResult">
-        <![CDATA[
-        select * from (
-        select rownum as rnum, A.article_no, A.id, A.title, A.text, A.file_name
-        from (
-        select article_no, id, title, text, file_name
-        from qnaboard_article
-        order by article_no desc ) A where rownum <= #{end})
-        B where B.rnum >= #{start}
-        		]]>
-    </select> -->
+    <select id="selectAllArticleList" resultMap="articleResult">
+ 		select * from qnaboard_article join (select id, grade from member where grade = 'B' or grade = 'C') using(id)
+    </select>    
     <select id="selectArticleList" resultMap="articleResult">
     	select * from qnaboard_article where id = #{id}
     </select>
@@ -53,6 +50,11 @@
         select nvl(min(article_no), 0) from(select * from qnaboard_article where article_no > #{articleNo})
         ]]>
     </select>
+    
+	<select id="selectNoticeArticleList" resultMap="articleResult">
+    	select * from qnaboard_article join (select id, grade from member where grade = 'A') using(id)
+    </select>
+    
     <update id="updateReadCount">
         update qnaBoard_article set read_count = #{readCount} where article_no = #{articleNo}
     </update>

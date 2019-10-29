@@ -8,13 +8,12 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<bean id ="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="-1"></property>
-        <property name="maxInMemorySize" value="-1"></property>
 	</bean>
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-		<property name="prefix" value="/WEB-INF/views/"/>
-		<property name="suffix" value=".jsp"/>
-	</bean>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+ 	</bean>
 	
 
 	<!-- logincheck -->
@@ -26,6 +25,16 @@
 			<ref bean="loginInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
+	
+	<!-- gradecheck -->
+<!-- 	<bean id="gradeCheckInterceptor" class="com.music.tuna.common.gradeCheckInterceptor"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/member/mypage.do"/>
+			<mvc:mapping path="/member/edit.do"/>
+			<ref bean="gradeCheckInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
 	
 	<!-- gmail -->
     <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >

@@ -22,8 +22,38 @@
         <result column="gname" property="goodsName"/>
         <result column="gprice" property="goodsPrice"/>
     </resultMap>
+    <select id="getHotListCount" resultType="_int">
+        <![CDATA[
+        select count(*) from (select * from funding where (famount/fgoal)*100 > 100)
+        ]]>
+    </select>
+    <select id="getNewListCount" resultType="_int">
+        <![CDATA[
+        select count(*) from (select * from funding where(sysdate - regdate)<=7)
+        ]]>
+    </select>
+    <select id="getAlmostListCount" resultType="_int">
+        <![CDATA[
+        select count(*) from (select * from funding where (famount/fgoal)*100 > 80 AND (famount/fgoal)*100 < 100)
+        ]]>
+    </select>
     <select id="selectFunding" parameterType="_int" resultMap="fundingResult">
         select * from funding where fno = #{fno}
+    </select>
+    <select id="selectHotList" resultMap="fundingResult">
+        <![CDATA[
+        select * from (select * from funding where (famount/fgoal)*100 > 100 order by(famount/fgoal)) where ROWNUM<=4
+        ]]>
+    </select>
+    <select id="selectNewList" resultMap="fundingResult">
+        <![CDATA[
+        select * from (select * from funding where(sysdate - regdate)<=7 order by (sysdate - regdate)) where ROWNUM<=4
+        ]]>
+    </select>
+    <select id="selectAlmostList" resultMap="fundingResult">
+        <![CDATA[
+        select * from (select * from funding where (famount/fgoal)*100 > 80 AND (famount/fgoal)*100 < 100 order by(famount/fgoal)) where ROWNUM<=4
+        ]]>
     </select>
     <insert id="insertFunding" parameterType="funding">
         insert into funding

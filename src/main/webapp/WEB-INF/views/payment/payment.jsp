@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,19 +10,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Razo - Radio HTML Template | Podcast Details</title>
+    <title>TUNA MUSIC | Payment</title>
+
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/TunaMusic/resources/style.css">
+    
+    <!-- All JS Files -->
+
+    <!-- jQuery -->
+	<script src="/TunaMusic/resources/js/jquery.min.js"></script>
+	<!-- Popper -->
+	<script src="/TunaMusic/resources/js/popper.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
+	<!-- All Plugins -->
+	<script src="/TunaMusic/resources/js/razo.bundle.js"></script>
+	<!-- Active -->
+	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+	<script src="/TunaMusic/resources/js/comment.js"></script>
+    
 
 </head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -29,7 +42,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Razo - Radio HTML Template | Podcast</title>
+    <title>TUNA MUSIC | Payment</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
@@ -199,8 +212,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="event-search-content">
-                        <h5 style="text-align: center">TuNa Music Membership 이란?</h5>
-                        <h6 style="text-align: center">TuNa Music Membership은 온라인과 오프라인에서 무제한 듣기가 가능한 이용권입니다.<br>
+                        <h5 style="text-align: center">Tuna Music Membership 이란?</h5>
+                        <h6 style="text-align: center">Tuna Music Membership은 온라인과 오프라인에서 무제한 듣기가 가능한 이용권입니다.<br>
                         오프라인 파일의 저장 및 재생은 인증된 모바일 디바이스 1대에서 가능하며, <br>오프라인 재생 기능을 통해 데이터 연결 없이 음악을 감상할 수 있습니다.    
                         </h6>
                         <br>
@@ -220,7 +233,7 @@
                 <!-- Single Razo Event Area -->
                 <div class="col-12">
                     <h5 style="color: #DC2878"> 
-                    <img src="/TunaMusic/resources/img/core-img/fish.png" width="50" height="50">&nbsp;&nbsp;TuNa Music 이용권</h5>
+                    <img src="/TunaMusic/resources/img/core-img/fish.png" width="50" height="50">&nbsp;&nbsp;Tuna Music 이용권</h5>
                     <div class="single-razo-event-area d-flex flex-wrap align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms" style="border-color: grey">
                         <!-- Thumbnail -->
                         <div class="event-thumbnail">
@@ -235,12 +248,28 @@
                                 max-width:100%; width: 100%; 
                                 height: 199.97px;" >
                                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                                    <h5>TuNa Music Membership 
+                                    <h5>Tuna Music Membership 
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <span style="color: #DC2878"><font size="5">₩8900</font></span></h5>
                                 </div>
                                     <div class="event-purchase-button" style="position: absolute; top: 50%; right: 5%; transform: translate(-0%, -50%)" >
-                                        <a href="#"  class="btn razo-btn" onclick="window.open('C:\\Users\\user1\\Desktop\\razo\\razo\\paypop.html','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-480)/2+',width=500px,height=480px')"><i class="icon_cart"></i> 구매</a>
+                                    		
+                                       	<a href="#" class="btn razo-btn" id="btn_buy">
+                                       	 <!-- <i class="icon_cart"></i>  -->구매</a>
+                                       	 <c:if test="${empty sessionScope.loginUser }">
+                                       	 	<input type="hidden" id="loginUserCheck" class="loginUserCheck" value="0">
+                                       	 </c:if>
+                                       	 
+                                       	  <c:if test="${!empty sessionScope.loginUser }">
+                                       	 	<input type="hidden" id="loginUserCheck" class="loginUserCheck" value="1">
+                                       	 </c:if>
+                                       	 <input type="hidden" id="userId" name="userId" value="${sessionScope.loginUser.grade}">
+                                       	 
+                                       	 <!--원래거  -->
+                                       	<!-- <a href="#"  class="btn razo-btn"
+                                       	 onclick="window.open('paypop.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-500)/2+',width=500px,height=500px')">
+                                       	 구매</a>  -->	
+                                       
                                     </div>
                                 </div>
                         </div>
@@ -258,6 +287,26 @@
     <!-- Razo Event Area End -->
 
     <script>
+    	$(function(){
+
+    		var loginChk = $("#loginUserCheck").val();
+    		var grade = document.getElementById('userId').value;
+    			
+    		$("#btn_buy").click(function(){
+    			
+    			if(loginChk == 0){
+    				location.href="member/loginPage.do";
+    			}else {
+    				if(grade=='B'){
+    					window.open('paymember.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-300)/2+',width=500px,height=300px')
+    				}else{
+    					window.open('paypop.do','새창','left='+(screen.availWidth-500)/2+',top='+(screen.availHeight-500)/2+',width=500px,height=500px');
+    				} 
+    			}
+    			
+    		});
+    	});
+    	
     
     </script>
 
@@ -312,7 +361,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Single Footer Widget -->
                     <div class="col-12 col-sm-6 col-md-4 col-xl-3">
                         <div class="single-footer-widget mb-80">
@@ -430,27 +478,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </footer>
     <!-- Footer Area End -->
 
-    <!-- All JS Files -->
-
-    <!-- jQuery -->
-	<script src="/TunaMusic/resources/js/jquery.min.js"></script>
-	<!-- Popper -->
-	<script src="/TunaMusic/resources/js/popper.min.js"></script>
-	<!-- Bootstrap -->
-	<script src="/TunaMusic/resources/js/bootstrap.min.js"></script>
-	<!-- All Plugins -->
-	<script src="/TunaMusic/resources/js/razo.bundle.js"></script>
-	<!-- Active -->
-	<script src="/TunaMusic/resources/js/default-assets/active.js"></script>
-	<script src="/TunaMusic/resources/js/comment.js"></script>
+    
 
 </body>
 
-</html>
-
-
-
-
-
-</body>
 </html>

@@ -50,6 +50,7 @@ create table musicboard_article(
     title varchar2(60),
     text varchar2(2000),
     file_name varchar2(200),
+    album_file varchar2(200),
     read_count number(10),
     best number(10),
     bad number(10),
@@ -82,7 +83,7 @@ create table musicboard_comment(
     CONSTRAINT FK_MUSICBOARD_COMMENT2 FOREIGN KEY(reply_no)
     REFERENCES musicboard_comment(comment_no),
     CONSTRAINT FK_MUSICBOARD_COMMENT3 FOREIGN KEY(article_no)
-    REFERENCES musicboard_article(article_no)
+    REFERENCES musicboard_article(article_no) ON DELETE CASCADE
 );
 
 create table my_music(
@@ -106,7 +107,7 @@ CREATE TABLE funding(
     fcreatorInfo varchar2(200),
     fbacker number(30) default 0,
     fgoal number(30) default 0,
-    famount number(30) default 0,d
+    famount number(30) default 0,
     regDate date default sysdate,
     endDate date,
     fileName varchar2(200),

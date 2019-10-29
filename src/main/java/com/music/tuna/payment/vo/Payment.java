@@ -8,14 +8,16 @@ public class Payment {
 	private String userId;
 	private Date payDate;
 	private int goodsNo;
+	// db들어가지않음
+	private int fno;
 	
-	public Payment(int payNo, String userId, Date payDate, int goodsNo) {
-		super();
-		this.payNo = payNo;
-		this.userId = userId;
-		this.payDate = payDate;
-		this.goodsNo = goodsNo;
-	}
+//	public Payment(int payNo, String userId, Date payDate, int goodsNo) {
+//		super();
+//		this.payNo = payNo;
+//		this.userId = userId;
+//		this.payDate = payDate;
+//		this.goodsNo = goodsNo;
+//	}
 	public int getPayNo() {
 		return payNo;
 	}
@@ -39,6 +41,12 @@ public class Payment {
 	}
 	public void setGoodsNo(int goodsNo) {
 		this.goodsNo = goodsNo;
+	}
+	public int getFno() {
+		return fno;
+	}
+	public void setFno(int fno) {
+		this.fno = fno;
 	}
 	@Override
 	public String toString() {
