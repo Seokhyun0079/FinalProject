@@ -29,8 +29,8 @@ public class FundingDAO {
     public int getAlmostListCount() {
         return sqlSession.selectOne("crowdFunding.getAlmostListCount");
     }
-    public void insertFunding(Funding funding){
-        sqlSession.insert("crowdFunding.insertFunding", funding);
+    public int insertFunding(Funding funding){
+        return sqlSession.insert("crowdFunding.insertFunding", funding);
     }
     public List<Funding> selectHotList() {
         return sqlSession.selectList("crowdFunding.selectHotList");
@@ -79,6 +79,9 @@ public class FundingDAO {
 
     public void commit(){
         sqlSession.commit();
+    }
+    public void rollback(){
+        sqlSession.rollback();
     }
 
 }

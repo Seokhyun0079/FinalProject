@@ -48,9 +48,10 @@ public class FundingServiceImpl implements FundingService {
 
     @Override
     public Funding insertFunding(Funding fvo) {
-        fundingDAO.insertFunding(fvo);
+        int res = fundingDAO.insertFunding(fvo);
+        if(res>0) { fundingDAO.commit();}
+        else {fundingDAO.rollback();}
         Funding funding =  fundingDAO.lastInsertedFunding();
-        fundingDAO.commit();
         return funding;
     }
 
@@ -85,7 +86,8 @@ public class FundingServiceImpl implements FundingService {
     @Override
     public int modifyFunding(Funding fd) {
         int result = fundingDAO.modifyFunding(fd);
-        fundingDAO.commit();
+        if(result>0)    fundingDAO.commit();
+        else    fundingDAO.rollback();
         return result;
     }
 

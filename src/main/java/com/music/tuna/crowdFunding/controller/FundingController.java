@@ -87,17 +87,21 @@ public class FundingController {
         return mv;
     }
 
-//    @RequestMapping(value = "/modifyFunding.do")
-//    public ModelAndView modifyFunding(ModelAndView mv, Funding fd, @RequestParam(value = "fno") int fno) {
-//        Funding fvo = fundingService.selectFunding(fno);
-//        System.out.println("[fcontroller] : "+fvo.toString());
-//        int result = fundingService.modifyFunding(fd);
-//        System.out.println("[fcontroller] : "+result);
-//
-//        mv.addObject("funding", fvo);
-//        mv.setViewName("crowdFunding/fundingModify");
-//        return mv;
-//    }
+    @RequestMapping(value = "/modifyFunding.do")
+    public ModelAndView modifyFunding(ModelAndView mv, @RequestParam(value = "fno") int fno){
+        Funding fvo = fundingService.selectFunding(fno);
+        System.out.println("[fcontroller] 1 :"+fvo.toString());
+        mv.addObject("funding", fvo);
+        mv.setViewName("crowdFunding/fundingModify");
+        return mv;
+    }
+    @RequestMapping(value = "/modifyFunding.do", method = RequestMethod.POST)
+    public String modifyFundingPost(Funding fd, @RequestParam(value = "fno") int fno) {
+        int result = fundingService.modifyFunding(fd);
+        System.out.println("[fcontroller] 2 : "+result);
+
+        return "redirect:/crowdFunding/fundingRead.do?fno="+fno;
+    }
 
     @RequestMapping(value = "/insertReward.do")
     public String insertReward(){

@@ -56,7 +56,7 @@
 </header>
 
 <section class="uza-news-area section-padding-0-80">
-    <form action="/TunaMusic/crowdFunding/modiFyFunding.do" method="post" enctype="multipart/form-data">
+    <form action="/TunaMusic/crowdFunding/modifyFunding.do" method="post" enctype="multipart/form-data">
         <div class="container" style="margin-top: 50px">
             <div class="row">
                 <div class="col-12">
@@ -99,9 +99,10 @@
                         <label id="freward">${funding.freward}</label>
                         <br>
 
-                        <input type="hidden" name="fno" id="fno" value="0">
-                        <input type="hidden" name="fbacker" id="fbacker" value="0">
-                        <input type="hidden" name="famount" id="famount" value="0">
+                        <input type="hidden" name="fno" id="fno" value="${funding.fno}">
+                        <input type="hidden" name="id" id="id" value="${funding.id}">
+                        <input type="hidden" name="fbacker" id="fbacker" value="${funding.fbacker}">
+                        <input type="hidden" name="famount" id="famount" value="${funding.famount}">
                     </div>
                 </div>
             </div>
@@ -113,7 +114,7 @@
                 <!-- <div class="row razo-blog-masonary-item"> -->
                 <div class="col-12">
                     <h6>창작자 소개</h6>
-                    <textarea name="fcreatorInfo" rows="3" cols="100" value="${funding.fcreatorInfo}"></textarea>
+                    <textarea name="fcreatorInfo" rows="3" cols="100" placeholder="${funding.fcreatorInfo}"></textarea>
                     <br><br>
                     <h6>프로젝트 스토리</h6>
                     <input type="hidden" id="content" name="content" value="${funding.fcontent}">

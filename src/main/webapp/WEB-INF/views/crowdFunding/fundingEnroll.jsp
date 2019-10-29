@@ -122,6 +122,7 @@
                     <h6>프로젝트 스토리</h6>
                     <textarea name="fcontent" id="fcontent" rows="10" cols="100"></textarea>
                     <%--placeholder="여러분의 멋진 프로젝트 스토리를 들려주세요"--%>
+                    <input type="button" class="razo razo-btn" id="writebtn" name="writebtn" value="취소">
                     <input type="submit" class="razo razo-btn" id="writebtn" name="writebtn" value="저장">
                 </div>
                 <!-- </div> -->
