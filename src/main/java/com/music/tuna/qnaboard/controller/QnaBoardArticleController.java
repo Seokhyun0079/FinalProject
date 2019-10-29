@@ -22,7 +22,7 @@ import com.music.tuna.util.SHBoardFileUpload;
 
 @Controller
 public class QnaBoardArticleController {
-	
+   
     @Autowired
     QnaBoardArticleService qnaBoardArticleService;
     
@@ -46,10 +46,10 @@ public class QnaBoardArticleController {
     
     @RequestMapping(value = "/qnaBoard/article/read.do")
     public ModelAndView getArticle(ModelAndView mv, QnaBoardArticle vo, HttpSession httpSession){
-    	
-    	vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
-    	vo.setGrade(((Member)httpSession.getAttribute("loginUser")).getGrade());
-    	
+       
+       vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+       vo.setGrade(((Member)httpSession.getAttribute("loginUser")).getGrade());
+       
         mv.setViewName("/qnaBoard/read");
         mv.addObject("article", qnaBoardArticleService.getArticle(vo));
         return mv;
@@ -58,16 +58,16 @@ public class QnaBoardArticleController {
     
     @RequestMapping(value="/qnaBoard/article/list.do")
     public ModelAndView getList(ModelAndView mv, QnaBoardArticleListPage vo, HttpSession httpSession) {
-    	
-    	// 일단 전체적으로 공지사항 (관리자로 뿌려주고)
-    	vo.setNoticePageContent(qnaBoardArticleService.getNoticeArticleList(vo));
-    	System.out.println(vo.getNoticePageContent().size());
-    	vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
-    	vo.setGrade(((Member)httpSession.getAttribute("loginUser")).getGrade());
-    	
-    	// if문 써서 grade가 A면 전체 열람 B나 C면 본인이 쓴 글만 열람
-    	if(vo.getGrade().equals("A")) {
-    		
+       
+       // 일단 전체적으로 공지사항 (관리자로 뿌려주고)
+       vo.setNoticePageContent(qnaBoardArticleService.getNoticeArticleList(vo));
+       System.out.println(vo.getNoticePageContent().size());
+       vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+       vo.setGrade(((Member)httpSession.getAttribute("loginUser")).getGrade());
+       
+       // if문 써서 grade가 A면 전체 열람 B나 C면 본인이 쓴 글만 열람
+       if(vo.getGrade().equals("A")) {
+          
             int totalCount = qnaBoardArticleService.getCount();
             //한 화면에 표시될 게시글의 최대 개수
             int listCount = 16;
@@ -102,7 +102,7 @@ public class QnaBoardArticleController {
             
             return mv;
 
-    	}else {
+       }else {
             
             int totalCount = qnaBoardArticleService.getCount();
             //한 화면에 표시될 게시글의 최대 개수
@@ -138,7 +138,7 @@ public class QnaBoardArticleController {
             
             return mv;
             
-    	}
+       }
     }
 
 }

@@ -45,6 +45,11 @@
                             <li><a href="/TunaMusic/musicBoard/article/list.do">MusicBoard</a></li>
                             <li><a href="/TunaMusic/myMusicShareBoard/article/list.do">My Music Share Board</a></li>
                             <li><a href="/TunaMusic/magazine.do">Magazine</a></li>
+                            <li><a href="/TunaMusic/qnaBoard/article/list.do">Q & A</a>
+                            <ul class="dropdown">
+                            	<li><a href="/TunaMusic/qnaBoard/article/list.do">- list</a></li>
+                            	<li><a href="/TunaMusic/qnaBoard/article/write.do">- write</a></li>
+                            </ul></li>
                         </ul>
 
                         <!-- Share Icon -->
