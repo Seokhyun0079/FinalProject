@@ -196,7 +196,7 @@
                                     <i class="icon_search"></i>
                                 </div>
                                 <!-- Login Icon -->
-                          <c:choose>
+                            <c:choose>
                           <c:when test="${empty loginUser }">
                                   <div class="search-icon" data-toggle="modal" data-target="#loginModal">
                                       <i class="fa fa-sign-in"></i>
@@ -215,7 +215,7 @@
                                       </ul>
                                   </div>
                          </c:otherwise>
-                      </c:choose> 
+                      </c:choose>
                                 
                                 
                             </div>
@@ -278,7 +278,7 @@
                                     <div class="event-purchase-button" style="position: absolute; top: 50%; right: 5%; transform: translate(-0%, -50%)" >
                                     		
                                        	<a href="#" class="btn razo-btn" id="btn_buy">
-                                       	 <!-- <i class="icon_cart"></i>  -->구매</a>
+                                       	 <!-- <i class="icon_cart"></i>  -->사용중</a>
                                        	 <c:if test="${empty sessionScope.loginUser }">
                                        	 	<input type="hidden" id="loginUserCheck" class="loginUserCheck" value="0">
                                        	 </c:if>
@@ -310,7 +310,7 @@
     <!-- Razo Event Area End -->
 
     <script>
-    	$(function(){
+    	/* $(function(){
 
     		var loginChk = $("#loginUserCheck").val();
     		var grade = document.getElementById('grade').value;
@@ -328,7 +328,7 @@
     			}
     			
     		});
-    	});
+    	}); */
     	
     
     </script>

@@ -33,7 +33,7 @@
 		select * from payment
 	</select>
 	<!-- 이용권 결제시 유료회원으로 업데이트 -->
-	<update id="updatePaymember" parameterType="String">
+	<update id="updatePaymember" parameterType="Member">
 		UPDATE MEMBER M SET GRADE = 'B' WHERE (SELECT distinct(gno) FROM PAYMENT)=1 AND M.ID= #{userId}
 	</update>
 
@@ -58,8 +58,23 @@
 		G.GNO=#{goodsNo} AND F.FNO=#{fno})
 		WHERE F.FNO = #{fno}
 	</update>
-	<select id="selectFunding" resultMap="fundingResult">
-		select * from funding
+
+	<select id="selectMember" parameterType="Member" resultMap="memberResultSet">
+		select * from member where id=#{userId}
 	</select>
+	<resultMap id="memberResultSet" type="member">
+		<id column="ID" property="userId"/>
+		<result column="NAME" property="userName"/>
+		<result column="NICKNAME" property="nickName"/>
+		<result column="BIRTH" property="birthDay"/>
+		<result column="GENDER" property="gender"/>
+		<result column="EMAIL" property="email"/>
+		<result column="PHONE" property="phone"/>
+		<result column="PROFILEIMG" property="profileIMG"/>
+		<result column="ENROLLDATE" property="enrolldate"/>
+		<result column="UPDATEDATE" property="updatedate"/>
+		<result column="GRADE" property="grade"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
 
 </mapper>
