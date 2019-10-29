@@ -40,6 +40,9 @@
     <select id="selectFunding" parameterType="_int" resultMap="fundingResult">
         select * from funding where fno = #{fno}
     </select>
+    <select id="selectListFunding" resultMap="fundingResult">
+        select * from funding
+    </select>
     <select id="selectHotList" resultMap="fundingResult">
         <![CDATA[
         select * from (select * from funding where (famount/fgoal)*100 > 100 order by(famount/fgoal)) where ROWNUM<=4
