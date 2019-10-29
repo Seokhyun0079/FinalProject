@@ -3,6 +3,7 @@ package com.music.tuna.crowdFunding.model.dao;
 import com.music.tuna.crowdFunding.model.vo.Funding;
 import com.music.tuna.payment.dao.PaymentDao;
 import com.music.tuna.payment.vo.Goods;
+import com.music.tuna.payment.vo.Payment;
 import com.music.tuna.util.SqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +42,7 @@ public class FundingDAO {
         return (ArrayList)sqlSession.selectList("crowdFunding.selectAlmostList");
     }
     public Funding selectFunding(int fno){
-        List<Funding> list = paymentDao.selectListFunding();
-        for(Funding f : list){
-            System.out.println("f = " + f);
-        }
+//        List<Funding> list = paymentDao.selectListFunding();
         return sqlSession.selectOne("crowdFunding.selectFunding", fno);
     }
     public Funding lastInsertedFunding(){
@@ -57,6 +55,10 @@ public class FundingDAO {
     public Goods lastInsertedGoods(){
         Goods goods = sqlSession.selectOne("crowdFunding.lastInsetedGoods");
         return goods;
+    }
+    public int updateFunding(Payment p){
+        int res = sqlSession.update("crowdFunding.updateFunding", p);
+        return res;
     }
 
     public void commit(){

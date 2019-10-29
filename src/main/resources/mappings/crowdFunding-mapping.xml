@@ -40,9 +40,6 @@
     <select id="selectFunding" parameterType="_int" resultMap="fundingResult">
         select * from funding where fno = #{fno}
     </select>
-    <select id="selectListFunding" resultMap="fundingResult">
-        select * from funding
-    </select>
     <select id="selectHotList" resultMap="fundingResult">
         <![CDATA[
         select * from (select * from funding where (famount/fgoal)*100 > 100 order by(famount/fgoal)) where ROWNUM<=4
@@ -90,5 +87,11 @@
         select * from (select * from goods order by gno desc) where ROWNUM<=1
         ]]>
     </select>
-
+    <update id="updateFunding" parameterType="payment">
+		UPDATE FUNDING F
+		SET FBACKER = SEQ_FBACKER.nextval,
+		FAMOUNT = (SELECT G.GPRICE + F.FAMOUNT FROM FUNDING F, GOODS G WHERE
+		G.GNO=#{goodsNo} AND F.FNO=#{fno})
+		WHERE F.FNO = #{fno}
+	</update>
 </mapper>

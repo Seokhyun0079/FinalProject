@@ -91,7 +91,10 @@
                 <div class="col-12 col-sm-10 col-xl-9">
                     <h3>${article.title}</h3>
                     <p><fmt:formatDate value="${article.date}" pattern="yyyy-MM-dd"/></p>
+
+                    <c:if test="${article.fileName != 'null'}">
                     <img src="/TunaMusic/resources/upload/${article.fileName}" width="500" height="300"/>
+                    </c:if>
                     <h5>${article.text}</h5>
 <%--                     <div><h5>Best</h5><br><h5 id="best">${article.best}</h5></div>
                     <div><h5>Bad</h5><br><h5 id="bad">${article.bad}</h5></div> --%>

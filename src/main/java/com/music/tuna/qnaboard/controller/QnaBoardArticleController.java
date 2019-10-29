@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.music.tuna.member.model.vo.Member;
@@ -32,14 +34,20 @@ public class QnaBoardArticleController {
     }
     
     @RequestMapping(value = "/qnaBoard/article/write.do", method = RequestMethod.POST)
-    public String insertArticlePost(QnaBoardArticle vo, HttpServletRequest request){
+    public String insertArticlePost(QnaBoardArticle vo, HttpServletRequest request, @RequestParam(name="uploadFile", required=false) MultipartFile uploadFile) {
+        System.out.println("uploadFile111" + uploadFile);
         int articleNo = 0;
+        vo.setFileName("null");//null값 에러 방지
+    	
+        if(!uploadFile.isEmpty()) {
             try {
                 vo.setFileName(SHBoardFileUpload.fileUpload(vo.getUploadFile(), request.getSession().getServletContext().getRealPath("/resources/upload/")));
             } catch (IOException e) {
                 e.printStackTrace();
                 
             }
+        }
+
         articleNo = qnaBoardArticleService.insertArticle(vo);
         return "redirect:read.do?articleNo="+articleNo;
     }
