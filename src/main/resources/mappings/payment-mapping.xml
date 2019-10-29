@@ -24,6 +24,11 @@
 		<result column="endDate" property="endDate"/>
 		<result column="fileName" property="fileName"/>
 	</resultMap>
+	<resultMap id="paymentListResult" type="payment">
+		<result column="GNAME" property="gname"/>
+		<result column="PDATE" property="pdate"/>
+		<result column="GPRICE" property="gprice"/>
+	</resultMap>
 	<!-- 이용권 결제 -->
 	<insert id="insertPayment" parameterType="String">
 		INSERT INTO PAYMENT
