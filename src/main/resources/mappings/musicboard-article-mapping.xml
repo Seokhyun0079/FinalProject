@@ -26,9 +26,11 @@
 		]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
-      select id, title, nickname, article_no, text, file_name, bad, best, profileimg, album_file, (select count(*) from musicboard_comment where musicboard_comment.article_no= #{articleNo}) as comment_count
-      from musicboard_article  join (select id, nickname, profileimg  from member) using (id)
-      where article_no = #{articleNo}
+      select * from (
+        select id, title, article_no, text, file_name, bad, best, (select count(*) from musicboard_comment where musicboard_comment.article_no= 1) as comment_count
+        from musicboard_article
+        where article_no = #{articleNo}
+      ) join (select id, nickname, profileimg  from member) using (id)
     </select>
     <select id="selectArticleCount" resultType="int">
         select count(*) from musicBoard_article
@@ -36,25 +38,28 @@
     <select id="selectArticleList" resultMap="articleResult">
         <![CDATA[
         select * from (
-        select rownum as rnum, A.*
-        from (
-        select *
-        from musicboard_article join (select id, nickname from member) using (id)
-        order by article_no desc ) A where rownum <= #{end})
-        B where B.rnum >= #{start}
-        		]]>
+            select * from (
+                select rownum as rnum, A.*
+                from (
+                    select *
+                    from musicboard_article
+                    order by article_no desc )
+                A where rownum <= #{end})
+            B where B.rnum >= #{start})
+        join (select id, nickname from member) using (id)
+        ]]>
     </select>
     <select id="getReadCount" resultType="int" >
         select read_count from  musicboard_article  where article_no = #{articleNo}
     </select>
     <select id="getPrevArticleNo" resultType="int">
         <![CDATA[
-        select nvl(max(article_no), 0) from(select * from  musicboard_article where article_no < #{articleNo})
+        select nvl(max(article_no), #{articleNo}) from(select * from  musicboard_article where article_no < #{articleNo})
         ]]>
     </select>
     <select id="getNextArticleNo" resultType="int">
         <![CDATA[
-        select nvl(min(article_no), 0) from(select * from  musicboard_article where article_no > #{articleNo})
+        select nvl(min(article_no), #{articleNo}) from(select * from  musicboard_article where article_no > #{articleNo})
         ]]>
     </select>
     <select id="getBest" resultType="int">
@@ -73,7 +78,7 @@
         update musicboard_article set bad = #{bad} where article_no =#{articleNo}
     </update>
     <select id = "selectMyWrittenList" resultMap="articleResult">
-        select * from musicBoard_article join member using(id) where id = #{id}
+        select * from (select * from musicBoard_article where id = #{id}) join member using(id)
     </select>
     <delete id="deleteArticle">
         delete from musicboard_article where article_no = ${articleNo}

@@ -15,7 +15,8 @@
         <if test="replyNo==0">insert into myMusicShareBoard_comment values(msbc_seq.nextval, #{articleNo}, #{id}, null, #{content})</if>
     </insert>
     <select id="selectList" resultMap="commentResult">
-        select * from mymusicshareboard_comment  join (select id, nickname, profileimg  from member) using (id) where article_no = #{articleNo}
+        select * from (select * from mymusicshareboard_comment where article_no = #{articleNo})
+        join (select id, nickname, profileimg  from member) using (id)
     </select>
 
 </mapper>
