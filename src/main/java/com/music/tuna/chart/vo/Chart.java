@@ -14,23 +14,8 @@ public class Chart {
 	private String text;
 	private String fileName;
 	private String albumFile;
-
-	public String getFileName() {
-		return fileName;
-	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-
-	public String getAlbumFile() {
-		return albumFile;
-	}
-
-	public void setAlbumFile(String albumFile) {
-		this.albumFile = albumFile;
-	}
-
+    private String nickname;
+    
 	public Date getArticleDate() {
 		return articleDate;
 	}
@@ -55,6 +40,12 @@ public class Chart {
 	public void setRc(int rc) {
 		this.rc = rc;
 	}
+	public int getChartMax() {
+		return chartMax;
+	}
+	public void setChartMax(int chartMax) {
+		this.chartMax = chartMax;
+	}
 	public String getId() {
 		return id;
 	}
@@ -73,21 +64,30 @@ public class Chart {
 	public void setText(String text) {
 		this.text = text;
 	}
-	
-	public int getChartMax() {
-		return chartMax;
+	public String getFileName() {
+		return fileName;
 	}
-	public void setChartMax(int chartMax) {
-		this.chartMax = chartMax;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getAlbumFile() {
+		return albumFile;
+	}
+	public void setAlbumFile(String albumFile) {
+		this.albumFile = albumFile;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	
 	@Override
 	public String toString() {
 		return "Chart [articleDate=" + articleDate + ", articleNo=" + articleNo + ", readCount=" + readCount + ", rc="
-				+ rc + ", chartMax=" + chartMax + ", id=" + id + ", title=" + title + ", text=" + text + "]";
+				+ rc + ", chartMax=" + chartMax + ", id=" + id + ", title=" + title + ", text=" + text + ", fileName="
+				+ fileName + ", albumFile=" + albumFile + ", nickname=" + nickname + "]";
 	}
-	
-	
-	
 	
 }

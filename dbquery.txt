@@ -107,7 +107,7 @@ CREATE TABLE funding(
     fcreatorInfo varchar2(200),
     fbacker number(30) default 0,
     fgoal number(30) default 0,
-    famount number(30) default 0,d
+    famount number(30) default 0,
     regDate date default sysdate,
     endDate date,
     fileName varchar2(200),
@@ -215,6 +215,7 @@ create table qnaboard_article(
     CONSTRAINT FK_QNA_MEMBER FOREIGN KEY(id)
     REFERENCES member(id)
 );
+
 
 -- QNA 게시판 게시글 시퀀스
 create sequence qb_article_seq
