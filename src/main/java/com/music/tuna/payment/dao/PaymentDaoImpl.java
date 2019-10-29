@@ -75,6 +75,12 @@ public class PaymentDaoImpl implements PaymentDao{
 		List<Funding> paymentList = sqlSession.selectList("payment.selectFunding");
 		return  paymentList;
 	}
+
+	@Override
+	public List<Payment> getpaymentList(Payment pay) {
+		List<Payment> paymentList = sqlSession.selectList("payment.selectPaymentList",pay);
+		return paymentList;
+	}
 }
 	
 

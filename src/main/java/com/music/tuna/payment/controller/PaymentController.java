@@ -1,22 +1,25 @@
 package com.music.tuna.payment.controller;
 
+import java.io.IOException;
+import java.sql.Date;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.music.tuna.payment.vo.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.music.tuna.member.model.vo.Member;
 import com.music.tuna.payment.service.PaymentService;
+import com.music.tuna.payment.vo.Goods;
 import com.music.tuna.payment.vo.Payment;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.sql.Date;
+import net.sf.json.JSONObject;
 
 @Controller
 public class PaymentController {
@@ -203,6 +206,20 @@ public class PaymentController {
 	@RequestMapping(value = "/payment/fPayFail.do")
 	public String fPayFail() {
     	return "payment/funding/fPayFail";
+	}
+	
+	@RequestMapping(value = "/payment/paymentList.do")
+	public void getpaymentList(HttpSession httpSession, HttpServletResponse res) {
+		Payment pay = new Payment();
+		pay.setUserId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+		JSONObject json = new JSONObject();
+		json.put("result", pService.getpaymentList(pay));
+		res.setContentType("application/x-json; charset=utf-8");
+        try{
+            res.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 	}
 	
 }

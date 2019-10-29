@@ -24,6 +24,11 @@
 		<result column="endDate" property="endDate"/>
 		<result column="fileName" property="fileName"/>
 	</resultMap>
+	<resultMap id="paymentListResult" type="payment">
+		<result column="GNAME" property="gname"/>
+		<result column="PDATE" property="pdate"/>
+		<result column="GPRICE" property="gprice"/>
+	</resultMap>
 	<!-- 이용권 결제 -->
 	<insert id="insertPayment" parameterType="String">
 		INSERT INTO PAYMENT
@@ -60,6 +65,9 @@
 	</update>
 	<select id="selectFunding" resultMap="fundingResult">
 		select * from funding
+	</select>
+	<select id="selectPaymentList" resultMap="paymentListResult">
+		select gname,gprice,to_char(pdate, 'yyyy.MM.dd.') as pdate from payment join goods using(gno) where id = #{userId}
 	</select>
 
 </mapper>

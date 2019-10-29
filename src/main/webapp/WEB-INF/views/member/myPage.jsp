@@ -170,9 +170,9 @@
                     </div>
                 </div>
                 <div class="col-12">
-                <ul class="lists" id = "payList">
-                    
-                </ul>
+               		<ul class="lists" id = "payList">
+               		
+               		</ul>
                 </div>
         </div>
     </section>

@@ -1,10 +1,12 @@
 package com.music.tuna.payment.service;
 
-import com.music.tuna.payment.vo.Goods;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.music.tuna.payment.dao.PaymentDao;
+import com.music.tuna.payment.vo.Goods;
 import com.music.tuna.payment.vo.Payment;
 
 @Service("pService")
@@ -45,6 +47,13 @@ public class PaymentServiceImpl implements PaymentService{
 			pDao.commit();
 		}
 		return update;
+	}
+
+
+
+	@Override
+	public List<Payment> getpaymentList(Payment pay) {
+		return pDao.getpaymentList(pay);
 	}
 
 }

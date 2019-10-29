@@ -20,4 +20,5 @@ public interface PaymentDao {
 	public int updateFunding(Payment pm);
 	public void close();
 	public List<Funding> selectListFunding();
+	public List<Payment> getpaymentList(Payment pay);
 }
