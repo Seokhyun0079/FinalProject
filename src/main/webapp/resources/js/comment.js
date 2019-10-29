@@ -16,9 +16,8 @@ $(function(){
                         '                                    </div>\n' +
                         '                                    <!-- Comment Meta -->\n' +
                         '                                    <div class="comment-meta">\n' +
-                        '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+'<span class="post-date">- May 14, 2018</span></a>\n' +
+                        '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+
                         '                                        <p>'+data.result.commentList[i].content+'</p>\n' +
-                        '                                        <a href="#" class="like">Like</a>\n' +
                         '                                        <a href="#comment-list" id ="'+data.result.commentList[i].commentNo+'" class="reply">Reply</a>\n' +
                         '                                    </div>\n' +
                         '                                </div></li>');
@@ -33,9 +32,8 @@ $(function(){
                         '                                            </div>\n' +
                         '                                            <!-- Comment Meta -->\n' +
                         '                                            <div class="comment-meta">\n' +
-                        '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+'<span class="post-date">- May 14, 2018</span></a>\n' +
+                        '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+
                         '                                        <p>'+data.result.commentList[i].content+'</p>\n' +
-                        '                                        <a href="#" class="like">Like</a>\n' +
                         '                                        <a href="#message" id ="'+data.result.commentList[i].replyNo+'" class="reply">Reply</a>\n' +
                         '                                            </div>\n' +
                         '                                        </div>\n' +
@@ -60,6 +58,7 @@ $(function(){
             },
             success : function(data){
                 $("#comment-list").html("");
+                $("#message").val("");
                 for(var i = 0 ; i < data.result.commentList.length; i++){
                     if(data.result.commentList[i].replyNo==0){
                         $("#comment-list").append('<li class="single_comment_area" id="i'+data.result.commentList[i].commentNo+'">' +
@@ -70,9 +69,8 @@ $(function(){
                             '                                    </div>\n' +
                             '                                    <!-- Comment Meta -->\n' +
                             '                                    <div class="comment-meta">\n' +
-                            '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+'<span class="post-date">- May 14, 2018</span></a>\n' +
+                            '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+
                             '                                        <p>'+data.result.commentList[i].content+'</p>\n' +
-                            '                                        <a href="#" class="like">Like</a>\n' +
                             '                                        <a href="#message" id ="'+data.result.commentList[i].commentNo+'" class="reply">Reply</a>\n' +
                             '                                    </div>\n' +
                             '                                </div></li>');
@@ -87,9 +85,8 @@ $(function(){
                             '                                            </div>\n' +
                             '                                            <!-- Comment Meta -->\n' +
                             '                                            <div class="comment-meta">\n' +
-                            '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+'<span class="post-date">- May 14, 2018</span></a>\n' +
+                            '                                        <a href="#" class="author-name">'+data.result.commentList[i].nickname+
                             '                                        <p>'+data.result.commentList[i].content+'</p>\n' +
-                            '                                        <a href="#" class="like">Like</a>\n' +
                             '                                        <a href="#message" id ="'+data.result.commentList[i].replyNo+'" class="reply">Reply</a>\n' +
                             '                                            </div>\n' +
                             '                                        </div>\n' +
