@@ -175,14 +175,15 @@ public class MagazineBoardController {
         // 파일 정보
     	System.out.println("1");
         StringBuffer sb = new StringBuffer();
+        System.out.println("코드 반영되고 있나여?");
         try {
             // 파일명 받기
             String oldName = request.getHeader("file-name");
 
             // 파일 기본경로_상세경로
             String root = request.getSession().getServletContext().getRealPath("resources");
-            String filePath = "C:\\FinalProject\\src\\main\\webapp\\resources\\editor\\mphotoUpload\\";
-            
+            String filePath = request.getSession().getServletContext().getRealPath("/resources/editor/mphotoUpload/");
+            System.out.println(filePath);
             
           
             String saveName = sb.append(new SimpleDateFormat("yyyyMMddHHmmss")

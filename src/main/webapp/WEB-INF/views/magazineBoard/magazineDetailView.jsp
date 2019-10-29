@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -45,134 +46,18 @@
     </div> -->
     <!-- /Preloader -->
 
-    <!-- Top Search Area Start -->
-    <div class="top-search-area">
-        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <!-- Close Button -->
-                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
-                        <!-- Form -->
-                        <form action="index.jsp" method="post">
-                            <input type="search" name="top-search-bar" class="form-control" placeholder="Type keywords and hit enter...">
-                            <button type="submit">Search</button>
-                        </form>
-                        <!-- Search Button -->
-                        <div class="search-btn"><i class="icon_search"></i></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- Top Login Area Start -->
+<%@ include file="/WEB-INF/views/common/iconmodal.jsp"%>
+<!-- Top Login Area End -->
 
+<!-- Social Share Area Start -->
+<%@ include file="/WEB-INF/views/common/mylist.jsp"%>
+<!-- Social Share Area End -->
 
-  <!------------------------------------------------------------- 메뉴바 시작 -->
-    <header class="header-area">
-        <!-- Main Header Start -->
-        <div class="main-header-area">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Classy Menu -->
-                    <nav class="classy-navbar justify-content-between" id="razoNav">
-
-                        <!-- Logo -->
-                        <a class="nav-brand" href="index.jsp"><img src="/TunaMusic/resources/img/core-img/logo.png" alt=""></a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-                            <!-- Menu Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul id="nav">
-                                    <li><a href="./index.jsp">Home</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./index.jsp">- Home</a></li>
-                                            <li><a href="./charts.html">- Charts</a></li>
-                                            <li><a href="./single-charts.html">- Charts Details</a></li>
-                                            <li><a href="./podcast.html">- Podcast</a></li>
-                                            <li><a href="./single-podcast.html">- Podcast Details</a></li>
-                                            <li><a href="./show.html">- Show</a></li>
-                                            <li><a href="./events.html">- Event</a></li>
-                                            <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Blog Details</a></li>
-                                            <li><a href="#">- Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="./show.html">Shows</a></li>
-                                    <li><a href="./charts.html">Charts</a></li>
-                                    <li><a href="./podcast.html">Podcasts</a></li>
-                                    <li><a href="#">Mega</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="./index.jsp">- Home</a></li>
-                                                <li><a href="./charts.html">- Charts</a></li>
-                                                <li><a href="./single-charts.html">- Charts Details</a></li>
-                                                <li><a href="./podcast.html">- Podcast</a></li>
-                                                <li><a href="./single-podcast.html">- Podcast Details</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="./show.html">- Show</a></li>
-                                                <li><a href="./events.html">- Event</a></li>
-                                                <li><a href="./blog.html">- Blog</a></li>
-                                                <li><a href="./single-blog.html">- Blog Details</a></li>
-                                                <li><a href="./index.jsp">- Home</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="./charts.html">- Charts</a></li>
-                                                <li><a href="./single-charts.html">- Charts Details</a></li>
-                                                <li><a href="./podcast.html">- Podcast</a></li>
-                                                <li><a href="./single-podcast.html">- Podcast Details</a></li>
-                                                <li><a href="./show.html">- Show</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li><a href="./show.html">- Show</a></li>
-                                                <li><a href="./events.html">- Event</a></li>
-                                                <li><a href="./blog.html">- Blog</a></li>
-                                                <li><a href="./single-blog.html">- Blog Details</a></li>
-                                                <li><a href="./index.jsp">- Home</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="./events.html">Events</a></li>
-                                    <li><a href="./blog.html">Blog</a></li>
-                                </ul>
-
-                                <!-- Share Icon -->
-                                <div class="social-share-icon">
-                                    <i class="social_share"></i>
-                                </div>
-
-                                <!-- Search Icon -->
-                                <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                    <i class="icon_search"></i>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!------------------------------------------------------------- 메뉴바 끝 -->
+<!-- Header Area Start -->
+<header class="header-area">
+<%@ include file="/WEB-INF/views/common/titlebar.jsp"%>
+</header>
 
     <!-------------------------------------------------------------- 게시물 시작 -->
     <section class="blog-details-post-thumbnail-area bg-overlay bg-img jarallax" style="background-image: url('/TunaMusic/resources/editor/mphotoUpload/${MagazineBoard.thumbnail}');">
@@ -221,7 +106,7 @@
 
        			
        			 <div class="col-12" align="center">
-       			 <c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 -->
+       			 <c:if test="${loginUser.grade eq 'A'}"><!-- 멤버컨트롤에서 리스트 받아옴 -->
                     <input type="button" onclick="location.href='mupdate.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="Modify" style="font-size: medium;">&nbsp;&nbsp;
                     <input type="button" onclick="location.href='mdelete.do?mseq=${MagazineBoard.mseq}';" class="btn razo-btn btn-3 mt-15" value="Delete" style="font-size: medium;"> 
                  </c:if>
@@ -420,6 +305,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
     <!-- Active -->
     <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+    <u:isLogin>
+    <script src="/TunaMusic/resources/js/mylist.js"></script>
+	</u:isLogin>
 	
 
 </body>
