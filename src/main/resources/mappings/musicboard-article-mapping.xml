@@ -36,10 +36,10 @@
     <select id="selectArticleList" resultMap="articleResult">
         <![CDATA[
         select * from (
-        select rownum as rnum, A.article_no, A.id, A.title, A.text, A.file_name
+        select rownum as rnum, A.*
         from (
-        select article_no, id, title, text, file_name
-        from musicboard_article
+        select *
+        from musicboard_article join (select id, nickname from member) using (id)
         order by article_no desc ) A where rownum <= #{end})
         B where B.rnum >= #{start}
         		]]>

@@ -332,7 +332,9 @@
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
 <script src="/TunaMusic/resources/js/qnacomment.js"></script>
-<script src="/TunaMusic/resources/js/mylist.js"></script>
+<u:isLogin>
+    <script src="/TunaMusic/resources/js/mylist.js"></script>
+</u:isLogin>
 <script>
     var zeroTenFive = -0.5;
     var opacity = 0.5;
@@ -357,9 +359,7 @@
     }
 </script>
 
-<u:isLogin>
-    <script src="/TunaMusic/resources/js/mylist.js"></script>
-</u:isLogin>
+
 
 <!-- <script src="/TunaMusic/resources/js/musicboard-read.js"></script> -->
 </body>
