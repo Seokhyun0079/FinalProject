@@ -216,6 +216,7 @@ create table qnaboard_article(
     REFERENCES member(id)
 );
 
+
 -- QNA 게시판 게시글 시퀀스
 create sequence qb_article_seq
 	start with 1

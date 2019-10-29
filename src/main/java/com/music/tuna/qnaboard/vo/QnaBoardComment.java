@@ -6,6 +6,8 @@ public class QnaBoardComment {
     private int commentNo;
     private int replyNo;
     private String content;
+    private String nickname;
+    private String profileIMG;
     
 	public String getId() {
 		return id;
@@ -47,10 +49,27 @@ public class QnaBoardComment {
 		this.content = content;
 	}
 
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getProfileIMG() {
+		return profileIMG;
+	}
+
+	public void setProfileIMG(String profileIMG) {
+		this.profileIMG = profileIMG;
+	}
+
 	@Override
 	public String toString() {
 		return "QnaBoardComment [id=" + id + ", articleNo=" + articleNo + ", commentNo=" + commentNo + ", replyNo="
-				+ replyNo + ", content=" + content + "]";
+				+ replyNo + ", content=" + content + ", nickname=" + nickname + ", profileIMG=" + profileIMG + "]";
 	}
+
 
 }

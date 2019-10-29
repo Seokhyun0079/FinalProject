@@ -81,7 +81,7 @@
                                 </audio>
                             </div>
                             <div class="music-title">
-                                <h5>${vo.title} - <span>${vo.id}</span></h5>
+                                <h5>${vo.title} - <span>${vo.nickname}</span></h5>
                             </div>
                         </div>
                     </div>
