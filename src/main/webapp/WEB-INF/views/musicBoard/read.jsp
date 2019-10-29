@@ -128,9 +128,8 @@
 </header>
 <!-- Main Header Start -->
 <!-- Header Area End -->
-
 <!-- Podcast Thumbnail Area Start -->
-<section class="podcast-hero-area section-padding-80 bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/albumImageUpload/${article.albumFile});">
+<section class="podcast-hero-area section-padding-80 bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/11.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -141,7 +140,7 @@
                             <a href="#" class="event-date"><i class="icon_calendar"></i> ${article.id}</a>
                         </div>
                     </div>
-                    <a href="#" class="pt-5 pt-md-0 pl-md-5"><img src="/TunaMusic/resources/img/core-img/itunes.png" alt=""></a>
+                    <a href="#" class="pt-5 pt-md-0 pl-md-5"><img src="/TunaMusic/resources/albumImageUpload/${article.albumFile}" alt=""></a>
                 </div>
             </div>
         </div>
@@ -175,8 +174,8 @@
                     <!-- Post Share -->
                     <div class="razo-author-avatar">
                         <a href="/TunaMusic/letter/write.do?id=${article.id}" onclick="window.open(this.href, '_blanck', 'width=600, height=800'); return false">
-                            <img src="/TunaMusic/resources/img/bg-img/70.jpg" alt="">
-                            <h6>${article.id}</h6>
+                            <img src="/TunaMusic/resources/uploadFiles/${article.profileIMG}" alt="">
+                            <h6>${article.nickname}</h6>
                         </a>
                     </div>
                 </div>

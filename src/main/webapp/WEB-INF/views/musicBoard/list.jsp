@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Razo - Radio HTML Template | Podcast</title>
+    <title>music Board</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
@@ -54,16 +54,10 @@
             <div class="col-12">
                 <div class="podcast-hero-text section-padding-80 d-flex align-items-center">
                     <div class="podcast-txt- pr-md-5">
-                        <h5>Podcast Features</h5>
-                        <h2>Guess what we’ve missed watching world cup 2014. We made a list!</h2>
-                        <div class="podcast-meta-data">
-                            <a href="#" class="event-date"><i class="icon_calendar"></i> July 23, 2019</a>
-                            <a href="#" class="event-time"><i class="icon_clock_alt"></i> 36 min</a>
-                            <a href="#" class="event-time"><i class="icon_heart_alt"></i> 38</a>
-                            <a href="#" class="event-address"><i class="icon_chat_alt"></i> 23</a>
-                        </div>
+                        <h5>이 달의 인기곡!</h5>
+                        <h2 id="title"></h2>
                     </div>
-                    <a href="#" class="pt-5 pt-md-0 pl-md-5"><img src="/TunaMusic/resources/img/core-img/itunes.png" alt=""></a>
+                    <a href="#" class="pt-5 pt-md-0 pl-md-5"><img  id="albumFile" src="/TunaMusic/resources/img/core-img/itunes.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -77,7 +71,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="audio-player">
-                    <audio preload="auto" controls>
+                    <audio id="musicPlayer" preload="auto" controls>
                         <source src="/TunaMusic/resources/audio/dummy-audio.mp3">
                     </audio>
                 </div>
@@ -329,5 +323,6 @@
 <u:isLogin>
     <script src="/TunaMusic/resources/js/mylist.js"></script>
 </u:isLogin>
+<script src="/TunaMusic/resources/js/music-list.js"></script>
 </body>
 </html>

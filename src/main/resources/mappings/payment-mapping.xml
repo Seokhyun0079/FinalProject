@@ -2,12 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="payment">
-
+	<resultMap id="paymentResult" type="payment">
+		<id column="pno" property="payNo"/>
+		<result column="id" property="userId"/>
+		<result column="pdate" property="payDate"/>
+		<result column="gno" property="goodsNo"/>
+		<result column="fno" property="fno"/>
+	</resultMap>
+	<resultMap id="fundingResult" type="funding">
+		<id column="fno" property="fno"/>
+		<result column="id" property="id"/>
+		<result column="ftitle" property="ftitle"/>
+		<result column="freward" property="freward"/>
+		<result column="fcontent" property="fcontent"/>
+		<result column="fcreator" property="fcreator"/>
+		<result column="fcreatorInfo" property="fcreatorInfo"/>
+		<result column="fbacker" property="fbacker"/>
+		<result column="fgoal" property="fgoal"/>
+		<result column="famount" property="famount"/>
+		<result column="regDate" property="regDate"/>
+		<result column="endDate" property="endDate"/>
+		<result column="fileName" property="fileName"/>
+	</resultMap>
 	<!-- 이용권 결제 -->
 	<insert id="insertPayment" parameterType="String">
 		INSERT INTO PAYMENT
 		VALUES (SEQ_PAY_NO.NEXTVAL, #{userId}, SYSDATE, 1)
 	</insert>
+	<select id= "selectPayment" resultMap="paymentResult">
+		select * from payment
+	</select>
 	<!-- 이용권 결제시 유료회원으로 업데이트 -->
 	<update id="updatePaymember" parameterType="Member">
 		UPDATE MEMBER M SET GRADE = 'B' WHERE (SELECT distinct(gno) FROM PAYMENT)=1 AND M.ID= #{userId}
@@ -34,6 +58,7 @@
 		G.GNO=#{goodsNo} AND F.FNO=#{fno})
 		WHERE F.FNO = #{fno}
 	</update>
+
 	<select id="selectMember" parameterType="Member" resultMap="memberResultSet">
 		select * from member where id=#{userId}
 	</select>
@@ -51,4 +76,5 @@
 		<result column="GRADE" property="grade"/>
 		<result column="STATUS" property="status"/>
 	</resultMap>
+
 </mapper>

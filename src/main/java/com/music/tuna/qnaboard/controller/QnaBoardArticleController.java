@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.music.tuna.member.model.vo.Member;
@@ -22,7 +24,7 @@ import com.music.tuna.util.SHBoardFileUpload;
 
 @Controller
 public class QnaBoardArticleController {
-	
+   
     @Autowired
     QnaBoardArticleService qnaBoardArticleService;
     
@@ -32,23 +34,30 @@ public class QnaBoardArticleController {
     }
     
     @RequestMapping(value = "/qnaBoard/article/write.do", method = RequestMethod.POST)
-    public String insertArticlePost(QnaBoardArticle vo, HttpServletRequest request){
+    public String insertArticlePost(QnaBoardArticle vo, HttpServletRequest request, @RequestParam(name="uploadFile", required=false) MultipartFile uploadFile) {
+        System.out.println("uploadFile111" + uploadFile);
         int articleNo = 0;
+        vo.setFileName("null");//null값 에러 방지
+    	
+        if(!uploadFile.isEmpty()) {
             try {
                 vo.setFileName(SHBoardFileUpload.fileUpload(vo.getUploadFile(), request.getSession().getServletContext().getRealPath("/resources/upload/")));
             } catch (IOException e) {
                 e.printStackTrace();
                 
             }
+        }
+
         articleNo = qnaBoardArticleService.insertArticle(vo);
         return "redirect:read.do?articleNo="+articleNo;
     }
     
     @RequestMapping(value = "/qnaBoard/article/read.do")
     public ModelAndView getArticle(ModelAndView mv, QnaBoardArticle vo, HttpSession httpSession){
-    	
-    	vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
-    	
+       
+       vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+       vo.setGrade(((Member)httpSession.getAttribute("loginUser")).getGrade());
+       
         mv.setViewName("/qnaBoard/read");
         mv.addObject("article", qnaBoardArticleService.getArticle(vo));
         return mv;
@@ -57,16 +66,16 @@ public class QnaBoardArticleController {
     
     @RequestMapping(value="/qnaBoard/article/list.do")
     public ModelAndView getList(ModelAndView mv, QnaBoardArticleListPage vo, HttpSession httpSession) {
-    	
-    	// 일단 전체적으로 공지사항 (관리자로 뿌려주고)
-    	vo.setNoticePageContent(qnaBoardArticleService.getNoticeArticleList(vo));
-    	System.out.println(vo.getNoticePageContent().size());
-    	vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
-    	vo.setGrade(((Member)httpSession.getAttribute("loginUser")).getGrade());
-    	
-    	// if문 써서 grade가 A면 전체 열람 B나 C면 본인이 쓴 글만 열람
-    	if(vo.getGrade().equals("A")) {
-    		
+       
+       // 일단 전체적으로 공지사항 (관리자로 뿌려주고)
+       vo.setNoticePageContent(qnaBoardArticleService.getNoticeArticleList(vo));
+       System.out.println(vo.getNoticePageContent().size());
+       vo.setId(((Member)httpSession.getAttribute("loginUser")).getUserId());
+       vo.setGrade(((Member)httpSession.getAttribute("loginUser")).getGrade());
+       
+       // if문 써서 grade가 A면 전체 열람 B나 C면 본인이 쓴 글만 열람
+       if(vo.getGrade().equals("A")) {
+          
             int totalCount = qnaBoardArticleService.getCount();
             //한 화면에 표시될 게시글의 최대 개수
             int listCount = 16;
@@ -101,7 +110,7 @@ public class QnaBoardArticleController {
             
             return mv;
 
-    	}else {
+       }else {
             
             int totalCount = qnaBoardArticleService.getCount();
             //한 화면에 표시될 게시글의 최대 개수
@@ -137,7 +146,7 @@ public class QnaBoardArticleController {
             
             return mv;
             
-    	}
+       }
     }
 
 }
