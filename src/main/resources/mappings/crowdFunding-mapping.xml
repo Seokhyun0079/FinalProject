@@ -87,5 +87,11 @@
         select * from (select * from goods order by gno desc) where ROWNUM<=1
         ]]>
     </select>
-
+    <update id="updateFunding" parameterType="payment">
+		UPDATE FUNDING F
+		SET FBACKER = SEQ_FBACKER.nextval,
+		FAMOUNT = (SELECT G.GPRICE + F.FAMOUNT FROM FUNDING F, GOODS G WHERE
+		G.GNO=#{goodsNo} AND F.FNO=#{fno})
+		WHERE F.FNO = #{fno}
+	</update>
 </mapper>

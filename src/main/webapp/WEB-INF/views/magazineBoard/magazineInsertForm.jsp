@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
 
 </head>
 <body>
-	 <!-- *로드 -->
+<!-- 	 <!-- *로드 -->
     <div id="preloader">
         <div>
             <div class="spinner">
@@ -35,7 +36,20 @@
             <span>Wait, please...</span>
         </div>
     </div>
-    <!-- 로드 -->
+    로드 -->
+    
+    <!-- Top Login Area Start -->
+<%@ include file="/WEB-INF/views/common/iconmodal.jsp"%>
+<!-- Top Login Area End -->
+
+<!-- Social Share Area Start -->
+<%@ include file="/WEB-INF/views/common/mylist.jsp"%>
+<!-- Social Share Area End -->
+
+<!-- Header Area Start -->
+<header class="header-area">
+<%@ include file="/WEB-INF/views/common/titlebar.jsp"%>
+</header>
 
    
     
@@ -277,6 +291,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
     <!-- Active -->
     <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+    
+    <u:isLogin>
+    <script src="/TunaMusic/resources/js/mylist.js"></script>
+	</u:isLogin>
 	
 	<script>
     $(function(){

@@ -42,7 +42,7 @@
     </style>
 </head>
 
-<body style="overflow-y:auto">
+<body style="overflow-y:hidden">
     <!-- Preloader -->
     <div id="preloader">
         <div>
