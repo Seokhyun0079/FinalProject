@@ -51,13 +51,6 @@
 		insert into payment values (seq_pay_no.nextval, #{userId}, sysdate,
 		#{goodsNo})
 	</insert>
-	<update id="updateFunding" parameterType="payment">
-		UPDATE FUNDING F
-		SET FBACKER = SEQ_FBACKER.nextval,
-		FAMOUNT = (SELECT G.GPRICE + F.FAMOUNT FROM FUNDING F, GOODS G WHERE
-		G.GNO=#{goodsNo} AND F.FNO=#{fno})
-		WHERE F.FNO = #{fno}
-	</update>
 
 	<select id="selectMember" parameterType="Member" resultMap="memberResultSet">
 		select * from member where id=#{userId}
@@ -76,5 +69,4 @@
 		<result column="GRADE" property="grade"/>
 		<result column="STATUS" property="status"/>
 	</resultMap>
-
 </mapper>

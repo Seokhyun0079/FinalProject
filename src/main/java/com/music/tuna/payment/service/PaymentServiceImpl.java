@@ -1,5 +1,6 @@
 package com.music.tuna.payment.service;
 
+import com.music.tuna.crowdFunding.model.dao.FundingDAO;
 import com.music.tuna.payment.vo.Goods;
 
 import javax.servlet.http.HttpSession;
@@ -17,9 +18,8 @@ public class PaymentServiceImpl implements PaymentService{
 
 	@Autowired
 	private PaymentDao pDao;
-	
 	@Autowired
-	private MemberDao mDao;
+	private FundingDAO fundingDAO;
 
 	@Override
 	public Member payConfirm(Member loginUser) {		
@@ -31,15 +31,11 @@ public class PaymentServiceImpl implements PaymentService{
 			if(result2 > 0) {
 				/*System.out.println("업데이트x : " + loginUser);*/ // 얘는 C나오는게 맞음
 				m = pDao.selectMember(loginUser);
-				System.out.println("업데이트 해줘...:"+m); // 얘가 B가 나와야해 
-				
-				
+				System.out.println("업데이트 해줘...:"+m); // 얘가 B가 나와야해
 			}	
 		}else {
 			System.out.println("아직 무료회원");
 		}
-			
-		
 		return m;
 	}
 
@@ -58,8 +54,8 @@ public class PaymentServiceImpl implements PaymentService{
 		pDao.commit();
 		int update = 0;
 		if(insert>0) {
-			update = pDao.updateFunding(pm);
-			pDao.commit();
+			update = fundingDAO.updateFunding(pm);
+			fundingDAO.commit();
 		}
 		return update;
 	}

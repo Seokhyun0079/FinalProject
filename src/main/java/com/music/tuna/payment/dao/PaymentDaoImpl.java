@@ -59,18 +59,6 @@ public class PaymentDaoImpl implements PaymentDao{
 		System.out.println("[pdao] insertfPay:"+res);
 		return res;
 	}
-	@Override
-	public int updateFunding(Payment pm) {
-		System.out.println("[pdao] updateFunding:"+pm.toString());
-		int res = sqlSession.update("payment.updateFunding", pm);
-		List<Funding> paymentList = sqlSession.selectList("payment.selectFunding");
-		for(Funding f : paymentList){
-			System.out.println("f = " + f);
-		}
-		System.out.println("[pdao] updateFunding:"+res);
-		return res;
-	}
-
 
 
 	@Override
@@ -79,6 +67,7 @@ public class PaymentDaoImpl implements PaymentDao{
 
 
 	}
+
 }
 	
 
