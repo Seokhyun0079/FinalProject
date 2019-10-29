@@ -45,11 +45,12 @@ public class PaymentController {
 	public String paypopPost(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Member loginUser = (Member) session.getAttribute("loginUser");
-		String userId = loginUser.getUserId();
-		System.out.println(userId);
-		
-		int result = pService.payConfirm(userId);
-		System.out.println("[paymentController] : "+result);
+		/*String userId = loginUser.getUserId();
+		System.out.println(userId);*/
+		System.out.println("카카오페이 이동했냐마" + loginUser);
+		Member m = pService.payConfirm(loginUser);
+		session.setAttribute("loginUser", m);
+		//System.out.println("[paymentController] : "+result);
 		return "payment/payment";
 	}
 
@@ -75,11 +76,13 @@ public class PaymentController {
 	public String paypopPost2(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Member loginUser = (Member) session.getAttribute("loginUser");
-		String userId = (String)loginUser.getUserId();
-		System.out.println(userId);
+		/*String userId = loginUser.getUserId();
+		System.out.println(userId);*/
 		
-		int result = pService.payConfirm(userId);
-		System.out.println("[paymentController] : "+result);
+		Member m = pService.payConfirm(loginUser);
+		System.out.println(m.getUserId());
+		session.setAttribute("loginUser", m);
+		
 		return "payment/paypop2";
 	}
 

@@ -1,6 +1,7 @@
 package com.music.tuna.payment.dao;
 
 
+import com.music.tuna.member.model.vo.Member;
 import com.music.tuna.payment.vo.Goods;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class PaymentDaoImpl implements PaymentDao{
 	
 	// 결제하면 유료회원으로 업데이트
 	@Override
-	public int updatePaymember(String userId) {
-		return sqlSession.update("payment.updatePaymember",userId);
+	public int updatePaymember(Member loginUser) {
+		return sqlSession.update("payment.updatePaymember",loginUser);
 	}
 	@Override
 	public void commit() {
@@ -53,6 +54,12 @@ public class PaymentDaoImpl implements PaymentDao{
 		int res = sqlSession.insert("payment.updateFunding", pm);
 		System.out.println("[pdao] updateFunding:"+res);
 		return res;
+	}
+
+
+	@Override
+	public Member selectMember(Member loginUser) {
+		return sqlSession.selectOne("payment.selectMember", loginUser);
 	}
 }
 	
