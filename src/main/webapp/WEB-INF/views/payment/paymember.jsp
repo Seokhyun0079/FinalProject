@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>TUNA MUSIC | paypop</title>
+    <title>TUNA MUSIC | paymember</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">

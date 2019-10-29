@@ -91,6 +91,11 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
+	@Override
+	public Member selectMember(Member loginUser) {
+		return memberDao.selectMember(loginUser);
+	}
+
 
 
 
