@@ -61,7 +61,15 @@ public class MagazineBoardServiceImpl implements MagazineBoardService {
 
 	@Override
 	public ArrayList<MagazineBoard> selectKeySearch(String keyword,PageInfo pi) {
-		return mDAO.selectKeySearch(keyword,pi);
+		ArrayList<MagazineBoard> list = mDAO.selectKeySearch(keyword,pi);
+		for(MagazineBoard maga : list) {
+			int s =maga.getMcontent().indexOf("mphotoUpload");
+			if(s!=-1) {
+				String sub = maga.getMcontent().substring(s+"mphotoUpload".length(), maga.getMcontent().length());
+				maga.setThumbnail(sub.substring(1, sub.indexOf("\"")));
+			}
+		}
+		return list;
 	}
 
 	@Override

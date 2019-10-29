@@ -85,6 +85,7 @@
 	from MBOARD
 	where mtitle like '%'||#{keyword}||'%'
 	and status='Y'
+	ORDER BY mseq desc
 	</select>
 	
 	<insert id="insertPost" parameterType="MagazineBoard">
