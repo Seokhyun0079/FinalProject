@@ -30,7 +30,8 @@
         <![CDATA[
         select * from
         (select rownum as rnum, A.* from
-        (select * from mymusicshareboard_article order by article_no desc) A
+        (select * from mymusicshareboard_article join (select id, nickname from member) using (id)
+        order by article_no desc) A
         where rownum <= #{end})
         B where B.rnum >= #{start}
         ]]>

@@ -107,7 +107,16 @@
                     <div style="display: inline-block; width : 50%; margin-left: 25%; text-align: center">
                         <div style=" display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px; "><h5 style="background-color: black; color : white;">Best</h5><br><h5 id="best">${article.best}</h5></div>
                         <div  style="display: inline-block;margin-right: 30px; border: 5px solid black; width : 100px;"><h5 style="background-color: black; color : white;">Bad</h5><br><h5 id="bad">${article.bad}</h5></div><br><br>
+                        <c:set var="id" value="${article.id}" />
+                        <c:if test="${loginUser.userId eq id }">
+                            <div>
+                                <br><br>
+                                <a href="/TunaMusic/myMusicShareBoard/article/edit.do?articleNo=${article.articleNo}" style="color:white;" class="btn razo-btn btn-3 mt-15">Edit</a>
+                                <a href="/TunaMusic/myMusicShareBoard/article/remove.do?articleNo=${article.articleNo}" style="color:white;" class="btn razo-btn btn-3 mt-15">Delete</a>
+                            </div>
+                        </c:if>
                     </div>
+
                     <div class="razo-next-prev-pager mb-80 d-flex align-items-center justify-content-between">
                         <div class="prev-pager">
                             <a href="/TunaMusic/myMusicShareBoard/article/read.do?articleNo=${article.prev}"><span>Previous</span>
