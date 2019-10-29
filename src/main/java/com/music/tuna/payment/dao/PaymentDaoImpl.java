@@ -1,19 +1,23 @@
 package com.music.tuna.payment.dao;
 
 
+import com.music.tuna.crowdFunding.model.vo.Funding;
 import com.music.tuna.payment.vo.Goods;
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.music.tuna.payment.vo.Payment;
 import com.music.tuna.util.SqlSessionFactoryBean;
 
+import java.util.List;
+
 @Repository
 public class PaymentDaoImpl implements PaymentDao{
+	private SqlSession sqlSession;
+	PaymentDaoImpl(){
+		this.sqlSession =  SqlSessionFactoryBean.getSqlSessionInstance();
+	}
 
-
-	private SqlSession sqlSession = SqlSessionFactoryBean.getSqlSessionInstance();
 	
 	@Override
 	public int insertPayment(String userId) {
@@ -44,15 +48,32 @@ public class PaymentDaoImpl implements PaymentDao{
 	public int insertfPay(Payment pm) {
 		System.out.println("[pdao] insertfPay:"+pm.toString());
 		int res = sqlSession.insert("payment.insertfPay", pm);
+		List<Payment> paymentList = sqlSession.selectList("payment.selectPayment");
+		for(Payment p : paymentList){
+			System.out.println("p = " + p);
+		}
 		System.out.println("[pdao] insertfPay:"+res);
 		return res;
 	}
 	@Override
 	public int updateFunding(Payment pm) {
 		System.out.println("[pdao] updateFunding:"+pm.toString());
-		int res = sqlSession.insert("payment.updateFunding", pm);
+		int res = sqlSession.update("payment.updateFunding", pm);
+		List<Funding> paymentList = sqlSession.selectList("payment.selectFunding");
+		for(Funding f : paymentList){
+			System.out.println("f = " + f);
+		}
 		System.out.println("[pdao] updateFunding:"+res);
 		return res;
+	}
+	public void close(){
+		sqlSession.close();
+	}
+
+	@Override
+	public List<Funding> selectListFunding() {
+		List<Funding> paymentList = sqlSession.selectList("payment.selectFunding");
+		return  paymentList;
 	}
 }
 	
