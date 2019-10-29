@@ -73,11 +73,11 @@
                                 <h5>${status.index+1}</h5>
                             </div>
                             <div class="music-thumb">
-                                <img src="/TunaMusic/resources/img/bg-img/25.jpg" alt="">
+                                <img src="/TunaMusic/resources/albumImageUpload/${vo.albumFile}">
                             </div>
                             <div class="audio-player">
                                 <audio preload="auto" controls>
-                                    <source src="/TunaMusic/resources/audio/dummy-audio.mp3">
+                                    <source src="/TunaMusic/resources/upload/${vo.fileName}"> <!-- 음원 어디갔엉 -->
                                 </audio>
                             </div>
                             <div class="music-title">

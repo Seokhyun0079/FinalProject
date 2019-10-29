@@ -2,17 +2,21 @@ package com.music.tuna.crowdFunding.model.dao;
 
 import com.music.tuna.crowdFunding.model.vo.Funding;
 import com.music.tuna.crowdFunding.model.vo.FundingList;
+import com.music.tuna.payment.dao.PaymentDao;
 import com.music.tuna.payment.vo.Goods;
+import com.music.tuna.payment.vo.Payment;
 import com.music.tuna.util.SqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class FundingDAO {
     SqlSession sqlSession;
+    @Autowired
+    PaymentDao paymentDao;
     public FundingDAO(){
         this.sqlSession = SqlSessionFactoryBean.getSqlSessionInstance();
     }
@@ -38,6 +42,7 @@ public class FundingDAO {
         return sqlSession.selectList("crowdFunding.selectAlmostList");
     }
     public Funding selectFunding(int fno){
+//        List<Funding> list = paymentDao.selectListFunding();
         return sqlSession.selectOne("crowdFunding.selectFunding", fno);
     }
     public Funding lastInsertedFunding(){
@@ -64,8 +69,12 @@ public class FundingDAO {
         int result = sqlSession.update("crowdFunding.modifyFunding", fd);
         return result;
     }
-    public List selectMyFundingList(String id){
+    public List selectMyFundingList(String id) {
         return sqlSession.selectList("crowdFunding.myFundingList", id);
+    }
+    public int updateFunding(Payment p){
+        int res = sqlSession.update("crowdFunding.updateFunding", p);
+        return res;
     }
 
     public void commit(){

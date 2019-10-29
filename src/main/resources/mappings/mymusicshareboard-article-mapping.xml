@@ -63,9 +63,6 @@
     <update id="updateBest">
         update myMusicShareBoard_article set best = #{best} where article_no =#{articleNo}
     </update>
-    <select id = "selectMyWrittenList" resultMap="articleResult">
-        select * from myMusicShareBoard_article join member using(id) where id = #{id}
-    </select>
     <delete id="deleteArticle">
         delete from myMusicShareBoard_article where article_no = ${articleNo}
     </delete>

@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
     
 <!DOCTYPE html>
-<html>
+<html >
 <head>
  <meta charset="UTF-8">
     <meta name="description" content="">
@@ -28,132 +29,20 @@
 </head>
 <body>
 
- <!-- 페이지 로드 -->
-<!--     <div id="preloader">
-        <div>
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
-            </div>
-            <span>Wait, please...</span>
-        </div>
-    </div> -->
-    <!-- /페이지 로드-->
+<!-- Top Login Area Start -->
+<%@ include file="/WEB-INF/views/common/iconmodal.jsp"%>
+<!-- Top Login Area End -->
 
-<!----------------------------------------------------------------------------------------------------- *헤더  시작 -->
-    <!-- Top Search Area Start -->
-    <div class="top-search-area">
-        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <!-- Close Button -->
-                        <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
-                        <!-- Form -->
-                        <form action="index.jsp" method="post">
-                            <input type="search" name="top-search-bar" class="form-control" placeholder="Type keywords and hit enter...">
-                            <button type="submit">Search</button>
-                        </form>
-                        <!-- Search Button -->
-                        <div class="search-btn"><i class="icon_search"></i></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Top Search Area End -->
+<!-- Social Share Area Start -->
+<%@ include file="/WEB-INF/views/common/mylist.jsp"%>
+<!-- Social Share Area End -->
 
-    <!-- Social Share Area Start -->
-    <div class="razo-social-share-area">
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
-        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-        <a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a>
-        <a href="#" class="ss-close-btn"><i class="arrow_right"></i></a>
-    </div>
-    <!-- Social Share Area End -->
+<!-- Header Area Start -->
+<header class="header-area">
+<%@ include file="/WEB-INF/views/common/titlebar.jsp"%>
+</header>
+<!-- Header Area End -->
 
-    <!-- Header Area Start -->
-    <header class="header-area">
-        <!-- Main Header Start -->
-        <div class="main-header-area">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Classy Menu -->
-                    <nav class="classy-navbar justify-content-between" id="razoNav">
-
-                        <!-- Logo -->
-                        <a class="nav-brand" href="index.jsp"><img src="/TunaMusic/resources/img/core-img/logo.png" alt=""></a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-                            <!-- Menu Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul id="nav">
-                                    <li><a href="./index.jsp">Home</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./index.jsp">- Home</a></li>
-                                            <li><a href="./charts.html">- Charts</a></li>
-                                            <li><a href="./single-charts.html">- Charts Details</a></li>
-                                            <li><a href="./podcast.html">- Podcast</a></li>
-                                            <li><a href="./single-podcast.html">- Podcast Details</a></li>
-                                            <li><a href="./show.html">- Show</a></li>
-                                            <li><a href="./events.html">- Event</a></li>
-                                            <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Blog Details</a></li>
-                                            <li><a href="#">- Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="./show.html">Shows</a></li>
-                                    <li><a href="./charts.html">Charts</a></li>
-                                    <li><a href="./podcast.html">Podcasts</a></li>
-                                    <li><a href="#">Mega</a>
-                                      
-                                    </li>
-                                    <li><a href="./events.html">Events</a></li>
-                                    <li><a href="./blog.html">Blog</a></li>
-                                </ul>
-
-                                <!-- Share Icon -->
-                                <div class="social-share-icon">
-                                    <i class="social_share"></i>
-                                </div>
-
-                                <!-- Search Icon -->
-                                <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                                    <i class="icon_search"></i>
-                                </div>
-                            </div>
-                            <!-- Nav End -->
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header Area End -->
-<!----------------------------------------------------------------------------------------------------- *헤더  끝-->
-
-   
 
     <!-- *게시판 (글목록, 페이지까지)-->
 <section class="uza-news-area section-padding-80">
@@ -214,7 +103,7 @@
                
                <!----------------------post버튼  --> 
                 <div class="col-12"> <!-- 가운데 정렬 -->
-                	<c:if test="${loginUser.userId eq 'admin' }"><!-- 멤버컨트롤에서 리스트 받아옴 -->
+                	<c:if test="${loginUser.grade eq 'A'}"><!-- 멤버컨트롤에서 리스트 받아옴 -->
                 	 	<button class="btn razo-btn btn-3 mt-15" style="float: right;" onclick="location.href='minsertView.do';">Post</button> <!-- 게시글 작성 버튼 -->                       
             		</c:if> 
        			</div>
@@ -303,7 +192,7 @@
 				
 				<!-- [다음] -->
 				<c:if test="${ pi.currentPage >= pi.maxPage }">
-					[다음]
+					[next]
 				</c:if> 
 				<c:if test="${ pi.currentPage < pi.maxPage }">
 					<c:url var="after" value="magazine.do">
@@ -519,6 +408,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Active -->
      <script src="/TunaMusic/resources/js/default-assets/active.js"></script> 
     <!-- <script src="./resources/js/default-assets/active.js"></script> -->
+    <u:isLogin>
+    <script src="/TunaMusic/resources/js/mylist.js"></script>
+	</u:isLogin>
 
 
 
