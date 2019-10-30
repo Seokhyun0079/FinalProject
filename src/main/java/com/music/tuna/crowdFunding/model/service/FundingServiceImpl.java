@@ -91,5 +91,10 @@ public class FundingServiceImpl implements FundingService {
         return result;
     }
 
+    @Override
+    public List<Funding> getMyFundingList(String userId) {
+        return fundingDAO.getMyFundingList(userId);
+    }
+
 
 }

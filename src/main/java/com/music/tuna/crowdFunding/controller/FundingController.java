@@ -5,6 +5,7 @@ import com.music.tuna.crowdFunding.model.vo.Funding;
 import com.music.tuna.crowdFunding.model.vo.FundingList;
 import com.music.tuna.member.model.vo.Member;
 import com.music.tuna.payment.vo.Goods;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -228,6 +230,22 @@ public class FundingController {
 
         return lvo;
 
+    }
+
+    @RequestMapping(value = "myFundingList.do")
+    public void myFundingList(HttpServletRequest request, HttpServletResponse response){
+        Funding fd = new Funding();
+        String userId =  ((Member)(request.getSession().getAttribute("loginUser"))).getUserId();
+        List<Funding> list = fundingService.getMyFundingList(userId);
+
+        JSONObject json = new JSONObject();
+        json.put("list", list);
+        response.setContentType("application/x-json; charset=utf-8");
+        try{
+            response.getWriter().print(json);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
 }

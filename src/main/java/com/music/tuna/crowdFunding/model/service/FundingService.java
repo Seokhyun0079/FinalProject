@@ -29,4 +29,6 @@ public interface FundingService {
     List<Funding> getAlmostList(FundingList lvo);
 
     public int modifyFunding(Funding fd);
+
+    public List<Funding> getMyFundingList(String userId);
 }

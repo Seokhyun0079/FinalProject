@@ -55,7 +55,7 @@
 </header>
 
 <!-- Event Welcome Area Start -->
-<section class="event-welcome-area bg-overlay bg-img jarallax" style="background-image: url(img/bg-img/54.jpg);">
+<section class="event-welcome-area bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/54.jpg);">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9">
@@ -68,7 +68,7 @@
                     </div> -->
                     <br>
                     <div class="event-btn-group">
-                        <a href="#" class="btn razo-btn ">내 프로젝트 등록하기</a>
+                        <a href="/TunaMusic/crowdFunding/insertFunding.do" class="btn razo-btn ">내 프로젝트 등록하기</a>
                     </div>
                 </div>
             </div>
@@ -76,32 +76,6 @@
     </div>
 </section>
 <!-- Event Welcome Area End -->
-
-<!-- Event Search Area Start -->
-<div class="event-search-area" style="padding: 60px;">
-    <div class="container">
-        <div class="event-search-content" style="margin: 0px 100px;">
-            <form action="#" class="search-form">
-                <div class="row align-items-end">
-                    <div class="col form-group">
-                        <select name="" id="" class="form-control">
-                            <option value="제목">제목</option>
-                            <option value="내용">내용</option>
-                            <option value="제목+내용">제목+내용</option>
-                        </select>
-                    </div>
-                    <div class="col-6 form-group">
-                        <input type="search" class="form-control" id="search" placeholder="검색할 단어를 입력해주세요">
-                    </div>
-                    <div class="col form-group text-right">
-                        <button type="submit" class="btn razo-btn w-100">프로젝트 검색</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Event Search Area End -->
 
 <!-- Razo Event Area Start -->
 <section class="razo-events-area section-padding-0-80">
@@ -140,7 +114,7 @@
                             </div>
                             <!-- Event Purchase Button -->
                             <div class="event-purchase-button col">
-                                <a href="#" class="btn razo-btn"> 프로젝트 보기</a>
+                                <a href="/TunaMusic/crowdFunding/fundingRead.do?fno=${fd.fno}" class="btn razo-btn"> 프로젝트 보기</a>
                             </div>
                         </div>
                     </div>
