@@ -70,7 +70,7 @@ public class PaymentDaoImpl implements PaymentDao{
 
 	@Override
 	public List<Payment> getpaymentList(Payment pay) {
-		return sqlSession.selectOne("payment.selectPayment", pay);
+		return sqlSession.selectList("payment.selectPayment", pay);
 	}
 }
 	
