@@ -51,6 +51,9 @@
                 });
                 alert("결제가 완료되었습니다.");
                 location.href='paySucess.do';
+                opener.location.reload();
+                window.close();
+                
                 <%-- location.href = "<%=request.getContextPath()%>/views/myPage.jsp"; --%>
             } else {
                 msg = '결제에 실패하였습니다.';
