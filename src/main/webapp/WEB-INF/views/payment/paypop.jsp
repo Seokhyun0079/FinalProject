@@ -79,7 +79,8 @@
 	  	if(!$("#chk_2").is(":checked")){
 		  alert("약관에 동의해 주세요.")
 	  	}else{
-	    	location.href="kakao.do";
+	  		alert("서버 점검 중 입니다.");
+	    	/* location.href="kakao.do"; */
 	  	}
 	  });
 	  //네이버페이

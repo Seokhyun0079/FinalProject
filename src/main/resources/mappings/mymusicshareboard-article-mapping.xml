@@ -22,18 +22,22 @@
       ]]>
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
-      select id, title, nickname, article_no, content, bad, best, profileimg, (select count(*) from mymusicshareboard_comment where mymusicshareboard_comment.article_no= #{articleNo}) as comment_count
-      from mymusicshareboard_article  join (select id, nickname, profileimg  from member) using (id)
-      where article_no = #{articleNo}
+      select * from (
+            select id, title, article_no, content, bad, best, (select count(*) from mymusicshareboard_comment where mymusicshareboard_comment.article_no= #{articleNo}) as comment_count
+            from mymusicshareboard_article
+            where article_no = #{articleNo}
+      ) join (select id, nickname, profileimg  from member) using (id)
     </select>
     <select id="selectList" resultMap="articleResult">
         <![CDATA[
+        select * from (
         select * from
         (select rownum as rnum, A.* from
-        (select * from mymusicshareboard_article join (select id, nickname from member) using (id)
+        (select * from mymusicshareboard_article
         order by article_no desc) A
         where rownum <= #{end})
         B where B.rnum >= #{start}
+        )join (select id, nickname from member) using (id)
         ]]>
     </select>
     <select id="getCount" resultType="int">
