@@ -256,7 +256,7 @@
                 <!-- Single Razo Event Area -->
                 <div class="col-12">
                     <h5 style="color: #DC2878"> 
-                    <img src="/TunaMusic/resources/img/core-img/fish.png" width="50" height="50">&nbsp;&nbsp;Tuna Music 이용권</h5>
+                    <img src="/TunaMusic/resources/img/core-img/fish.png" width="50" height="50">&nbsp;&nbsp;Tuna Music Membership</h5>
                     <div class="single-razo-event-area d-flex flex-wrap align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms" style="border-color: grey">
                         <!-- Thumbnail -->
                         <div class="event-thumbnail">
@@ -278,7 +278,7 @@
                                     <div class="event-purchase-button" style="position: absolute; top: 50%; right: 5%; transform: translate(-0%, -50%)" >
                                     		
                                        	<a href="#" class="btn razo-btn" id="btn_buy">
-                                       	 <!-- <i class="icon_cart"></i>  -->구매</a>
+                                       	 <!-- <i class="icon_cart"></i>  -->BUY</a>
                                        	 <c:if test="${empty sessionScope.loginUser }">
                                        	 	<input type="hidden" id="loginUserCheck" class="loginUserCheck" value="0">
                                        	 </c:if>
@@ -344,10 +344,10 @@
                     <div class="col-12 col-sm-6 col-md-4 col-xl-3">
                         <div class="single-footer-widget mb-80">
                             <!-- Footer Logo -->
-                            <a href="#" class="footer-logo"><img src="/TunaMusic/resources/img/core-img/logo2.png" alt=""></a>
-
-                            <p class="mb-30">Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
+                            <!-- <a href="#" class="footer-logo"><img src="/TunaMusic/resources/img/core-img/logo2.png" alt=""></a> -->
+                            <a href="#" class="footer-logo"><img src="/TunaMusic/resources/img/core-img/Tuna.png" alt="" style="width: 132px; height: 39px;"></a>
+                            
+                            <p class="mb-30">Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> 
                             <!-- Footer Content -->
                             <div class="footer-content">
 
@@ -357,7 +357,7 @@
                                         <i class="icon_pin"></i>
                                     </div>
                                     <div class="text">
-                                        <p>24 No. Amazing Valley, Aewsome St. New York, USA</p>
+                                        <p>14 No. Namdo Building, Tehran St. Seoul, South Korea</p>
                                     </div>
                                 </div>
 
@@ -367,7 +367,7 @@
                                         <i class="icon_phone"></i>
                                     </div>
                                     <div class="text">
-                                        <p>+11 123 4567890</p>
+                                        <p>+82 1544-9970</p>
                                     </div>
                                 </div>
 
@@ -397,7 +397,7 @@
                                     <i class="fa fa-twitter"></i>
                                 </div>
                                 <div class="tweet">
-                                    <p><a href="#">Kerem Suer</a> @kerem American conducts it first ever done strike Qaeda</p>
+                                    <p><a href="#">Seokhyun Hwang</a> @King Japan conducts it first ever done strike Qaeda</p>
                                 </div>
                             </div>
 
@@ -407,7 +407,7 @@
                                     <i class="fa fa-twitter"></i>
                                 </div>
                                 <div class="tweet">
-                                    <p><a href="#">Axel Hervelle</a> @axel_hervelle Tens of thousands attend rallies held in D.C.</p>
+                                    <p><a href="#">Yeji Choi</a> @ulbo_TT <br>Tens of thousands attend rallies held in D.C.</p>
                                 </div>
                             </div>
 
@@ -417,7 +417,7 @@
                                     <i class="fa fa-twitter"></i>
                                 </div>
                                 <div class="tweet">
-                                    <p><a href="#">Chris Pratt</a> @chris_pratt Hundreds of protesters shut down meeting.</p>
+                                    <p><a href="#">Hyeong eun Park</a> @Soreizo Hundreds of protesters shut down meeting.</p>
                                 </div>
                             </div>
                         </div>

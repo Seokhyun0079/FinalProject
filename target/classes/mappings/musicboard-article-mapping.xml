@@ -27,7 +27,7 @@
     </select>
     <select id="selectArticleByArticleNo" resultMap="articleResult">
       select * from (
-        select id, title, article_no, text, file_name, bad, best, (select count(*) from musicboard_comment where musicboard_comment.article_no= 1) as comment_count
+        select id, title, article_no, text, album_file, file_name, bad, best, (select count(*) from musicboard_comment where musicboard_comment.article_no= 1) as comment_count
         from musicboard_article
         where article_no = #{articleNo}
       ) join (select id, nickname, profileimg  from member) using (id)

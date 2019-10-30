@@ -322,5 +322,6 @@
 <u:isLogin>
     <script src="/TunaMusic/resources/js/mylist.js"></script>
 </u:isLogin>
+<script src="/TunaMusic/resources/js/music-list.js"></script>
 </body>
 </html>
