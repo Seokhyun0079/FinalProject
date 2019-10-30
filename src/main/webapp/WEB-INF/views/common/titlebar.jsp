@@ -39,6 +39,13 @@
                                             <li><a href="/TunaMusic/myMusicShareBoard/article/list.do">- list</a></li>
                                             <li><a href="/TunaMusic/myMusicShareBoard/article/write.do">- write</a></li>
                                         </ul></li>
+                                    <li><a href="/TunaMusic/crowdFunding/fundingList.do">- Crowd Funding</a>
+                                        <ul class="dropdown">
+                                            <li><a href="/TunaMusic/crowdFunding/fundingList/hotList.do">- Hot Funding</a></li>
+                                            <li><a href="/TunaMusic/crowdFunding/fundingList/newList.do">- New Funding</a></li>
+                                            <li><a href="/TunaMusic/crowdFunding/fundingList/almostList.do">- Almost Funding</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="/TunaMusic/payment.do">-Membership Purchase</a></li>
                                 </ul>
                             </li>

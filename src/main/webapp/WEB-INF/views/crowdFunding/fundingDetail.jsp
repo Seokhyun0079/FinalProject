@@ -104,9 +104,11 @@
             <%--<c:if test="">--%>
                 <%----%>
             <%--</c:if>--%>
+            <c:if test="${funding.id == loginId}">
             <div class="col-8" style="margin-top: 30px; text-align: center">
-                <input type="submit" class="razo razo-btn" id="modifybtn" name="modifybtn" value="수정">
+                <a href="/TunaMusic/crowdFunding/modifyFunding.do?fno=${funding.fno}"><input type="submit" class="razo razo-btn" id="modifybtn" name="modifybtn" value="수정"></a>
             </div>
+            </c:if>
             <!-- </div> -->
         </div>
     </div>

@@ -17,6 +17,19 @@
         <result column="endDate" property="endDate"/>
         <result column="fileName" property="fileName"/>
     </resultMap>
+    <resultMap id="myFundingListResult" type="funding">
+        <id column="fno" property="fno"/>
+        <result column="id" property="id"/>
+        <result column="ftitle" property="ftitle"/>
+        <result column="freward" property="freward"/>
+        <result column="fcontent" property="fcontent"/>
+        <result column="fcreator" property="fcreator"/>
+        <result column="fcreatorInfo" property="fcreatorInfo"/>
+        <result column="fbacker" property="fbacker"/>
+        <result column="fgoal" property="fgoal"/>
+        <result column="famount" property="famount"/>
+        <result column="fileName" property="fileName"/>
+    </resultMap>
     <resultMap id="goodsResult" type="goods">
         <id column="gno" property="goodsNo"/>
         <result column="gname" property="goodsName"/>
@@ -130,7 +143,10 @@
         G.GNO=#{goodsNo} AND B.FNO=#{fno})
         WHERE F.FNO = #{fno}
 	</update>
-    <select id="selectMyFundingList" parameterType="string" resultMap="fundingResult">
-        select * from funding where id = #{userId}
+    <!-- To_char(regDate, 'yyyy-MM-dd') as fregDate, To_char(endDate, 'yyyy-MM-dd') as fendDate,  -->
+    <select id="selectMyFundingList" parameterType="string" resultMap="myFundingListResult">
+        select fno, id, ftitle, freward, fcontent, fcreator, fcreatorInfo, fbacker, fgoal, fileName
+        from funding
+        where id = #{userId}
     </select>
 </mapper>

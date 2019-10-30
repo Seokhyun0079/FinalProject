@@ -21,7 +21,7 @@ public class Funding {
     // db에 들어가지않는 항목
     private MultipartFile fuploadFile;  // 리워드 이미지
     private int percent;
-    private long dDay;
+    private int dDay;
 
     public int getFno() {
         return fno;
@@ -165,10 +165,15 @@ public class Funding {
         }else return 0;
     }
 
-    public long getdDay() {
+    public int getdDay() {
         //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        long diffDay = (getEndDate().getTime() - getRegDate().getTime()) / (24*60*60*1000);
-        return diffDay;
+        if(getEndDate()!=null && getRegDate()!=null) {
+            long diffDay = (getEndDate().getTime() - getRegDate().getTime()) / (24 * 60 * 60 * 1000);
+            return (int) diffDay;
+        }else {
+            System.out.println("null!!");
+            return 0;
+        }
     }
 
 }

@@ -78,11 +78,15 @@ public class FundingController {
     }
 
     @RequestMapping(value = "/fundingRead.do", method = RequestMethod.GET)
-    public ModelAndView getFundingDetail(ModelAndView mv, @RequestParam int fno) {
+    public ModelAndView getFundingDetail(HttpServletRequest request, ModelAndView mv, @RequestParam int fno) {
         Funding fvo = fundingService.selectFunding(fno);
         System.out.println("[fcontroller] : "+fvo.toString());
 
+        HttpSession session = request.getSession();
+        String userId = ((Member)session.getAttribute("loginUser")).getUserId();
+
         if(fvo!=null){
+            mv.addObject("loginId", userId);
             mv.addObject("funding", fvo);
             mv.setViewName("crowdFunding/fundingDetail");
         }
@@ -234,7 +238,7 @@ public class FundingController {
 
     @RequestMapping(value = "myFundingList.do")
     public void myFundingList(HttpServletRequest request, HttpServletResponse response){
-        Funding fd = new Funding();
+        //Funding fd = new Funding();
         String userId =  ((Member)(request.getSession().getAttribute("loginUser"))).getUserId();
         List<Funding> list = fundingService.getMyFundingList(userId);
 
