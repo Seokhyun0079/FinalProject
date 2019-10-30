@@ -11,6 +11,8 @@
         <result column="read_count" property="readCount"/>
         <result column="article_date" property="date"/>
         <result column="comment_count" property="commentCount"/>
+        <result column="nickname" property="nickname"/>
+        <result column="profileimg" property="profileIMG"/>
 
     </resultMap>
     <insert id="insertArticle">

@@ -157,6 +157,7 @@
                 			</div> 
 		                     
                 </div>
+                <br>
                 </c:forEach>
                 
 

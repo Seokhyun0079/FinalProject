@@ -1,10 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html lang="kr">
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -105,15 +103,15 @@
                         <div class="podcast-thumb">
                             <img src="/TunaMusic/resources/img/bg-img/69.jpg" alt="">
                             <div class="like-comment">
-                                <a href="#" class="like">2 <i class="icon_heart"></i></a>
-                                <a href="#" class="like">2 <i class="icon_chat"></i></a>
+                                <a href="#" class="like">${article.readCount} <i class="icon_heart"></i></a>
+                                <a href="#" class="like">${article.best} <i class="icon_chat"></i></a>
                             </div>
                         </div>
                         <!-- Content -->
                         <div class="podcast-content">
                             <div class="podcast-meta">
-                                <a href="#"><i class="icon_calendar"></i> July 23, 2014</a>
-                                <a href="#"><i class="icon_clock_alt"></i> 36 min</a>
+                                <a href="#"><i class="icon_calendar"></i>${article.id}</a>
+                                <a href="#"><i class="icon_clock_alt"></i> ${article.nickname}</a>
                             </div>
                             <h5>${article.title}</h5>
                             <div class="border-line"></div>
@@ -324,7 +322,5 @@
 <u:isLogin>
     <script src="/TunaMusic/resources/js/mylist.js"></script>
 </u:isLogin>
-<script src="/TunaMusic/resources/js/music-list.j22s"></script>
 </body>
-
 </html>

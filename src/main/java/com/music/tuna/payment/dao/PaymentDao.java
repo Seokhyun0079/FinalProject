@@ -18,4 +18,5 @@ public interface PaymentDao {
 	public Goods selectGoods(int gno);
 	public int insertfPay(Payment pm);
 	Member selectMember(Member loginUser);
+	List<Payment> getpaymentList(Payment pay);
 }
