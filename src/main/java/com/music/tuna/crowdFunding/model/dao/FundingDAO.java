@@ -1,14 +1,15 @@
 package com.music.tuna.crowdFunding.model.dao;
 
 import com.music.tuna.crowdFunding.model.vo.Funding;
+import com.music.tuna.crowdFunding.model.vo.FundingList;
 import com.music.tuna.payment.dao.PaymentDao;
 import com.music.tuna.payment.vo.Goods;
+import com.music.tuna.payment.vo.Payment;
 import com.music.tuna.util.SqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -28,23 +29,20 @@ public class FundingDAO {
     public int getAlmostListCount() {
         return sqlSession.selectOne("crowdFunding.getAlmostListCount");
     }
-    public void insertFunding(Funding funding){
-        sqlSession.insert("crowdFunding.insertFunding", funding);
+    public int insertFunding(Funding funding){
+        return sqlSession.insert("crowdFunding.insertFunding", funding);
     }
-    public ArrayList<Funding> selectHotList() {
-        return (ArrayList)sqlSession.selectList("crowdFunding.selectHotList");
+    public List<Funding> selectHotList() {
+        return sqlSession.selectList("crowdFunding.selectHotList");
     }
-    public ArrayList<Funding> selectNewList() {
-        return (ArrayList)sqlSession.selectList("crowdFunding.selectNewList");
+    public List<Funding> selectNewList() {
+        return sqlSession.selectList("crowdFunding.selectNewList");
     }
-    public ArrayList<Funding> selectAlmostList() {
-        return (ArrayList)sqlSession.selectList("crowdFunding.selectAlmostList");
+    public List<Funding> selectAlmostList() {
+        return sqlSession.selectList("crowdFunding.selectAlmostList");
     }
     public Funding selectFunding(int fno){
-        List<Funding> list = paymentDao.selectListFunding();
-        for(Funding f : list){
-            System.out.println("f = " + f);
-        }
+//        List<Funding> list = paymentDao.selectListFunding();
         return sqlSession.selectOne("crowdFunding.selectFunding", fno);
     }
     public Funding lastInsertedFunding(){
@@ -58,9 +56,32 @@ public class FundingDAO {
         Goods goods = sqlSession.selectOne("crowdFunding.lastInsetedGoods");
         return goods;
     }
+    public List<Funding> getHotList(FundingList lvo) {
+        return sqlSession.selectList("crowdFunding.getHotList", lvo);
+    }
+    public List<Funding> getNewList(FundingList lvo) {
+        return sqlSession.selectList("crowdFunding.getNewList", lvo);
+    }
+    public List<Funding> getAlmostList(FundingList lvo) {
+        return sqlSession.selectList("crowdFunding.getAlmostList", lvo);
+    }
+    public int modifyFunding(Funding fd) {
+        int result = sqlSession.update("crowdFunding.modifyFunding", fd);
+        return result;
+    }
+    public List selectMyFundingList(String id) {
+        return sqlSession.selectList("crowdFunding.myFundingList", id);
+    }
+    public int updateFunding(Payment p){
+        int res = sqlSession.update("crowdFunding.updateFunding", p);
+        return res;
+    }
 
     public void commit(){
         sqlSession.commit();
+    }
+    public void rollback(){
+        sqlSession.rollback();
     }
 
 }

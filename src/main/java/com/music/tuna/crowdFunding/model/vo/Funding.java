@@ -156,12 +156,13 @@ public class Funding {
     }
 
     public int getPercent() {
-        int percent = 0;
+        double percent = 0;
+        double amount = getFamount();
+        double goal = getFgoal();
         if (getFamount() != 0) {
-            return getFgoal() / getFamount();
-        } else {
-            return percent;
-        }
+            percent = (amount / goal) * 100;
+            return (int) percent;
+        }else return 0;
     }
 
     public long getdDay() {

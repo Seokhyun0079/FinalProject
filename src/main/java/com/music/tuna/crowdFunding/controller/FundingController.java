@@ -2,6 +2,7 @@ package com.music.tuna.crowdFunding.controller;
 
 import com.music.tuna.crowdFunding.model.service.FundingService;
 import com.music.tuna.crowdFunding.model.vo.Funding;
+import com.music.tuna.crowdFunding.model.vo.FundingList;
 import com.music.tuna.member.model.vo.Member;
 import com.music.tuna.payment.vo.Goods;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -31,9 +32,9 @@ public class FundingController {
     @RequestMapping(value = "/fundingList.do")
     public ModelAndView fundingList(ModelAndView mv) {
 
-        ArrayList<Funding> hotList = fundingService.selectHotList();
-        ArrayList<Funding> newList = fundingService.selectNewList();
-        ArrayList<Funding> almostList = fundingService.selectAlmostList();
+        List<Funding> hotList = fundingService.selectHotList();
+        List<Funding> newList = fundingService.selectNewList();
+        List<Funding> almostList = fundingService.selectAlmostList();
 
         mv.addObject("hotList", hotList);
         mv.addObject("newList", newList);
@@ -42,23 +43,34 @@ public class FundingController {
         return mv;
     }
     @RequestMapping(value = "/fundingList/hotList.do")
-    public ModelAndView fHotList(ModelAndView mv) {
+    public ModelAndView fHotList(ModelAndView mv,FundingList lvo) {
         int totalCount = fundingService.getHotListCount();
+        lvo = pagination(totalCount, lvo);
+        lvo.setPageContent(fundingService.getNewList(lvo));
 
+        mv.addObject("hotList", lvo);
         mv.setViewName("crowdFunding/fundingHotList");
         return mv;
     }
     @RequestMapping(value = "/fundingList/newList.do")
-    public ModelAndView fNewList(ModelAndView mv) {
+    public ModelAndView fNewList(ModelAndView mv, FundingList lvo) {
         int totalCount = fundingService.getNewListCount();
 
+        lvo = pagination(totalCount, lvo);
+        lvo.setPageContent(fundingService.getNewList(lvo));
+
+        mv.addObject("newList", lvo);
         mv.setViewName("crowdFunding/fundingNewList");
         return mv;
     }
     @RequestMapping(value = "/fundingList/almostList.do")
-    public ModelAndView fAlmostList(ModelAndView mv) {
+    public ModelAndView fAlmostList(ModelAndView mv, FundingList lvo) {
         int totalCount = fundingService.getAlmostListCount();
 
+        lvo = pagination(totalCount, lvo);
+        lvo.setPageContent(fundingService.getNewList(lvo));
+
+        mv.addObject("almostList", lvo);
         mv.setViewName("crowdFunding/fundingAlmostList");
         return mv;
     }
@@ -73,6 +85,22 @@ public class FundingController {
             mv.setViewName("crowdFunding/fundingDetail");
         }
         return mv;
+    }
+
+    @RequestMapping(value = "/modifyFunding.do")
+    public ModelAndView modifyFunding(ModelAndView mv, @RequestParam(value = "fno") int fno){
+        Funding fvo = fundingService.selectFunding(fno);
+        System.out.println("[fcontroller] 1 :"+fvo.toString());
+        mv.addObject("funding", fvo);
+        mv.setViewName("crowdFunding/fundingModify");
+        return mv;
+    }
+    @RequestMapping(value = "/modifyFunding.do", method = RequestMethod.POST)
+    public String modifyFundingPost(Funding fd, @RequestParam(value = "fno") int fno) {
+        int result = fundingService.modifyFunding(fd);
+        System.out.println("[fcontroller] 2 : "+result);
+
+        return "redirect:/crowdFunding/fundingRead.do?fno="+fno;
     }
 
     @RequestMapping(value = "/insertReward.do")
@@ -174,6 +202,32 @@ public class FundingController {
 
         System.out.println("[fcontroller] : "+sb.toString());
         return sb.toString();
+    }
+
+    public FundingList pagination(int totalCount, FundingList lvo){
+        int listCount = 10;
+        int totalPage = totalCount/listCount;
+        if(lvo.getPage() == 0){
+            lvo.setPage(1);
+        }
+
+        if(totalCount % listCount>0){
+            totalCount++;
+        }
+        if(totalCount < lvo.getPage()){
+            lvo.setPage(totalPage);
+        }
+        int pageCount = 5;
+        lvo.setStartPage(((lvo.getPage() -1)/ pageCount) * pageCount +1);
+        lvo.setEndPage(lvo.getStartPage() + pageCount -1);
+        if(lvo.getEndPage() > totalPage){
+            lvo.setEndPage(totalPage);
+        }
+        lvo.setEnd(lvo.getPage() * listCount);
+        lvo.setStart(lvo.getEnd() - listCount+1);
+
+        return lvo;
+
     }
 
 }

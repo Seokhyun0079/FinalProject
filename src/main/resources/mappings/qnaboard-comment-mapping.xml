@@ -8,12 +8,15 @@
         <result column="id" property="id"/>
         <result column="reply_no" property="replyNo"/>
         <result column="content" property="content"/>
+        <result column="nickname" property="nickname"/>
+        <result column="profileimg" property="profileIMG"/>
     </resultMap>
     <insert id="insertComment">
        <if test="replyNo!=0"> insert into qnaboard_comment values(qb_comment_seq.nextval, #{articleNo}, #{id}, #{replyNo}, #{content})</if>
         <if test="replyNo==0">insert into qnaboard_comment values(qb_comment_seq.nextval, #{articleNo}, #{id}, null, #{content})</if>
     </insert>
     <select id="selectCommentList" resultMap="commentResult">
-        select * from qnaboard_comment where article_no = #{articleNo}
+    	        select * from qnaboard_comment  join (select id, nickname, profileimg  from member) using (id) where article_no = #{articleNo}
+<!--         select * from qnaboard_comment where article_no = #{articleNo} -->
     </select>
 </mapper>
