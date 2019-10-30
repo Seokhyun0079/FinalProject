@@ -37,15 +37,12 @@
     </select>
     <select id="selectArticleList" resultMap="articleResult">
         <![CDATA[
-        select * from (
-            select * from (
-                select rownum as rnum, A.*
-                from (
-                    select *
-                    from musicboard_article
-                    order by article_no desc )
-                A where rownum <= #{end})
-            B where B.rnum >= #{start})
+        select * from
+        (select * from
+        (select rownum as rnum, A.* from
+        (select * from musicboard_article order by article_no desc )
+        A where rownum <= #{end})
+        B where B.rnum >= #{start})
         join (select id, nickname from member) using (id)
         ]]>
     </select>
