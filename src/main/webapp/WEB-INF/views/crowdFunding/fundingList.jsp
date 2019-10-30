@@ -54,56 +54,20 @@
 <!-- Latest News Area Start -->
 <section class="razo-latest-news-area bg-overlay bg-img jarallax" style="background-image: url(/TunaMusic/resources/img/bg-img/32.jpg);">
     <!-- Razo Latest News Slide -->
-    <div class="razo-latest-news-slide owl-carousel">
-        <!-- Single Latest News Area -->
-        <div class="razo-single-latest-news-area bg-overlay bg-img" style="background-image: url(/TunaMusic/resources/img/bg-img/22.jpg);">
-            <!-- Post Content -->
-            <div class="post-content">
-                <a href="#" class="post-title">Crowd Funding List 1</a>
-                <p>Crowd Funding List1 Test Crowd Funding List1 Test Crowd Funding List1 Test Crowd Funding List1 Test Crowd Funding List1 Test Crowd Funding List1 Test</p>
-            </div>
-            <!-- Post Date -->
-            <div class="post-date">
-                <h2>8</h2>
-                <p>October</p>
-            </div>
-            <!-- Read More -->
-            <div class="read-more-btn">
-                <a href="#" class="btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-            </div>
-        </div>
-
-        <!-- Single Latest News Area -->
-        <div class="razo-single-latest-news-area bg-overlay bg-img" style="background-image: url(/TunaMusic/resources/img/bg-img/23.jpg);">
-            <!-- Post Content -->
-            <div class="post-content">
-                <a href="#" class="post-title">Crowd Funding List 2</a>
-                <p>Crowd Funding List2 Test Crowd Funding List2 Test Crowd Funding List2 Test Crowd Funding List2 Test Crowd Funding List2 Test Crowd Funding List2 Test</p>
-            </div>
-            <!-- Post Date -->
-            <div class="post-date">
-                <h2>8</h2>
-                <p>October</p>
-            </div>
-            <!-- Read More -->
-            <div class="read-more-btn">
-                <a href="#" class="btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-            </div>
-        </div>
+    <%-- class="bg-overlay bg-img"  background-image: url(/TunaMusic/resources/img/bg-img/54.jpg);"  --%>
+    <div style="margin-bottom: 30px; text-align: center; padding: 80px 30px;">
+        <%--<a href="#"><img src="/TunaMusic/resources/img/etc-img/tunamusic_funding_banner(3).png"></a>--%>
+        <h2 style="color: #FFFFFF">당신만의 굿즈, 마음속의 꿈을 현실로</h2>
+        <p style="color: #FFFFFF">당신의 이야기를 소개하고 든든한 후원자들을 만나보세요</p>
+        <br>
+        <a href="/TunaMusic/crowdFunding/insertFunding.do" class="btn razo-btn ">내 프로젝트 등록하기</a>
     </div>
 </section>
 
 <section class="uza-news-area section-padding-0-80">
     <div class="container">
         <!-- <div class="row razo-blog-masonary"> -->
-        <div class="bg-overlay bg-img" style="margin-top: 30px; margin-bottom: 30px; text-align: center; padding: 30px; background-image: url(/TunaMusic/resources/img/bg-img/54.jpg);">
-            <!-- <img src="img/tunamusuc_funding_banner.png"> -->
-            <%--<a href="#"><img src="/TunaMusic/resources/img/etc-img/tunamusic_funding_banner(3).png"></a>--%>
-            <h2 style="color: #FFFFFF">당신만의 굿즈, 마음속의 꿈을 현실로</h2>
-            <p style="color: #FFFFFF">당신의 이야기를 소개하고 든든한 후원자들을 만나보세요</p>
-            <br>
-            <a href="#" class="btn razo-btn ">내 프로젝트 등록하기</a>
-        </div>
+
     </div>
     <div class="container" style="margin-bottom: 50px">
         <div class="row">
@@ -113,7 +77,7 @@
                         <h5 class="text-left" style="display: inline;">인기 프로젝트</h5>
                     </div>
                     <div class="col text-right">
-                        <a href="#" class="btn read-more-btn" style="font-size: 14px;">더 보기<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        <a href="/TunaMusic/crowdFunding/fundingList/hotList.do" class="btn read-more-btn" style="font-size: 14px;">더 보기<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -127,11 +91,11 @@
                         <div class="razo-blog-masonary-single-item">
                             <!-- Post Thumbnail -->
                             <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
-                                <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt="" style="width: 255px; height: 100%;"></a>
+                                <a href="/TunaMusic/crowdFunding/fundingRead.do?fno=${fd.fno}"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt="" style="width: 255px; height: 100%;"></a>
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
-                                <a href="#" class="post-title" style="font-size: 16px;">${fd.ftitle}</a>
+                                <a href="/TunaMusic/crowdFunding/fundingRead.do?fno=${fd.fno}" class="post-title" style="font-size: 16px;">${fd.ftitle}</a>
                                 <span>${fd.fcreator}</span>
                                 <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
                                 <div class="progress" style="height: 5px; margin: 10px 0px;">
@@ -160,7 +124,7 @@
                         <h5 class="text-left" style="display: inline;">새로운 프로젝트</h5>
                     </div>
                     <div class="col text-right">
-                        <a href="#" class="btn read-more-btn" style="font-size: 14px;">더 보기<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        <a href="/TunaMusic/crowdFunding/fundingList/newList.do" class="btn read-more-btn" style="font-size: 14px;">더 보기<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -174,11 +138,11 @@
                         <div class="razo-blog-masonary-single-item">
                             <!-- Post Thumbnail -->
                             <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
-                                <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt="" style="width: 255px; height: 100%;"></a>
+                                <a href="/TunaMusic/crowdFunding/fundingRead.do?fno=${fd.fno}"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt="" style="width: 255px; height: 100%;"></a>
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
-                                <a href="#" class="post-title" style="font-size: 16px;">${fd.ftitle}</a>
+                                <a href="/TunaMusic/crowdFunding/fundingRead.do?fno=${fd.fno}" class="post-title" style="font-size: 16px;">${fd.ftitle}</a>
                                 <span>${fd.fcreator}</span>
                                 <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
                                 <div class="progress" style="height: 5px; margin: 10px 0px;">
@@ -207,7 +171,7 @@
                         <h5 class="text-left" style="display: inline;">성공임박 프로젝트</h5>
                     </div>
                     <div class="col text-right">
-                        <a href="#" class="btn read-more-btn" style="font-size: 14px;">더 보기<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        <a href="/TunaMusic/crowdFunding/fundingList/almostList.do" class="btn read-more-btn" style="font-size: 14px;">더 보기<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -221,11 +185,11 @@
                         <div class="razo-blog-masonary-single-item">
                             <!-- Post Thumbnail -->
                             <div class="post-thumbnail" style="width: 255px; height: 200px; overflow: hidden; display: flex;">
-                                <a href="#"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt="" style="width: 255px; height: 100%;"></a>
+                                <a href="/TunaMusic/crowdFunding/fundingRead.do?fno=${fd.fno}"><img src="/TunaMusic/resources/editor/photoUpload/${fd.fileName}" alt="" style="width: 255px; height: 100%;"></a>
                             </div>
                             <!-- Post Content -->
                             <div class="post-content">
-                                <a href="#" class="post-title" style="font-size: 16px;">${fd.ftitle}</a>
+                                <a href="/TunaMusic/crowdFunding/fundingRead.do?fno=${fd.fno}" class="post-title" style="font-size: 16px;">${fd.ftitle}</a>
                                 <span>${fd.fcreator}</span>
                                 <!-- <a href="#" class="btn read-more-btn">Read More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> -->
                                 <div class="progress" style="height: 5px; margin: 10px 0px;">

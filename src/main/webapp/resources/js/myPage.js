@@ -111,6 +111,31 @@ $(function(){
 		});
 });
 
+// -FUNDINGLIST
+$(function () {
+	$.ajax({
+		url:"/TunaMusic/crowdFunding/myFundingList.do",
+		type:"GET",
+		data:{},
+		success: function (data) {
+			for(var i=0; i<data.list.length; i++){
+				$("#myFunding").append(
+                    '<li class="lists__item js-load">'+
+                    '<div class="single-music-chart style-2 d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">'+
+                    '<div class="music-content d-flex align-items-center">'+
+                    '<div style="margin-bottom:8px;" class="sl-number"><h5>'+(i+1)+
+                    '.</h5></div><div style="margin-left:20%; width:500px">'+
+                    '<h5 style="width: 300px;">'+data.list[i].ftitle+
+                    '</h5></div><div style="margin-left:10%;"><h5 style="width: 300px;">'+
+                    data.list[i].famount+
+                    '원</h5></div></div><div style="margin-bottom:8px;"'+
+                    'class="music-price"><a href="/TunaMusic/crowdFunding/fundingRead.do?fno='+data.list[i].fno+'"><div class="btn razo-btn">'+
+                    data.list[i].percent+'%</div></a></div></div></li>');
+			}
+        }
+	});
+});
+
 
 // 스크롤 이동
 function fnMove(pagePart){

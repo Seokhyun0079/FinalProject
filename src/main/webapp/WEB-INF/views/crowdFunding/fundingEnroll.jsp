@@ -7,6 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.util.Calendar"%>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,13 +68,13 @@
                         <div class="d-flex justify-content-center">
                             <div class="form-group">
                                 <h6>프로젝트명</h6>
-                                <input type="text" class="form-control" id="ftitle" name="ftitle" style="width: 600px; font-size: 24px; text-align: center" placeholder="프로젝트명을 입력해주세요">
+                                <input type="text" class="form-control" id="ftitle" name="ftitle" style="width: 600px; font-size: 24px; text-align: center" placeholder="프로젝트명을 입력해주세요" max="60">
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
                             <div class="form-group">
                                 <h6>팀명</h6>
-                                <input type="text" class="form-control" id="fcreator" name="fcreator" style="width: 300px; font-size: 16px; text-align: center" placeholder="창작자 여러분의 팀명을 입력해주세요">
+                                <input type="text" class="form-control" id="fcreator" name="fcreator" style="width: 300px; font-size: 16px; text-align: center" placeholder="창작자 여러분의 팀명을 입력해주세요" max="30">
                             </div>
                         </div>
                     </div>
@@ -88,11 +91,20 @@
                     </div>
                     <div style="width: 350px; height: 486px; padding: 15px;">
                         <h6>목표 금액</h6>
-                        <input type="number" id="fgoal" name="fgoal" class="form-control">
+                        <input type="number" id="fgoal" name="fgoal" class="form-control" min="0">
                         <br>
 
+                        <%!
+                            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                            Calendar cal = Calendar.getInstance();
+                            String res = new SimpleDateFormat("yyyy-MM-dd").format(System.currentTimeMillis());
+                        %>
+                        <%--<%--%>
+                            <%--cal.setTime(new Date());--%>
+                            <%--cal.add(Calendar.DAY_OF_MONTH, 60);--%>
+                        <%--%>--%>
                         <h6>프로젝트 마감일</h6>
-                        <input type="date" id="endDate" name="endDate" class="form-control">
+                        <input type="date" id="endDate" name="endDate" min="<%=res%>" max="2012-12-29"  class="form-control">
                         <br>
 
                         <h6>썸네일 이미지</h6>
@@ -100,7 +112,7 @@
                         <br><br>
 
                         <h6>후원 리워드</h6>
-                        <%-- --%>
+                        <input type="button" class="razo razo-btn" onclick="rewardPopup();" value="추가하기">
                         <br>
 
                         <input type="hidden" name="fno" id="fno" value="0">
@@ -122,15 +134,15 @@
                     <h6>프로젝트 스토리</h6>
                     <textarea name="fcontent" id="fcontent" rows="10" cols="100"></textarea>
                     <%--placeholder="여러분의 멋진 프로젝트 스토리를 들려주세요"--%>
-                    <input type="button" class="razo razo-btn" id="writebtn" name="writebtn" value="취소">
-                    <input type="submit" class="razo razo-btn" id="writebtn" name="writebtn" value="저장">
+                    <div class="col-8" style="margin-top: 30px; text-align: center">
+                        <input type="submit" class="razo razo-btn" id="writebtn" name="writebtn" value="저장">
+                    </div>
                 </div>
                 <!-- </div> -->
             </div>
         </div>
     </form>
 </section>
-
 <!-- All JS Files -->
 
 <!-- jQuery -->
@@ -143,7 +155,14 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <%--<script src="/TunaMusic/resources/js/default-assets/active.js"></script>--%>
-
+<script>
+    function rewardPopup() {
+        var url = "/TunaMusic/crowdFunding/insertReward.do";
+        var name = "reward_popup";
+        var option = "width = 500, height = 500, top = 100, left = 200";
+        window.open(url, name, option);
+    }
+</script>
 <script type="text/javascript">
     //전역변수
     var oEditors = [];

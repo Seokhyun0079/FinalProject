@@ -42,7 +42,6 @@ public class FundingDAO {
         return sqlSession.selectList("crowdFunding.selectAlmostList");
     }
     public Funding selectFunding(int fno){
-//        List<Funding> list = paymentDao.selectListFunding();
         return sqlSession.selectOne("crowdFunding.selectFunding", fno);
     }
     public Funding lastInsertedFunding(){
@@ -69,12 +68,12 @@ public class FundingDAO {
         int result = sqlSession.update("crowdFunding.modifyFunding", fd);
         return result;
     }
-    public List selectMyFundingList(String id) {
-        return sqlSession.selectList("crowdFunding.myFundingList", id);
-    }
     public int updateFunding(Payment p){
         int res = sqlSession.update("crowdFunding.updateFunding", p);
         return res;
+    }
+    public List<Funding> getMyFundingList(String userId) {
+        return sqlSession.selectList("selectMyFundingList", userId);
     }
 
     public void commit(){
