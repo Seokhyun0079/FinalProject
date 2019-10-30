@@ -39,6 +39,7 @@
                                             <li><a href="/TunaMusic/myMusicShareBoard/article/list.do">- list</a></li>
                                             <li><a href="/TunaMusic/myMusicShareBoard/article/write.do">- write</a></li>
                                         </ul></li>
+                                    <li><a href="/TunaMusic/payment.do">-Membership Purchase</a></li>    
                                 </ul>
                             </li>
                             <li><a href="/TunaMusic/chart/chartView.do">Charts</a></li>
