@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Razo - Radio HTML Template | Funding</title>
+    <title> TUNA MUSIC | CrowdFunding</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/TunaMusic/resources/img/core-img/favicon.ico">
@@ -100,15 +100,15 @@
             <div class="col-4">
                 <h6>창작자 소개</h6>
                 <p>${funding.fcreatorInfo}</p>
+                <c:if test="${funding.id == loginId}">
+                    <div class="col-8" style="margin-top: 30px;">
+                        <a href="/TunaMusic/crowdFunding/modifyFunding.do?fno=${funding.fno}"><input type="submit" class="razo razo-btn" id="modifybtn" name="modifybtn" value="수정"></a>
+                    </div>
+                </c:if>
             </div>
             <%--<c:if test="">--%>
                 <%----%>
             <%--</c:if>--%>
-            <c:if test="${funding.id == loginId}">
-            <div class="col-8" style="margin-top: 30px; text-align: center">
-                <a href="/TunaMusic/crowdFunding/modifyFunding.do?fno=${funding.fno}"><input type="submit" class="razo razo-btn" id="modifybtn" name="modifybtn" value="수정"></a>
-            </div>
-            </c:if>
             <!-- </div> -->
         </div>
     </div>
