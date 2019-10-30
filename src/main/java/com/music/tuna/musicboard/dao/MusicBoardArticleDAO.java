@@ -30,6 +30,7 @@ public class MusicBoardArticleDAO {
         return sqlSession.selectList("MusicBoardArticleDAO.selectArticleList", vo);
     }
     public int getReadCount(MusicBoardArticle vo){
+        System.out.println("vo = " + vo);
         return sqlSession.selectOne("MusicBoardArticleDAO.getReadCount", vo);
     }
     public void increaseReadCount(MusicBoardArticle vo){
