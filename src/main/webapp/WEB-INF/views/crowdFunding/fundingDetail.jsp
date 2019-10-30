@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Yeji
@@ -99,6 +100,12 @@
             <div class="col-4">
                 <h6>창작자 소개</h6>
                 <p>${funding.fcreatorInfo}</p>
+            </div>
+            <%--<c:if test="">--%>
+                <%----%>
+            <%--</c:if>--%>
+            <div class="col-8" style="margin-top: 30px; text-align: center">
+                <input type="submit" class="razo razo-btn" id="modifybtn" name="modifybtn" value="수정">
             </div>
             <!-- </div> -->
         </div>

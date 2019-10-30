@@ -135,7 +135,6 @@
                     <textarea name="fcontent" id="fcontent" rows="10" cols="100"></textarea>
                     <%--placeholder="여러분의 멋진 프로젝트 스토리를 들려주세요"--%>
                     <div class="col-8" style="margin-top: 30px; text-align: center">
-                        <input type="button" class="razo razo-btn" id="cancelbtn" name="cancelbtn" value="취소">
                         <input type="submit" class="razo razo-btn" id="writebtn" name="writebtn" value="저장">
                     </div>
                 </div>
