@@ -12,6 +12,7 @@ public class loginCheckInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		System.out.println("로그인 인터셉터 호출");
 		HttpSession session = request.getSession(false);
 		if(session !=null) {
 			Object obj = session.getAttribute("loginUser");
@@ -21,7 +22,7 @@ public class loginCheckInterceptor extends HandlerInterceptorAdapter{
 		}
 		
 		request.setAttribute("Msg", "로그인이 필요한 페이지입니다.");
-		RequestDispatcher rd = request.getRequestDispatcher("loginPage.do");
+		RequestDispatcher rd = request.getRequestDispatcher("/member/loginPage.do");
 		rd.forward(request, response);
 		return false;
 	}

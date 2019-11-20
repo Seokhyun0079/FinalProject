@@ -22,6 +22,11 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/member/mypage.do"/>
 			<mvc:mapping path="/member/edit.do"/>
+			<mvc:mapping path="/qnaBoard/**"/>
+			<mvc:mapping path="/musicBoard/**"/>
+			<mvc:mapping path="/myMusicShareBoard/**"/>
+			<mvc:mapping path="/myMuslc/**"/>
+			<mvc:mapping path="/crowdFunding/fundingRead.do"/>
 			<ref bean="loginInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
