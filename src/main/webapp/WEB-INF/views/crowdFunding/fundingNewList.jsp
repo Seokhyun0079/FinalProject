@@ -133,6 +133,9 @@
         </div>
     </div>
 </section>
+<!-- Footer Area Start -->
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+<!-- Footer Area End -->
 
 <!-- All JS Files -->
 

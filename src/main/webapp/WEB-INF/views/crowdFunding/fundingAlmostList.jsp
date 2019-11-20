@@ -111,8 +111,11 @@
     </div>
 </section>
 
-<!-- All JS Files -->
+<!-- Footer Area Start -->
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+<!-- Footer Area End -->
 
+<!-- All JS Files -->
 <!-- jQuery -->
 <script src="/TunaMusic/resources/js/jquery.min.js"></script>
 <!-- Popper -->
