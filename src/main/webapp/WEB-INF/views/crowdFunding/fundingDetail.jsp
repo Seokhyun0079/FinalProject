@@ -139,6 +139,8 @@
         window.open(url, name, option);
     }
 </script>
-
+<u:isLogin>
+    <script src="/TunaMusic/resources/js/mylist.js"></script>
+</u:isLogin>
 </body>
 </html>

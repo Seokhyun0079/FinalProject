@@ -223,5 +223,8 @@
 <script src="/TunaMusic/resources/js/razo.bundle.js"></script>
 <!-- Active -->
 <script src="/TunaMusic/resources/js/default-assets/active.js"></script>
+<u:isLogin>
+    <script src="/TunaMusic/resources/js/mylist.js"></script>
+</u:isLogin>
 </body>
 </html>

@@ -199,7 +199,7 @@ public class FundingController {
             sb = new StringBuffer();
             sb.append("&bNewLine=true")
                     .append("&sFileName=").append(oldName)
-                    .append("&sFileURL=").append("http://localhost:8989/TunaMusic/resources/editor/photoUpload/")
+                    .append("&sFileURL=").append("/TunaMusic/resources/editor/photoUpload/")
                     .append(saveName);
 
         }catch (Exception e) {

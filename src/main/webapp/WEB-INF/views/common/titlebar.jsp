@@ -7,7 +7,7 @@
             <nav class="classy-navbar justify-content-between" id="razoNav">
 
                 <!-- Logo -->
-                <a class="nav-brand" href="/TunaMusic/"><img src="/TunaMusic/resources/img/core-img/logo.png" alt=""></a>
+                <a class="nav-brand" href="/TunaMusic/"><img style="height : 60px;" src="/TunaMusic/resources/img/logo.png" alt=""></a>
 
                 <!-- Navbar Toggler -->
                 <div class="classy-navbar-toggler">

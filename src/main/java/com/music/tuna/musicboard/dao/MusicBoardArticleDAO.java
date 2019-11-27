@@ -61,7 +61,7 @@ public class MusicBoardArticleDAO {
     }
 
     public List<MusicBoardArticle> selectMyWrittenList(MusicBoardArticle vo) {
-        return sqlSession.selectList("selectMyWrittenList", vo);
+        return sqlSession.selectList("MusicBoardArticleDAO.selectMyWrittenList", vo);
     }
 
     public void deleteArticle(MusicBoardArticle vo) {

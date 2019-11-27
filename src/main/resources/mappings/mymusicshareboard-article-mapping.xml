@@ -73,7 +73,7 @@
         delete from myMusicShareBoard_article where article_no = ${articleNo}
     </delete>
     <update id="updateArticle">
-        update myMusicShareBoard_article set title = #{title} , content = #{text} where article_no = #{articleNo}
+        update myMusicShareBoard_article set title = #{title} , content = #{content} where article_no = #{articleNo}
     </update>
     <select id="getBest" resultType="int">
         select best from myMusicShareBoard_article  where article_no = #{articleNo}

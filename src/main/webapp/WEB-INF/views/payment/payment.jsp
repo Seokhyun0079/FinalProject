@@ -1,5 +1,8 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +77,7 @@
                         <!-- Close Button -->
                         <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
                         <!-- Form -->
-                        <form action="index.html" method="post">
+                        <form action="/TunaMusic" method="post">
                             <input type="search" name="top-search-bar" class="form-control" placeholder="Type keywords and hit enter...">
                             <button type="submit">Search</button>
                         </form>
@@ -500,8 +503,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!-- Footer Area End -->
-
-    
+    <u:isLogin>
+        <script src="/TunaMusic/resources/js/mylist.js"></script>
+    </u:isLogin>
 
 </body>
 

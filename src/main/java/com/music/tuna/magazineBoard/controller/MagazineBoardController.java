@@ -206,7 +206,7 @@ public class MagazineBoardController {
             sb = new StringBuffer();
             sb.append("&bNewLine=true")
                     .append("&sFileName=").append(oldName)
-                    .append("&sFileURL=").append("http://localhost:8989/TunaMusic/resources/editor/mphotoUpload/")
+                    .append("&sFileURL=").append("/TunaMusic/resources/editor/mphotoUpload/")
                     .append(saveName);
             System.out.println("2");
         }catch (Exception e) {

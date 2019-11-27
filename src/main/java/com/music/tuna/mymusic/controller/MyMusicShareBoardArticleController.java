@@ -25,8 +25,10 @@ public class MyMusicShareBoardArticleController {
     @Autowired
     MyMusicShareBoardArticleService myMusicShareBoardArticleService;
     @RequestMapping(value = "/write.do", method = RequestMethod.GET)
-    public String insertArticleGet(){
-        return "/myMusicShareBoard/write";
+    public ModelAndView insertArticleGet(ModelAndView mv){
+        mv.setViewName("/myMusicShareBoard/write");
+        mv.addObject("uri", "write.do");
+        return mv;
     }
     @RequestMapping(value = "/write.do", method = RequestMethod.POST)
     public String insertArticlePost(MyMusicShareBoardArticle vo){
