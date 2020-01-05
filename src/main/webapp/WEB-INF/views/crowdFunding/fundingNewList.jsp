@@ -121,10 +121,10 @@
                 </c:forEach>
 
                 <div class="single-razo-event-area d-flex flex-wrap align-items-center mb-50 wow fadeInUp" data-wow-delay="100ms">
-                    <div class="container">
+                    <div class="container" style="text-align: center">
                         <a href="/TunaMusic/crowdFunding/fundingList/newList.do?page="${newList.startPage-1} class="razo razo-btn mt-50">Previous</a>
                         <c:forEach begin="${newList.startPage}" end="${newList.endPage}" step="1" varStatus="status">
-                            <<a href="/TunaMusic/crowdFunding/fundingList/newList.do?page="${status.index} class="razo razo-btn mt-50">${status.index}</a>
+                            <a href="/TunaMusic/crowdFunding/fundingList/newList.do?page="${status.index} class="razo razo-btn mt-50">${status.index}</a>
                         </c:forEach>
                         <a href="/TunaMusic/crowdFunding/fundingList/newList.do?page="${newList.page+1} class="razo razo-btn mt-50">Next</a>
                     </div>
@@ -133,6 +133,9 @@
         </div>
     </div>
 </section>
+<!-- Footer Area Start -->
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+<!-- Footer Area End -->
 
 <!-- All JS Files -->
 

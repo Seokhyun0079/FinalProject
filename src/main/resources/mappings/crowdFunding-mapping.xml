@@ -55,7 +55,7 @@
     </select>
     <select id="selectHotList" resultMap="fundingResult">
         <![CDATA[
-        select * from (select * from funding where (famount/fgoal)*100 > 100 order by(famount/fgoal)) where ROWNUM<=4
+        select * from (select * from funding where (famount/fgoal)*100 >= 100 order by(famount/fgoal)) where ROWNUM<=4
         ]]>
     </select>
     <select id="selectNewList" resultMap="fundingResult">
@@ -104,7 +104,7 @@
         <![CDATA[
         select * from (
         select rownum as rnum, A.fno, A.id, A.ftitle, A.freward, A.fcontent, A.fcreator, A.fcreatorInfo, A.fbacker, A.fgoal, A.famount, A.regDate, A.endDate, A.fileName
-        from (select * from funding where (famount/fgoal)*100 > 100) A
+        from (select * from funding where (famount/fgoal)*100 >= 100) A
         where rownum <= #{end}) B
         where B.rnum >= #{start}
         ]]>
