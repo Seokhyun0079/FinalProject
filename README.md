@@ -9,7 +9,7 @@
 
 ![info](./src/main/webapp/resources/img/etc-img/project-info.png)
 Spring 웹 프로젝트, 이용권을 결제하여 음악을 다운 받는 기존의 음악 사이트와 크라우드 펀딩을 결합하여 회원이 직접 참여할 수 있는 사용자 위주 사이트를 개발하고자 했다.
-
+<br>
 
 ### 1.1 프로젝트 내용
 - 회원관리

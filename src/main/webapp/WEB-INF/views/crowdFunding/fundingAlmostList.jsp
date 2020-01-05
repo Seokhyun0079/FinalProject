@@ -103,11 +103,11 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 text-center">
-                <a href="/TunaMusic/crowdFunding/fundingRead.do?fno=${fd.fno}" class="btn razo-btn mt-30">더 보기</a>
-            </div>
-        </div>
+        <%--<div class="row">--%>
+            <%--<div class="col-12 text-center">--%>
+                <%--<a href="/TunaMusic/crowdFunding/fundingRead.do?fno=${fd.fno}" class="btn razo-btn mt-30">더 보기</a>--%>
+            <%--</div>--%>
+        <%--</div>--%>
     </div>
 </section>
 
